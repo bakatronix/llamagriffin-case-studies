@@ -51,7 +51,7 @@ nav a.nav-link.active{color:var(--gold);border-bottom-color:var(--gold)}
 .hero h1{font-family:var(--font-display);font-size:clamp(2.2rem,5vw,3.2rem);font-weight:700;line-height:1.06;color:var(--text);margin-bottom:0.1rem}
 .hero h1 span{display:block;font-style:italic;color:var(--gold)}
 .hero-sub{font-size:15px;color:var(--text-muted);max-width:660px;margin:1.25rem 0 1.5rem;line-height:1.7}
-.hero-meta{display:flex;gap:2rem;margin-bottom:0;flex-wrap:wrap;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:0.75rem 0}
+.hero-meta{display:flex;gap:2rem;margin-bottom:0;flex-wrap:wrap;border-top:1px solid var(--border);padding:0.75rem 0}
 .hero-meta-item{font-family:var(--font-mono);font-size:10px;letter-spacing:0.09em;text-transform:uppercase;color:var(--text-dim)}
 .hero-meta-item span{color:var(--text-muted);font-weight:500}
 
@@ -82,6 +82,30 @@ p strong{color:var(--text);font-weight:600}
 p:last-child{margin-bottom:0}
 
 /* TABLES */
+main > section:first-of-type{border-top:none}
+.store-mark{width:18px;height:18px;object-fit:contain;flex-shrink:0}
+td.store-cell,th.store-cell{white-space:nowrap}
+td.store-cell{display:flex;align-items:center;gap:9px}
+th.store-cell{gap:7px}
+th.store-cell span{display:inline-flex;align-items:center;gap:7px}
+/* CHARTS */
+.chart{margin:2rem 0 1.5rem;padding:1.5rem 1.5rem 1.25rem;background:var(--bg2);border:1px solid var(--border);border-radius:4px}
+.chart-title{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);margin-bottom:1rem}
+.chart svg{width:100%;height:auto;display:block;overflow:visible}
+.chart figcaption{font-family:var(--font-mono);font-size:10px;color:var(--text-dim);line-height:1.65;margin-top:1rem;border-top:1px solid var(--border);padding-top:0.75rem}
+.chart figcaption a{color:var(--gold);text-decoration:none}
+.chart figcaption a:hover{text-decoration:underline}
+.chart-legend{display:flex;gap:1.25rem;flex-wrap:wrap;margin-bottom:1.1rem;font-family:var(--font-mono);font-size:10px;color:var(--text-dim)}
+.chart-legend span{display:flex;align-items:center;gap:7px}
+.chart-legend i{width:10px;height:10px;border-radius:2px;display:inline-block}
+.chart .lbl{font-family:var(--font-mono);font-size:11px;fill:var(--text)}
+.chart .sub{font-family:var(--font-mono);font-size:9px;fill:var(--text-dim)}
+.chart .val{font-family:var(--font-mono);font-size:11px;font-weight:500;fill:var(--text)}
+.chart .valx{font-family:var(--font-mono);font-size:10px;fill:var(--bg2);font-weight:500}
+.chart .ax{font-family:var(--font-mono);font-size:9px;fill:var(--text-dim)}
+.chart .grid{stroke:var(--border);stroke-width:1}
+.chart .base{stroke:var(--border-med);stroke-width:1}
+@media(max-width:700px){.chart{padding:1.1rem 1rem}}
 .table-wrap{margin-bottom:1.5rem;border:1px solid var(--border);border-radius:4px;overflow:hidden;overflow-x:auto}
 table{width:100%;border-collapse:collapse;font-size:13px}
 thead th{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);padding:0.75rem 1rem;text-align:left;border-bottom:1px solid var(--border-med);background:var(--bg3);white-space:nowrap}
@@ -124,7 +148,7 @@ table.compare tr:last-child td{border-bottom:none}
 
 /* SERIES NAV */
 .series-nav{max-width:960px;margin:0 auto;padding:2.5rem 2rem;border-top:1px solid var(--border);display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
-@media(max-width:700px){.series-nav{grid-template-columns:1fr}}
+@media(max-width:700px){.series-nav{grid-template-columns:1fr}section{padding:2.5rem 1.5rem}footer{padding:2rem 1.5rem 2.5rem}}
 .series-nav a{background:var(--bg2);border:1px solid var(--border-med);border-radius:3px;padding:1.5rem;display:flex;flex-direction:column;gap:0.5rem;transition:border-color 0.15s,box-shadow 0.15s;text-decoration:none;color:inherit}
 .series-nav a:hover{border-color:var(--gold);box-shadow:0 2px 12px rgba(195,165,95,0.12);text-decoration:none}
 .series-nav a.active{border-color:var(--gold);background:var(--gold-dim)}
@@ -147,7 +171,7 @@ table.compare tr:last-child td{border-bottom:none}
 .bio p{font-size:13px;color:var(--text-muted);max-width:72ch}
 
 /* FOOTER */
-footer{max-width:960px;margin:0 auto;padding:1.25rem 2rem 2rem;border-top:1px solid var(--border);font-size:12px;color:var(--text-dim);display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;align-items:center}
+footer{max-width:960px;margin:0 auto;padding:2.5rem 2rem 4rem;border-top:1px solid var(--border);font-size:12px;color:var(--text-dim);display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;align-items:center}
 footer span{color:var(--gold)}
 footer .methodology{width:100%;font-size:11px;color:var(--text-dim);line-height:1.6;margin-top:0.75rem;border-top:1px solid var(--border);padding-top:0.75rem;max-width:none}
 
@@ -189,7 +213,7 @@ footer .methodology{width:100%;font-size:11px;color:var(--text-dim);line-height:
 </div>
 <main>
 
-<section style="margin-top:2.5rem" id="appstore">
+<section id="appstore">
   <div class="section-label">Section 01</div>
   <div class="chevrons"></div>
   <h2>Apple App Store</h2>
@@ -204,6 +228,16 @@ footer .methodology{width:100%;font-size:11px;color:var(--text-dim);line-height:
 
   <h3>Market Size: The Downloads-vs-Revenue Inversion</h3>
   <p>Apple's App Store generated $52.5 billion in gaming revenue in 2025, up just 0.6% year-over-year, according to Sensor Tower's State of Gaming 2026 report. That figure is gaming-only; the same storefront is cited anywhere from $42B to $117B depending on whether the measure is gaming-only, all app categories, or a forward projection. Within the gaming-only scope, it topped Google Play ($30 billion) and Steam ($11.7 billion) combined, per Sensor Tower's own comparison, despite logging only 7.8 billion downloads (down 5.7%) versus Google Play's 42.4 billion. <span class="tag tag-likely">Likely</span> <span class="tag tag-prov">Third-party estimate</span></p>
+
+  <figure class="chart">
+    <div class="chart-title">The downloads-revenue inversion</div>
+    <div class="chart-legend">
+      <span><i style="background:var(--coral)"></i>Apple App Store</span>
+      <span><i style="background:var(--teal)"></i>Google Play</span>
+    </div>
+    <svg viewBox="0 0 720 268" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="App Store and Google Play compared on downloads and on gaming revenue"><text class="ax" x="0" y="14">2025 DOWNLOADS</text><line class="base" x1="0" y1="214" x2="330" y2="214"/><rect x="40" y="183.1" width="96" height="30.9" fill="var(--coral)" rx="1"/><text class="val" x="88" y="174.1" text-anchor="middle">7.8B</text><text class="sub" x="88" y="232" text-anchor="middle">App Store</text><rect x="170" y="46.0" width="96" height="168.0" fill="var(--teal)" rx="1"/><text class="val" x="218" y="37.0" text-anchor="middle">42.4B</text><text class="sub" x="218" y="232" text-anchor="middle">Google Play</text><text class="ax" x="390" y="14">2025 GAMING REVENUE</text><line class="base" x1="390" y1="214" x2="720" y2="214"/><rect x="430" y="46.0" width="96" height="168.0" fill="var(--coral)" rx="1"/><text class="val" x="478" y="37.0" text-anchor="middle">$52.5B</text><text class="sub" x="478" y="232" text-anchor="middle">App Store</text><rect x="560" y="118.0" width="96" height="96.0" fill="var(--teal)" rx="1"/><text class="val" x="608" y="109.0" text-anchor="middle">~$30B</text><text class="sub" x="608" y="232" text-anchor="middle">Google Play</text></svg>
+    <figcaption>The two panels use different scales because the units differ; what matters is that the taller bar changes sides. Google Play takes roughly five times the downloads and earns a little over half the gaming revenue. Figures per Sensor Tower, State of Gaming 2026.</figcaption>
+  </figure>
 
   <div class="insight caveat">
     <strong>Sensor Tower's $11.7B Steam figure is a fifth ruler</strong> on top of the four already documented in Part II ($17.7B Alinea, $16.9B GameDiscoverCo, $8.8B Video Game Insights, $4.7B Gamalytic new-releases-only). Sensor Tower's cross-platform comparison methodology appears to undercount Steam relative to firms specializing in PC storefront tracking. The lesson holds across both premium and mobile: whichever number gets used in a comparison should always travel with the firm that produced it.
@@ -252,8 +286,14 @@ footer .methodology{width:100%;font-size:11px;color:var(--text-dim);line-height:
     <div class="stat-cell"><div class="stat-val coral">20%</div><div class="stat-lbl">Of global mobile gaming revenue from 0.02% of installs (US high-spend iOS)</div></div>
   </div>
 
-  <p>Sensor Tower's State of Mobile 2026 data found that 92.5% of in-app-purchase revenue and 79.8% of downloads were attributed to games from the top 1% of publishers in 2025. Eight individual games crossed $1 billion in IAP revenue in 2025 alone, a new record, led by Honor of Kings (~$1.7–2.4B) and Last War: Survival (~$1.6–2.2B). <span class="tag tag-likely">Likely</span> <span class="tag tag-prov">Third-party estimate</span></p>
+  <p>Sensor Tower's State of Mobile 2026 data found that 92.5% of in-app-purchase revenue and 79.8% of downloads were attributed to games from the top 1% of publishers in 2025. Eight individual games crossed $1 billion in IAP revenue in 2025 alone, a new record, led by Honor of Kings (~$1.7–2.4B) and Last War: Survival (~$1.6–2.2B). <span class="tag tag-likely">Likely · Third-party estimate</span></p>
   <p>This concentration compounds at the payer level, not just the publisher level. Sensor Tower's Day 90 cohort data shows the top 5% of paying users generate 48% of total mobile game revenue, and in the United States specifically, just 0.02% of global installs (a narrow band of high-spending iOS users) account for roughly 20% of total global mobile gaming revenue. <span class="tag tag-likely">Likely</span> <span class="tag tag-prov">Third-party estimate</span></p>
+
+  <figure class="chart">
+    <div class="chart-title">Concentration runs two layers deep</div>
+    <svg viewBox="0 0 720 176" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mobile revenue concentration by publisher and by paying user"><text class="ax" x="0" y="10">SHARE OF IN-APP-PURCHASE REVENUE</text><rect x="0" y="22" width="647.5" height="30" fill="var(--coral)" rx="1"/><rect x="647.5" y="22" width="52.5" height="30" fill="var(--bg4)" rx="1"/><text class="valx" x="12" y="42">92.5% &#183; Top 1% of publishers</text><text class="sub" x="700" y="70" text-anchor="end">7.5% &#183; Everyone else</text><text class="ax" x="0" y="100">SHARE OF MOBILE GAME REVENUE</text><rect x="0" y="112" width="336.0" height="30" fill="var(--coral)" rx="1"/><rect x="336.0" y="112" width="364.0" height="30" fill="var(--bg4)" rx="1"/><text class="valx" x="12" y="132">48% &#183; Top 5% of paying users</text><text class="sub" x="700" y="160" text-anchor="end">52% &#183; All other payers</text></svg>
+    <figcaption>The first bar is which games win. The second is which players pay inside the games that won. A studio can reach the top 1% of publishers and still build its whole monetisation model around the sliver of its own players shown in coral on the lower bar. Figures per Sensor Tower, State of Mobile 2026.</figcaption>
+  </figure>
 
   <div class="insight finding">
     <strong>Steam's concentration problem is about which games win. Mobile's concentration problem is two layers deep</strong>: which games win, and within those games, which tiny sliver of players actually pays. A mobile studio can build a top-1%-publisher hit and still structure its entire monetization model around converting a population smaller than 1 in 5,000 installs.
@@ -262,6 +302,12 @@ footer .methodology{width:100%;font-size:11px;color:var(--text-dim);line-height:
   <div class="insight caveat">
     <strong>Genre matters enormously to how concentrated the outcome is.</strong> Geolocation games are the most concentrated genre, with the top three titles capturing 62.5% of all consumer spend in the category, per Sensor Tower's State of Mobile 2026 genre breakdown; versus Strategy at 9.4% and Shooter at 8.3%, both far more diversified. A studio's realistic odds depend heavily on which genre it's entering, not just the platform-wide averages above.
   </div>
+<figure class="chart">
+    <div class="chart-title">Top three titles&rsquo; share of category spend, by genre</div>
+    <svg viewBox="0 0 720 168" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Share of category consumer spend held by the top three titles, by genre"><line class="grid" x1="150" y1="14" x2="150" y2="152"/><text class="ax" x="150" y="8" text-anchor="middle">0%</text><line class="grid" x1="301" y1="14" x2="301" y2="152"/><text class="ax" x="301" y="8" text-anchor="middle">20%</text><line class="grid" x1="452" y1="14" x2="452" y2="152"/><text class="ax" x="452" y="8" text-anchor="middle">40%</text><line class="grid" x1="602" y1="14" x2="602" y2="152"/><text class="ax" x="602" y="8" text-anchor="middle">60%</text><text class="lbl" x="0" y="46">Geolocation</text><rect x="150" y="32" width="471.2" height="20" fill="var(--coral)" rx="1"/><text class="val" x="630.2" y="47">62.5%</text><text class="lbl" x="0" y="92">Strategy</text><rect x="150" y="78" width="70.9" height="20" fill="var(--coral)" rx="1"/><text class="val" x="229.9" y="93">9.4%</text><text class="lbl" x="0" y="138">Shooter</text><rect x="150" y="124" width="62.6" height="20" fill="var(--coral)" rx="1"/><text class="val" x="221.6" y="139">8.3%</text><line class="base" x1="150" y1="14" x2="150" y2="152"/></svg>
+    <figcaption>Genre sets the ceiling before platform does. The same studio, on the same storefront, faces a structurally different distribution depending on which category it enters. Figures per Sensor Tower, State of Mobile 2026 genre breakdown.</figcaption>
+  </figure>
+
 </section>
 
 <section id="discoverability">
@@ -276,7 +322,7 @@ footer .methodology{width:100%;font-size:11px;color:var(--text-dim);line-height:
   <h3>App Store vs. Google Play: side by side</h3>
   <div class="table-wrap">
     <table>
-      <thead><tr><th>Dimension</th><th>Apple App Store</th><th>Google Play</th></tr></thead>
+      <thead><tr><th>Dimension</th><th class="store-cell"><span><img class="store-mark" src="icon-apple.svg" alt="" width="18" height="18" aria-hidden="true">Apple App Store</span></th><th class="store-cell"><span><img class="store-mark" src="icon-googleplay.svg" alt="" width="18" height="18" aria-hidden="true">Google Play</span></th></tr></thead>
       <tbody>
         <tr><td>Discovery driver</td><td>Editorial curation + charts</td><td>Algorithmic ranking + reviews</td></tr>
         <tr><td>2025 gaming revenue</td><td>$52.5B</td><td>~$30B</td></tr>
@@ -364,7 +410,7 @@ footer .methodology{width:100%;font-size:11px;color:var(--text-dim);line-height:
 <footer>
   <div>Mobile vs Premium · <span>Llama &amp; Griffin Consultants</span></div>
   <div><span>recognizingpatterns.substack.com</span> · llamagriffin.com</div>
-  <p class="methodology">Methodology: "Company filing" marks figures drawn from a company's own published financial disclosures. "Third-party estimate" marks figures produced by analytics firms (Alinea, GameDiscoverCo, Gamalytic, VGI, Sensor Tower, Liftoff, and similar). Estimator figures measure different scopes by different methods and are not reconcilable across firms; a figure should always travel with the firm that produced it.</p>
+  <p class="methodology">Methodology: "Company filing" marks figures drawn from a company's own published financial disclosures. "Third-party estimate" marks figures produced by analytics firms (Alinea, GameDiscoverCo, Gamalytic, VGI, Sensor Tower, Liftoff, and similar). Estimator figures measure different scopes by different methods and are not reconcilable across firms; a figure should always travel with the firm that produced it. Where a specific source document is publicly available, the figure links to it. Sources without a link are named but not linked because the underlying report is gated or has no stable public URL.</p>
 </footer>
 
 <script>
