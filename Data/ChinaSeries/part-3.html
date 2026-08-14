@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The West buried FMV in the 1990s. China fused it with microdrama, the most ruthless attention format in entertainment, and built a genre now setting Steam records.">
+<meta property="og:title" content="Microdrama With a Controller">
+<meta property="og:description" content="How China fused FMV with the world's most ruthless attention format and built a breakout Steam genre.">
+<meta property="og:type" content="article">
+<title>Microdrama With a Controller: How China Fused FMV and the Attention Economy · 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  /* L&G Brand Palette */
+  --bg:#f7f4ee;--bg2:#fdfcf9;--bg3:#eae7e0;--bg4:#d2cdc3;
+  --border:#d2cdc3;--border-med:#c5bfb5;
+  --text:#232323;--text-muted:#37342f;--text-dim:#6b6660;
+  /* L&G Accent */
+  --gold:#c3a55f;--gold-light:#d4ba82;--gold-dim:rgba(195,165,95,0.12);
+  /* Semantic data colours, warm-muted for cream background */
+  --teal:#2a8f76;--teal-light:#3daa8e;--teal-dim:rgba(42,143,118,0.10);
+  --purple:#6b64b3;--purple-light:#8f88cc;--purple-dim:rgba(107,100,179,0.10);
+  --coral:#b85a3a;--coral-light:#cb7055;--coral-dim:rgba(184,90,58,0.10);
+  --blue:#3d77c4;--blue-light:#6699d8;--blue-dim:rgba(61,119,196,0.10);
+  --font-display:'Playfair Display',serif;
+  --font-body:'DM Sans',sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7;min-height:100vh}
+a{color:var(--gold);text-decoration:none}a:hover{text-decoration:underline}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(247,244,238,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;height:52px;overflow-x:auto;gap:0}
+nav a{color:var(--text-dim);font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.09em;text-transform:uppercase;padding:0 0.9rem;height:52px;display:flex;align-items:center;border-bottom:2px solid transparent;white-space:nowrap;transition:color 0.15s,border-color 0.15s}
+nav a:hover{color:var(--gold);text-decoration:none;border-bottom-color:rgba(195,165,95,0.3)}
+nav a.active{color:var(--gold);border-bottom-color:var(--gold)}
+.nav-brand{font-family:var(--font-display);font-size:14px;font-weight:700;color:var(--text);margin-right:1.5rem;padding-right:1.5rem;border-right:1px solid var(--border);white-space:nowrap;text-transform:none;letter-spacing:normal}
+
+/* HERO */
+.hero{padding:5rem 2rem 4rem;max-width:960px;margin:0 auto;position:relative}
+.hero-eyebrow{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;display:flex;align-items:center;gap:10px}
+.hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold);display:inline-block}
+.hero h1{font-family:var(--font-display);font-size:clamp(2rem,5vw,3.4rem);font-weight:700;line-height:1.07;color:var(--text);margin-bottom:0.75rem}
+.hero h1 span{color:var(--gold);font-style:italic}
+.hero-sub{font-size:15px;color:var(--text-muted);max-width:600px;margin-bottom:2.5rem;line-height:1.65}
+.hero-meta{display:flex;gap:1.5rem;margin-bottom:2.5rem;flex-wrap:wrap}
+.hero-meta-item{font-family:var(--font-mono);font-size:10px;letter-spacing:0.09em;color:var(--text-dim);text-transform:uppercase}
+.hero-meta-item span{color:var(--text-muted);font-weight:500}
+
+/* STAT GRID */
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:3rem}
+.stat-cell{background:var(--bg2);padding:1.25rem 1.5rem}
+.stat-val{font-family:var(--font-display);font-size:1.6rem;font-weight:700;color:var(--gold);line-height:1;margin-bottom:5px}
+.stat-val.teal{color:var(--teal)}
+.stat-val.purple{color:var(--purple)}
+.stat-val.coral{color:var(--coral)}
+.stat-lbl{font-family:var(--font-mono);font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.07em}
+
+/* CHEVRON ACCENT */
+.chevrons{display:flex;gap:5px;margin-bottom:0.5rem}
+.chevrons::before{content:'▲▲▲▲';font-size:8px;color:var(--gold);letter-spacing:3px}
+
+/* SECTIONS */
+section{max-width:960px;margin:0 auto;padding:3.5rem 2rem;border-top:1px solid var(--border)}
+.section-label{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.3rem}
+h2{font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--text);margin-bottom:0.25rem;line-height:1.15}
+.h2-kicker{font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--gold);font-style:italic;display:block;margin-bottom:1.5rem}
+.section-intro{font-size:15px;color:var(--text-muted);max-width:700px;margin-bottom:2rem;line-height:1.7}
+h3{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);margin:2.5rem 0 1rem}
+h3:first-of-type{margin-top:0}
+p{color:var(--text-muted);margin-bottom:1rem;font-size:15px;max-width:72ch;line-height:1.7}
+p strong{color:var(--text);font-weight:600}
+p:last-child{margin-bottom:0}
+
+/* TABLES */
+.table-wrap{overflow-x:auto;margin-bottom:1.5rem;border:1px solid var(--border);border-radius:4px;overflow:hidden}
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead th{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);padding:0.75rem 1rem;text-align:left;border-bottom:1px solid var(--border-med);background:var(--bg3);white-space:nowrap}
+tbody tr{border-bottom:1px solid var(--border);transition:background 0.1s}
+tbody tr:last-child{border-bottom:none}
+tbody tr:hover{background:var(--bg3)}
+tbody td{padding:0.65rem 1rem;color:var(--text-muted);vertical-align:middle}
+tbody td:first-child{color:var(--text)}
+
+/* TAGS/BADGES */
+.tag{display:inline-block;font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;padding:2px 7px;border-radius:2px;white-space:nowrap}
+.tag-gold{background:var(--gold-dim);color:var(--gold)}
+.tag-teal{background:var(--teal-dim);color:var(--teal)}
+.tag-purple{background:var(--purple-dim);color:var(--purple)}
+.tag-coral{background:var(--coral-dim);color:var(--coral)}
+.tag-blue{background:var(--blue-dim);color:var(--blue)}
+.tag-dim{background:rgba(35,35,35,0.07);color:var(--text-dim)}
+
+/* INSIGHTS */
+.insight{border-left:2px solid var(--gold);background:var(--gold-dim);border-radius:0 4px 4px 0;padding:1rem 1.25rem;margin:1.5rem 0;font-size:14px;color:var(--text-muted);line-height:1.65}
+.insight strong{color:var(--text);font-weight:600}
+.insight.teal{border-color:var(--teal);background:var(--teal-dim)}
+.insight.teal strong{color:var(--teal)}
+.insight.purple{border-color:var(--purple);background:var(--purple-dim)}
+.insight.purple strong{color:var(--purple)}
+.insight.coral{border-color:var(--coral);background:var(--coral-dim)}
+.insight.coral strong{color:var(--coral)}
+.insight.blue{border-color:var(--blue);background:var(--blue-dim)}
+.insight.blue strong{color:var(--blue)}
+
+/* CARDS */
+.card-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:1.75rem}
+.card{background:var(--bg2);padding:1.25rem 1.5rem}
+.card .clabel{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);margin-bottom:6px}
+.card .cval{font-family:var(--font-display);font-size:1.3rem;font-weight:700;color:var(--text);line-height:1.1;margin-bottom:3px}
+.card .csub{font-size:12px;color:var(--text-muted);line-height:1.45}
+.card.gold .cval{color:var(--gold)}
+.card.teal .cval{color:var(--teal)}
+.card.purple .cval{color:var(--purple)}
+.card.coral .cval{color:var(--coral)}
+.card.blue .cval{color:var(--blue)}
+.card.dim .cval{color:var(--text-dim)}
+
+/* TABS */
+.tabs{display:flex;gap:2px;margin-bottom:1.25rem;border-bottom:1px solid var(--border)}
+.tab-btn{font-family:var(--font-mono);font-size:10px;font-weight:500;background:none;border:none;color:var(--text-dim);padding:0.6rem 1rem;cursor:pointer;border-bottom:2px solid transparent;transition:color 0.15s,border-color 0.15s;margin-bottom:-1px;letter-spacing:0.08em;text-transform:uppercase}
+.tab-btn:hover{color:var(--text-muted)}
+.tab-btn.active{color:var(--gold);border-bottom-color:var(--gold)}
+.tab-panel{display:none}.tab-panel.active{display:block}
+
+/* CHART */
+.chart-wrap{position:relative;width:100%;height:340px;margin-bottom:1.5rem}
+.chart-legend{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:10px;font-size:12px;color:var(--text-muted)}
+.chart-legend span{display:flex;align-items:center;gap:6px}
+.swatch{width:10px;height:10px;border-radius:2px;flex-shrink:0}
+
+/* BARS */
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.bar-label{font-size:12px;color:var(--text-muted);min-width:180px;flex-shrink:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar-bg{flex:1;height:5px;background:var(--bg4);border-radius:3px;overflow:hidden}
+.bar-fill{height:100%;border-radius:3px}
+.bar-val{font-family:var(--font-mono);font-size:12px;font-weight:500;color:var(--text);min-width:80px;text-align:right;flex-shrink:0;white-space:nowrap}
+
+/* COMPARE BAND (two-track history) */
+.compare-band{display:flex;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:2rem}
+.compare-col{flex:1;min-width:200px}
+.compare-header{background:var(--bg3);padding:0.9rem 1.2rem;border-bottom:1px solid var(--border)}
+.compare-header .ed-name{font-family:var(--font-display);font-size:14px;font-weight:700}
+.compare-header .ed-meta{font-family:var(--font-mono);font-size:10px;color:var(--text-dim);margin-top:3px}
+.compare-body{background:var(--bg2);padding:1rem 1.2rem}
+.compare-kv{margin-bottom:12px}
+.compare-kv:last-child{margin-bottom:0}
+.compare-kv .kk{font-family:var(--font-mono);font-size:9px;text-transform:uppercase;letter-spacing:0.09em;color:var(--gold);margin-bottom:3px}
+.compare-kv .vv{font-size:13px;color:var(--text-muted);line-height:1.5}
+
+/* TIMELINE */
+.timeline{position:relative;padding-left:1.5rem}
+.timeline::before{content:'';position:absolute;left:0;top:6px;bottom:6px;width:1px;background:var(--border-med)}
+.timeline-item{position:relative;padding:0 0 1.5rem 1.5rem}
+.timeline-item::before{content:'';position:absolute;left:-4px;top:6px;width:8px;height:8px;border-radius:50%;background:var(--bg3);border:1px solid var(--border-med)}
+.timeline-item.key::before{background:var(--gold);border-color:var(--gold)}
+.timeline-date{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.09em;text-transform:uppercase;color:var(--gold);margin-bottom:2px}
+.timeline-event{font-size:14px;color:var(--text);font-weight:500}
+.timeline-note{font-size:12px;color:var(--text-muted);margin-top:4px;line-height:1.55}
+
+/* SUBSCRIBE CTA */
+.subscribe{background:var(--bg3);border:1px solid var(--border-med);border-radius:6px;padding:1.75rem 2rem;margin:2.5rem 0;text-align:center}
+.subscribe .sub-eyebrow{font-family:var(--font-mono);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem}
+.subscribe .sub-head{font-family:var(--font-display);font-size:1.25rem;font-weight:700;color:var(--text);margin-bottom:0.5rem}
+.subscribe .sub-body{font-size:13px;color:var(--text-muted);max-width:52ch;margin:0 auto 1.1rem;line-height:1.6}
+.subscribe a.sub-btn{display:inline-block;background:var(--gold);color:#fff;font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:0.65rem 1.5rem;border-radius:4px;font-weight:500}
+.subscribe a.sub-btn:hover{background:var(--gold-light);text-decoration:none}
+
+/* FOOTER */
+footer{max-width:960px;margin:0 auto;padding:2rem 2rem 3rem;border-top:1px solid var(--border);font-size:12px;color:var(--text-dim);display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;align-items:center}
+footer span{color:var(--gold)}
+
+@media(max-width:600px){
+  .bar-label{min-width:120px;font-size:11px}
+  h2{font-size:1.25rem}
+  .chart-wrap{height:280px}
+  .compare-col{min-width:160px}
+}
+</style>
+</head>
+<body>
+
+<div id="suite-nav" style="background:#f5f1e8;border-bottom:1px solid rgba(30,25,20,0.12);padding:0 2rem;display:flex;align-items:center;height:36px;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.09em;text-transform:uppercase;gap:0;overflow-x:auto;position:sticky;top:0;z-index:200">
+  <span style="color:#C9A84C;margin-right:1.5rem;padding-right:1.5rem;border-right:1px solid rgba(30,25,20,0.12);white-space:nowrap;font-weight:500">China Series · The Pattern Recognition</span>
+  <a href="index.html" class="suite-link">Overview</a>
+  <a href="part-1.html" class="suite-link">Part I · The Market</a>
+  <a href="part-2.html" class="suite-link">Part II · The Audience</a>
+  <a href="part-3.html" class="suite-link active">Part III · The Product</a>
+</div>
+<style>
+  .suite-link{color:#9490A0;padding:0 0.85rem;height:36px;display:inline-flex;align-items:center;border-bottom:2px solid transparent;white-space:nowrap;text-decoration:none;transition:color 0.15s}
+  .suite-link:hover{color:#C9A84C;border-bottom-color:rgba(201,168,76,0.3)}
+  .suite-link.active{color:#C9A84C;border-bottom-color:#C9A84C}
+  #main-nav{top:36px !important}
+</style>
+<nav id="main-nav"><a class="nav-brand" href="https://www.llamagriffin.com" target="_blank" rel="noopener noreferrer" style="color:var(--text);text-decoration:none">Llama &amp; Griffin Consultants</a>
+  <a href="#overview" class="active">Overview</a>
+  <a href="#format">Microdrama</a>
+  <a href="#aiflood">AI Flood</a>
+  <a href="#buried">West Buried It</a>
+  <a href="#lineage">The Lineage</a>
+  <a href="#extremis">In Extremis</a>
+  <a href="#numbers">The Numbers</a>
+  <a href="#specificity">Specificity</a>
+  <a href="#portable">Portable Principles</a>
+  <a href="#hollywood">Hollywood Blinks</a>
+  <a href="#reframe">The Reframe</a>
+</nav>
+
+<main>
+
+<!-- HERO -->
+<div class="hero" id="overview">
+  <div class="hero-eyebrow">The Pattern Recognition · Market Intelligence Report</div>
+  <h1>Microdrama With<br>a <span>Controller</span></h1>
+  <p class="hero-sub">The West buried full-motion video games in the mid-1990s after a decade of technical failure and legislative embarrassment. Chinese studios picked the format back up, fused it with the most ruthless attention architecture in modern entertainment, and built a breakout genre now setting Steam records, pulling in SEGA as co-publisher, and producing more hit games per release than any other genre on the platform.</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item">Published <span>2026</span></div>
+    <div class="hero-meta-item">Coverage <span>The Pattern Recognition</span></div>
+    <div class="hero-meta-item">Focus <span>FMV / Microdrama / Steam</span></div>
+  </div>
+  <div class="stat-grid">
+    <div class="stat-cell"><div class="stat-val">$9.4B</div><div class="stat-lbl">Microdrama revenue, China 2025 (proj)</div></div>
+    <div class="stat-cell"><div class="stat-val teal">830M+</div><div class="stat-lbl">Microdrama viewers in China</div></div>
+    <div class="stat-cell"><div class="stat-val purple">~60%</div><div class="stat-lbl">Of viewers converted to payers</div></div>
+    <div class="stat-cell"><div class="stat-val coral">4M+</div><div class="stat-lbl">Road to Empress series sales</div></div>
+    <div class="stat-cell"><div class="stat-val">80–99%</div><div class="stat-lbl">Of FMV Steam players are Chinese-speaking</div></div>
+    <div class="stat-cell"><div class="stat-val teal">101</div><div class="stat-lbl">Chinese FMV Steam releases, 2023–2025</div></div>
+  </div>
+</div>
+
+<!-- THE FORMAT -->
+<section id="format">
+  <div class="section-label">Section 01</div>
+  <div class="chevrons" aria-hidden="true"></div><h2>The Format Nobody Was Watching</h2><span class="h2-kicker">A larger industry than cinema.</span>
+  <p class="section-intro">A microdrama is a serialized vertical-video soap opera. Episodes run sixty to ninety seconds. Every episode ends on a cliffhanger. The next is unlocked by a scroll, an in-app purchase, or a coin payment. It is consumed entirely on a phone, in portrait, during interstitial time: a commute, a lunch break, a queue.</p>
+
+  <p>The format was born out of China's short-video infrastructure around 2018, when producers on Douyin and Kuaishou began adding serialized plots and cliffhangers to vertical feeds those platforms had already built. Kuaishou opened a dedicated "Small Theatre" tab in 2019 that converted casual scrolling into paid viewing. The pandemic years hardened the experiments into repeatable revenue.</p>
+
+  <h3>The revenue arc</h3>
+  <div class="chart-wrap"><canvas id="microdramaChart"></canvas></div>
+  <div class="chart-legend">
+    <span><span class="swatch" style="background:#c3a55f"></span>China domestic revenue (USD billions)</span>
+    <span><span class="swatch" style="background:#6b64b3"></span>Projected</span>
+  </div>
+
+  <div class="insight">
+    <strong>The milestone worth pausing on:</strong> In 2024, microdrama generated $7 billion in China and surpassed the country's domestic theatrical box office. Not comparable to cinema. Larger than cinema. A vertical-video soap opera consumed on a phone is now a bigger entertainment industry in China than the movies.
+  </div>
+
+  <h3>The audience being built</h3>
+  <p>More than 830 million viewers inside China have consumed microdrama content. Roughly 60% have converted to payers at least once, a rate most subscription streaming services never approach. A frequent payer can run up to $80 a month inside the ecosystem. China's population is roughly 1.4 billion, so close to 59% of the entire country has engaged with a format that delivers a narrative payoff every 90 seconds.</p>
+
+  <h3>What the format does to its audience</h3>
+  <p><strong>Microdrama's engagement architecture is engineered, not accidental.</strong> Three mechanisms run in parallel. The dopamine loop: each episode delivers setup, escalation, and an emotional spike, then cuts, so reward circuitry fires in anticipation of the next payoff. The Zeigarnik effect: people remember incomplete tasks better than completed ones, and episodes end on unresolved tension that places the viewer in mild cognitive discomfort the next episode is the only way to resolve. Variable-ratio reinforcement: the satisfying payoff arrives after an unpredictable number of episodes, the same schedule underlying slot-machine behavior, applied here to story.</p>
+
+  <div class="insight purple">
+    <strong>The cumulative effect is a trained audience:</strong> Twenty episodes a day, sixty to ninety seconds each, every day. The tolerance for filler collapses. The expectation of emotional intensity per unit of time rises. A viewer two years into this format is physiologically uncomfortable in the presence of a scene that does not advance a stake. More than 40,000 new series launched in 2025; production costs have dropped 60% as AI tools and vertical studio ecosystems compressed the workflow. A full 80-episode series ships in under three weeks. For a time, production volume looked like the moat. In 2026 that assumption broke, and what broke it clarifies where the real moat actually sits.
+  </div>
+</section>
+
+<!-- WEST BURIED IT -->
+<!-- THE AI FLOOD -->
+<section id="aiflood">
+  <div class="section-label">Section 02</div>
+  <div class="chevrons" aria-hidden="true"></div><h2>The AI Flood</h2><span class="h2-kicker">The cheap end just got flooded.</span>
+  <p class="section-intro">In 2026, generative video collapsed the cost floor of microdrama production. If volume was ever the moat, AI just overran it. What that flood reveals is that the moat was never volume in the abstract. It was volume of quality live-action at a price point AI cannot reach.</p>
+
+  <h3>The scale of the flood</h3>
+  <div class="card-row">
+    <div class="card coral"><div class="clabel">AI titles per day</div><div class="cval">470</div><div class="csub">Produced daily in January 2026</div></div>
+    <div class="card coral"><div class="clabel">AI episodes in a month</div><div class="cval">~50,000</div><div class="csub">Uploaded to Douyin in March 2026 alone, near all of 2025's total</div></div>
+    <div class="card purple"><div class="clabel">AI cost per minute</div><div class="cval">~$30</div><div class="csub">Against hundreds of thousands of yuan for live-action</div></div>
+    <div class="card teal"><div class="clabel">Spring Festival 2026</div><div class="cval">8.67B</div><div class="csub">Views of AI-generated animated dramas</div></div>
+  </div>
+
+  <div class="insight coral">
+    <strong>The cost collapse:</strong> AI-generated microdrama now costs as little as $30 per minute against hundreds of thousands of yuan for live-action. ByteDance's Seedance 2.0, released February 2026, generates multi-shot sequences in roughly sixty seconds. China's 15th Five-Year Plan explicitly names AI-generated animated micro-dramas as a cultural export priority, and AI-generated animated dramas drew 8.67 billion views during Spring Festival 2026. The cheap end is not just flooded. It is becoming an export category in its own right.
+  </div>
+
+  <h3>What AI cannot calculate</h3>
+  <p><strong>The flood has a ceiling, and the industry is already naming it.</strong> Actors are losing work, filming bases report drop-offs, and audiences are noticing the quality gap. The line that has crystallized inside the Chinese industry is precise: AI can calculate audience preferences, but it struggles to calculate emotional resonance. That is the exact seam premium live-action interactive drama sits in. When the cheap end commoditizes, the premium end does not die. It becomes the flight to quality.</p>
+
+  <div class="insight teal">
+    <strong>The reframe the flood forces:</strong> Road to Empress II launched June 9, 2026 with more than 1,000 minutes of 4K live-action content, fully rebuilt palace sets, and a BAFTA-winning producer, into the exact month the AI flood peaked. It is positioned as the opposite of AI-generated cheapness, and the market rewarded it. The moat is not that China can produce the most microdrama. It is that China can produce the most premium live-action interactive drama at a price AI volume cannot undercut and Western studios cannot match.
+  </div>
+</section>
+
+<section id="buried">
+  <div class="section-label">Section 03</div>
+  <div class="chevrons" aria-hidden="true"></div><h2>The Format the West Buried</h2><span class="h2-kicker">Two timelines, one noticed.</span>
+  <p class="section-intro">Full-motion video had its first commercial run in the early 1990s on the back of CD-ROM storage. It failed, was filed as a closed experiment, and stayed buried in the West. Over the same decades, China built the exact infrastructure that makes the format work. These two histories ran in parallel.</p>
+
+  <div class="compare-band">
+    <div class="compare-col">
+      <div class="compare-header"><div class="ed-name" style="color:var(--coral)">The West</div><div class="ed-meta">Buried the format</div></div>
+      <div class="compare-body">
+        <div class="compare-kv"><div class="kk">1992</div><div class="vv">Sega CD ships Sewer Shark and Night Trap. Sub-VHS picture, compression artifacts, tiny playback windows.</div></div>
+        <div class="compare-kv"><div class="kk">1993</div><div class="vv">US Congressional hearings. A senator mischaracterizes Night Trap; the developers disputed the characterization. ESRB results.</div></div>
+        <div class="compare-kv"><div class="kk">Mid-1990s</div><div class="vv">FMV becomes synonymous with legislative embarrassment and poor quality. Filed as tried-and-failed.</div></div>
+        <div class="compare-kv"><div class="kk">The error</div><div class="vv">The failure was infrastructural, not conceptual. The format arrived before the hardware could serve it. The West read it as a dead idea.</div></div>
+      </div>
+    </div>
+    <div class="compare-col">
+      <div class="compare-header"><div class="ed-name" style="color:var(--teal)">China</div><div class="ed-meta">Built the infrastructure</div></div>
+      <div class="compare-body">
+        <div class="compare-kv"><div class="kk">Hengdian</div><div class="vv">The largest film studio on Earth: 30 outdoor bases, 130 indoor sets, 330 hectares. Full-scale Forbidden City replica, Tang and Ming palace complexes.</div></div>
+        <div class="compare-kv"><div class="kk">~70%</div><div class="vv">Of China's period TV and film shoots here every year. Over 1,200 productions including Hero and the live-action Mulan.</div></div>
+        <div class="compare-kv"><div class="kk">2018+</div><div class="vv">Microdrama emerges on short-video infrastructure, training hundreds of millions on paid serialized pacing.</div></div>
+        <div class="compare-kv"><div class="kk">2025</div><div class="vv">Hengdian builds purpose-built vertical studios and hosts the first Short Drama Night, integrating microdrama into its institutional identity.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="insight teal">
+    <strong>The structural advantage:</strong> A Chinese FMV game shooting at Hengdian is not a game studio attempting television. It is a television production with branching mechanics layered on top. The production-value floor, the minimum quality achievable at moderate budget, is structurally higher than anything Western indie developers can reach at any comparable budget, because the infrastructure exists and is available. The sets are provided free to crews; Hengdian earns from hotels, costumes, and equipment.
+  </div>
+</section>
+
+<!-- THE LINEAGE -->
+<section id="lineage">
+  <div class="section-label">Section 04</div>
+  <div class="chevrons" aria-hidden="true"></div><h2>The Lineage</h2><span class="h2-kicker">Three titles that built the genre.</span>
+  <p class="section-intro">The genre did not appear fully formed. It was built across three titles over six years: a proof of viability, a proof of format, and a proof of export.</p>
+
+  <div class="timeline">
+    <div class="timeline-item key"><div class="timeline-date">2019 · The Invisible Guardian</div><div class="timeline-event">The first signal</div><div class="timeline-note">New One Studio's Republican-era spy thriller earned 50,000+ Steam reviews and a BAFTA nomination, the only Chinese FMV game to do so at the time. Visuals were closer to a slideshow in places, but narrative quality took it to the top of Steam's China chart. It proved Chinese players would pay for interactive narrative and the genre could earn international attention.</div></div>
+    <div class="timeline-item key"><div class="timeline-date">2023 · Love Is All Around</div><div class="timeline-event">The format proof</div><div class="timeline-note">intiny's title was the catalyst for the current generation. For the first time, microdrama pacing was explicitly applied to FMV: episode-structured chapters, emotional spikes on regular intervals, choices that changed relationship trajectory. 36,000+ Steam reviews, an estimated 1.1 million copies, mostly in China at ~¥42. It sparked the wave of imitators that proved the format reproducible.</div></div>
+    <div class="timeline-item key"><div class="timeline-date">2025 · Road to Empress</div><div class="timeline-event">The export proof</div><div class="timeline-note">New One Studio returned with a 300,000-word script, five writers, 4K capture at Hengdian, and consultants from Beijing Normal University. 16 chapters, 100+ branching storylines, 100+ ways to die, priced at ¥39 (~$8.49 US).</div></div>
+  </div>
+
+  <div class="insight">
+    <strong>The signal Western observers should have been loudest about:</strong> Love Is All Around revealed that 80% to 99% of FMV players on Steam are Chinese-speaking, even for translated titles. This is not a niche audience. It is the Steam majority for the genre.
+  </div>
+
+  <h3>Road to Empress: the results</h3>
+  <div class="card-row">
+    <div class="card gold"><div class="clabel">Copies sold (13 days)</div><div class="cval">1M+</div><div class="csub">~RMB 40M (~$5.6M) revenue in the window</div></div>
+    <div class="card teal"><div class="clabel">English-only reviews</div><div class="cval">96%</div><div class="csub">Overwhelmingly Positive; 84–86% overall</div></div>
+    <div class="card purple"><div class="clabel">Peak concurrent</div><div class="cval">17,170</div><div class="csub">#1 new game on TapTap; #1 WeChat at launch</div></div>
+    <div class="card blue"><div class="clabel">Social mentions</div><div class="cval">1.2B+</div><div class="csub">Driven by shareable Trait Sketch readings</div></div>
+  </div>
+
+  <p><strong>The 96% from English-language reviewers is the part that mattered.</strong> A Chinese-made FMV set in 7th-century Tang politics earned near-perfect marks from players with no prior exposure to Chinese historical drama. Cultural specificity did not limit the audience. It expanded it. Road to Empress was also the first title to demonstrate the shareable-artifact mechanism at scale: every playthrough generates an MBTI-style Trait Sketch formatted as a screenshot, players send readings to friends, friends play to compare, and the audience becomes the distribution. SEGA signed on to co-publish in Japan and select Asian markets, with a Nintendo Switch bundle of both games in development.</p>
+
+  <h3>Road to Empress II: fastest FMV game ever</h3>
+  <div class="card-row">
+    <div class="card teal"><div class="clabel">Copies (5 days)</div><div class="cval">1M+</div><div class="csub">Released June 9, 2026</div></div>
+    <div class="card gold"><div class="clabel">Copies (12 days)</div><div class="cval">2M+</div><div class="csub">32 chapters, ~1,000 min of 4K content</div></div>
+    <div class="card purple"><div class="clabel">Series total</div><div class="cval">4M+</div><div class="csub">Both games combined</div></div>
+  </div>
+  <p>The sequel roughly quadrupled the first game's content volume. New One Studio's first overseas event, a fan meeting in Seoul on June 22, 2026, was chosen deliberately: South Korea had emerged as a key market for the series outside China. The franchise is now a documented global property.</p>
+</section>
+
+<!-- IN EXTREMIS -->
+<section id="extremis">
+  <div class="section-label">Section 05</div>
+  <div class="chevrons" aria-hidden="true"></div><h2>The Format in Extremis</h2><span class="h2-kicker">Revenge on Gold Diggers.</span>
+  <p class="section-intro">No analysis of Chinese FMV in 2025 is complete without the title that most nakedly demonstrates how far the format can be taken when a studio points it directly at a live cultural fault line. Front Studio released it June 19, 2025 at ¥33 (~$4.60), with no English localization at launch.</p>
+
+  <p>The premise: a male protagonist deceived by a "gold digger" infiltrates a network to take revenge. The six chapter titles spelled out a hidden message referencing a gaming influencer whose April 2024 death had triggered an enormous online controversy in China over romantic manipulation and financial exploitation, a debate Chinese social media had never fully resolved.</p>
+
+  <div class="card-row">
+    <div class="card gold"><div class="clabel">Steam global, day one</div><div class="cval">#4</div><div class="csub">China download rank peaked #1, above Black Myth: Wukong</div></div>
+    <div class="card coral"><div class="clabel">Peak concurrent</div><div class="cval">89,127</div><div class="csub">96%+ positive, 20,000+ reviews at launch</div></div>
+    <div class="card purple"><div class="clabel">First-month copies (est)</div><div class="cval">~1.3M</div><div class="csub">~73% China, ~10% US before English existed</div></div>
+  </div>
+
+  <div class="insight coral">
+    <strong>The controversies arrived with the sales:</strong> The game's Bilibili account and the director's personal account were banned within hours. State media split: one outlet called it a tool for stigmatizing women, another called it a creative anti-fraud education mechanism. The developers quietly renamed it "Emotional Fraud Simulator." The content was not changed. The sales were not affected. By April 2026 it had reached the PS5 store to a positive response.
+  </div>
+
+  <p>The pattern underneath the controversy is identical to Road to Empress and Love Is All Around: microdrama pacing, television-grade production from Hengdian-scale infrastructure, a premise so culturally specific it was sharper than anything sanded down for export could have been, one clean purchase price, no gacha, no daily login. The format works because it is honest about what it is. The game is exactly what the trained audience has been looking for.</p>
+</section>
+
+<div style="max-width:960px;margin:0 auto;padding:0 2rem">
+  <div class="subscribe">
+    <div class="sub-eyebrow">The Pattern Recognition</div>
+    <div class="sub-head">Gaming intelligence 12 to 24 months before consensus</div>
+    <div class="sub-body">The West is competing with a film industry that decided to make games. Subscribe for the patterns forming before they become the trade everyone makes.</div>
+    <a class="sub-btn" href="https://recognizingpatterns.substack.com" target="_blank" rel="noopener noreferrer">Subscribe</a>
+  </div>
+</div>
+
+<!-- THE NUMBERS -->
+<section id="numbers">
+  <div class="section-label">Section 06</div>
+  <div class="chevrons" aria-hidden="true"></div><h2>The Genre in Numbers</h2><span class="h2-kicker">Acceleration the West missed.</span>
+  <p class="section-intro">The production base underneath Chinese FMV scaled faster than Western observers registered, and the genre spread now spans historical thriller, romance, revenge drama, and palace politics.</p>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab(this,'tab-releases')">FMV Releases</button>
+    <button class="tab-btn" onclick="switchTab(this,'tab-spread')">Genre Spread</button>
+  </div>
+
+  <div id="tab-releases" class="tab-panel active">
+    <h3>Chinese FMV releases on Steam</h3>
+    <div id="release-bars"></div>
+    <div class="insight teal">
+      <strong>Count versus rate, read carefully:</strong> Narrative games became the genre with the most total hit games on Steam in 2025, driven by sheer release volume, with Chinese FMV driving most of the improvement. The hit rate itself is more modest: roughly 8% of visual-novel and story-rich titles from 2020 to 2025 reached 1,000+ reviews. That rate is low by casual counting but competitive with premium indie genres and ahead of many mid-budget action and platformer releases. Most total hits, modest hit rate: both are true and they are not in tension.
+    </div>
+  </div>
+
+  <div id="tab-spread" class="tab-panel">
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Title</th><th>Year</th><th>Type</th><th>Peak CCU</th><th>Key signal</th></tr></thead>
+        <tbody id="spread-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- SPECIFICITY -->
+<section id="specificity">
+  <div class="section-label">Section 07</div>
+  <div class="chevrons" aria-hidden="true"></div><h2>Specificity Is the Mechanism</h2><span class="h2-kicker">Not the obstacle.</span>
+  <p class="section-intro">The Western instinct is to ask whether this would work set in Europe. That question misunderstands how the genre functions.</p>
+
+  <p>Road to Empress is not a generic empress story in Tang costume. The factional dynamics driving every choice, the balance between the Emperor's favor, the princes' ambitions, the concubines' alliances, and the external threat of Buddhist temple power, are specific to seventh-century Chinese court politics. The team brought in history professors as consultants. They did not soften the historical specificity for export. They sharpened it.</p>
+
+  <div class="insight purple">
+    <strong>Specificity is the universalizing force:</strong> An audience trained on microdrama, operating at maximum emotional density per second, recognizes specificity as authenticity. Generic settings feel like filler, and the microdrama-trained player has zero tolerance for filler. Revenge on Gold Diggers presented a specifically Chinese internet-vernacular scam dynamic without translation or softening, and 10% of first-month sales still came from the US before English subtitles existed. The cultural specificity traveled anyway.
+  </div>
+
+  <p>Sixth Tone noted that Road to Empress positions a strong female protagonist within a male-dominated gaming community by reproducing the masculine-coded mechanics male gamers prefer: the death-loop survival design rather than the emotional-immersion design of otome games. This is deliberate genre negotiation, not localization for export. The studio designed for an audience spanning the gender divide by choosing mechanics rather than softening story. The result resonated with players who had never encountered a Chinese historical drama and players who had seen every variation of the Wu Zetian story.</p>
+</section>
+
+<!-- PORTABLE PRINCIPLES -->
+<section id="portable">
+  <div class="section-label">Section 08</div>
+  <div class="chevrons" aria-hidden="true"></div><h2>The Design Principles Are Portable</h2><span class="h2-kicker">The format is the proof. The principles are not locked to China.</span>
+  <p class="section-intro">Every branching narrative game operates in the same design space as microdrama-influenced FMV. The difference is whether the design choices were made with that audience's conditioning in mind. The economics are rooted in infrastructure access, but the grammar is portable.</p>
+
+  <div class="card-row">
+    <div class="card teal"><div class="clabel">Pacing density</div><div class="cval">No filler</div><div class="csub">A three-minute cutscene then two converging options reads as format failure to a player processing 20+ decisions a day</div></div>
+    <div class="card purple"><div class="clabel">Decision architecture</div><div class="cval">Delayed payoff</div><div class="csub">Decision → visible immediate consequence → slow payoff 3–5 beats later → emotional spike. Moving payoffs from decisions is the structural feature</div></div>
+    <div class="card gold"><div class="clabel">Shareable artifact</div><div class="cval">The channel</div><div class="csub">The Trait Sketch is the distribution mechanism, not bonus content. The trained audience is also the marketing channel</div></div>
+    <div class="card coral"><div class="clabel">Sharpened specificity</div><div class="cval">Format honesty</div><div class="csub">The audience does not need Tang settings. It needs settings that are something, made by people who care about that something</div></div>
+  </div>
+
+  <div class="insight">
+    <strong>The untapped advantage:</strong> The lesson of Road to Empress is not "make Chinese games." It is "make games as specific about their own culture as Chinese FMV is about Chinese culture." A Western studio making an authentically specific Western game, with mechanics tuned to the microdrama grammar, has room the trained audience is not demanding Chinese content. It is demanding format honesty.
+  </div>
+</section>
+
+<!-- THE REFRAME -->
+<!-- HOLLYWOOD BLINKS -->
+<section id="hollywood">
+  <div class="section-label">Section 09</div>
+  <div class="chevrons" aria-hidden="true"></div><h2>Hollywood Blinks</h2><span class="h2-kicker">The studios that dismissed it are now licensing it.</span>
+  <p class="section-intro">For years the major Western platforms treated microdrama as beneath them. The timeline is unambiguous: ReelShort and DramaBox had already combined for roughly $940 million in revenue and 25 million US downloads before Peacock announced a single original. In 2026 the biggest Western platforms broke and started licensing the format directly from the Chinese-owned apps that built it.</p>
+
+  <div class="card-row">
+    <div class="card gold"><div class="clabel">Peacock originals</div><div class="cval">2</div><div class="csub">First original microdramas from any major US streamer: Campus Confidential: Miami and Salon Confessionals with Madison LeCroy, ~60 episodes, vertical</div></div>
+    <div class="card teal"><div class="clabel">ReelShort titles licensed</div><div class="cval">10</div><div class="csub">Peacock licensed ReelShort series directly, including Fated to My Forbidden Alpha and Baby, Just Say Yes!</div></div>
+    <div class="card purple"><div class="clabel">Platforms following</div><div class="cval">3+</div><div class="csub">Disney+, Netflix, and Paramount+ have all since added vertical video feeds</div></div>
+  </div>
+
+  <div class="insight">
+    <strong>The admission underneath the licensing:</strong> Peacock did not build the format. It licensed it from ReelShort, a Chinese-owned app, and dressed two Bravo properties in it. The studios spent years calling the format disposable and are now paying the companies that built it for the right to use it. That is not entry into a new market. It is arriving late to a room the Chinese ecosystem already owns, on the Chinese ecosystem's terms.
+  </div>
+</section>
+
+<section id="reframe">
+  <div class="section-label">Section 10</div>
+  <div class="chevrons" aria-hidden="true"></div><h2>The Reframe</h2><span class="h2-kicker">The audience is not Chinese. The training was.</span>
+  <p>The Western framing of Chinese FMV as "FMV is back" is technically accurate and analytically useless. FMV is back because the infrastructure exists to make it work, the format it merged with trained 830 million people to pay for its pacing, and the studios that built the category did not sand down their cultural specificity in the hope of appealing to everyone.</p>
+
+  <p><strong>Road to Empress sold a million copies in thirteen days at $8.49. Its sequel sold two million in twelve.</strong> SEGA is co-publishing in Japan. A Nintendo Switch bundle is coming. The franchise has held a fan meeting in Seoul. The competitive framing that matters is not Western FMV versus Chinese FMV.</p>
+
+  <p>It is this: the West is now competing with a film industry that decided to make games, built on a production infrastructure that has no Western equivalent, distributed to an audience trained by the most aggressive attention-engineering format in the history of entertainment. The audience is not Chinese. The training was.</p>
+
+  <p><strong>And the moat held under pressure.</strong> AI flooded the cheap end of the format in 2026 and the premium live-action sequel still sold two million copies in twelve days. Peacock and the other Western platforms stopped dismissing microdrama and started licensing it from the Chinese-owned apps that built it. The cheap end commoditized, the premium end compounded, and the studios arrived late to a room the Chinese ecosystem already owns. The question is not whether FMV is back. It is who built the moat while the studios were watching.</p>
+
+  <h2 style="margin-top:3rem;margin-bottom:1.25rem">Abbas Saleem</h2>
+  <p>Abbas Saleem is a Principal Consultant at <a href="https://www.llamagriffin.com/">Llama &amp; Griffin</a>, advising game studios, streaming platforms, and investment funds across six continents. He writes The Pattern Recognition: gaming industry intelligence 12 to 24 months before it becomes consensus. <a href="https://www.linkedin.com/in/abbassaleemkhan/">LinkedIn</a> | <a href="https://cal.com/llamagriffin/30min">Schedule a call</a></p>
+</section>
+
+</main>
+
+<footer>
+  <div>The China Series · <span>Llama &amp; Griffin Consultants</span></div>
+  <div><span>recognizingpatterns.substack.com</span> · llamagriffin.com</div>
+</footer>
+
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+// MICRODRAMA REVENUE CHART: the visual payload
+function buildMicrodramaChart(){
+  new Chart(document.getElementById('microdramaChart'),{
+    type:'bar',
+    data:{
+      labels:['2021','2023','2024','2025 (proj)','2030 (proj)'],
+      datasets:[
+        {label:'China domestic revenue (USD B)',data:[0.5,2.8,7,9.4,16.2],backgroundColor:['rgba(195,165,95,0.85)','rgba(195,165,95,0.85)','rgba(195,165,95,0.9)','rgba(107,100,179,0.6)','rgba(107,100,179,0.85)'],borderWidth:0,borderRadius:3}
+      ]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>'$'+c.raw+'B'}}},
+      scales:{
+        x:{grid:{color:'rgba(35,35,35,0.07)'},ticks:{color:'#6b6660',font:{size:11}}},
+        y:{grid:{color:'rgba(35,35,35,0.07)'},ticks:{color:'#6b6660',font:{size:11},callback:v=>'$'+v+'B'},title:{display:true,text:'China domestic revenue (USD B)',color:'#6b6660',font:{size:10}}}
+      }
+    }
+  });
+}
+
+// FMV RELEASE BARS
+function buildReleaseBars(){
+  const rel = [
+    {name:'2023',val:3,max:58,color:'#8f88cc',sub:'3 cumulative'},
+    {name:'2024',val:40,max:58,color:'#3daa8e',sub:'43 cumulative'},
+    {name:'2025',val:58,max:58,color:'#c3a55f',sub:'101 cumulative'},
+  ];
+  const wrap = document.getElementById('release-bars');
+  rel.forEach(d=>{
+    const pct = Math.max(2, Math.round((d.val/d.max)*100));
+    wrap.innerHTML += `<div class="bar-row">
+      <span class="bar-label">${d.name}</span>
+      <div class="bar-bg"><div class="bar-fill" style="width:${pct}%;background:${d.color}"></div></div>
+      <span class="bar-val">${d.val} <span style="color:var(--text-dim);font-size:10px">(${d.sub})</span></span>
+    </div>`;
+  });
+}
+
+// GENRE SPREAD TABLE
+const spread = [
+  {title:'The Invisible Guardian',year:'2019',type:'Historical spy FMV',ccu:'n/a',signal:'BAFTA nomination; 50,000+ reviews; genre proof-of-concept',cls:'tag-purple'},
+  {title:'Love Is All Around',year:'2023',type:'Romance FMV dating sim',ccu:'65,435',signal:'~1.1M copies; 91.6% positive; genre\u2019s biggest Steam CCU',cls:'tag-teal'},
+  {title:'Revenge on Gold Diggers',year:'2025',type:'Revenge drama FMV',ccu:'89,127',signal:'#4 Steam global day one; 1.3M first month; no English at launch',cls:'tag-coral'},
+  {title:'Road to Empress',year:'2025',type:'Historical palace drama FMV',ccu:'17,170',signal:'1M in 13 days; 96% English reviews; SEGA co-publish',cls:'tag-gold'},
+  {title:'Road to Empress II',year:'2026',type:'Historical palace drama FMV',ccu:'n/a',signal:'2M in 12 days; 4M series total; fastest FMV game ever',cls:'tag-gold'},
+];
+function buildSpreadTable(){
+  const tb = document.getElementById('spread-tbody');
+  spread.forEach(d=>{
+    tb.innerHTML += `<tr>
+      <td style="font-weight:500;color:var(--text)">${d.title}</td>
+      <td style="font-family:var(--font-mono);font-size:12px">${d.year}</td>
+      <td><span class="tag ${d.cls}">${d.type}</span></td>
+      <td style="font-family:var(--font-mono);font-size:12px;color:var(--gold)">${d.ccu}</td>
+      <td style="font-size:12px;color:var(--text-dim)">${d.signal}</td>
+    </tr>`;
+  });
+}
+
+function switchTab(btn,panelId){
+  const parent = btn.closest('section');
+  parent.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  parent.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(panelId).classList.add('active');
+}
+
+// NAV SCROLL SPY
+function initNav(){
+  const sects = document.querySelectorAll('section[id],.hero[id]');
+  const links = document.querySelectorAll('nav a');
+  const obs = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        links.forEach(l=>l.classList.remove('active'));
+        const a = document.querySelector(`nav a[href="#${e.target.id}"]`);
+        if(a)a.classList.add('active');
+      }
+    });
+  },{rootMargin:'-25% 0px -70% 0px'});
+  sects.forEach(s=>obs.observe(s));
+  links.forEach(l=>l.addEventListener('click',e=>{
+    e.preventDefault();
+    document.querySelector(l.getAttribute('href')).scrollIntoView({behavior:'smooth'});
+  }));
+}
+
+buildMicrodramaChart();
+buildReleaseBars();
+buildSpreadTable();
+initNav();
+</script>
+</body>
+</html>

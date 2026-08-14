@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Steam, Epic, PlayStation, Xbox: the commission wars, the revenue concentration problem, and the comparison traps that make every cross-storefront chart at least partly wrong.">
+<meta property="og:title" content="Mobile vs Premium, Part II: Premium Storefronts">
+<meta property="og:description" content="A source-audited breakdown of premium PC and console economics.">
+<meta property="og:type" content="article">
+<title>Premium Storefronts: Mobile vs Premium · Part II · Llama &amp; Griffin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f7f4ee;--bg2:#fdfcf9;--bg3:#eae7e0;--bg4:#d2cdc3;
+  --border:#d2cdc3;--border-med:#c5bfb5;
+  --text:#232323;--text-muted:#37342f;--text-dim:#6b6660;
+  --gold:#c3a55f;--gold-light:#d4ba82;--gold-dim:rgba(195,165,95,0.12);
+  --teal:#2a8f76;--teal-light:#3daa8e;--teal-dim:rgba(42,143,118,0.10);
+  --purple:#6b64b3;--purple-light:#8f88cc;--purple-dim:rgba(107,100,179,0.10);
+  --coral:#b85a3a;--coral-light:#cb7055;--coral-dim:rgba(184,90,58,0.10);
+  --blue:#3d77c4;--blue-light:#6699d8;--blue-dim:rgba(61,119,196,0.10);
+  --font-display:'Playfair Display',serif;
+  --font-body:'DM Sans',sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:15px;line-height:1.7;min-height:100vh}
+a{color:var(--gold);text-decoration:none}a:hover{text-decoration:underline}
+
+/* SUITE NAV */
+#suite-nav{background:#f5f1e8;border-bottom:1px solid rgba(30,25,20,0.12);padding:0 2rem;display:flex;align-items:center;height:36px;font-family:var(--font-mono);font-size:9px;letter-spacing:0.09em;text-transform:uppercase;gap:0;overflow-x:auto;position:sticky;top:0;z-index:200}
+.suite-brand{color:var(--gold);margin-right:1.5rem;padding-right:1.5rem;border-right:1px solid rgba(30,25,20,0.12);white-space:nowrap;font-weight:500}
+.suite-link{color:var(--text-dim);padding:0 0.85rem;height:36px;display:inline-flex;align-items:center;border-bottom:2px solid transparent;white-space:nowrap;text-decoration:none;transition:color 0.15s}
+.suite-link:hover{color:var(--gold);border-bottom-color:rgba(195,165,95,0.3)}
+.suite-link.active{color:var(--gold);border-bottom-color:var(--gold)}
+
+/* MAIN NAV */
+nav{position:sticky;top:36px;z-index:100;background:rgba(247,244,238,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;height:52px;overflow-x:auto;gap:0}
+.nav-brand{font-family:var(--font-display);font-size:14px;font-weight:700;color:var(--text);margin-right:1.5rem;padding-right:1.5rem;border-right:1px solid var(--border-med);white-space:nowrap;text-decoration:none;text-transform:none;letter-spacing:normal}
+.nav-brand:hover{text-decoration:none;opacity:0.8}
+nav a.nav-link{color:var(--text-dim);font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.09em;text-transform:uppercase;padding:0 0.9rem;height:52px;display:flex;align-items:center;border-bottom:2px solid transparent;white-space:nowrap;transition:color 0.15s,border-color 0.15s;text-decoration:none}
+nav a.nav-link:hover{color:var(--gold);border-bottom-color:rgba(195,165,95,0.3);text-decoration:none}
+nav a.nav-link.active{color:var(--gold);border-bottom-color:var(--gold)}
+
+/* HERO */
+.hero{max-width:960px;margin:0 auto;padding:4rem 2rem 3rem}
+.hero-eyebrow{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:10px}
+.hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold);display:inline-block}
+.hero h1{font-family:var(--font-display);font-size:clamp(2.2rem,5vw,3.2rem);font-weight:700;line-height:1.06;color:var(--text);margin-bottom:0.1rem}
+.hero h1 span{display:block;font-style:italic;color:var(--gold)}
+.hero-sub{font-size:15px;color:var(--text-muted);max-width:660px;margin:1.5rem 0 2rem;line-height:1.7}
+.hero-meta{display:flex;gap:2rem;margin-bottom:2rem;flex-wrap:wrap;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:0.75rem 0}
+.hero-meta-item{font-family:var(--font-mono);font-size:10px;letter-spacing:0.09em;text-transform:uppercase;color:var(--text-dim)}
+.hero-meta-item span{color:var(--text-muted);font-weight:500}
+
+/* STAT GRID */
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:3rem}
+.stat-cell{background:var(--bg2);padding:1.25rem 1.5rem}
+.stat-val{font-family:var(--font-display);font-size:1.6rem;font-weight:700;color:var(--gold);line-height:1;margin-bottom:5px}
+.stat-val.teal{color:var(--teal)}
+.stat-val.purple{color:var(--purple)}
+.stat-val.coral{color:var(--coral)}
+.stat-lbl{font-family:var(--font-mono);font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.07em}
+
+/* CHEVRONS */
+.chevrons{display:flex;gap:5px;margin-bottom:0.5rem}
+.chevrons::before{content:'▲▲▲▲';font-size:8px;color:var(--gold);letter-spacing:3px}
+
+/* SECTIONS */
+section{max-width:960px;margin:0 auto;padding:4rem 2rem;border-top:1px solid var(--border)}
+.section-label{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.3rem}
+h2{font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--text);margin-bottom:0.25rem;line-height:1.15}
+.h2-kicker{font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--gold);font-style:italic;display:block;margin-bottom:1.5rem}
+.section-intro{font-size:15px;color:var(--text-muted);max-width:700px;margin-bottom:2rem;line-height:1.7}
+h3{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--text);margin:2.5rem 0 1rem}
+h3:first-of-type{margin-top:0}
+p{color:var(--text-muted);margin-bottom:1rem;font-size:15px;max-width:72ch;line-height:1.7}
+p strong{color:var(--text);font-weight:600}
+p:last-child{margin-bottom:0}
+
+/* TABLES */
+.table-wrap{margin-bottom:1.5rem;border:1px solid var(--border);border-radius:4px;overflow:hidden;overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead th{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);padding:0.75rem 1rem;text-align:left;border-bottom:1px solid var(--border-med);background:var(--bg3);white-space:nowrap}
+tbody tr{border-bottom:1px solid var(--border);transition:background 0.1s}
+tbody tr:last-child{border-bottom:none}
+tbody tr:hover{background:var(--bg3)}
+tbody td{padding:0.65rem 1rem;color:var(--text-muted);vertical-align:middle}
+tbody td:first-child{color:var(--text)}
+
+/* COMPARE TABLE */
+table.compare{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:1.5rem}
+table.compare thead th{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);padding:0.75rem 1rem;text-align:left;border-bottom:1px solid var(--border-med);background:var(--bg3)}
+table.compare td{padding:0.75rem 1rem;border-bottom:1px solid var(--border);color:var(--text-muted);vertical-align:top;line-height:1.6}
+table.compare td:first-child{color:var(--text);font-weight:500}
+table.compare .num-cell{font-family:var(--font-mono);font-size:12px;font-weight:500;color:var(--text);white-space:nowrap}
+table.compare tr:last-child td{border-bottom:none}
+
+/* INSIGHT */
+.insight{border-left:2px solid var(--gold);background:var(--gold-dim);border-radius:0 4px 4px 0;padding:1.25rem 1.5rem;margin:2rem auto;font-size:14px;color:var(--text-muted);line-height:1.65;max-width:960px;box-sizing:border-box}
+.insight strong{color:var(--text);font-weight:600}
+.insight.teal{border-color:var(--teal);background:var(--teal-dim)}
+.insight.purple{border-color:var(--purple);background:var(--purple-dim)}
+.insight.coral{border-color:var(--coral);background:var(--coral-dim)}
+.insight.blue{border-color:var(--blue);background:var(--blue-dim)}
+.insight.finding{border-color:var(--gold);background:var(--gold-dim)}
+.insight.caveat{border-color:var(--purple);background:var(--purple-dim)}
+.insight.strategic{border-color:var(--teal);background:var(--teal-dim)}
+.insight.source{border-color:var(--blue);background:var(--blue-dim)}
+
+/* TAGS */
+.tag{display:inline-block;font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;padding:2px 7px;border-radius:2px;white-space:nowrap}
+.tag-teal{background:var(--teal-dim);color:var(--teal)}
+.tag-purple{background:var(--purple-dim);color:var(--purple)}
+.tag-high{background:var(--teal-dim);color:var(--teal)}
+.tag-directional{background:var(--coral-dim);color:var(--coral)}
+.tag-prov{background:rgba(35,35,35,0.07);color:var(--text-dim)}
+.tag-likely{background:var(--purple-dim);color:var(--purple)}
+
+/* TOC */
+.toc{background:var(--bg2);border:1px solid var(--border-med);border-radius:4px;padding:1.25rem 1.5rem;margin:2rem auto;max-width:960px}
+.toc .toc-title{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);margin-bottom:0.75rem}
+.toc ol{list-style:none;counter-reset:toc-item;padding:0;margin:0}
+.toc li{counter-increment:toc-item;margin-bottom:6px}
+.toc li::before{content:counter(toc-item,decimal-leading-zero);font-family:var(--font-mono);font-size:10px;font-weight:500;color:var(--gold);margin-right:12px}
+.toc a{font-size:14px;color:var(--text-muted);transition:color 0.15s}
+.toc a:hover{color:var(--gold);text-decoration:none}
+
+/* SERIES NAV */
+.series-nav{max-width:960px;margin:0 auto;padding:2.5rem 2rem;border-top:1px solid var(--border);display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+@media(max-width:700px){.series-nav{grid-template-columns:1fr}}
+.series-nav a{background:var(--bg2);border:1px solid var(--border-med);border-radius:3px;padding:1.5rem;display:flex;flex-direction:column;gap:0.5rem;transition:border-color 0.15s,box-shadow 0.15s;text-decoration:none;color:inherit}
+.series-nav a:hover{border-color:var(--gold);box-shadow:0 2px 12px rgba(195,165,95,0.12);text-decoration:none}
+.series-nav a.active{border-color:var(--gold);background:var(--gold-dim)}
+.series-nav .roman{font-family:var(--font-display);font-size:1.4rem;font-weight:700;font-style:italic;color:var(--gold)}
+.series-nav .part-name{font-family:var(--font-display);font-size:1.05rem;font-weight:700;color:var(--text);line-height:1.25}
+.series-nav .part-desc{font-size:13px;color:var(--text-muted);line-height:1.65;flex:1}
+
+/* DIAGNOSTIC */
+.diagnostic-list{counter-reset:diag;list-style:none;padding:0;margin:1.5rem 0}
+.diagnostic-list li{counter-increment:diag;margin-bottom:10px;padding-left:2rem;position:relative;font-size:14px;color:var(--text-muted);line-height:1.65}
+.diagnostic-list li::before{content:counter(diag,decimal-leading-zero);font-family:var(--font-mono);font-size:10px;font-weight:500;color:var(--gold);position:absolute;left:0;top:0}
+
+/* BIO */
+.bio{max-width:960px;margin:0 auto;padding:1.5rem 2rem 1rem}
+.bio p{font-size:13px;color:var(--text-muted);max-width:72ch}
+
+/* FOOTER */
+footer{max-width:960px;margin:0 auto;padding:1.25rem 2rem 2rem;border-top:1px solid var(--border);font-size:12px;color:var(--text-dim);display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;align-items:center}
+footer span{color:var(--gold)}
+footer .methodology{width:100%;font-size:11px;color:var(--text-dim);line-height:1.6;margin-top:0.75rem;border-top:1px solid var(--border);padding-top:0.75rem;max-width:none}
+
+@media(max-width:600px){
+  .series-nav{grid-template-columns:1fr}
+  .hero{padding:3rem 1.5rem 2rem}
+}
+</style>
+</head>
+<body>
+
+<div id="suite-nav">
+  <span class="suite-brand">Mobile vs Premium &middot; Recognizing Patterns</span>
+  <a href="index.html" class="suite-link">Overview</a>
+  <a href="part-1.html" class="suite-link">Part I &middot; The Framework</a>
+  <a href="part-2.html" class="suite-link active">Part II &middot; Premium Storefronts</a>
+  <a href="part-3.html" class="suite-link">Part III &middot; Mobile &amp; Synthesis</a>
+</div>
+
+<nav>
+  <a href="https://www.llamagriffin.com" class="nav-brand">Llama &amp; Griffin Consultants</a>
+  <a href="#steam" class="nav-link">Steam</a>
+  <a href="#epic" class="nav-link">Epic</a>
+  <a href="#playstation" class="nav-link">PlayStation</a>
+  <a href="#xbox" class="nav-link">Xbox</a>
+  <a href="#traps" class="nav-link">Comparison Traps</a>
+</nav>
+
+<div class="hero" id="top">
+  <div class="hero-eyebrow">Part II &middot; Premium Storefronts</div>
+  <h1>Premium Storefronts<span>Steam, Epic, PlayStation, Xbox.</span></h1>
+  <p class="hero-sub">The commission wars, the revenue concentration problem, and the comparison traps that make every cross-storefront chart at least partly wrong.</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item">Series <span>Mobile vs Premium</span></div>
+    <div class="hero-meta-item">Published <span>August 2026</span></div>
+    <div class="hero-meta-item">Sources <span>Alinea · GDCo · Gamalytic · Microsoft 10-K · Sony IR</span></div>
+  </div>
+</div>
+
+<div class="toc">
+  <div class="toc-title">In this part</div>
+  <ol>
+    <li><a href="#steam">Steam</a></li>
+    <li><a href="#epic">Epic Games Store</a></li>
+    <li><a href="#playstation">PlayStation Network</a></li>
+    <li><a href="#xbox">Xbox</a></li>
+    <li><a href="#traps">Cross-Storefront Comparison Traps</a></li>
+  </ol>
+</div>
+
+<main>
+
+<section id="steam">
+  <div class="section-label">Section 01</div>
+  <div class="chevrons"></div>
+  <h2>Steam</h2>
+  <span class="h2-kicker">The dominant platform, and the platform nobody can agree on the size of.</span>
+
+  <div class="stat-grid">
+    <div class="stat-cell"><div class="stat-val">$17.7B</div><div class="stat-lbl">2025 revenue (Alinea Analytics)</div></div>
+    <div class="stat-cell"><div class="stat-val teal">$16.9B</div><div class="stat-lbl">2025 revenue (GameDiscoverCo)</div></div>
+    <div class="stat-cell"><div class="stat-val purple">79%</div><div class="stat-lbl">Share from back-catalogue, H1 2026</div></div>
+    <div class="stat-cell"><div class="stat-val coral">30%→20%</div><div class="stat-lbl">Royalty cut, tiered by lifetime revenue</div></div>
+  </div>
+
+  <h3>Market Size: Five Rulers, Not One</h3>
+  <p>No two analytics firms agree on Steam's exact revenue, and the disagreement is larger than most reporting acknowledges. Alinea Analytics puts full-year 2025 at $17.7 billion and 2024 at $15.4 billion (+15% YoY). GameDiscoverCo puts 2025 at $16.9 billion and 2024 at $10.8 billion (+57% YoY): a $4.6 billion gap on the same completed year, unreconciled by either firm. <span class="tag tag-high">High confidence</span> <span class="tag tag-prov">Third-party estimate</span></p>
+  <p>A 57% single-year increase on a mature platform is more consistent with a change in measurement scope than with market growth of that size. Neither firm has published a restatement explaining the shift. The gap should be read as evidence that the two series are not measuring the same thing, not as evidence that one of them is wrong.</p>
+  <p>A third firm, Gamalytic, measures new-release-only revenue and found just $4.7 billion generated by 2025's new games specifically, versus an estimated $10B+ from back catalogue. Video Game Insights measures paid game sales excluding microtransactions and forecast 2024 at $8.8 billion. "Steam revenue" describes at least five different measurements depending on which firm and which scope is being cited. Sensor Tower is the fifth, putting Steam at $11.7 billion in its cross-platform gaming comparison; that figure and the reason it runs low are covered in Part III.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Firm</th><th>2025 figure</th><th>Scope</th></tr></thead>
+      <tbody>
+        <tr><td>Alinea Analytics</td><td>$17.7B</td><td>Platform-wide: paid + F2P + in-game, new + back catalogue</td></tr>
+        <tr><td>GameDiscoverCo</td><td>$16.9B</td><td>Platform-wide, split $1.95B Valve titles / $14.98B third-party</td></tr>
+        <tr><td>Gamalytic</td><td>$4.7B</td><td>New 2025 releases only, back catalogue excluded</td></tr>
+        <tr><td>Video Game Insights</td><td>$8.8B (2024 fcst.)</td><td>Paid game sales only, microtransactions excluded</td></tr>
+        <tr><td>Sensor Tower</td><td>$11.7B</td><td>Cross-platform gaming comparison; appears to undercount Steam relative to PC-specialist firms</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Commission Structure</h3>
+  <p>Valve charges a standard 30% cut on the first $10 million a game earns, dropping to 25% between $10M–$50M, and 20% above $50M lifetime. The tiers apply by revenue tranche, not by title, so a game that crossed $50M still paid 30% on its first $10M and 25% on the next $40M. The blended effective payout rate across all non-Valve games in 2025 was approximately 76%, meaning Valve's average effective cut fell closer to 24% overall; but that average is pulled down almost entirely by a small number of top-earning titles.</p>
+  <p>Games grossing over $50 million lifetime accounted for $7.74 billion of the $14.98 billion in third-party revenue. Roughly $3.5 billion of third-party revenue came from titles whose lifetime gross never crossed the first threshold; those developers paid 30% on every dollar. Valve tiers by revenue tranche, not by title: every game that eventually grossed $50 million still paid 30% on its first $10 million, so total dollars taxed at 30% is higher than $3.5 billion. The point stands regardless: the reduced rates apply to a small number of titles, and the blended 24% figure describes almost no individual developer's experience. <span class="tag tag-directional">Directional</span> <span class="tag tag-prov">Third-party estimate (GDCo tier analysis)</span></p>
+
+  <h3>The Concentration Floor</h3>
+  <p>Gamalytic's read on 2025 releases: median gross revenue $249, the second-lowest since 2020; 66% of games earned under $1,000; 40% never recouped the $100 Steam Direct submission fee; 47.4% sold fewer than 100 copies; the bottom 30% averaged just $37. <span class="tag tag-directional">Directional</span> <span class="tag tag-prov">Third-party estimate (Gamalytic)</span></p>
+
+  <div class="insight finding">
+    <strong>Back catalogue has climbed from 71% to 79% of Steam revenue between 2024 and H1 2026.</strong> The platform grows and the share reaching new games shrinks at the same time; both true, and only one makes the headline.
+  </div>
+
+  <div class="insight caveat">
+    <strong>Gamalytic is open that its methodology is estimation, not Valve data,</strong> with individual-game estimates mostly landing inside a 30% to 50% margin of error. At the bottom of the distribution the margin is widest, because tiny games leave the least signal.
+  </div>
+</section>
+
+<section id="epic">
+  <div class="section-label">Section 02</div>
+  <div class="chevrons"></div>
+  <h2>Epic Games Store</h2>
+  <span class="h2-kicker">The developer-friendly challenger: leaner commission, a fraction of the scale.</span>
+
+  <div class="stat-grid">
+    <div class="stat-cell"><div class="stat-val">14:1</div><div class="stat-lbl">Steam vs Epic, total platform revenue</div></div>
+    <div class="stat-cell"><div class="stat-val teal">37:1</div><div class="stat-lbl">Steam vs Epic, third-party revenue only</div></div>
+    <div class="stat-cell"><div class="stat-val purple">12%</div><div class="stat-lbl">Flat commission rate</div></div>
+    <div class="stat-cell"><div class="stat-val coral">$400M</div><div class="stat-lbl">2025 third-party revenue</div></div>
+  </div>
+
+  <h3>Commission Structure</h3>
+  <p>Epic charges a flat 12% commission, with 0% on a developer's first $1 million in revenue per product per year (introduced June 2025): a sharp contrast to Steam's 30% base rate. <span class="tag tag-high">High confidence</span> <span class="tag tag-prov">Company announcement</span></p>
+
+  <h3>Market Size: Why "14 to 1" Understates the Gap</h3>
+  <p>Epic Games Store topped $1.16 billion in total player spending in 2025, with third-party game revenue reaching $400 million, up 57% year-over-year. The store reported 78 million monthly active users, over 317 million total users, and 662 million free game downloads through its weekly free-games program. <span class="tag tag-high">High confidence</span> <span class="tag tag-prov">Company announcement</span></p>
+  <p>The commonly quoted "14 to 1" gap versus Steam compares Steam's $16.9 billion platform total (which includes Valve's own Counter-Strike 2 and Dota 2) against Epic's $1.16 billion (which includes Fortnite); both totals inflated by their owner's own hit game. <strong>Comparing third-party revenue only, the ratio widens to 37 to 1</strong> ($14.98B vs $400M), which is the number that actually matters to an independent developer deciding where to launch.</p>
+
+  <div class="insight caveat">
+    <strong>Epic's $400M third-party figure explicitly excludes titles that self-process payments</strong> (EA Sports FC 26, Marvel Rivals, Valorant, and Grand Theft Auto V), meaning even the 37:1 gap likely understates Epic's true shortfall relative to Steam's fully-inclusive total.
+  </div>
+
+  <h3>Discoverability Mechanics</h3>
+  <p>Epic relies heavily on its weekly free-game giveaway program to drive engagement and cross-promote paid titles, alongside curated front-page placements rather than an algorithmic wishlist system. Without Steam's scale of user-generated reviews and wishlist signals, discoverability leans more on Epic's own curation and giveaway-driven traffic spikes.</p>
+</section>
+
+<section id="playstation">
+  <div class="section-label">Section 03</div>
+  <div class="chevrons"></div>
+  <h2>PlayStation Network</h2>
+  <span class="h2-kicker">Console economics measured in a different currency than storefront revenue.</span>
+
+  <div class="stat-grid">
+    <div class="stat-cell"><div class="stat-val">¥4.69T</div><div class="stat-lbl">FY2025 Game &amp; Network Services revenue</div></div>
+    <div class="stat-cell"><div class="stat-val teal">~$29.8B</div><div class="stat-lbl">Dollar-equivalent, corporate segment total · ¥157 JPY/USD, May 2026</div></div>
+    <div class="stat-cell"><div class="stat-val purple">49%</div><div class="stat-lbl">Digital software &amp; add-on content share</div></div>
+    <div class="stat-cell"><div class="stat-val coral">95.3M</div><div class="stat-lbl">PS5 lifetime hardware units sold (as of June 30, 2026)</div></div>
+  </div>
+
+  <h3>Market Size: The Comparison Trap</h3>
+  <p>Sony's Game &amp; Network Services (G&amp;NS) segment posted record revenue of ¥4.6857 trillion in FY2025 with operating profit of ¥463.3 billion. Digital software and add-on content together represent roughly 49% of total gaming segment revenue. PS5 lifetime hardware sales reached 95.3 million units as of June 30, 2026, the figure disclosed alongside Sony's FY2026 Q1 earnings. <span class="tag tag-high">High confidence</span> <span class="tag tag-prov">Company filing</span></p>
+  <p>Dollar figures above convert at approximately ¥157 to the dollar, the rate prevailing at the time of the FY2025 earnings release (May 2026). Recomputing at today's rate will produce a different number; the yen figure is the stable one.</p>
+  <p>As with revenue, hardware-unit figures are a moving target: a lifetime-sales number is only valid as of the date of the disclosure it came from, and any cross-platform comparison of install bases should carry the same date discipline this report applies to revenue snapshots.</p>
+
+  <div class="insight caveat">
+    <strong>Sony's ¥4.6857T is corporate segment revenue</strong> (bundling hardware, subscriptions, first-party publishing, and network services) not a like-for-like figure against Steam's player-spending total ($16.9–17.7B). The genuinely comparable figure is what Valve itself keeps after cuts, estimated by Alinea at just over $4 billion in 2025 <span class="tag tag-directional">Directional</span> <span class="tag tag-prov">Third-party estimate</span>. "Consoles are bigger than Steam" usually compares the wrong two columns of the ledger.
+  </div>
+</section>
+
+<section id="xbox">
+  <div class="section-label">Section 04</div>
+  <div class="chevrons"></div>
+  <h2>Xbox</h2>
+  <span class="h2-kicker">A headline figure that was already out of date by the time it circulated.</span>
+
+  <div class="stat-grid">
+    <div class="stat-cell"><div class="stat-val">$21.79B</div><div class="stat-lbl">FY2026 content &amp; services revenue</div></div>
+    <div class="stat-cell"><div class="stat-val coral">-7%</div><div class="stat-lbl">YoY revenue decline, FY2026</div></div>
+    <div class="stat-cell"><div class="stat-val purple">-29%</div><div class="stat-lbl">Hardware revenue decline, FY2026</div></div>
+    <div class="stat-cell"><div class="stat-val teal">$5B</div><div class="stat-lbl">Game Pass annual revenue (FY2025)</div></div>
+  </div>
+
+  <h3>Market Size: Revision in Real Time</h3>
+  <p>Microsoft's Xbox content and services revenue reached $23.5 billion in FY2025, with Game Pass alone generating nearly $5 billion annually: roughly 21–22% of total Xbox content revenue, confirming Game Pass as a major and profitable pillar rather than a loss-leading subscription. <span class="tag tag-high">High confidence</span> <span class="tag tag-prov">Company filing</span></p>
+  <p>That FY2025 figure is already dated in most decks still circulating it: Microsoft's FY2026 (closed June 2026) showed Xbox revenue falling 7% to approximately $21.79 billion, driven by a 29% drop in hardware revenue and softer content and services growth. <span class="tag tag-high">High confidence</span> <span class="tag tag-prov">Company filing</span></p>
+
+  <div class="insight source">
+    <strong>Xbox's headline revenue figure is a moving target</strong> that most cross-storefront comparisons treat as static. Any deck citing "$23.5B" for Xbox without a date attached is already at least one fiscal year stale.
+  </div>
+</section>
+
+<section id="traps">
+  <div class="section-label">Section 05</div>
+  <div class="chevrons"></div>
+  <h2>Cross-Storefront Comparison Traps</h2>
+  <span class="h2-kicker">Four errors that show up in nearly every platform comparison table.</span>
+
+  <ol class="diagnostic-list">
+    <li><strong>Platform-wide vs. third-party.</strong> Comparing Steam's full platform total against Epic's full platform total flatters both owners' first-party hits (CS2/Dota 2 vs. Fortnite) and hides the real developer-facing gap.</li>
+    <li><strong>Player spending vs. corporate revenue.</strong> Sony and Microsoft's segment revenue bundles hardware, subscriptions, and first-party publishing; not a like-for-like comparison to what players spend on a pure storefront like Steam.</li>
+    <li><strong>Stale snapshots.</strong> Every figure in this part has a fiscal-year or calendar-year attached for a reason: Xbox's FY2025 number was already superseded by the time most competitive decks were built around it.</li>
+    <li><strong>Estimator scope.</strong> Every third-party estimate measures a different slice: paid-only, platform-wide, new-releases-only, or back-catalogue-included. The five Steam rulers in Section 01 are five different scopes, not five attempts at the same number.</li>
+  </ol>
+</section>
+
+</main>
+
+<div class="series-nav">
+  <a href="part-1.html">
+    <div class="roman">I</div>
+    <div class="part-name">The Framework</div>
+    <div class="part-desc">FTUE, commissions, UA economics</div>
+  </a>
+  <a class="active" href="part-2.html">
+    <div class="roman">II</div>
+    <div class="part-name">Premium Storefronts</div>
+    <div class="part-desc">Steam, Epic, PlayStation, Xbox</div>
+  </a>
+  <a href="part-3.html">
+    <div class="roman">III</div>
+    <div class="part-name">Mobile &amp; Synthesis</div>
+    <div class="part-desc">App Store, Google Play, decision matrix</div>
+  </a>
+</div>
+
+<div class="bio">
+  <p>Abbas Saleem is a Principal Consultant at <a href="https://www.llamagriffin.com/" target="_blank" rel="noopener noreferrer">Llama &amp; Griffin</a>, advising game studios, streaming platforms, and investment funds across six continents. He writes Recognizing Patterns: gaming industry intelligence 12 to 24 months before it becomes consensus. <a href="https://www.linkedin.com/in/abbassaleemkhan/" target="_blank" rel="noopener noreferrer">LinkedIn</a> | <a href="https://cal.com/llamagriffin/30min" target="_blank" rel="noopener noreferrer">Book a conversation</a></p>
+</div>
+
+<footer>
+  <div>Mobile vs Premium · <span>Llama &amp; Griffin Consultants</span></div>
+  <div><span>recognizingpatterns.substack.com</span> · llamagriffin.com</div>
+  <p class="methodology">Methodology: "Company filing" marks figures drawn from a company's own published financial disclosures. "Third-party estimate" marks figures produced by analytics firms. Estimator figures measure different scopes by different methods and are not reconcilable across firms; a figure should always travel with the firm that produced it.</p>
+</footer>
+
+<script>
+function initNav(){
+  var sects=document.querySelectorAll('section[id],.hero[id]');
+  var links=document.querySelectorAll('nav a.nav-link');
+  var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(l){l.classList.remove('active')});var a=document.querySelector('nav a.nav-link[href="#'+e.target.id+'"]');if(a)a.classList.add('active');}})},{rootMargin:'-25% 0px -70% 0px'});
+  sects.forEach(function(s){obs.observe(s)});
+  links.forEach(function(l){l.addEventListener('click',function(e){e.preventDefault();document.querySelector(l.getAttribute('href')).scrollIntoView({behavior:'smooth'});})});
+}
+initNav();
+</script>
+</body>
+</html>

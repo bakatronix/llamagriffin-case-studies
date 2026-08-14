@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Gen Alpha was raised inside the casino economy. The market is already moving toward participation, and most studios are still pricing the loop while giving away the layer that compounds. A three-part intelligence series.">
+<meta property="og:title" content="The Audience You're Pricing Already Left">
+<meta property="og:description" content="The mechanism, the behavior, and the consequence. How Gen Alpha rewired what a game is, and why the participation layer is the one nobody is charging for.">
+<meta property="og:type" content="website">
+<title>The Audience You're Pricing Already Left · The Pattern Recognition · Llama & Griffin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f7f4ee;--bg2:#fdfcf9;--bg3:#eae7e0;--bg4:#d2cdc3;
+  --border:#d2cdc3;--border-med:#c5bfb5;
+  --text:#232323;--text-muted:#37342f;--text-dim:#6b6660;
+  --gold:#c3a55f;--gold-light:#d4ba82;--gold-dim:rgba(195,165,95,0.12);
+  --teal:#2a8f76;--teal-light:#3daa8e;--teal-dim:rgba(42,143,118,0.10);
+  --purple:#6b64b3;--purple-light:#8f88cc;--purple-dim:rgba(107,100,179,0.10);
+  --coral:#b85a3a;--coral-light:#cb7055;--coral-dim:rgba(184,90,58,0.10);
+  --blue:#3d77c4;--blue-light:#6699d8;--blue-dim:rgba(61,119,196,0.10);
+  --font-display:'Playfair Display',serif;
+  --font-body:'DM Sans',sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7;min-height:100vh}
+a{color:var(--gold);text-decoration:none}a:hover{text-decoration:underline}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(247,244,238,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;height:52px;overflow-x:auto;gap:0}
+nav a{color:var(--text-dim);font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.09em;text-transform:uppercase;padding:0 0.9rem;height:52px;display:flex;align-items:center;border-bottom:2px solid transparent;white-space:nowrap;transition:color 0.15s,border-color 0.15s}
+nav a:hover{color:var(--gold);text-decoration:none;border-bottom-color:rgba(195,165,95,0.3)}
+nav a.active{color:var(--gold);border-bottom-color:var(--gold)}
+.nav-brand{font-family:var(--font-display);font-size:14px;font-weight:700;color:var(--text);text-transform:none;letter-spacing:normal;margin-right:1.5rem;padding-right:1.5rem;border-right:1px solid var(--border);white-space:nowrap}
+
+/* HERO */
+.hero{padding:5rem 2rem 3rem;max-width:960px;margin:0 auto;position:relative}
+.hero-eyebrow{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1.75rem;display:flex;align-items:center;gap:10px}
+.hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold);display:inline-block}
+.hero h1{font-family:var(--font-display);font-size:clamp(2.4rem,6vw,4rem);font-weight:700;line-height:1.04;color:var(--text);margin-bottom:1.5rem}
+.hero h1 span{color:var(--gold);font-style:italic;display:block}
+.hero-sub{font-size:16px;color:var(--text-muted);max-width:680px;margin-bottom:2.5rem;line-height:1.7}
+.hero-sub strong{color:var(--text);font-weight:600}
+
+/* META ROW */
+.meta-row{display:flex;gap:2.5rem;flex-wrap:wrap;padding:1.5rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:2.5rem}
+.meta-item{font-family:var(--font-mono);font-size:10px;letter-spacing:0.09em;color:var(--text-dim);text-transform:uppercase}
+.meta-item span{color:var(--text);font-weight:500}
+
+/* STAT BAND */
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.stat-cell{background:var(--bg2);padding:1.5rem 1.5rem}
+.stat-val{font-family:var(--font-display);font-size:1.9rem;font-weight:700;color:var(--gold);line-height:1;margin-bottom:8px}
+.stat-val.teal{color:var(--teal)}
+.stat-val.purple{color:var(--purple)}
+.stat-val.coral{color:var(--coral)}
+.stat-lbl{font-family:var(--font-mono);font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.07em;line-height:1.5}
+
+/* THROUGH-LINE CALLOUT */
+.throughline{max-width:960px;margin:3rem auto;padding:0 2rem}
+.throughline-inner{border-left:3px solid var(--gold);background:var(--gold-dim);border-radius:0 6px 6px 0;padding:1.75rem 2rem;font-size:15px;color:var(--text-muted);line-height:1.75}
+.throughline-inner strong{color:var(--text);font-weight:600}
+
+/* PART CARDS */
+.parts{max-width:960px;margin:0 auto;padding:1rem 2rem 4rem}
+.parts-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}
+.part-card{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:2rem 1.75rem;display:flex;flex-direction:column;transition:border-color 0.15s,transform 0.15s,box-shadow 0.15s}
+.part-card:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 8px 24px rgba(35,35,35,0.06);text-decoration:none}
+.part-num{font-family:var(--font-display);font-size:1.5rem;font-weight:700;font-style:italic;color:var(--gold);margin-bottom:1.5rem;line-height:1}
+.part-title{font-family:var(--font-display);font-size:1.35rem;font-weight:700;color:var(--text);margin-bottom:0.4rem;line-height:1.15}
+.part-kicker{font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);margin-bottom:0.9rem}
+.part-card.ii .part-kicker{color:var(--purple)}
+.part-card.iii .part-kicker{color:var(--coral)}
+.part-desc{font-size:13.5px;color:var(--text-muted);line-height:1.6;margin-bottom:1.5rem;flex:1}
+.part-link{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:6px}
+.part-card:hover .part-link{gap:10px}
+.part-link::after{content:'→';transition:transform 0.15s}
+
+/* CLOSING LINE */
+.closing{max-width:960px;margin:0 auto;padding:1rem 2rem 4rem;border-top:1px solid var(--border)}
+.closing p{font-family:var(--font-display);font-size:1.25rem;font-style:italic;color:var(--text-muted);max-width:640px;line-height:1.5;margin-top:2.5rem}
+.closing p span{color:var(--gold)}
+
+/* FOOTER */
+footer{max-width:960px;margin:0 auto;padding:2rem;border-top:1px solid var(--border);font-size:12px;color:var(--text-dim);display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;align-items:center}
+footer span{color:var(--gold)}
+
+@media(max-width:600px){
+  .meta-row{gap:1.25rem}
+  .hero{padding:3.5rem 1.5rem 2.5rem}
+}
+</style>
+</head>
+<body>
+
+<nav id="main-nav"><a class="nav-brand" href="https://www.llamagriffin.com" target="_blank" rel="noopener noreferrer" style="color:var(--text);text-decoration:none">Llama &amp; Griffin Consultants</a>
+  <a href="#overview" class="active">Overview</a>
+  <a href="gen-alpha-part1-the-mechanism.html">Part I · The Mechanism</a>
+  <a href="gen-alpha-part2-the-behavior.html">Part II · The Behavior</a>
+  <a href="gen-alpha-part3-the-consequence.html">Part III · The Consequence</a>
+</nav>
+
+<main>
+
+<!-- HERO -->
+<div class="hero" id="overview">
+  <div class="hero-eyebrow">The Gen Alpha Series · Market Intelligence Suite</div>
+  <h1>The Audience You're Pricing<br><span>Already Left.</span></h1>
+  <p class="hero-sub">For thirty years the industry sold a finished object to a player who sat down and pressed A. Gen Alpha was raised somewhere else: inside systems where the audience builds the thing, governs the thing, and treats the game as a place rather than a purchase. The market is already moving toward that, visible in price data, retention data, and where the kids actually are. <strong>This series traces the shift across three reports: the mechanism, the behavior, and the consequence most studios are underpricing.</strong></p>
+
+  <div class="meta-row">
+    <div class="meta-item">Series <span>Three Reports</span></div>
+    <div class="meta-item">Window <span>2024 – 2027</span></div>
+    <div class="meta-item">Focus <span>Gen Alpha · Participation · Steam</span></div>
+    <div class="meta-item">Sources <span>Roblox · Newzoo · Alinea · Circana</span></div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-cell"><div class="stat-val">380M</div><div class="stat-lbl">Roblox monthly active users, mid-2025</div></div>
+    <div class="stat-cell"><div class="stat-val teal">144M</div><div class="stat-lbl">Roblox daily active users, Q4 2025 (+69% YoY)</div></div>
+    <div class="stat-cell"><div class="stat-val purple">10B+</div><div class="stat-lbl">Hours logged on Roblox per month</div></div>
+    <div class="stat-cell"><div class="stat-val coral">2027</div><div class="stat-lbl">First Gen Alpha cohort turns 13</div></div>
+  </div>
+</div>
+
+<!-- PART CARDS -->
+<div class="parts">
+  <div class="parts-grid">
+
+    <a class="part-card i" href="gen-alpha-part1-the-mechanism.html" id="part1">
+      <div class="part-num">I</div>
+      <div class="part-kicker">The Mechanism</div>
+      <div class="part-title">Raised Inside the House</div>
+      <div class="part-desc">Millennials watched the casino economy get built. Gen Z tried to beat the house with crypto and meme stocks. Gen Alpha is the first generation raised entirely inside it, learning through Roblox, Minecraft, and Fortnite from age six, not learning about these systems later. The pandemic locked it in during their most formative years. How a generation got its operating system.</div>
+      <div class="part-link">Open Part I</div>
+    </a>
+
+    <a class="part-card ii" href="gen-alpha-part2-the-behavior.html" id="part2">
+      <div class="part-num">II</div>
+      <div class="part-kicker">The Behavior</div>
+      <div class="part-title">Participating in Canon</div>
+      <div class="part-desc">The fan output is observable: the Murder Drones Discords, the Wattpad fiction, the theorycraft that treats lore as something to negotiate rather than receive. Whether that fluency becomes resistance to extraction or just more sophisticated spending is the open question, and this report refuses to pretend it is closed. The evidence, the competing explanation, and the caveat the Genshin numbers force.</div>
+      <div class="part-link">Open Part II</div>
+    </a>
+
+    <a class="part-card iii" href="gen-alpha-part3-the-consequence.html" id="part3">
+      <div class="part-num">III</div>
+      <div class="part-kicker">The Consequence</div>
+      <div class="part-title">The Layer You're Giving Away</div>
+      <div class="part-desc">The price tier collapsed. The metrics that predict survival changed. And the first Roblox cohort is graduating along a grain already visible in the data: boys toward survival-loop games, girls toward community-craft like Palia. The loop prints money. The participation layer wrapped around it is the part that compounds, and it is the part almost no one is pricing. What patient capital can build that quarterly capital cannot.</div>
+      <div class="part-link">Open Part III</div>
+    </a>
+
+  </div>
+</div>
+
+<!-- CLOSING -->
+<div class="closing">
+  <p>The mechanism is settled. The behavior is still running. And the consequence is already in the price data, waiting for someone to read it. <span>Read in order.</span></p>
+</div>
+
+</main>
+
+<footer>
+  <div>The Gen Alpha Intelligence Suite · <span>Llama &amp; Griffin Consultants</span></div>
+  <div><span>recognizingpatterns.substack.com</span> · llamagriffin.com</div>
+</footer>
+
+<script>
+function initNav(){
+  const links = document.querySelectorAll('nav a');
+  links.forEach(l=>l.addEventListener('click',e=>{
+    const href = l.getAttribute('href');
+    if(href && href.startsWith('#')){
+      e.preventDefault();
+      const t = document.querySelector(href);
+      if(t) t.scrollIntoView({behavior:'smooth'});
+    }
+  }));
+}
+initNav();
+</script>
+</body>
+</html>

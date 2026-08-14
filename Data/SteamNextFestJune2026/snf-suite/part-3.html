@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Steam Next Fest: A Three-Year Retrospective · 2023–2026 · Llama &amp; Griffin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  /* L&G Brand Palette */
+  --bg:#f7f4ee;--bg2:#fdfcf9;--bg3:#eae7e0;--bg4:#d2cdc3;
+  --border:#d2cdc3;--border-med:#c5bfb5;
+  --text:#232323;--text-muted:#37342f;--text-dim:#6b6660;
+  /* L&G Accent */
+  --gold:#c3a55f;--gold-light:#d4ba82;--gold-dim:rgba(195,165,95,0.12);
+  /* Semantic data colours - warm-muted for cream background */
+  --teal:#2a8f76;--teal-light:#3daa8e;--teal-dim:rgba(42,143,118,0.10);
+  --purple:#6b64b3;--purple-light:#8f88cc;--purple-dim:rgba(107,100,179,0.10);
+  --coral:#b85a3a;--coral-light:#cb7055;--coral-dim:rgba(184,90,58,0.10);
+  --blue:#3d77c4;--blue-light:#6699d8;--blue-dim:rgba(61,119,196,0.10);
+  --font-display:'Playfair Display',serif;
+  --font-body:'DM Sans',sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7;min-height:100vh}
+a{color:var(--gold);text-decoration:none}a:hover{text-decoration:underline}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(247,244,238,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;height:52px;overflow-x:auto;gap:0}
+nav a{color:var(--text-dim);font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.09em;text-transform:uppercase;padding:0 0.9rem;height:52px;display:flex;align-items:center;border-bottom:2px solid transparent;white-space:nowrap;transition:color 0.15s,border-color 0.15s}
+nav a:hover{color:var(--gold);text-decoration:none;border-bottom-color:rgba(195,165,95,0.3)}
+nav a.active{color:var(--gold);border-bottom-color:var(--gold)}
+.nav-brand{font-family:var(--font-display);font-size:14px;font-weight:700;color:var(--text);margin-right:1.5rem;padding-right:1.5rem;border-right:1px solid var(--border);white-space:nowrap;text-transform:none;letter-spacing:normal}
+.nav-divider{width:1px;height:20px;background:var(--border);margin:0 0.5rem;flex-shrink:0}
+
+/* HERO */
+.hero{padding:5rem 2rem 4rem;max-width:960px;margin:0 auto;position:relative}
+.hero-eyebrow{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;display:flex;align-items:center;gap:10px}
+.hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold);display:inline-block}
+.hero h1{font-family:var(--font-display);font-size:clamp(2rem,5vw,3.4rem);font-weight:700;line-height:1.07;color:var(--text);margin-bottom:0.75rem}
+.hero h1 span{color:var(--gold);font-style:italic}
+.hero-sub{font-size:15px;color:var(--text-muted);max-width:580px;margin-bottom:2.5rem;line-height:1.65}
+.hero-meta{display:flex;gap:1.5rem;margin-bottom:2.5rem;flex-wrap:wrap}
+.hero-meta-item{font-family:var(--font-mono);font-size:10px;letter-spacing:0.09em;color:var(--text-dim);text-transform:uppercase}
+.hero-meta-item span{color:var(--text-muted);font-weight:500}
+
+/* STAT GRID */
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:3rem}
+.stat-cell{background:var(--bg2);padding:1.25rem 1.5rem}
+.stat-val{font-family:var(--font-display);font-size:1.6rem;font-weight:700;color:var(--gold);line-height:1;margin-bottom:5px}
+.stat-val.teal{color:var(--teal)}
+.stat-val.purple{color:var(--purple)}
+.stat-val.coral{color:var(--coral)}
+.stat-lbl{font-family:var(--font-mono);font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.07em}
+
+/* CHEVRON ACCENT */
+.chevrons{display:flex;gap:5px;margin-bottom:0.5rem}
+.chevrons::before{content:'▲▲▲▲';font-size:8px;color:var(--gold);letter-spacing:3px}
+
+/* SECTIONS */
+section{max-width:960px;margin:0 auto;padding:3.5rem 2rem;border-top:1px solid var(--border)}
+.section-label{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.3rem}
+h2{font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--text);margin-bottom:0.25rem;line-height:1.15}
+.h2-kicker{font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--gold);font-style:italic;display:block;margin-bottom:1.5rem}
+.section-intro{font-size:15px;color:var(--text-muted);max-width:700px;margin-bottom:2rem;line-height:1.7}
+h3{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);margin:2.5rem 0 1rem}
+h3:first-of-type{margin-top:0}
+p{color:var(--text-muted);margin-bottom:1rem;font-size:15px;max-width:72ch;line-height:1.7}
+p strong{color:var(--text);font-weight:600}
+p:last-child{margin-bottom:0}
+
+/* TABLES */
+.table-wrap{overflow-x:auto;margin-bottom:1.5rem;border:1px solid var(--border);border-radius:4px;overflow:hidden}
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead th{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);padding:0.75rem 1rem;text-align:left;border-bottom:1px solid var(--border-med);background:var(--bg3);white-space:nowrap}
+tbody tr{border-bottom:1px solid var(--border);transition:background 0.1s}
+tbody tr:last-child{border-bottom:none}
+tbody tr:hover{background:var(--bg3)}
+tbody td{padding:0.65rem 1rem;color:var(--text-muted);vertical-align:middle}
+tbody td:first-child{color:var(--text)}
+
+/* TAGS/BADGES */
+.tag{display:inline-block;font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;padding:2px 7px;border-radius:2px;white-space:nowrap}
+.tag-gold{background:var(--gold-dim);color:var(--gold)}
+.tag-teal{background:var(--teal-dim);color:var(--teal)}
+.tag-purple{background:var(--purple-dim);color:var(--purple)}
+.tag-coral{background:var(--coral-dim);color:var(--coral)}
+.tag-blue{background:var(--blue-dim);color:var(--blue)}
+.tag-dim{background:rgba(35,35,35,0.07);color:var(--text-dim)}
+.tag-official{background:var(--teal-dim);color:var(--teal)}
+.tag-inferred{background:var(--purple-dim);color:var(--purple)}
+
+.rank-badge{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:3px;font-family:var(--font-mono);font-size:10px;font-weight:500;background:var(--bg3);color:var(--text-dim);margin-right:6px;flex-shrink:0}
+.rank-badge.top3{background:var(--gold-dim);color:var(--gold)}
+.rank-badge.top10{background:var(--teal-dim);color:var(--teal)}
+
+/* INSIGHTS */
+.insight{border-left:2px solid var(--gold);background:var(--gold-dim);border-radius:0 4px 4px 0;padding:1rem 1.25rem;margin:1.5rem 0;font-size:14px;color:var(--text-muted);line-height:1.65}
+.insight strong{color:var(--text);font-weight:600}
+.insight.teal{border-color:var(--teal);background:var(--teal-dim)}
+.insight.teal strong{color:var(--teal)}
+.insight.purple{border-color:var(--purple);background:var(--purple-dim)}
+.insight.purple strong{color:var(--purple)}
+.insight.coral{border-color:var(--coral);background:var(--coral-dim)}
+.insight.coral strong{color:var(--coral)}
+.insight.blue{border-color:var(--blue);background:var(--blue-dim)}
+.insight.blue strong{color:var(--blue)}
+
+/* CARDS */
+.card-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:1.75rem}
+.card{background:var(--bg2);padding:1.25rem 1.5rem}
+.card .clabel{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);margin-bottom:6px}
+.card .cval{font-family:var(--font-display);font-size:1.3rem;font-weight:700;color:var(--text);line-height:1.1;margin-bottom:3px}
+.card .csub{font-size:12px;color:var(--text-muted);line-height:1.45}
+.card.gold .cval{color:var(--gold)}
+.card.teal .cval{color:var(--teal)}
+.card.purple .cval{color:var(--purple)}
+.card.coral .cval{color:var(--coral)}
+.card.blue .cval{color:var(--blue)}
+
+/* TABS */
+.tabs{display:flex;gap:2px;margin-bottom:1.25rem;border-bottom:1px solid var(--border)}
+.tab-btn{font-family:var(--font-mono);font-size:10px;font-weight:500;background:none;border:none;color:var(--text-dim);padding:0.6rem 1rem;cursor:pointer;border-bottom:2px solid transparent;transition:color 0.15s,border-color 0.15s;margin-bottom:-1px;letter-spacing:0.08em;text-transform:uppercase}
+.tab-btn:hover{color:var(--text-muted)}
+.tab-btn.active{color:var(--gold);border-bottom-color:var(--gold)}
+.tab-panel{display:none}.tab-panel.active{display:block}
+
+/* TIMELINE */
+.timeline{position:relative;padding-left:1.5rem}
+.timeline::before{content:'';position:absolute;left:0;top:6px;bottom:6px;width:1px;background:var(--border-med)}
+.timeline-item{position:relative;padding:0 0 1.5rem 1.5rem}
+.timeline-item::before{content:'';position:absolute;left:-4px;top:6px;width:8px;height:8px;border-radius:50%;background:var(--bg3);border:1px solid var(--border-med)}
+.timeline-item.key::before{background:var(--gold);border-color:var(--gold)}
+.timeline-date{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.09em;text-transform:uppercase;color:var(--gold);margin-bottom:2px}
+.timeline-event{font-size:14px;color:var(--text);font-weight:500}
+.timeline-note{font-size:12px;color:var(--text-muted);margin-top:4px;line-height:1.55}
+
+/* CHART */
+.chart-wrap{position:relative;width:100%;margin-bottom:1.5rem}
+.chart-legend{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:10px;font-size:12px;color:var(--text-muted)}
+.chart-legend span{display:flex;align-items:center;gap:6px}
+.swatch{width:10px;height:10px;border-radius:2px;flex-shrink:0}
+
+/* EDITION LABELS */
+.edition-label{font-family:var(--font-display);font-size:12px;letter-spacing:0.02em}
+.edition-june26{color:var(--gold)}
+.edition-feb26{color:var(--teal)}
+.edition-oct25{color:var(--purple)}
+.edition-jun25{color:var(--blue)}
+.edition-feb25{color:var(--coral)}
+
+/* ROGUELITE */
+.rog-badge{display:inline-block;width:6px;height:6px;border-radius:50%;margin-right:6px}
+.rog-breakout{background:var(--gold)}
+.rog-strong{background:var(--teal)}
+.rog-solid{background:var(--purple)}
+.rog-avg{background:var(--text-dim)}
+
+/* BARS */
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.bar-label{font-size:12px;color:var(--text-muted);min-width:180px;flex-shrink:0}
+.bar-bg{flex:1;height:5px;background:var(--bg4);border-radius:3px;overflow:hidden}
+.bar-fill{height:100%;border-radius:3px}
+.bar-val{font-family:var(--font-mono);font-size:12px;font-weight:500;color:var(--text);min-width:80px;text-align:right;flex-shrink:0}
+
+/* EDITION COMPARE */
+.compare-band{display:flex;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:2rem}
+.compare-col{flex:1;min-width:140px}
+.compare-header{background:var(--bg3);padding:0.9rem 1.2rem;border-bottom:1px solid var(--border)}
+.compare-header .ed-name{font-family:var(--font-display);font-size:13px;font-weight:700}
+.compare-header .ed-meta{font-family:var(--font-mono);font-size:10px;color:var(--text-dim);margin-top:3px}
+.compare-body{background:var(--bg2);padding:1rem 1.2rem}
+.compare-kv{margin-bottom:10px}
+.compare-kv .kk{font-family:var(--font-mono);font-size:9px;text-transform:uppercase;letter-spacing:0.09em;color:var(--text-dim);margin-bottom:2px}
+.compare-kv .vv{font-size:13px;color:var(--text);font-weight:500}
+
+/* FOOTER */
+footer{max-width:960px;margin:0 auto;padding:2rem 2rem 3rem;border-top:1px solid var(--border);font-size:12px;color:var(--text-dim);display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;align-items:center}
+footer span{color:var(--gold)}
+
+@media(max-width:600px){
+  .bar-label{min-width:120px;font-size:11px}
+  h2{font-size:1.25rem}
+}
+</style>
+</head>
+<body>
+
+<div id="suite-nav" style="background:#f5f1e8;border-bottom:1px solid rgba(30,25,20,0.12);padding:0 2rem;display:flex;align-items:center;height:36px;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.09em;text-transform:uppercase;gap:0;overflow-x:auto;position:sticky;top:0;z-index:200">
+  <span style="color:#C9A84C;margin-right:1.5rem;padding-right:1.5rem;border-right:1px solid rgba(30,25,20,0.12);white-space:nowrap;font-weight:500">Steam Next Fest Suite</span>
+  <a href="index.html" class="suite-link ">Overview</a><a href="part-3.html" class="suite-link active">Part I · Three-Year Arc</a><a href="part-1.html" class="suite-link ">Part II · June 2026</a><a href="part-2.html" class="suite-link ">Part III · AI Disclosure</a>
+</div>
+<style>
+  .suite-link{color:#9490A0;padding:0 0.85rem;height:36px;display:inline-flex;align-items:center;border-bottom:2px solid transparent;white-space:nowrap;text-decoration:none;transition:color 0.15s}
+  .suite-link:hover{color:#C9A84C;border-bottom-color:rgba(201,168,76,0.3)}
+  .suite-link.active{color:#C9A84C;border-bottom-color:#C9A84C}
+  #main-nav{top:36px !important}
+</style>
+
+<nav id="main-nav"><a href="https://www.llamagriffin.com" class="nav-brand" style="text-decoration:none">Llama &amp; Griffin Consultants</a>
+  <a href="#overview" class="active">Overview</a>
+  <a href="#calendar">Calendar</a>
+  <a href="#y2023">2023</a>
+  <a href="#y2024">2024</a>
+  <a href="#y2025">2025</a>
+  <a href="#y2026">2026</a>
+  <a href="#coop">Co-op Arc</a>
+  <a href="#breakouts">Breakouts</a>
+  <a href="#asia">Asia</a>
+  <a href="#squeeze">The Squeeze</a>
+  <a href="#conclusion">Conclusion</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero" id="overview">
+  <div class="hero-eyebrow">Pattern Recognition · Deep Intelligence Report · Part I</div>
+  <h1>Steam Next Fest<br><span>A Three-Year Retrospective, 2023–2026</span></h1>
+  <p class="hero-sub">In three years the event grew from roughly 900 demos to nearly 4,900, more than a fivefold rise. That scale tells two stories at once: for players, an unprecedented sampling window; for developers, a structural compression in per-game returns that no community goodwill fully offsets. Total engagement grew nearly every edition. Median follower gain per game fell across the same span. This report documents every edition, the genre arcs that connect them, and the one trend that explains the rest.</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item">Window <span>Feb 2023 – Jun 2026</span></div>
+    <div class="hero-meta-item">Editions <span>Eleven documented</span></div>
+    <div class="hero-meta-item">Basis <span>Valve · GDCo · HTMAG · Steam</span></div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-cell"><div class="stat-val">444%</div><div class="stat-lbl">Demo growth, 2023 to 2026</div></div>
+    <div class="stat-cell"><div class="stat-val teal">~20×</div><div class="stat-lbl">Fall in impressions per game</div></div>
+    <div class="stat-cell"><div class="stat-val purple">7 of 10</div><div class="stat-lbl">June 2026 top games with co-op</div></div>
+    <div class="stat-cell"><div class="stat-val coral">10k+</div><div class="stat-lbl">Pre-fest wishlists to break out</div></div>
+  </div>
+
+  <div class="insight"><strong>The through-line: the harvest thesis.</strong> Every breakout in three years, from Enshrouded in October 2023 to IRON NEST in June 2026, arrived with a community built before the festival opened and used Next Fest as a multiplier, not a seed planter. The event's algorithm rewards momentum; it does not create it. The festival that once gave a 900-game pool to share among eleven million players now asks nearly 4,900 games to compete for broadly the same attention envelope. Community health is the only unmanufacturable asset, and the data across eleven editions says so consistently.</div>
+</div>
+
+<!-- CALENDAR -->
+<section id="calendar">
+  <div class="section-label">The Calendar</div>
+  <div class="chevrons"></div>
+  <h2>Three editions a year, each a new record.</h2><span class="h2-kicker">Scale outran attention.</span>
+  <p class="section-intro">Steam runs three Next Fest editions annually: February, June, and October. The demo count climbed in almost every edition across the window, a pace far outstripping any corresponding growth in player attention.</p>
+
+  <p style="font-size:11px;color:var(--text-dim);font-family:var(--font-mono);letter-spacing:0.05em;padding:0.5rem 0;border-top:1px solid var(--border-med);margin-bottom:0.75rem"><strong>Data note:</strong> Percentiles for February 2025 onward are drawn from the How To Market A Game survey series. Earlier columns are estimates based on smaller sample sizes and should be read as directional, not definitive.</p>
+<div class="table-wrap">
+    <table>
+      <thead><tr><th>Edition</th><th>Dates</th><th>Approx. demos</th></tr></thead>
+      <tbody>
+        <tr><td>February 2023</td><td>Feb 6–13</td><td>~900 (est.)</td>
+        <tr><td>June 2023</td><td>Jun 19–26</td><td>~900–1,000 (est.)</td>
+        <tr><td>October 2023</td><td>Oct 9–16</td><td>~1,100 (est.)</td>
+        <tr><td>February 2024</td><td>Feb 5–12</td><td>~1,500 (est.)</td>
+        <tr><td>June 2024</td><td>Jun 10–17</td><td>~1,800 (est.)</td>
+        <tr><td>October 2024</td><td>Oct 14–21</td><td>~2,200 (est.)</td>
+        <tr><td>February 2025</td><td>Feb 24–Mar 3</td><td>~2,300</td></tr>
+        <tr><td>June 2025</td><td>Jun 9–16</td><td>~2,645</td></tr>
+        <tr><td>October 2025</td><td>Oct 13–20</td><td>~2,900</td></tr>
+        <tr><td>February 2026</td><td>Feb 23–Mar 2</td><td>~3,400–3,500</td></tr>
+        <tr><td><strong>June 2026</strong></td><td>Jun 15–22</td><td><strong>~4,382</strong></td></tr>
+        <tr><td>October 2026</td><td>Oct 19–26</td><td><span class="tag tag-dim">TBD</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="insight teal"><strong>The compression in one comparison.</strong> A developer who documented their results across editions earned 1,600 wishlists on 900,000 impressions with a February 2023 demo, and only 350 wishlists on 58,000 impressions with a February 2026 demo at a comparable starting position, roughly twenty times fewer impressions for the same effort. The demo did not get worse. The room got more crowded.</div>
+</section>
+
+<!-- 2023 -->
+<section id="y2023">
+  <div class="section-label">Part I · The 2023 Editions</div>
+  <div class="chevrons"></div>
+  <h2>The small-pond era ends.</h2><span class="h2-kicker">When a creator could still see it all.</span>
+  <p class="section-intro">February 2023 is remembered as the last edition before structural compression became measurable. With roughly 900 games, individual titles received dramatically higher per-game exposure than anything that followed. By October, the survival-game meta and aggressive IP participation that would define later editions were already taking shape.</p>
+
+  <h3>February 2023: the small-pond era</h3>
+  <p>Valve did not publish a formally ranked top 10 for this edition, so the standout titles below reflect heavy press coverage and survey data rather than a Valve-verified ranking. The field was dominated by strong indie concepts with clear mechanical pitches: Shadows of Doubt (procedural detective noir), Planet of Lana (cinematic puzzle-platformer), Oblivion Override (roguelite Metroidvania), Tape to Tape (arcade hockey), MEATGRINDER (hardcore FPS), and Mail Time (wholesome delivery adventure). The defining fact of this edition is not any single game but the exposure math: this was the last time a debut title could rely on the festival itself for discovery.</p>
+
+  <h3>June 2023: record players, tight charts</h3>
+  <p>June 2023 attracted 11.4 million players, a new record at the time. Valve released the full top 50 by unique players.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Game</th><th>Genre</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><strong>House Flipper 2</strong></td><td>Renovation sim</td><td>Broad mass-market appeal</td></tr>
+        <tr><td>2</td><td><strong>Lies of P</strong></td><td>Soulslike</td><td><span class="tag tag-purple">Korean co-pub</span></td></tr>
+        <tr><td>3</td><td>Viewfinder</td><td>Spatial puzzle</td><td>Reality-bending hook</td></tr>
+        <tr><td>4</td><td>Warhaven</td><td>PvP action</td><td><span class="tag tag-purple">Nexon</span></td></tr>
+        <tr><td>5</td><td>Wizard with a Gun</td><td>Co-op survival</td><td>Devolver</td></tr>
+        <tr><td>6</td><td>Little Kitty, Big City</td><td>Open-world adventure</td><td>Charm-driven</td></tr>
+        <tr><td>7</td><td>Sea of Stars</td><td>Turn-based RPG</td><td>Became a 2023 indie landmark</td></tr>
+        <tr><td>8</td><td>Hammerwatch II</td><td>Hack-and-slash</td><td>Sequel</td></tr>
+        <tr><td>9</td><td>The Invincible</td><td>Sci-fi exploration</td><td>Stanisław Lem source</td></tr>
+        <tr><td>10</td><td>Thronefall</td><td>Minimalist strategy</td><td>Solo-dev top-10</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>South Korean publishers dominated the top four with Warhaven and Lies of P. Co-op and survival titles were already asserting themselves, and Sea of Stars launched from this platform to become one of the most celebrated indie RPGs of the year.</p>
+
+  <h3>October 2023: Enshrouded and the survival surge</h3>
+  <p>October confirmed that survival games with dark-fantasy settings were becoming the dominant meta. Enshrouded topped the charts before it was widely known, beginning a run that culminated in a massive early-access launch and over a million copies sold in its first month.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Game</th><th>Genre</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><strong>Enshrouded</strong></td><td>Voxel survival-action</td><td><span class="tag tag-gold">Community-driven #1</span></td></tr>
+        <tr><td>2</td><td>Japanese Drift Master</td><td>Open-world racing</td><td>Polish studio</td></tr>
+        <tr><td>3</td><td>Sky: Children of the Light</td><td>Chill social MMO</td><td>thatgamecompany</td></tr>
+        <tr><td>4</td><td>Deep Rock Galactic: Survivor</td><td>Roguelike spin-off</td><td>Franchise fanbase</td></tr>
+        <tr><td>5</td><td>Headbangers: Rhythm Royale</td><td>Rhythm battle royale</td><td>Meme appeal</td></tr>
+        <tr><td>6</td><td>RoboCop: Rogue City</td><td>Licensed FPS</td><td>Polish studio breakout</td></tr>
+        <tr><td>7</td><td>Ghostrunner 2</td><td>Cyberpunk parkour</td><td>Polish franchise sequel</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="insight"><strong>The micro-miracle that defined the era.</strong> Desktop Defender, an idle auto-battler from a one-person developer with literally three players before the event, jumped to 1,548 peak concurrent users, a 51,500 percent surge, and Valve emailed the developer to confirm the placement. October 2023 was still small enough that a completely unknown title could be discovered cold. That capacity is precisely what the scale of later editions eroded.</div>
+</section>
+
+<!-- 2024 -->
+<section id="y2024">
+  <div class="section-label">Part II · The 2024 Editions</div>
+  <div class="chevrons"></div>
+  <h2>The pivot year.</h2><span class="h2-kicker">Strategy peaks, multiplayer takes over.</span>
+  <p class="section-intro">2024 is when per-game visibility returns first started declining noticeably in developer surveys, as demo counts crossed 1,800. February delivered the most strategy-heavy top 10 in the event's history; by October, multiplayer games held nine of the top ten slots.</p>
+
+  <h3>February 2024: strategy's moment</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Game</th><th>Genre</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><strong>Dungeonborne</strong></td><td>PvPvE extraction</td><td>Announced 2 weeks prior; 19,000+ CCU</td></tr>
+        <tr><td>2</td><td>Stormgate</td><td>RTS</td><td>StarCraft spiritual successor</td></tr>
+        <tr><td>3</td><td>Pacific Drive</td><td>Car roguelike</td><td>Atmosphere breakout</td></tr>
+        <tr><td>4</td><td>Homeworld 3</td><td>Space RTS</td><td>Co-op mode</td></tr>
+        <tr><td>5</td><td>Backpack Battles</td><td>Auto-battler</td><td>Viral concept</td></tr>
+        <tr><td>6</td><td>Dread Dawn</td><td>Survival sandbox</td><td>Zombie sandbox</td></tr>
+        <tr><td>7</td><td>Millennia</td><td>4X strategy</td><td>Paradox</td></tr>
+        <tr><td>8</td><td><strong>Balatro</strong></td><td>Poker roguelike</td><td><span class="tag tag-gold">Future GOTY</span></td></tr>
+        <tr><td>9</td><td>Rotwood</td><td>Co-op dungeon crawler</td><td>Klei</td></tr>
+        <tr><td>10</td><td>Deviator</td><td>Metroidvania</td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="insight"><strong>Chart position does not predict trajectory.</strong> Balatro placed #8, a strong but not explosive showing, then sold millions of copies and contended for Game of the Year. Dungeonborne, announced only two weeks before the fest, surged to over 19,000 concurrent players and topped the chart, then faded. The most-played ranking and the long-term commercial outcome are different measurements, a theme that recurs in every later edition.</div>
+
+  <h3>June 2024: the Chinese surge begins</h3>
+  <p>Valve published a top 50 for June 2024, but a fully reproduced ranked list is not in recoverable public archives. By unique players and wishlists, the top performers included Manor Lords (already launched, over three million players), No Rest for the Wicked, Content Warning (co-op viral horror comedy), Abiotic Factor, Frostpunk 2, Soulmask, Once Human, Deceit 3, and Hades II. The defining story was the Chinese indie surge: Chinese-developed titles began appearing in the top 30 with increasing frequency, a trend that became a structural feature of every subsequent edition.</p>
+
+  <h3>October 2024: multiplayer dominates, Delta Force crowns</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Game</th><th>Genre</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><strong>Delta Force</strong></td><td>Extraction FPS</td><td><span class="tag tag-coral">39,770 CCU</span></td></tr>
+        <tr><td>2</td><td>SUPERVIVE</td><td>Hero shooter</td><td>Strong streaming presence</td></tr>
+        <tr><td>3</td><td>POPUCOM</td><td>Co-op platformer</td><td></td></tr>
+        <tr><td>4</td><td>Gladio Mori</td><td>Physics fighting</td><td></td></tr>
+        <tr><td>5</td><td>Strinova</td><td>Anime shooter</td><td>Chinese</td></tr>
+        <tr><td>6</td><td>Rivals of Aether 2</td><td>Platform fighter</td><td>Community-grown</td></tr>
+        <tr><td>7</td><td>The Precinct</td><td>GTA-style sandbox</td><td><span class="tag tag-dim">Sole single-player</span></td></tr>
+        <tr><td>8</td><td>Windblown</td><td>Co-op roguelite</td><td>Dead Cells creators</td></tr>
+        <tr><td>9</td><td>Sand</td><td>Survival MMO</td><td>Ukrainian studio</td></tr>
+        <tr><td>10</td><td>Streets of Rogue 2</td><td>Roguelite sandbox</td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="insight teal"><strong>Momentum, not hope.</strong> Delta Force peaked at 39,770 concurrent players, the highest CCU for any Next Fest demo to that point, matching Battlefield V's concurrent counts. Team Jade's aggressive influencer campaign was a textbook case of entering Next Fest with momentum already built rather than hoping the event would generate it, the pattern this entire report keeps returning to. Nine of the top ten were multiplayer; only The Precinct, a single-player sandbox, broke through.</div>
+</section>
+
+<!-- 2025 -->
+<section id="y2025">
+  <div class="section-label">Part III · The 2025 Editions</div>
+  <div class="chevrons"></div>
+  <h2>Co-op cements, Korea overwhelms.</h2><span class="h2-kicker">And a #1 the players hated.</span>
+  <p class="section-intro">2025 was the year co-op multiplayer dominated virtually every subgenre. February produced the most analyzed anomaly in the event's history, a #1 game with a Mostly Negative rating. June was overwhelmed by a single Korean-published title pulling AAA-beta numbers. October's #1 was a returning demo whose win was partly a counting artifact.</p>
+
+  <h3>February 2025: Mecha Break's paradox</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Game</th><th>Genre</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><strong>Mecha Break</strong></td><td>PvP mech shooter</td><td><span class="tag tag-coral">#1 at 34% positive</span></td></tr>
+        <tr><td>2</td><td>Among Us 3D</td><td>Social deduction</td><td>InnerSloth</td></tr>
+        <tr><td>3</td><td>RoadCraft</td><td>Logistics sim</td><td>Saber Interactive</td></tr>
+        <tr><td>4</td><td>Gothic 1 Remake</td><td>RPG remake</td><td>UE5</td></tr>
+        <tr><td>5</td><td>Fellowship</td><td>Dungeon co-op</td><td>No sub required</td></tr>
+        <tr><td>6</td><td>HASTE: Broken Worlds</td><td>Sprint-physics platformer</td><td>Landfall</td></tr>
+        <tr><td>7</td><td>9 Kings</td><td>Pixel strategy defense</td><td><span class="tag tag-gold">Bundle pact</span></td></tr>
+        <tr><td>8</td><td>The King Is Watching</td><td>Pixel city defense</td><td><span class="tag tag-gold">Bundle pact</span></td></tr>
+        <tr><td>9</td><td>Shape of Dreams</td><td>Creative builder</td><td></td></tr>
+        <tr><td>10</td><td>Into the Dead: Our Darkest Days</td><td>Shelter survival</td><td>PikPok</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="insight purple"><strong>Scale beats sentiment in the unique-players metric.</strong> Mecha Break peaked at 256,783 simultaneous concurrent users and 317,522 total unique players, briefly the fifth-biggest game on Steam in a 24-hour window, ahead of GTA 5 and Rust, roughly twenty times any other demo in the festival. It held a 34 percent positive rating the whole time, with backlash centered on predatory monetization revealed in the demo. The marketing scale dominated every chart regardless of reception, the sharpest proof that the most-played metric measures funnel size, not quality. The genuine community story was the 9 Kings and The King Is Watching pact: two near-identical pixel-art city-defense games found each other mid-fest and announced they would bundle at launch rather than compete, boosting both.</div>
+
+  <h3>June 2025: Korean IP overwhelms</h3>
+  <p>June 2025 had 2,645 demos, 13 percent more than February, and was dominated by a single Korean-published title pulling numbers normally seen in AAA open betas.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Game</th><th>Genre</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><strong>Vindictus: Defying Fate</strong></td><td>Action RPG</td><td><span class="tag tag-purple">Nexon; 426,176 players</span></td></tr>
+        <tr><td>2</td><td>Wildgate</td><td>Space FPS</td><td>Dreamhaven</td></tr>
+        <tr><td>3</td><td>Jump Ship</td><td>Co-op starship FPS</td><td>+89,700 WL</td></tr>
+        <tr><td>4</td><td>MIMESIS</td><td>Co-op horror</td><td></td></tr>
+        <tr><td>5</td><td>Dead as Disco</td><td>Rhythm beat-em-up</td><td><span class="tag tag-teal">Small-studio breakout</span></td></tr>
+        <tr><td>6</td><td>Solo Leveling: ARISE</td><td>Anime action RPG</td><td>Netmarble</td></tr>
+        <tr><td>7</td><td>PIONER</td><td>STALKER-inspired MMO</td><td>+82,900 WL</td></tr>
+        <tr><td>8</td><td>No, I'm not a Human</td><td>Psychological horror</td><td>+90,280 WL; AI-themed</td></tr>
+        <tr><td>9</td><td>UFL</td><td>Football sim</td><td>FIFA rival</td></tr>
+        <tr><td>10</td><td>Starlight Re:Volver</td><td>Anime action RPG</td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="insight"><strong>The wishlist leaders diverged from the most-played list.</strong> Vindictus drew 426,176 players across 189 countries during its alpha week, 1,151,621 total hours of playtime. But the top wishlist gainers were even more Asian-publisher-weighted: Stellar Blade led with 227,200 new wishlists despite never cracking the most-played top 10, because PlayStation owners do not browse Next Fest, the influx came from PC gamers reacting to the PC announcement. Vindictus added 151,600, Dispatch 110,200, No I'm not a Human 90,280, Jump Ship 89,700.</div>
+
+  <h3>October 2025: Half Sword's long shadow</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Game</th><th>Genre</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><strong>Half Sword</strong></td><td>Physics medieval combat</td><td><span class="tag tag-dim">Demo live since May</span></td></tr>
+        <tr><td>2</td><td>Heroes of Might and Magic: Olden Era</td><td>Turn-based strategy</td><td>Only existing IP in top 10</td></tr>
+        <tr><td>3</td><td>YAPYAP</td><td>Co-op wizard horror</td><td><span class="tag tag-teal">100k+ WL</span></td></tr>
+        <tr><td>4</td><td>Final Sentence</td><td>Battle royale typing</td><td><span class="tag tag-teal">Tiny-team breakout</span></td></tr>
+        <tr><td>5</td><td>REANIMAL</td><td>Co-op horror</td><td>Little Nightmares devs</td></tr>
+        <tr><td>6</td><td>Everwind</td><td>Voxel survival</td><td>100k+ WL</td></tr>
+        <tr><td>7</td><td>The Midnight Walkers</td><td>Zombie extraction</td><td></td></tr>
+        <tr><td>8</td><td>THE CUBE, SAVE US</td><td>Extraction action</td><td></td></tr>
+        <tr><td>9</td><td>MISERY</td><td>Co-op FPS</td><td>STALKER-inspired</td></tr>
+        <tr><td>10</td><td>Long Drive North</td><td>Co-op RV sim</td><td>Chill co-op</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="insight teal"><strong>Returning demos distort the win.</strong> Half Sword had run a demo since May 2025 and entered with months of accumulated player data, so its #1 in unique players was substantially returning players being re-counted, partly misleading as a discovery metric. GameDiscoverCo noted only Heroes of Might and Magic represented an existing IP; the rest were new concepts. Five games exceeded 100,000 new wishlists each: REANIMAL, Everwind, Final Sentence, Heroes of Might and Magic, and YAPYAP. Spiritual successors to beloved franchises, a STALKER-like and a Little Nightmares-like both placing, proved a reliable discovery vector even without the original IP. This was also the edition where AI disclosure became a top-line story, the phrase "AI slop" entering mainstream vocabulary.</div>
+</section>
+
+<!-- 2026 -->
+<section id="y2026">
+  <div class="section-label">Part IV · The 2026 Editions</div>
+  <div class="chevrons"></div>
+  <h2>The largest fests in history.</h2><span class="h2-kicker">And a two-person team at the top.</span>
+  <p class="section-intro">February 2026 set a pre-June record at 3,400 to 3,500 demos, then was swallowed by one title operating at a categorically different scale. June 2026 became the largest edition ever, and its top two told the harvest thesis in two games.</p>
+
+  <h3>February 2026: Marathon's gravitational pull</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Game</th><th>Genre</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><strong>Marathon</strong></td><td>Extraction shooter</td><td><span class="tag tag-coral">150,000 CCU; Bungie/Sony</span></td></tr>
+        <tr><td>2</td><td>Burglin' Gnomes</td><td>Co-op heist</td><td>Viral concept</td></tr>
+        <tr><td>3</td><td><strong>Windrose</strong></td><td>Pirate survival</td><td><span class="tag tag-teal">200,000+ WL</span></td></tr>
+        <tr><td>4</td><td>Vampire Crawlers</td><td>Deckbuilder spin-off</td><td>Vampire Survivors universe</td></tr>
+        <tr><td>5</td><td>Far Far West</td><td>Co-op western shooter</td><td></td></tr>
+        <tr><td>6</td><td>Outbound</td><td>Solarpunk exploration</td><td>Czech studio</td></tr>
+        <tr><td>7</td><td>John Carpenter's Toxic Commando</td><td>Co-op horror action</td><td>Licensed</td></tr>
+        <tr><td>8</td><td>Wanderburg</td><td>Atmospheric journey sim</td><td></td></tr>
+        <tr><td>9</td><td>Fate Trigger</td><td>Anime tactical shooter</td><td>UE5</td></tr>
+        <tr><td>10</td><td>Everything is Crab</td><td>Evolution roguelite</td><td>Humorous concept</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="insight"><strong>Marathon's legitimacy problem.</strong> Marathon peaked at 150,000 concurrent Steam players during weekend stress tests, eclipsing the next-largest demos roughly ten to one. Valve controversially counted Bungie's open playtest as a qualifying demo, stacking the charts in its favor; no developer building a traditional demo could compete with that funnel. Among real demos, Windrose was the champion, leading the wishlist representation at just over 200,000 total. February 2026 was also the first edition where AI disclosure became a hard number: 750 of roughly 3,540 demos, 21.2 percent, carried Valve's AI-content flag.</div>
+
+  <h3>June 2026: the largest fest in history</h3>
+  <p>June 2026 closed on June 22 with Valve's official top-50 list published the same day. It was the largest Steam Next Fest ever by every metric, with the demo pool at 4,382 tracked by GameDiscoverCo against roughly 8,682 total event entries.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Game</th><th>Genre</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><strong>BOMBANANA!</strong></td><td>Co-op bomb defusal</td><td><span class="tag tag-gold">40,119 CCU; 92.7% positive</span></td></tr>
+        <tr><td>2</td><td><strong>IRON NEST</strong></td><td>Dieselpunk artillery sim</td><td><span class="tag tag-teal">99% positive; 2-person</span></td></tr>
+        <tr><td>3</td><td>Echoes of Aincrad</td><td>SAO-inspired ARPG MMO</td><td>Bandai Namco</td></tr>
+        <tr><td>4</td><td>Mistfall Hunter</td><td>Souls-like extraction RPG</td><td></td></tr>
+        <tr><td>5</td><td>over the hill</td><td>Co-op offroad adventure</td><td>Art of Rally devs</td></tr>
+        <tr><td>6</td><td>EMPULSE</td><td>Titanfall-style FPS</td><td>1047 Games; no MTX</td></tr>
+        <tr><td>7</td><td>Dust Front RTS</td><td>Isometric RTS</td><td></td></tr>
+        <tr><td>8</td><td>The Mound: Omen of Cthulhu</td><td>Co-op jungle horror</td><td></td></tr>
+        <tr><td>9</td><td>XenoFeels</td><td>Bureaucracy sci-fi sim</td><td><span class="tag tag-dim">Single-player</span></td></tr>
+        <tr><td>10</td><td>Embers of the Uncrowned</td><td>Dark fantasy MMORPG</td><td><span class="tag tag-purple">Nexon; AI disclosed</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:13px;color:var(--text-dim);margin-top:-0.5rem">An earlier mid-festival list (June 18) showed Echoes of Aincrad at #1, Mistfall Hunter at #2, BOMBANANA at #9, and Casualties: Unknown at #10. The table above reflects Valve's final official count published June 22, which is the canonical ranking.</p>
+
+  <div class="insight teal"><strong>IRON NEST is the thesis at scale.</strong> At #2, IRON NEST was a two-person team, Nick Nieuwoudt and Dominik Latos, that entered with more than 250,000 pre-existing wishlists and added approximately 200,000 wishlists over the full festival (~200,000 was a mid-event snapshot at day five), finishing at 99 percent Overwhelmingly Positive from over 2,590 reviews. Kotaku called it the best demo it had ever played on Steam. It is simultaneously a craft story and an amplification story, and the two are sequential, not in tension: the craft built the community over months, and the community converted into the #2 slot against a field one quarter AI-disclosed. Strip either and the result changes. IRON NEST did not break the harvest pattern; it is its clearest single expression.</div>
+
+  <div class="insight"><strong>The monoculture fractured.</strong> GameDiscoverCo observed that June 2026's top games were "effectively unsummarizable as one big trend." The top 10 increasingly represents ten different filter bubbles rather than one dominant zeitgeist: a co-op party game, a handcrafted artillery sim, an anime MMO, a souls-like, a cozy offroad co-op, a movement shooter, an RTS, a horror extraction, a bureaucracy sim, and a disclosed-AI MMORPG. The single shared trait among the winners is not genre. It is a community that existed before the doors opened.</div>
+</section>
+
+<!-- CO-OP ARC -->
+<section id="coop">
+  <div class="section-label">Genre Trends</div>
+  <div class="chevrons"></div>
+  <h2>The unbroken co-op arc.</h2><span class="h2-kicker">A metric, not a verdict.</span>
+  <p class="section-intro">Co-op's rise in the most-played charts is the most consistent structural trend of the three-year period. It is also partly a measurement artifact, and reading it correctly is the key to reading every chart in this report.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Edition</th><th>Co-op games in top 10</th></tr></thead>
+      <tbody>
+        <tr><td>February 2023</td><td>1–2 (est.)</td>
+        <tr><td>June 2023</td><td>3–4 (est.)</td>
+        <tr><td>October 2023</td><td>2–3 (est.)</td>
+        <tr><td>February 2024</td><td>3–4 (est.)</td>
+        <tr><td>June 2024</td><td>5–6 (est.)</td>
+        <tr><td>October 2024</td><td>7–8 (est.)</td>
+        <tr><td>February 2025</td><td>6–7</td></tr>
+        <tr><td>June 2025</td><td>7–8</td></tr>
+        <tr><td>October 2025</td><td>6–7</td></tr>
+        <tr><td>February 2026</td><td>5–6</td></tr>
+        <tr><td><strong>June 2026</strong></td><td><strong>7 of 10</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="insight"><strong>The mechanism, and why it matters.</strong> The most-played list ranks by unique players. A four-player co-op demo generates four unique-player data points per session where a single-player demo generates one, and co-op raises session time because the social commitment holds players longer. The result is a structural bias toward co-op in the unique-players metric that does not track commercial conversion. This is exactly why the most-played list and the most-wishlisted list diverge so sharply at every co-op-heavy edition. The solo-player holdouts that still break through, XenoFeels, IRON NEST, Casualties: Unknown in June 2026, succeed by offering mechanical identities distinct enough to transcend the genre bias.</div>
+
+  <p>By era: 2023 ran on simulation, survival-builder, soulslike, and RPG. 2024 added extraction shooters, strategy, and co-op survival, with February's strategy cluster historically unprecedented. 2025 was co-op multiplayer across nearly every subgenre, though strong single-player concepts could still crack the top five. 2026 kept co-op central but saw single-player titles with strong mechanical identity demonstrate a real counter-trend, and the extraction-shooter oversaturation of 2024 to 2025 began to soften into more top-10 variety.</p>
+</section>
+
+<!-- BREAKOUTS -->
+<section id="breakouts">
+  <div class="section-label">Community Breakouts</div>
+  <div class="chevrons"></div>
+  <h2>The created-from-zero category is shrinking.</h2><span class="h2-kicker">And every survivor shares one trait.</span>
+  <p class="section-intro">These are games that entered with minimal pre-existing audience and used Next Fest as a genuine discovery accelerator, the increasingly rare "created from zero" category. What unites every one is strong demo quality, mechanical clarity, and a community seeded before the event began.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Edition</th><th>Breakout</th><th>The story</th></tr></thead>
+      <tbody>
+        <tr><td>Feb 2023</td><td><strong>Shadows of Doubt</strong></td><td>Procedural detective game built a passionate community through creator coverage</td></tr>
+        <tr><td>Jun 2023</td><td><strong>Thronefall</strong></td><td>Solo-dev minimalist strategy landed top 10 against major publishers</td></tr>
+        <tr><td>Oct 2023</td><td><strong>Enshrouded</strong></td><td>Unknown at start, #1 by week's end, one of 2024's biggest EA launches</td></tr>
+        <tr><td>Oct 2023</td><td><strong>Desktop Defender</strong></td><td>Three players pre-fest to 1,548 peak CCU, a 51,500% surge</td></tr>
+        <tr><td>Feb 2024</td><td><strong>Dungeonborne</strong></td><td>Announced 2 weeks prior, #1 by unique players, 19,000 CCU</td></tr>
+        <tr><td>Feb 2024</td><td><strong>Balatro</strong></td><td>#8 at the fest, then millions sold and GOTY contention</td></tr>
+        <tr><td>Feb 2025</td><td><strong>9 Kings + The King Is Watching</strong></td><td>Rival devs partnered mid-fest for a bundle, viral marketing moment</td></tr>
+        <tr><td>Jun 2025</td><td><strong>Dead as Disco</strong></td><td>Rhythm action from a small studio, #5 by unique players</td></tr>
+        <tr><td>Oct 2025</td><td><strong>Final Sentence</strong></td><td>Battle royale typing game from a tiny team, #4 overall</td></tr>
+        <tr><td>Oct 2025</td><td><strong>YAPYAP</strong></td><td>Co-op wizard crewlike, #3, exceeded 100,000 new wishlists</td></tr>
+        <tr><td>Feb 2026</td><td><strong>Windrose</strong></td><td>Pirate survival, 200,000+ total wishlists, #3 most-played</td></tr>
+        <tr><td>Jun 2026</td><td><strong>IRON NEST</strong></td><td>Two-person team, 250K+ pre-fest, ~200,000 gained in 5 days, 99% positive</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="insight teal"><strong>The pattern, stated by the data.</strong> Every genuine breakout had a community built before the fest started. Next Fest amplified existing momentum; it did not create momentum from zero. That is not an opinion imposed on the data, it is the single trait every breakout in this table shares, across eleven editions and every genre.</div>
+</section>
+
+<!-- ASIA -->
+<section id="asia">
+  <div class="section-label">The Asian Publisher Dimension</div>
+  <div class="chevrons"></div>
+  <h2>No longer emerging. Structural.</h2><span class="h2-kicker">From Lies of P to Echoes of Aincrad.</span>
+  <p class="section-intro">One of the most significant shifts across the window is the increasing dominance of Korean and Chinese publishers in the top wishlist and unique-player charts. The trajectory is not a trend that might reverse; it is a structural feature of how the event now works.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Edition</th><th>Notable Asian-publisher top-10 entries</th></tr></thead>
+      <tbody>
+        <tr><td>June 2023</td><td>Lies of P (Korean), Warhaven (Nexon)</td>
+        <tr><td>June 2024</td><td>Chinese survival/MMO cluster</td>
+        <tr><td>October 2024</td><td>Delta Force (Team Jade), Strinova (Chinese)</td>
+        <tr><td>June 2025</td><td>Vindictus #1 (Nexon), Solo Leveling #6 (Netmarble), PIONER</td></tr>
+        <tr><td>October 2025</td><td>Starsand Island (Japanese), MISERY (Asian-market appeal)</td></tr>
+        <tr><td>February 2026</td><td>Fate Trigger (anime tactical)</td></tr>
+        <tr><td>June 2026</td><td>Echoes of Aincrad (Bandai Namco), Embers (Nexon)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="insight"><strong>June 2025 was the inflection point.</strong> The top game by both unique players and new wishlists was Korean-published, and the wishlist top 10 had three of ten slots held by Korean or Chinese titles. Korean and Chinese developers have identified Next Fest as the optimal PC-market entry vehicle and are investing accordingly, while Western publishers remain largely unaware of the pipeline. The best Chinese-market titles now appear in Next Fest heat charts regularly, a structural reality most Western studios have not yet priced in.</div>
+</section>
+
+<!-- THE SQUEEZE -->
+<section id="squeeze">
+  <div class="section-label">The Structural Squeeze</div>
+  <div class="chevrons"></div>
+  <h2>The trend that explains the rest.</h2><span class="h2-kicker">Invisible in the charts, measurable in the data.</span>
+  <p class="section-intro">The most consequential trend of the three-year period does not appear in any most-played list. It is the systematic compression of per-game returns as demo count grows faster than player attention. Total engagement rose nearly every edition; the median game's outcome fell across the same span.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Metric</th><th>June 2025</th><th>June 2026</th><th>Change</th></tr></thead>
+      <tbody>
+        <tr><td>Total demos</td><td>2,645</td><td>4,382</td><td><span class="tag tag-coral">+66%</span></td></tr>
+        <tr><td>Top 10% follower gain</td><td>+163</td><td>+121</td><td><span class="tag tag-coral">−26%</span></td></tr>
+        <tr><td>Top 1% follower gain</td><td>+1,759</td><td>+1,330</td><td><span class="tag tag-coral">−24%</span></td></tr>
+        <tr><td>Median wishlists (survey)</td><td>~806</td><td>Trending down</td><td><span class="tag tag-coral">↓</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="insight coral"><strong>The math is straightforward.</strong> Total player attention grows modestly year over year, because Steam's active base grows slowly. The number of games competing for it grew 66 percent in a single year between June 2025 and June 2026. The returns compress accordingly. In the February 2026 survey, the top 5 percent threshold earned roughly 7,000 wishlists, the median game earned roughly 200, and thirteen games earned 50,000-plus each. Everyone else split what remained.</div>
+
+  <div class="insight"><strong>And the compression is self-reinforcing.</strong> Valve's algorithm randomizes the first 48 hours, then from Day 3 prioritizes games with demonstrated engagement. A developer who builds a debut title and relies on the festival for discovery has 48 hours of genuine randomized exposure before the machine sorts winners from losers, after which position hardens. The AI flood accelerates this: the developer who documented the twenty-fold impression collapse cited the volume of low-quality AI games and asset flips as a direct contributor, because their presence in the randomized early window depresses the impression counts of everyone around them. Engine usage shifted alongside, with Godot rising from 9.2 to 12.6 percent of demos in a single edition as the durable aftereffect of the 2023 Unity Runtime Fee crisis.</div>
+</section>
+
+<!-- CONCLUSION -->
+<section id="conclusion">
+  <div class="section-label">Conclusion</div>
+  <div class="chevrons"></div>
+  <h2>What three years of data tell us.</h2><span class="h2-kicker">Five conclusions, one instruction.</span>
+  <p class="section-intro">Eleven editions converge on a consistent set of findings. They point to a single instruction for any studio planning an entry.</p>
+
+  <div class="card-row">
+    <div class="card gold"><div class="clabel">01</div><div class="cval">Scale cuts both ways</div><div class="csub">Nearly 4,900 demos is a triumph of openness and a structural problem for anyone arriving without pre-existing momentum. The same attention envelope now splits across five times the games.</div></div>
+    <div class="card teal"><div class="clabel">02</div><div class="cval">Community is unmanufacturable</div><div class="csub">Every breakout, Enshrouded to IRON NEST, arrived with a community and used the fest as a multiplier. The algorithm rewards momentum; it does not create it.</div></div>
+    <div class="card purple"><div class="clabel">03</div><div class="cval">Co-op shows no ceiling</div><div class="csub">Co-op's share of the top 10 rose almost every year. Solo holdouts win only with a mechanical identity distinct enough to overcome the unique-players bias.</div></div>
+  </div>
+  <div class="card-row">
+    <div class="card coral"><div class="clabel">04</div><div class="cval">AI underperforms, but its volume rises</div><div class="csub">26.5% disclosure in June 2026 versus 21.2% in February, yet only 1 of 10 most-played carried a disclosure. The player base filters it; the collateral damage to everyone's impressions compounds.</div></div>
+    <div class="card"><div class="clabel">05</div><div class="cval">Asia is structural</div><div class="csub">From Lies of P to Vindictus at #1 to Echoes of Aincrad, Korean and Chinese publishers treat Next Fest as the optimal PC entry vehicle. Most Western studios have not priced this in.</div></div>
+  </div>
+
+  <div class="insight teal"><strong>The instruction.</strong> Steam Next Fest is no longer a discovery engine. It is an amplification engine, and the input it amplifies is the community you built before the doors opened. With 4,382 demos in June 2026 and roughly 66 percent year-over-year growth as the baseline, October 2026 could approach 5,500 entries, raising the pressure further. The studios that win the next edition will be the ones that understood this first: you do not go to Next Fest to be found. You go to harvest what you already grew.</div>
+</section>
+
+<!-- ABOUT THE AUTHOR -->
+<section id="author" style="border-top:1px solid var(--border)">
+  <div class="section-label">About the Author</div>
+  <h2 style="margin-bottom:1.25rem">Abbas Saleem</h2>
+  <p>Abbas Saleem is a Principal Consultant at <a href="https://www.llamagriffin.com/">Llama &amp; Griffin Consultants</a>, advising game studios, streaming platforms, and investment funds across six continents. He writes The Pattern Recognition: gaming industry intelligence 12 to 24 months before it becomes consensus. <a href="https://www.linkedin.com/in/abbassaleemkhan/">LinkedIn</a> | <a href="https://calendly.com/abbas-llamaandgriffin">Schedule a call</a></p>
+</section>
+
+<footer>
+  <div>Llama &amp; Griffin Consultants · Steam Next Fest Performance Suite · <span>llamagriffin.com</span></div>
+  <div style="color:var(--text-dim)">recognizingpatterns.substack.com</div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The US, China, and the EU are building three different AI machines for three different purposes, and game studios are downstream of all three. The regulatory split and the pre-production decision it forces.">
+<meta property="og:title" content="The Split: The Model You Pick Is the Market You Get">
+<meta property="og:description" content="Article 50 lands August 2. China's whitelist excludes every major Western model. Western availability is no longer a constant.">
+<meta property="og:type" content="article">
+<title>The Split: The Model You Pick Is the Market You Get · Part II</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  /* L&G Brand Palette */
+  --bg:#f7f4ee;--bg2:#fdfcf9;--bg3:#eae7e0;--bg4:#d2cdc3;
+  --border:#d2cdc3;--border-med:#c5bfb5;
+  --text:#232323;--text-muted:#37342f;--text-dim:#6b6660;
+  /* L&G Accent */
+  --gold:#c3a55f;--gold-light:#d4ba82;--gold-dim:rgba(195,165,95,0.12);
+  /* Semantic data colors , warm-muted for cream bg */
+  --teal:#2a8f76;--teal-light:#3daa8e;--teal-dim:rgba(42,143,118,0.10);
+  --purple:#6b64b3;--purple-light:#8f88cc;--purple-dim:rgba(107,100,179,0.10);
+  --coral:#b85a3a;--coral-light:#cb7055;--coral-dim:rgba(184,90,58,0.10);
+  --blue:#3d77c4;--blue-light:#6699d8;--blue-dim:rgba(61,119,196,0.10);
+  --font-display:'Playfair Display',serif;
+  --font-body:'DM Sans',sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7;min-height:100vh}
+a{color:var(--gold);text-decoration:none}a:hover{text-decoration:underline}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(247,244,238,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;height:52px;overflow-x:auto;gap:0}
+nav a{color:var(--text-dim);font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.09em;text-transform:uppercase;padding:0 0.9rem;height:52px;display:flex;align-items:center;border-bottom:2px solid transparent;white-space:nowrap;transition:color 0.15s,border-color 0.15s}
+nav a:hover{color:var(--gold);text-decoration:none;border-bottom-color:rgba(195,165,95,0.3)}
+nav a.active{color:var(--gold);border-bottom-color:var(--gold)}
+.nav-brand{font-family:var(--font-display);font-size:14px;font-weight:700;color:var(--text);margin-right:1.5rem;padding-right:1.5rem;border-right:1px solid var(--border);white-space:nowrap;text-transform:none;letter-spacing:normal}
+.nav-divider{width:1px;height:20px;background:var(--border);margin:0 0.5rem;flex-shrink:0}
+
+/* HERO */
+.hero{padding:5rem 2rem 4rem;max-width:960px;margin:0 auto;position:relative}
+.hero-eyebrow{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;display:flex;align-items:center;gap:10px}
+.hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold);display:inline-block}
+.hero h1{font-family:var(--font-display);font-size:clamp(2rem,5vw,3.4rem);font-weight:700;line-height:1.07;color:var(--text);margin-bottom:0.75rem}
+.hero h1 span{color:var(--gold);font-style:italic}
+.hero-sub{font-size:15px;color:var(--text-muted);max-width:580px;margin-bottom:2.5rem;line-height:1.65}
+.hero-meta{display:flex;gap:1.5rem;margin-bottom:2.5rem;flex-wrap:wrap}
+.hero-meta-item{font-family:var(--font-mono);font-size:10px;letter-spacing:0.09em;color:var(--text-dim);text-transform:uppercase}
+.hero-meta-item span{color:var(--text-muted);font-weight:500}
+
+/* STAT GRID */
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:3rem}
+.stat-cell{background:var(--bg2);padding:1.25rem 1.5rem}
+.stat-val{font-family:var(--font-display);font-size:1.6rem;font-weight:700;color:var(--gold);line-height:1;margin-bottom:5px}
+.stat-val.teal{color:var(--teal)}
+.stat-val.purple{color:var(--purple)}
+.stat-val.coral{color:var(--coral)}
+.stat-lbl{font-family:var(--font-mono);font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.07em}
+
+/* CHEVRON ACCENT */
+.chevrons{display:flex;gap:5px;margin-bottom:0.5rem}
+.chevrons::before{content:'▲▲▲▲';font-size:8px;color:var(--gold);letter-spacing:3px}
+
+/* SECTIONS */
+section{max-width:960px;margin:0 auto;padding:4rem 2rem;border-top:1px solid var(--border)}
+.section-label{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.3rem}
+h2{font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--text);margin-bottom:0.25rem;line-height:1.15}
+.h2-kicker{font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--gold);font-style:italic;display:block;margin-bottom:1.5rem}
+.section-intro{font-size:15px;color:var(--text-muted);max-width:700px;margin-bottom:2rem;line-height:1.7}
+h3{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);margin:2.5rem 0 1rem}
+h3:first-of-type{margin-top:0}
+p{color:var(--text-muted);margin-bottom:1rem;font-size:15px;max-width:72ch;line-height:1.7}
+p strong{color:var(--text);font-weight:600}
+p:last-child{margin-bottom:0}
+
+/* TABLES */
+.table-wrap{margin-bottom:1.5rem;border:1px solid var(--border);border-radius:4px;overflow:hidden;overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead th{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);padding:0.75rem 1rem;text-align:left;border-bottom:1px solid var(--border-med);background:var(--bg3);white-space:nowrap}
+tbody tr{border-bottom:1px solid var(--border);transition:background 0.1s}
+tbody tr:last-child{border-bottom:none}
+tbody tr:hover{background:var(--bg3)}
+tbody td{padding:0.65rem 1rem;color:var(--text-muted);vertical-align:middle}
+tbody td:first-child{color:var(--text)}
+
+/* TAGS/BADGES */
+.tag{display:inline-block;font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;padding:2px 7px;border-radius:2px;white-space:nowrap}
+.tag-gold{background:var(--gold-dim);color:var(--gold)}
+.tag-teal{background:var(--teal-dim);color:var(--teal)}
+.tag-purple{background:var(--purple-dim);color:var(--purple)}
+.tag-coral{background:var(--coral-dim);color:var(--coral)}
+.tag-blue{background:var(--blue-dim);color:var(--blue)}
+.tag-dim{background:rgba(35,35,35,0.07);color:var(--text-dim)}
+.tag-official{background:var(--teal-dim);color:var(--teal)}
+.tag-inferred{background:var(--purple-dim);color:var(--purple)}
+
+.rank-badge{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:3px;font-family:var(--font-mono);font-size:10px;font-weight:500;background:var(--bg3);color:var(--text-dim);margin-right:6px;flex-shrink:0}
+.rank-badge.top3{background:var(--gold-dim);color:var(--gold)}
+.rank-badge.top10{background:var(--teal-dim);color:var(--teal)}
+
+/* INSIGHTS */
+.insight{border-left:2px solid var(--gold);background:var(--gold-dim);border-radius:0 4px 4px 0;padding:1rem 1.25rem;margin:1.5rem 0;font-size:14px;color:var(--text-muted);line-height:1.65}
+.insight strong{color:var(--text);font-weight:600}
+.insight.teal{border-color:var(--teal);background:var(--teal-dim)}
+.insight.teal strong{color:var(--teal)}
+.insight.purple{border-color:var(--purple);background:var(--purple-dim)}
+.insight.purple strong{color:var(--purple)}
+.insight.coral{border-color:var(--coral);background:var(--coral-dim)}
+.insight.coral strong{color:var(--coral)}
+.insight.blue{border-color:var(--blue);background:var(--blue-dim)}
+.insight.blue strong{color:var(--blue)}
+
+/* CARDS */
+.card-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:1.75rem}
+.card{background:var(--bg2);padding:1.25rem 1.5rem}
+.card .clabel{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);margin-bottom:6px}
+.card .cval{font-family:var(--font-display);font-size:1.3rem;font-weight:700;color:var(--text);line-height:1.1;margin-bottom:3px}
+.card .csub{font-size:12px;color:var(--text-muted);line-height:1.45}
+.card.gold .cval{color:var(--gold)}
+.card.teal .cval{color:var(--teal)}
+.card.purple .cval{color:var(--purple)}
+.card.coral .cval{color:var(--coral)}
+.card.blue .cval{color:var(--blue)}
+
+/* TABS */
+.tabs{display:flex;gap:2px;margin-bottom:1.25rem;border-bottom:1px solid var(--border)}
+.tab-btn{font-family:var(--font-mono);font-size:10px;font-weight:500;background:none;border:none;color:var(--text-dim);padding:0.6rem 1rem;cursor:pointer;border-bottom:2px solid transparent;transition:color 0.15s,border-color 0.15s;margin-bottom:-1px;letter-spacing:0.08em;text-transform:uppercase}
+.tab-btn:hover{color:var(--text-muted)}
+.tab-btn.active{color:var(--gold);border-bottom-color:var(--gold)}
+.tab-panel{display:none}.tab-panel.active{display:block}
+
+/* TIMELINE */
+.timeline{position:relative;padding-left:1.5rem}
+.timeline::before{content:'';position:absolute;left:0;top:6px;bottom:6px;width:1px;background:var(--border-med)}
+.timeline-item{position:relative;padding:0 0 2rem 1.5rem}
+.timeline-item::before{content:'';position:absolute;left:-4px;top:6px;width:8px;height:8px;border-radius:50%;background:var(--bg3);border:1px solid var(--border-med)}
+.timeline-item.key::before{background:var(--gold);border-color:var(--gold)}
+.timeline-date{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.09em;text-transform:uppercase;color:var(--gold);margin-bottom:2px}
+.timeline-event{font-size:14px;color:var(--text);font-weight:500}
+.timeline-note{font-size:12px;color:var(--text-muted);margin-top:4px;line-height:1.55}
+
+/* CHART */
+.chart-wrap{position:relative;width:100%;margin-bottom:2.5rem;overflow:hidden}
+.chart-legend{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:10px;font-size:12px;color:var(--text-muted)}
+.chart-legend span{display:flex;align-items:center;gap:6px}
+.swatch{width:10px;height:10px;border-radius:2px;flex-shrink:0}
+
+/* EDITION LABELS */
+.edition-label{font-family:var(--font-display);font-size:12px;letter-spacing:0.02em}
+.edition-june26{color:var(--gold)}
+.edition-feb26{color:var(--teal)}
+.edition-oct25{color:var(--purple)}
+.edition-jun25{color:var(--blue)}
+.edition-feb25{color:var(--coral)}
+
+/* ROGUELITE */
+.rog-badge{display:inline-block;width:6px;height:6px;border-radius:50%;margin-right:6px}
+.rog-breakout{background:var(--gold)}
+.rog-strong{background:var(--teal)}
+.rog-solid{background:var(--purple)}
+.rog-avg{background:var(--text-dim)}
+
+/* BARS */
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.bar-label{font-size:12px;color:var(--text-muted);min-width:180px;flex-shrink:0}
+.bar-bg{flex:1;height:5px;background:var(--bg4);border-radius:3px;overflow:hidden}
+.bar-fill{height:100%;border-radius:3px}
+.bar-val{font-family:var(--font-mono);font-size:12px;font-weight:500;color:var(--text);min-width:80px;text-align:right;flex-shrink:0}
+
+/* EDITION COMPARE */
+.compare-band{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:2rem}
+.compare-col{display:grid;grid-template-rows:subgrid;background:var(--bg2)}
+.compare-col[data-rows="4"]{grid-row:span 4}
+.compare-col[data-rows="5"]{grid-row:span 5}
+.compare-header{background:var(--bg3);padding:0.9rem 1.2rem}
+.compare-header .ed-name{font-family:var(--font-display);font-size:13px;font-weight:700}
+.compare-header .ed-meta{font-family:var(--font-mono);font-size:10px;color:var(--text-dim);margin-top:3px}
+.compare-body{display:contents}
+.compare-kv{margin:0;padding:0.85rem 1.2rem;border-top:1px solid var(--border)}
+.compare-kv .kk{font-family:var(--font-mono);font-size:9px;text-transform:uppercase;letter-spacing:0.09em;color:var(--text-dim);margin-bottom:2px}
+.compare-kv .vv{font-size:13px;color:var(--text);font-weight:500}
+
+/* FOOTER */
+footer{max-width:960px;margin:0 auto;padding:2rem 2rem 3rem;border-top:1px solid var(--border);font-size:12px;color:var(--text-dim);display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;align-items:center}
+footer span{color:var(--gold)}
+
+@media(max-width:600px){
+  .bar-label{min-width:120px;font-size:11px}
+  h2{font-size:1.25rem}
+}
+
+
+/* NAV (single sticky bar, sample-accurate) */
+nav{position:sticky;top:0;z-index:100;background:rgba(245,241,232,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;height:52px;gap:0;overflow-x:auto}
+.nav-brand{font-family:var(--font-display);font-size:14px;font-weight:700;color:var(--text);margin-right:1.5rem;padding-right:1.5rem;border-right:1px solid var(--border-med);white-space:nowrap;text-decoration:none;text-transform:none;letter-spacing:normal}
+.nav-brand:hover{text-decoration:none;opacity:0.8}
+nav a.nav-link{color:var(--text-dim);font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.09em;text-transform:uppercase;padding:0 0.9rem;height:52px;display:flex;align-items:center;border-bottom:2px solid transparent;white-space:nowrap;transition:color 0.15s,border-color 0.15s;text-decoration:none}
+nav a.nav-link:hover{color:var(--gold);border-bottom-color:rgba(201,168,76,0.3);text-decoration:none}
+nav a.nav-link.active{color:var(--gold);border-bottom-color:var(--gold)}
+/* SERIES NAV */
+.series-nav{max-width:960px;margin:0 auto;padding:2.5rem 2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.series-link{font-family:var(--font-mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim);text-decoration:none}
+.series-link span{display:block;color:var(--gold);font-size:13px;margin-top:4px;font-family:var(--font-display);font-style:italic;text-transform:none;letter-spacing:0}
+.series-link.next{text-align:right;margin-left:auto}
+/* BIO */
+.bio{max-width:960px;margin:0 auto;padding:1.5rem 2rem 1rem}
+.bio p{font-size:13px;color:var(--text-muted);max-width:72ch}
+/* HERO block (report pages) */
+.hero{max-width:960px;margin:0 auto;padding:4rem 2rem 3rem}
+.hero-eyebrow{font-family:var(--font-mono);font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:10px}
+.hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold);display:inline-block}
+.hero h1{font-family:var(--font-display);font-size:clamp(2.2rem,5vw,3.2rem);font-weight:700;line-height:1.06;color:var(--text);margin-bottom:0.1rem}
+.hero h1 span{display:block;font-style:italic;color:var(--gold)}
+.hero-sub{font-size:15px;color:var(--text-muted);max-width:660px;margin:1.5rem 0 2rem;line-height:1.7}
+.hero-meta{display:flex;gap:2rem;margin-bottom:2rem;flex-wrap:wrap;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:0.75rem 0}
+.hero-meta-item{font-family:var(--font-mono);font-size:10px;letter-spacing:0.09em;text-transform:uppercase;color:var(--text-dim)}
+.hero-meta-item span{color:var(--text-muted);font-weight:500}
+/* PARTS GRID (hub) */
+.parts{max-width:960px;margin:0 auto;padding:0 2rem 3rem}
+.parts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+@media(max-width:700px){.parts-grid{grid-template-columns:1fr}}
+.part-card{background:var(--bg2);border:1px solid var(--border-med);border-radius:3px;padding:1.75rem;display:flex;flex-direction:column;gap:0.5rem;transition:border-color 0.15s,box-shadow 0.15s;text-decoration:none;color:inherit}
+.part-card:hover{border-color:var(--gold);box-shadow:0 2px 12px rgba(201,168,76,0.12);text-decoration:none}
+.part-num{font-family:var(--font-display);font-size:1.4rem;font-weight:700;color:var(--gold);font-style:italic}
+.part-title{font-family:var(--font-display);font-size:1.05rem;font-weight:700;color:var(--text);line-height:1.25}
+.part-desc{font-size:13px;color:var(--text-muted);line-height:1.65;flex:1}
+.part-link{font-family:var(--font-mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);margin-top:0.5rem}
+  .source-link{display:inline-block;font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);text-decoration:none;background:var(--bg3);border:1px solid var(--border-med);border-radius:3px;padding:3px 9px;white-space:nowrap;transition:border-color 0.15s,background 0.15s}
+  .source-link::after{content:'\2197';margin-left:5px;font-size:8px;opacity:0.7}
+  .source-link:hover{border-color:var(--gold);background:var(--gold-dim);text-decoration:none}
+  .source-plain{color:var(--text-dim,#6b6660)}
+  table{width:100%;border-collapse:collapse;margin-bottom:2rem;font-size:14px}
+  table+p, table+h3{margin-top:2rem}
+  .table-wrap+p,.table-wrap+h3{margin-top:2rem}
+/* Layout consistency overrides */
+  h3{margin-top:2.5rem;margin-bottom:1rem;font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--text)}
+  .card{padding:1.5rem}
+  .card .clabel{font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);margin-bottom:8px;font-family:var(--font-mono)}
+  .card .cval{font-size:1.1rem;font-weight:700;font-family:var(--font-display);color:var(--text);margin-bottom:8px;line-height:1.25}
+  .card .csub{font-size:13px;color:var(--text-muted);line-height:1.6}
+  .card-row>.card{display:grid;grid-template-rows:subgrid;grid-row:span 3;align-content:start}
+/* Equal section spacing: zero margins on true last children, padding carries the rhythm */
+  section > *:last-child { margin-bottom: 0 !important }
+  .hero > *:last-child   { margin-bottom: 0 !important }
+  .compare-band { margin-top: 2rem; margin-bottom: 2.5rem }
+  .table-wrap   { margin-bottom: 2.5rem }
+  .insight      { margin-bottom: 1.5rem }
+  .timeline     { margin-bottom: 2rem }
+  .hero > .stat-grid:last-child { margin-bottom: 0 }
+</style>
+</head>
+<body>
+
+<div id="suite-nav" style="background:#f5f1e8;border-bottom:1px solid rgba(30,25,20,0.12);padding:0 2rem;display:flex;align-items:center;height:36px;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.09em;text-transform:uppercase;gap:0;overflow-x:auto;position:sticky;top:0;z-index:200">
+  <span style="color:#C9A84C;margin-right:1.5rem;padding-right:1.5rem;border-right:1px solid rgba(30,25,20,0.12);white-space:nowrap;font-weight:500">The Three Machines · The Pattern Recognition</span>
+  <a href="index.html" class="suite-link">Overview</a>
+  <a href="part-1.html" class="suite-link">Part I · The Pipeline</a>
+  <a href="part-2.html" class="suite-link active">Part II · The Split</a>
+  <a href="part-3.html" class="suite-link">Part III · The Compression</a>
+</div>
+<style>
+  .suite-link{color:#9490A0;padding:0 0.85rem;height:36px;display:inline-flex;align-items:center;border-bottom:2px solid transparent;white-space:nowrap;text-decoration:none;transition:color 0.15s}
+  .suite-link:hover{color:#C9A84C;border-bottom-color:rgba(201,168,76,0.3)}
+  .suite-link.active{color:#C9A84C;border-bottom-color:#C9A84C}
+  #main-nav{top:36px !important}
+</style>
+<nav id="main-nav">
+  <a href="https://www.llamagriffin.com" class="nav-brand">Llama &amp; Griffin Consultants</a>
+  <a href="#top" class="nav-link">Overview</a>
+  <a href="#machines" class="nav-link">Three Machines</a>
+  <a href="#eu" class="nav-link">The EU</a>
+  <a href="#china" class="nav-link">China</a>
+  <a href="#us" class="nav-link">The US</a>
+  <a href="#decision" class="nav-link">Decision Tree</a>
+  <a href="#question" class="nav-link">The Question</a>
+  <a href="#reframe" class="nav-link">The Reframe</a>
+</nav>
+
+
+<main>
+
+<div class="hero" id="top">
+  <div class="hero-eyebrow">Part II · The Split</div>
+  <h1>The Model You Pick Is the <span>Market You Get</span></h1>
+  <p class="hero-sub">The US, China, and the EU are not building one AI industry at three speeds. They are building three machines for three purposes: capital velocity, state-directed efficiency, and regulated public infrastructure. Game studios are downstream of all three, and the model chosen in pre-production now decides which markets a shipped game can legally enter.</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item">Series <span>The Three Machines</span></div>
+    <div class="hero-meta-item">Published <span>July 2026</span></div>
+    <div class="hero-meta-item">Sources <span>EU AI Act, CAC, press</span></div>
+  </div>
+  <div class="stat-grid">
+    <div class="stat-cell"><div class="stat-val">Aug 2</div><div class="stat-lbl">EU Article 50 enforceable</div></div>
+    <div class="stat-cell"><div class="stat-val coral">0</div><div class="stat-lbl">Western models on CAC whitelist</div></div>
+    <div class="stat-cell"><div class="stat-val purple">19 days</div><div class="stat-lbl">A frontier US model spent suspended</div></div>
+    <div class="stat-cell"><div class="stat-val teal">2 stacks</div><div class="stat-lbl">To ship AI in both West and China</div></div>
+  </div>
+</div>
+
+
+<section id="machines">
+  <div class="section-label">Section 01</div>
+  <div class="chevrons"></div><h2>Three Machines, Three Purposes</h2><span class="h2-kicker">Not different speeds. Different answers to what AI is for.</span>
+  <p class="section-intro">The mistake most studios make reading AI regulation is assuming the three blocs are converging on a common standard at different paces. They are not converging. Each built its regime as an expression of a different underlying philosophy, and the differences are structural.</p>
+
+  <h3>Efficiency gap: activated parameters per token</h3>
+  <div style="border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:3.5rem">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:var(--border)">
+      <div style="background:var(--bg2);padding:1.75rem 2rem">
+        <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem">DeepSeek-V3 · Mixture of Experts</div>
+        <div style="display:flex;align-items:baseline;gap:0.5rem;margin-bottom:0.4rem">
+          <span style="font-family:var(--font-display);font-size:2.6rem;font-weight:700;color:var(--text);line-height:1">37B</span>
+          <span style="font-size:13px;color:var(--text-dim)">of 671B activated per token</span>
+        </div>
+        <div style="font-family:var(--font-mono);font-size:11px;color:var(--gold);font-weight:500">5.5% utilisation</div>
+      </div>
+      <div style="background:var(--bg3);padding:1.75rem 2rem">
+        <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);margin-bottom:0.6rem">Dense Equivalent Model</div>
+        <div style="display:flex;align-items:baseline;gap:0.5rem;margin-bottom:0.4rem">
+          <span style="font-family:var(--font-display);font-size:2.6rem;font-weight:700;color:var(--text-dim);line-height:1">671B</span>
+          <span style="font-size:13px;color:var(--text-dim)">of 671B activated per token</span>
+        </div>
+        <div style="font-family:var(--font-mono);font-size:11px;color:var(--text-dim)">100% utilisation</div>
+      </div>
+    </div>
+    <div style="background:var(--bg2);padding:1rem 2rem;border-top:1px solid var(--border);display:flex;align-items:center;gap:1.25rem">
+      <div style="flex:1;height:16px;background:var(--border);border-radius:8px;overflow:hidden">
+        <div style="width:5.5%;min-width:24px;height:100%;background:var(--teal);border-radius:8px"></div>
+      </div>
+      <div style="font-family:var(--font-mono);font-size:11px;color:var(--text-muted);white-space:nowrap;letter-spacing:0.06em"><strong style="color:var(--teal)">5.5%</strong> vs 100% · to scale</div>
+    </div>
+  </div>
+
+  <div class="compare-band">
+    <div class="compare-col" data-rows="5">
+      <div class="compare-header"><div class="ed-name">🇺🇸 United States</div><div class="ed-meta">Capital velocity</div></div>
+      <div class="compare-body">
+        <div class="compare-kv"><div class="kk">AI is</div><div class="vv">A venture asset with a national-security tripwire</div></div>
+        <div class="compare-kv"><div class="kk">Builds</div><div class="vv">Frontier capability first, economics later</div></div>
+        <div class="compare-kv"><div class="kk">Gov role</div><div class="vv">Remove obstacles, intervene on threat</div></div>
+        <div class="compare-kv"><div class="kk">Exposure</div><div class="vv">Availability risk: access can change without notice</div></div>
+      </div>
+    </div>
+    <div class="compare-col" data-rows="5">
+      <div class="compare-header"><div class="ed-name">🇨🇳 China</div><div class="ed-meta">State-directed efficiency</div></div>
+      <div class="compare-body">
+        <div class="compare-kv"><div class="kk">AI is</div><div class="vv">A national productive force under central targets</div></div>
+        <div class="compare-kv"><div class="kk">Builds</div><div class="vv">Efficiency-first, open-weight by strategy</div></div>
+        <div class="compare-kv"><div class="kk">Gov role</div><div class="vv">Direct compute, mandate content alignment</div></div>
+        <div class="compare-kv"><div class="kk">Exposure</div><div class="vv">Access risk: unfiled models cannot serve players</div></div>
+      </div>
+    </div>
+    <div class="compare-col" data-rows="5">
+      <div class="compare-header"><div class="ed-name">🇪🇺 European Union</div><div class="ed-meta">Public infrastructure</div></div>
+      <div class="compare-body">
+        <div class="compare-kv"><div class="kk">AI is</div><div class="vv">Regulated infrastructure serving collective goods</div></div>
+        <div class="compare-kv"><div class="kk">Builds</div><div class="vv">Applied, auditable, domain-specific systems</div></div>
+        <div class="compare-kv"><div class="kk">Gov role</div><div class="vv">Governance as pre-condition, not afterthought</div></div>
+        <div class="compare-kv"><div class="kk">Exposure</div><div class="vv">Compliance risk: provenance and labeling</div></div>
+      </div>
+    </div>
+  </div>
+
+  <p>The philosophies show up in the engineering. US private AI investment ran past $470 billion cumulatively from 2013 to 2024, with the private sector funding roughly three-quarters of R&amp;D, producing compute-hungry frontier models priced to recoup the overhead. China, cut off from top-end GPUs, redirected state capital into algorithmic efficiency: DeepSeek-V3 activates 37 billion of 671 billion parameters per token through mixture-of-experts, with a per-token KV cache near 70 KB against roughly 516 KB for a comparable dense Western model. The reported sub-$6 million training cost for DeepSeek-R1 is company-reported and contested, but the architectural direction is not.</p>
+
+  <p>Europe built neither, and the machine almost nobody in gaming has looked at is the reason Article 50 reads the way it does. The EU's flagship applied-AI work lives in grid management and energy communities, where forecasting models and federated digital twins are built under explicit requirements of auditability, human oversight, and traceable accountability. <strong>Article 50 is not a Silicon Valley backlash. It is that pre-existing tradition, extended to generative content.</strong> Read it that way and its logic stops surprising you.</p>
+</section>
+
+<section id="eu">
+  <div class="section-label">Section 02</div>
+  <div class="chevrons"></div><h2>The EU Machine: Article 50</h2><span class="h2-kicker">August 2, 2026. Provenance becomes the default.</span>
+  <p class="section-intro">The EU AI Act, Regulation (EU) 2024/1689, has applied in staged waves since entering force on August 1, 2024. The wave that matters for studios shipping AI-touched content is Article 50, the transparency bloc, fully enforceable August 2, 2026. Obligations split by role.</p>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:2rem">
+    <div style="background:var(--bg2);padding:2rem 2rem 1.75rem">
+      <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem">If you are a provider</div>
+      <div style="font-family:var(--font-display);font-size:1.2rem;font-weight:700;color:var(--text);margin-bottom:0.75rem;line-height:1.25">Machine-readable labels</div>
+      <div style="font-size:14px;color:var(--text-muted);line-height:1.65">Studios running their own generative systems must mark all synthetic output, via watermarking or metadata. C2PA is the converged standard.</div>
+    </div>
+    <div style="background:var(--bg2);padding:2rem 2rem 1.75rem">
+      <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:#2a8f76;margin-bottom:1rem">If you are a deployer</div>
+      <div style="font-family:var(--font-display);font-size:1.2rem;font-weight:700;color:var(--text);margin-bottom:0.75rem;line-height:1.25">Visible labels, three cases</div>
+      <div style="font-size:14px;color:var(--text-muted);line-height:1.65">Deepfakes, AI audio or video depicting real persons, and unreviewed AI text on matters of public interest.</div>
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>AI use in games</th><th>EU risk tier</th><th>Obligation</th><th>Source</th></tr></thead>
+      <tbody>
+        <tr><td>NPC behavior, procedural gen, difficulty</td><td>Minimal</td><td>None beyond staff AI literacy</td><td><a href="https://artificialintelligenceact.eu/article/50/" target="_blank" rel="noopener" class="source-link">EU AI Act Art. 50</a></td></tr>
+        <tr><td>Chatbot NPCs (not obviously AI)</td><td>Limited / transparency</td><td>Article 50 disclosure</td><td><a href="https://artificialintelligenceact.eu/article/50/" target="_blank" rel="noopener" class="source-link">EU AI Act Art. 50</a></td></tr>
+        <tr><td>AI marketing assets to EU users</td><td>Limited / transparency</td><td>C2PA labeling from Aug 2</td><td><a href="https://artificialintelligenceact.eu/article/50/" target="_blank" rel="noopener" class="source-link">EU AI Act Art. 50</a></td></tr>
+        <tr><td>AI-personalized pricing to minors</td><td>High-risk (potential)</td><td>Risk assessment, documentation</td><td><span class="source-plain">Analysis</span></td></tr>
+        <tr><td>Manipulative AI monetization</td><td>Prohibited</td><td>Cannot deploy</td><td><a href="https://artificialintelligenceact.eu/article/50/" target="_blank" rel="noopener" class="source-link">EU AI Act Art. 50</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Most indie studios are deployers, and the carve-outs matter as much as the obligations. <strong>Core game AI is out of scope.</strong> NPC behavior, pathfinding, procedural generation, and dynamic difficulty are minimal-risk and carry no disclosure duty. Exposure concentrates in three places: AI-generated marketing reaching EU users, AI cutscenes depicting real people, and AI-assisted community posts on public-interest matters published without review.</p>
+
+  <p>The implementation layer converged faster than the law. The Commission published its final Code of Practice on June 10, 2026: voluntary as a pathway, while the underlying obligations bind either way. The standard pairing C2PA Content Credentials with SynthID-style watermarking is embedded across major Western toolchains, with Google alone reporting over 100 billion images and videos tagged. <strong>An AI asset generated through a major Western provider after August 2 should be treated as carrying embedded provenance by default</strong>, a signed artifact traceable through distribution and auditable retroactively. Build pipeline logging accordingly, because reconstructing provenance later costs more than capturing it at creation.</p>
+
+  <div class="insight teal">
+    <strong>The quiet upside.</strong> Provenance reads as overhead today and becomes an asset within two years. Signed AI content is more defensible in copyright disputes, more trustworthy in player communications, and compatible with an emerging market that pays a premium for verified origin. Studios treating C2PA as a chore are building the audit trail their competitors will wish they had.
+  </div>
+</section>
+
+<section id="china">
+  <div class="section-label">Section 03</div>
+  <div class="chevrons"></div><h2>The China Machine: The Double Filing</h2><span class="h2-kicker">Two filings, one whitelist, no Western models on it.</span>
+  <p class="section-intro">China's regime is more consequential for market access and faster to punish. The core mechanism is two independent filings administered by the Cyberspace Administration of China, and they do not substitute for each other.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Requirement</th><th>Governs</th><th>The trap</th><th>Source</th></tr></thead>
+      <tbody>
+        <tr><td>Model filing</td><td>Any foundation model serving the Chinese public must pass CAC assessment and reach the whitelist</td><td>No major Western model is filed; specialists put offshore odds near zero</td><td><span class="source-plain">China AI-law specialists</span></td></tr>
+        <tr><td>Algorithm filing</td><td>Any system deciding what plot, quests, or dialogue a player sees</td><td>If the model lacks its filing, the algorithm filing is summarily rejected</td><td><span class="source-plain">CAC provisions</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>OpenAI, Gemini, Claude, and Midjourney cannot legally serve Chinese players, and routing around the whitelist through a proxy is reported to carry personal criminal liability for responsible personnel. The labeling regime goes further than Europe's: regulations jointly issued by the CAC and three other agencies in September 2025 mandate explicit and implicit labeling of AI-generated text, images, audio, video, and virtual scenes. Virtual scenes reaches directly into AI-generated game environments. Enforcement moves at platform speed: removal orders reportedly executed on Chinese app stores within 24 hours, fines reaching 500,000 RMB per violation, license revocation and criminal liability for repeat harm.</p>
+
+  <p>The important asymmetry: China's rules are simultaneously more restrictive on content and more permissive on efficiency. The state removes hardware constraints while imposing output constraints. These are alignment instruments in the political sense, not safety regulation in the Western sense, and a Western compliance lens produces expensive misjudgments here. There is no lobbying path, no code-of-practice negotiation. There is the whitelist, or there is not shipping the feature.</p>
+
+  <p><strong>For the model layer itself, the split cuts the other way.</strong> China's open-weight models are genuinely attractive for runtime work: mixture-of-experts efficiency, low VRAM footprints, tokenizers reaching near one-token-per-character in Chinese where Western tokenizers pay a 40 to 80 percent premium. A downloaded open-weight model also cannot be pulled by a foreign government's fiat, which June made a selling point nobody expected to need. The constraints mirror: training-data provenance and C2PA compatibility are unresolved for EU deployment, and using a Chinese model does not skip the CAC filing if it serves Chinese players at runtime.</p>
+</section>
+
+<section id="us">
+  <div class="section-label">Section 04</div>
+  <div class="chevrons"></div><h2>The US Machine: The June Stress Test</h2><span class="h2-kicker">Nineteen days that repriced availability risk.</span>
+  <p class="section-intro">The US regime has no Article 50 and no whitelist. What it has is a national-security tripwire, and in June 2026 the industry watched it fire. A sourcing note first: the launch and restoration dates below are provider-confirmed. The narrative between them rests on press reporting we have not independently verified, badged as such.</p>
+
+  <div class="timeline">
+    <div class="timeline-item key"><div class="timeline-date">June 9 · Confirmed</div><div class="timeline-event">Claude Fable 5 launches</div><div class="timeline-note">Anthropic's highest-capability public model, sharing weights with the restricted-access Mythos 5.</div></div>
+    <div class="timeline-item key"><div class="timeline-date">June 12 · Reported</div><div class="timeline-event">Emergency export controls suspend access</div><div class="timeline-note">Reported trigger: a security-research jailbreak claim the provider publicly disputed, with underlying national-security concerns reported as the deeper driver.</div></div>
+    <div class="timeline-item"><div class="timeline-date">June · Aggregator</div><div class="timeline-event">The dispute plays out in public</div><div class="timeline-note">Reported open letters from researchers, reported negotiation over release protocols. Details vary by outlet; treat specifics as unconfirmed.</div></div>
+    <div class="timeline-item key"><div class="timeline-date">June 30 to July 1 · Confirmed</div><div class="timeline-event">Controls lifted, access restored</div><div class="timeline-note">Reported conditions include stronger safety classifiers and coordination on future releases; the restored model is reported to route flagged requests to a lower-capability fallback.</div></div>
+  </div>
+
+  <div style="height:1.5rem"></div>
+
+  <p>Strip every disputed detail and the confirmed skeleton is enough: <strong>a frontier Western model went from generally available to suspended to restored-with-changes inside a month.</strong> During the gap, open-weight Chinese models circulated widely among Western developers for the simplest reason: they were downloadable and could not be turned off. That behavioral response, not any reported negotiation term, is the durable lesson of June.</p>
+
+  <p>For studios the reported post-restoration profile matters even where soft. More aggressive safety classifiers reportedly raise false-positive rates on security-adjacent code while leaving generic game scripting largely untouched. If that holds, engine-level and security-audit tooling in dev pipelines carries fallback risk that NPC behavior scripting does not. Either way, the structural point stands independent of the reporting: US frontier access now sits under a government review layer that did not exist a year ago, and any production-critical feature on a single closed provider needs a fallback tier switchable without a game update.</p>
+
+  <div class="insight coral">
+    <strong>The uncomfortable symmetry.</strong> Studios spent 2025 pricing China access risk and treating Western access as constant. June 2026 ended that. All three machines carry an access variable now. They just denominate it differently: Beijing in filings, Brussels in obligations, Washington in tripwires.
+  </div>
+</section>
+
+<section id="decision">
+  <div class="section-label">Section 05</div>
+  <div class="chevrons"></div><h2>The Pre-Production Decision Tree</h2><span class="h2-kicker">Five questions before the first AI asset exists.</span>
+  <p class="section-intro">The split converts into a sequence of decisions, and the sequence belongs in pre-production, not the submission checklist. Resolved late, every one becomes a rework bill.</p>
+
+  <div class="timeline">
+    <div class="timeline-item key"><div class="timeline-date">Step 1</div><div class="timeline-event">Define launch markets first</div><div class="timeline-note">China in scope means CAC-whitelisted models for every player-facing generative feature, or a filing measured in quarters. EU in scope means Article 50 on AI content reaching EU users from August 2. US-only means frontier access with non-zero pull-back risk.</div></div>
+    <div class="timeline-item key"><div class="timeline-date">Step 2</div><div class="timeline-event">Classify your AI usage</div><div class="timeline-note">Minimal-risk game AI needs nothing. Chatbot NPCs need disclosure where not obvious. Marketing assets need provenance. Monetization AI touching minors needs a lawyer before a model.</div></div>
+    <div class="timeline-item key"><div class="timeline-date">Step 3</div><div class="timeline-event">Log provenance from day one</div><div class="timeline-note">Assets made before August 2 lack embedded credentials and may need retroactive attestation if they surface in EU marketing. A signed-output pipeline is cheaper at creation than at audit.</div></div>
+    <div class="timeline-item key"><div class="timeline-date">Step 4</div><div class="timeline-event">Price the two-track cost honestly</div><div class="timeline-note">Serving both West and China means two inference endpoints, two filtering stacks, two documentation sets, two ongoing reviews. For a micro-studio this is not currently affordable, and pretending otherwise burns runway. Most small Western teams will not serve China's AI-feature market this cycle.</div></div>
+    <div class="timeline-item key"><div class="timeline-date">Step 5</div><div class="timeline-event">Plan for the provider outage</div><div class="timeline-note">June demonstrated global suspension on short notice and restoration on changed terms. Every production-critical AI feature needs a fallback: a lower-capability closed model, a self-hosted open-weight model, or a degraded non-AI path, switchable without shipping a patch.</div></div>
+  </div>
+</section>
+
+
+<section id="question">
+  <div class="section-label">Section 06</div>
+  <div class="chevrons"></div><h2>The Open Question</h2><span class="h2-kicker">Does the split harden, or does one machine win?</span>
+  <p class="section-intro">Everything above describes the split as of July 2026. The contested part is its trajectory, and the two honest readings point at different pipeline strategies.</p>
+
+  <div class="compare-band">
+    <div class="compare-col" data-rows="4">
+      <div class="compare-header"><div class="ed-name">The Hardening Reading</div><div class="ed-meta">Three machines, permanently</div></div>
+      <div class="compare-body">
+        <div class="compare-kv"><div class="kk">Claim</div><div class="vv">The regimes express civilizational priorities that do not negotiate away</div></div>
+        <div class="compare-kv"><div class="kk">Signal</div><div class="vv">June's US intervention landed on top of the split, not against it</div></div>
+        <div class="compare-kv"><div class="kk">Strategy</div><div class="vv">Two-track pipelines become table stakes for global studios</div></div>
+      </div>
+    </div>
+    <div class="compare-col" data-rows="4">
+      <div class="compare-header"><div class="ed-name">The Convergence Reading</div><div class="ed-meta">Provenance as lingua franca</div></div>
+      <div class="compare-body">
+        <div class="compare-kv"><div class="kk">Claim</div><div class="vv">Signed content satisfies all three regimes' core demand: traceability</div></div>
+        <div class="compare-kv"><div class="kk">Signal</div><div class="vv">China and the EU both mandate labeling; the mechanics rhyme</div></div>
+        <div class="compare-kv"><div class="kk">Strategy</div><div class="vv">Invest in provenance, treat endpoints as swappable</div></div>
+      </div>
+    </div>
+  </div>
+
+  <p>The readings agree on one thing, which is why the decision tree works under both: provenance logging and fallback architecture pay off in every branch. Where they disagree is whether the two-track cost is a phase or a permanent feature of shipping globally. Our lean is toward hardening through at least 2028, because none of the three machines is under domestic pressure to soften, and June pointed the opposite direction for the one regime that had no formal structure at all.</p>
+
+  <div class="insight purple">
+    <strong>Where this goes.</strong> Part III follows the money: the same buildout writing these rules is bidding against your players for memory chips, and the bill has already arrived in console prices, entry-level PCs, and 44,000 lost jobs.
+  </div>
+</section>
+
+<section id="reframe">
+  <div class="section-label">Section 07</div>
+  <div class="chevrons"></div><h2>The Reframe</h2><span class="h2-kicker">Model selection moved from the engineering doc to the launch map.</span>
+
+  <p>Studios still file the model question under tooling: which assistant, which API, which price per token. That framing is a year out of date. The question that decides outcomes now is jurisdictional. A model is a legal object in three regimes at once, whitelisted in one, obligated in another, revocable in the third.</p>
+
+  <p><strong>The machine you build on decides where you ship.</strong> Not metaphorically: as a matter of filing requirements, labeling law, and export policy, resolved before your first asset is generated or discovered after submission bounces. Studios that internalize this in pre-production spend a planning week. Studios that discover it at submission spend a quarter.</p>
+
+  <p>And the pressure is not only legal. The same buildout behind all three machines is repricing the hardware, the talent market, and the cost structure of the industry these rules govern. That compression, and who survives it, is Part III.</p>
+</section>
+
+<div class="bio">
+  <p>Abbas Saleem is a Principal Consultant at <a href="https://www.llamagriffin.com/" target="_blank" rel="noopener noreferrer">Llama &amp; Griffin</a>, advising game studios, streaming platforms, and investment funds across six continents. He writes The Pattern Recognition: gaming industry intelligence 12 to 24 months before it becomes consensus. <a href="https://www.linkedin.com/in/abbassaleemkhan/" target="_blank" rel="noopener noreferrer">LinkedIn</a> | <a href="https://cal.com/llamagriffin/30min" target="_blank" rel="noopener noreferrer">Book a conversation</a></p>
+</div>
+
+<div class="series-nav">
+  <a class="series-link" href="part-1.html">Part I<span>The Pipeline</span></a>
+  <a class="series-link next" href="part-3.html">Part III<span>The Compression</span></a>
+</div>
+
+<footer>
+  <div>Part II · The Split · <span>Llama &amp; Griffin Consultants</span></div>
+  <div><span>recognizingpatterns.substack.com</span> · llamagriffin.com</div>
+</footer>
+
+</main>
+<script>
+function initNav(){
+  const sects=document.querySelectorAll('section[id],.hero[id]');
+  const links=document.querySelectorAll('nav a');
+  const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.remove('active'));const a=document.querySelector(`nav a[href="#${e.target.id}"]`);if(a)a.classList.add('active');}})},{rootMargin:'-25% 0px -70% 0px'});
+  sects.forEach(s=>obs.observe(s));
+  links.forEach(l=>l.addEventListener('click',e=>{e.preventDefault();document.querySelector(l.getAttribute('href')).scrollIntoView({behavior:'smooth'});}));
+}
+initNav();
+</script>
+</body>
+</html>

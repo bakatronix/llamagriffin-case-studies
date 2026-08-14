@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Steam Next Fest: Three Years, One Pattern · Llama & Griffin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f5f1e8;--bg2:#ece8dc;--bg3:#e4e0d4;
+  --text:#1a1914;--text-muted:#5a5650;--text-dim:#9490A0;
+  --gold:#C9A84C;--gold-light:#dfc278;--gold-dim:rgba(201,168,76,0.12);
+  --teal:#1D9E75;--purple:#534AB7;--coral:#D85A30;--blue:#3A7BD5;
+  --border:rgba(30,25,20,0.10);--border-med:rgba(30,25,20,0.16);
+  --font-display:'Playfair Display',serif;
+  --font-body:'DM Sans',sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:15px;line-height:1.7;min-height:100vh}
+a{color:var(--gold);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(245,241,232,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;height:52px;gap:0;overflow-x:auto}
+.nav-brand{font-family:var(--font-display);font-size:14px;font-weight:700;color:var(--text);margin-right:1.5rem;padding-right:1.5rem;border-right:1px solid var(--border-med);white-space:nowrap;text-decoration:none;text-transform:none;letter-spacing:normal}
+.nav-brand:hover{text-decoration:none;opacity:0.8}
+nav a.nav-link{color:var(--text-dim);font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.09em;text-transform:uppercase;padding:0 0.9rem;height:52px;display:flex;align-items:center;border-bottom:2px solid transparent;white-space:nowrap;transition:color 0.15s,border-color 0.15s;text-decoration:none}
+nav a.nav-link:hover{color:var(--gold);border-bottom-color:rgba(201,168,76,0.3);text-decoration:none}
+nav a.nav-link.active{color:var(--gold);border-bottom-color:var(--gold)}
+
+/* HERO */
+.hero{max-width:960px;margin:0 auto;padding:5rem 2rem 3rem}
+.hero-eyebrow{font-family:var(--font-mono);font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:10px}
+.hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold);display:inline-block}
+.hero h1{font-family:var(--font-display);font-size:clamp(2.2rem,5vw,3.2rem);font-weight:700;line-height:1.06;color:var(--text);margin-bottom:0.1rem}
+.hero h1 .kicker{display:block;font-style:italic;color:var(--gold)}
+.hero-sub{font-size:15px;color:var(--text-muted);max-width:660px;margin:1.5rem 0 2rem;line-height:1.7}
+
+/* META ROW */
+.hero-meta{display:flex;gap:2rem;margin-bottom:2.5rem;flex-wrap:wrap;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:0.75rem 0}
+.hero-meta-item{font-family:var(--font-mono);font-size:10px;letter-spacing:0.09em;text-transform:uppercase;color:var(--text-dim)}
+.hero-meta-item span{color:var(--text-muted);font-weight:500}
+
+/* STAT GRID */
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--border-med);border:1px solid var(--border-med);border-radius:3px;overflow:hidden;margin-bottom:2.5rem}
+.stat-cell{background:var(--bg2);padding:1.1rem 1.4rem}
+.stat-val{font-family:var(--font-display);font-size:1.5rem;font-weight:700;line-height:1;margin-bottom:4px}
+.stat-val.gold{color:var(--gold)}
+.stat-val.teal{color:var(--teal)}
+.stat-val.purple{color:var(--purple)}
+.stat-val.coral{color:var(--coral)}
+.stat-lbl{font-family:var(--font-mono);font-size:9px;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-dim)}
+
+/* INSIGHT */
+.insight{border-left:3px solid var(--gold);background:var(--gold-dim);border-radius:0 3px 3px 0;padding:1.1rem 1.4rem;margin-bottom:3rem;font-size:14px;color:var(--text-muted);line-height:1.7;max-width:960px;margin-left:auto;margin-right:auto}
+.insight strong{color:var(--text)}
+
+/* PARTS GRID */
+.parts{max-width:960px;margin:0 auto;padding:0 2rem 5rem}
+.parts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+@media(max-width:700px){.parts-grid{grid-template-columns:1fr}}
+.part-card{background:var(--bg2);border:1px solid var(--border-med);border-radius:3px;padding:1.75rem;display:flex;flex-direction:column;gap:0.5rem;transition:border-color 0.15s,box-shadow 0.15s;text-decoration:none;color:inherit}
+.part-card:hover{border-color:var(--gold);box-shadow:0 2px 12px rgba(201,168,76,0.12);text-decoration:none}
+.part-num{font-family:var(--font-display);font-size:1.4rem;font-weight:700;color:var(--gold);font-style:italic}
+.part-title{font-family:var(--font-display);font-size:1.05rem;font-weight:700;color:var(--text);line-height:1.25}
+.part-desc{font-size:13px;color:var(--text-muted);line-height:1.65;flex:1}
+.part-link{font-family:var(--font-mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);margin-top:0.5rem}
+
+/* FOOTER */
+footer{max-width:960px;margin:0 auto;padding:1.5rem 2rem 3rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem}
+footer div{font-family:var(--font-mono);font-size:11px;color:var(--text-dim)}
+footer span{color:var(--gold)}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://www.llamagriffin.com" class="nav-brand">Llama &amp; Griffin Consultants</a>
+  <a href="index.html" class="nav-link active">Overview</a>
+  <a href="part-1.html" class="nav-link">Part I · Three-Year Arc</a>
+  <a href="part-2.html" class="nav-link">Part II · June 2026</a>
+  <a href="part-3.html" class="nav-link">Part III · AI Disclosure</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-eyebrow">Steam Next Fest Performance Suite</div>
+  <h1>Steam Next Fest<span class="kicker">Three Years, One Pattern.</span></h1>
+
+  <p class="hero-sub">Steam Next Fest grew from roughly 900 demos to nearly 4,900 active demos in three years — with 8,682 total event entries in June 2026 (GameDiscoverCo tracked 4,382 eligible demos; the remainder includes titles later removed from the active demo hub). The headline story is scale. The real story is what scale did to discovery: the festival stopped creating breakouts and started amplifying the ones that arrived with an audience already built. This report traces that shift across seven editions, examines the June 2026 edition in depth, and maps the AI-disclosure crisis now reshaping the field.</p>
+
+  <div class="hero-meta">
+    <div class="hero-meta-item">WINDOW <span>OCT 2023 – JUN 2026</span></div>
+    <div class="hero-meta-item">EDITIONS <span>SEVEN ANALYZED</span></div>
+    <div class="hero-meta-item">BASIS <span>VALVE · GDCO · STEAMDB · HTMAG</span></div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-cell">
+      <div class="stat-val gold">~4.4×</div>
+      <div class="stat-lbl">Demo Growth, 2023 to 2026</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-val teal">~20&times;</div>
+      <div class="stat-lbl">Fall in Impressions per Game</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-val purple">26.5%</div>
+      <div class="stat-lbl">of GDCO-tracked demos (4,382) disclosing AI; ~20% for full 8,682-entry event</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-val coral">10k+</div>
+      <div class="stat-lbl">Pre-Fest Wishlists to Break Out</div>
+    </div>
+  </div>
+</div>
+
+<div class="insight" style="padding-left:2rem;padding-right:2rem">
+  <strong>The through-line: the harvest thesis.</strong> Next Fest amplifies momentum. It does not generate it. Every edition in this report points to the same conclusion: the games that win arrive with a community already engaged, and the festival converts that latent audience into visible performance. The clearest single expression is June 2026's IRON NEST, a handcrafted two-person demo that entered with 250,000 wishlists and converted them into the #2 most-played slot against a field one quarter AI-disclosed. Craft built the community. The community produced the result. Strip either and the story changes.
+</div>
+
+<div class="parts">
+  <div class="parts-grid">
+    <a href="part-3.html" class="part-card">
+      <div class="part-num">I</div>
+      <div class="part-title">The Three-Year Arc</div>
+      <div class="part-desc">Seven editions, October 2023 to June 2026. Scale growth, the unbroken co-op pattern, and the discovery-compression crisis that turned the festival into a two-tier event.</div>
+      <div class="part-link">Open Part I →</div>
+    </a>
+    <a href="part-1.html" class="part-card">
+      <div class="part-num">II</div>
+      <div class="part-title">June 2026 in Depth</div>
+      <div class="part-desc">The largest edition on record. The most-played list, genre performance, and the IRON NEST case study as the definitive expression of the harvest thesis.</div>
+      <div class="part-link">Open Part II →</div>
+    </a>
+    <a href="part-2.html" class="part-card">
+      <div class="part-num">III</div>
+      <div class="part-title">The AI Disclosure Crisis</div>
+      <div class="part-desc">Disclosure rose to 26.5% of demos while AI-disclosed games stayed out of the top tier. The performance gap, the avoidance mechanism, and the studio playbook.</div>
+      <div class="part-link">Open Part III →</div>
+    </a>
+  </div>
+</div>
+
+<footer>
+  <div>Steam Next Fest Performance Suite · <span>Llama &amp; Griffin Consultants</span></div>
+  <div><span>recognizingpatterns.substack.com</span> · llamagriffin.com</div>
+</footer>
+
+</body>
+</html>

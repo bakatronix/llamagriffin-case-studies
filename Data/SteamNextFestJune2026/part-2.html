@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The AI Disclosure Report · Steam Next Fest · June 2026 · Llama &amp; Griffin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  /* L&G Brand Palette */
+  --bg:#f7f4ee;--bg2:#fdfcf9;--bg3:#eae7e0;--bg4:#d2cdc3;
+  --border:#d2cdc3;--border-med:#c5bfb5;
+  --text:#232323;--text-muted:#37342f;--text-dim:#6b6660;
+  /* L&G Accent */
+  --gold:#c3a55f;--gold-light:#d4ba82;--gold-dim:rgba(195,165,95,0.12);
+  /* Semantic data colours - warm-muted for cream background */
+  --teal:#2a8f76;--teal-light:#3daa8e;--teal-dim:rgba(42,143,118,0.10);
+  --purple:#6b64b3;--purple-light:#8f88cc;--purple-dim:rgba(107,100,179,0.10);
+  --coral:#b85a3a;--coral-light:#cb7055;--coral-dim:rgba(184,90,58,0.10);
+  --blue:#3d77c4;--blue-light:#6699d8;--blue-dim:rgba(61,119,196,0.10);
+  --font-display:'Playfair Display',serif;
+  --font-body:'DM Sans',sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7;min-height:100vh}
+a{color:var(--gold);text-decoration:none}a:hover{text-decoration:underline}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(247,244,238,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;height:52px;overflow-x:auto;gap:0}
+nav a{color:var(--text-dim);font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.09em;text-transform:uppercase;padding:0 0.9rem;height:52px;display:flex;align-items:center;border-bottom:2px solid transparent;white-space:nowrap;transition:color 0.15s,border-color 0.15s}
+nav a:hover{color:var(--gold);text-decoration:none;border-bottom-color:rgba(195,165,95,0.3)}
+nav a.active{color:var(--gold);border-bottom-color:var(--gold)}
+.nav-brand{font-family:var(--font-display);font-size:14px;font-weight:700;color:var(--text);margin-right:1.5rem;padding-right:1.5rem;border-right:1px solid var(--border);white-space:nowrap;text-transform:none;letter-spacing:normal}
+.nav-divider{width:1px;height:20px;background:var(--border);margin:0 0.5rem;flex-shrink:0}
+
+/* HERO */
+.hero{padding:5rem 2rem 4rem;max-width:960px;margin:0 auto;position:relative}
+.hero-eyebrow{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;display:flex;align-items:center;gap:10px}
+.hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold);display:inline-block}
+.hero h1{font-family:var(--font-display);font-size:clamp(2rem,5vw,3.4rem);font-weight:700;line-height:1.07;color:var(--text);margin-bottom:0.75rem}
+.hero h1 span{color:var(--gold);font-style:italic}
+.hero-sub{font-size:15px;color:var(--text-muted);max-width:580px;margin-bottom:2.5rem;line-height:1.65}
+.hero-meta{display:flex;gap:1.5rem;margin-bottom:2.5rem;flex-wrap:wrap}
+.hero-meta-item{font-family:var(--font-mono);font-size:10px;letter-spacing:0.09em;color:var(--text-dim);text-transform:uppercase}
+.hero-meta-item span{color:var(--text-muted);font-weight:500}
+
+/* STAT GRID */
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:3rem}
+.stat-cell{background:var(--bg2);padding:1.25rem 1.5rem}
+.stat-val{font-family:var(--font-display);font-size:1.6rem;font-weight:700;color:var(--gold);line-height:1;margin-bottom:5px}
+.stat-val.teal{color:var(--teal)}
+.stat-val.purple{color:var(--purple)}
+.stat-val.coral{color:var(--coral)}
+.stat-lbl{font-family:var(--font-mono);font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.07em}
+
+/* CHEVRON ACCENT */
+.chevrons{display:flex;gap:5px;margin-bottom:0.5rem}
+.chevrons::before{content:'▲▲▲▲';font-size:8px;color:var(--gold);letter-spacing:3px}
+
+/* SECTIONS */
+section{max-width:960px;margin:0 auto;padding:3.5rem 2rem;border-top:1px solid var(--border)}
+.section-label{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.3rem}
+h2{font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--text);margin-bottom:0.25rem;line-height:1.15}
+.h2-kicker{font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--gold);font-style:italic;display:block;margin-bottom:1.5rem}
+.section-intro{font-size:15px;color:var(--text-muted);max-width:700px;margin-bottom:2rem;line-height:1.7}
+h3{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);margin:2.5rem 0 1rem}
+h3:first-of-type{margin-top:0}
+p{color:var(--text-muted);margin-bottom:1rem;font-size:15px;max-width:72ch;line-height:1.7}
+p strong{color:var(--text);font-weight:600}
+p:last-child{margin-bottom:0}
+
+/* TABLES */
+.table-wrap{overflow-x:auto;margin-bottom:1.5rem;border:1px solid var(--border);border-radius:4px;overflow:hidden}
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead th{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);padding:0.75rem 1rem;text-align:left;border-bottom:1px solid var(--border-med);background:var(--bg3);white-space:nowrap}
+tbody tr{border-bottom:1px solid var(--border);transition:background 0.1s}
+tbody tr:last-child{border-bottom:none}
+tbody tr:hover{background:var(--bg3)}
+tbody td{padding:0.65rem 1rem;color:var(--text-muted);vertical-align:middle}
+tbody td:first-child{color:var(--text)}
+
+/* TAGS/BADGES */
+.tag{display:inline-block;font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;padding:2px 7px;border-radius:2px;white-space:nowrap}
+.tag-gold{background:var(--gold-dim);color:var(--gold)}
+.tag-teal{background:var(--teal-dim);color:var(--teal)}
+.tag-purple{background:var(--purple-dim);color:var(--purple)}
+.tag-coral{background:var(--coral-dim);color:var(--coral)}
+.tag-blue{background:var(--blue-dim);color:var(--blue)}
+.tag-dim{background:rgba(35,35,35,0.07);color:var(--text-dim)}
+.tag-official{background:var(--teal-dim);color:var(--teal)}
+.tag-inferred{background:var(--purple-dim);color:var(--purple)}
+
+.rank-badge{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:3px;font-family:var(--font-mono);font-size:10px;font-weight:500;background:var(--bg3);color:var(--text-dim);margin-right:6px;flex-shrink:0}
+.rank-badge.top3{background:var(--gold-dim);color:var(--gold)}
+.rank-badge.top10{background:var(--teal-dim);color:var(--teal)}
+
+/* INSIGHTS */
+.insight{border-left:2px solid var(--gold);background:var(--gold-dim);border-radius:0 4px 4px 0;padding:1rem 1.25rem;margin:1.5rem 0;font-size:14px;color:var(--text-muted);line-height:1.65}
+.insight strong{color:var(--text);font-weight:600}
+.insight.teal{border-color:var(--teal);background:var(--teal-dim)}
+.insight.teal strong{color:var(--teal)}
+.insight.purple{border-color:var(--purple);background:var(--purple-dim)}
+.insight.purple strong{color:var(--purple)}
+.insight.coral{border-color:var(--coral);background:var(--coral-dim)}
+.insight.coral strong{color:var(--coral)}
+.insight.blue{border-color:var(--blue);background:var(--blue-dim)}
+.insight.blue strong{color:var(--blue)}
+
+/* CARDS */
+.card-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:1.75rem}
+.card{background:var(--bg2);padding:1.25rem 1.5rem}
+.card .clabel{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);margin-bottom:6px}
+.card .cval{font-family:var(--font-display);font-size:1.3rem;font-weight:700;color:var(--text);line-height:1.1;margin-bottom:3px}
+.card .csub{font-size:12px;color:var(--text-muted);line-height:1.45}
+.card.gold .cval{color:var(--gold)}
+.card.teal .cval{color:var(--teal)}
+.card.purple .cval{color:var(--purple)}
+.card.coral .cval{color:var(--coral)}
+.card.blue .cval{color:var(--blue)}
+
+/* TABS */
+.tabs{display:flex;gap:2px;margin-bottom:1.25rem;border-bottom:1px solid var(--border)}
+.tab-btn{font-family:var(--font-mono);font-size:10px;font-weight:500;background:none;border:none;color:var(--text-dim);padding:0.6rem 1rem;cursor:pointer;border-bottom:2px solid transparent;transition:color 0.15s,border-color 0.15s;margin-bottom:-1px;letter-spacing:0.08em;text-transform:uppercase}
+.tab-btn:hover{color:var(--text-muted)}
+.tab-btn.active{color:var(--gold);border-bottom-color:var(--gold)}
+.tab-panel{display:none}.tab-panel.active{display:block}
+
+/* TIMELINE */
+.timeline{position:relative;padding-left:1.5rem}
+.timeline::before{content:'';position:absolute;left:0;top:6px;bottom:6px;width:1px;background:var(--border-med)}
+.timeline-item{position:relative;padding:0 0 1.5rem 1.5rem}
+.timeline-item::before{content:'';position:absolute;left:-4px;top:6px;width:8px;height:8px;border-radius:50%;background:var(--bg3);border:1px solid var(--border-med)}
+.timeline-item.key::before{background:var(--gold);border-color:var(--gold)}
+.timeline-date{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.09em;text-transform:uppercase;color:var(--gold);margin-bottom:2px}
+.timeline-event{font-size:14px;color:var(--text);font-weight:500}
+.timeline-note{font-size:12px;color:var(--text-muted);margin-top:4px;line-height:1.55}
+
+/* CHART */
+.chart-wrap{position:relative;width:100%;margin-bottom:1.5rem}
+.chart-legend{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:10px;font-size:12px;color:var(--text-muted)}
+.chart-legend span{display:flex;align-items:center;gap:6px}
+.swatch{width:10px;height:10px;border-radius:2px;flex-shrink:0}
+
+/* EDITION LABELS */
+.edition-label{font-family:var(--font-display);font-size:12px;letter-spacing:0.02em}
+.edition-june26{color:var(--gold)}
+.edition-feb26{color:var(--teal)}
+.edition-oct25{color:var(--purple)}
+.edition-jun25{color:var(--blue)}
+.edition-feb25{color:var(--coral)}
+
+/* ROGUELITE */
+.rog-badge{display:inline-block;width:6px;height:6px;border-radius:50%;margin-right:6px}
+.rog-breakout{background:var(--gold)}
+.rog-strong{background:var(--teal)}
+.rog-solid{background:var(--purple)}
+.rog-avg{background:var(--text-dim)}
+
+/* BARS */
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.bar-label{font-size:12px;color:var(--text-muted);min-width:180px;flex-shrink:0}
+.bar-bg{flex:1;height:5px;background:var(--bg4);border-radius:3px;overflow:hidden}
+.bar-fill{height:100%;border-radius:3px}
+.bar-val{font-family:var(--font-mono);font-size:12px;font-weight:500;color:var(--text);min-width:80px;text-align:right;flex-shrink:0}
+
+/* EDITION COMPARE */
+.compare-band{display:flex;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:2rem}
+.compare-col{flex:1;min-width:140px}
+.compare-header{background:var(--bg3);padding:0.9rem 1.2rem;border-bottom:1px solid var(--border)}
+.compare-header .ed-name{font-family:var(--font-display);font-size:13px;font-weight:700}
+.compare-header .ed-meta{font-family:var(--font-mono);font-size:10px;color:var(--text-dim);margin-top:3px}
+.compare-body{background:var(--bg2);padding:1rem 1.2rem}
+.compare-kv{margin-bottom:10px}
+.compare-kv .kk{font-family:var(--font-mono);font-size:9px;text-transform:uppercase;letter-spacing:0.09em;color:var(--text-dim);margin-bottom:2px}
+.compare-kv .vv{font-size:13px;color:var(--text);font-weight:500}
+
+/* FOOTER */
+footer{max-width:960px;margin:0 auto;padding:2rem 2rem 3rem;border-top:1px solid var(--border);font-size:12px;color:var(--text-dim);display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;align-items:center}
+footer span{color:var(--gold)}
+
+@media(max-width:600px){
+  .bar-label{min-width:120px;font-size:11px}
+  h2{font-size:1.25rem}
+}
+</style>
+</head>
+<body>
+
+<div id="suite-nav" style="background:#f5f1e8;border-bottom:1px solid rgba(30,25,20,0.12);padding:0 2rem;display:flex;align-items:center;height:36px;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.09em;text-transform:uppercase;gap:0;overflow-x:auto;position:sticky;top:0;z-index:200">
+  <span style="color:#C9A84C;margin-right:1.5rem;padding-right:1.5rem;border-right:1px solid rgba(30,25,20,0.12);white-space:nowrap;font-weight:500">Steam Next Fest Suite</span>
+  <a href="index.html" class="suite-link ">Overview</a><a href="part-3.html" class="suite-link ">Part I · Three-Year Arc</a><a href="part-1.html" class="suite-link ">Part II · June 2026</a><a href="part-2.html" class="suite-link active">Part III · AI Disclosure</a>
+</div>
+<style>
+  .suite-link{color:#9490A0;padding:0 0.85rem;height:36px;display:inline-flex;align-items:center;border-bottom:2px solid transparent;white-space:nowrap;text-decoration:none;transition:color 0.15s}
+  .suite-link:hover{color:#C9A84C;border-bottom-color:rgba(201,168,76,0.3)}
+  .suite-link.active{color:#C9A84C;border-bottom-color:#C9A84C}
+  #main-nav{top:36px !important}
+</style>
+
+<nav id="main-nav"><a href="https://www.llamagriffin.com" class="nav-brand" style="text-decoration:none">Llama &amp; Griffin Consultants</a>
+  <a href="#overview" class="active">Overview</a>
+  <a href="#scale">The Scale</a>
+  <a href="#disclosure">Disclosure</a>
+  <a href="#performance">Performance</a>
+  <a href="#avoidance">Avoidance</a>
+  <a href="#playbook">The Playbook</a>
+  <a href="#tiers">Use Tiers</a>
+  <a href="#teamsize">Team Size</a>
+  <a href="#policy">Valve Policy</a>
+  <a href="#council">Council View</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero" id="overview">
+  <div class="hero-eyebrow">Pattern Recognition · Deep Intelligence Report</div>
+  <h1>The AI Disclosure Report<br><span>Steam Next Fest, June 2026</span></h1>
+  <p class="hero-sub">AI is not a binary. The studios that disclosed AI and still performed used it least visibly, on surfaces players never inspect. This report maps the disclosure numbers, the performance gap, and the practical line between AI as an asset and AI as a liability.</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item">Published <span>June 2026</span></div>
+    <div class="hero-meta-item">Edition <span>June 15–22, 2026</span></div>
+    <div class="hero-meta-item">Basis <span>GDCo · SteamDB · developer statements</span></div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-cell"><div class="stat-val">4,382</div><div class="stat-lbl">Registered demos (GDCo pool)</div></div>
+    <div class="stat-cell"><div class="stat-val teal">26.5%</div><div class="stat-lbl">Of demos disclose AI (GDCo pool)</div></div>
+    <div class="stat-cell"><div class="stat-val purple">1 of 10</div><div class="stat-lbl">AI-disclosed in top-played</div></div>
+    <div class="stat-cell"><div class="stat-val coral">~8,682</div><div class="stat-lbl">Total event entries</div></div>
+  </div>
+
+  <div class="insight"><strong>The frame.</strong> Two populations, two rates, often conflated. Across the 4,382 registered demos GameDiscoverCo tracked, 1,163 carried the AI disclosure, about 26.5 percent. Across the full event of roughly 8,682 entries, near 1,700 disclosed, about 20 percent. Demos disclose at a higher rate than the event as a whole, because shipping a playable build is more likely to put visible content on screen. Both numbers are real. Most coverage cites whichever is larger without saying which population it describes.</div>
+</div>
+
+<!-- THE SCALE -->
+<section id="scale">
+  <div class="section-label">The Scale</div>
+  <div class="chevrons"></div>
+  <h2>The field outgrew the festival.</h2><span class="h2-kicker">Volume became the problem.</span>
+  <p class="section-intro">June 2026 was the largest Next Fest on record by a wide margin. The growth is not incidental to the AI story. It is the AI story, because the same tooling that lets a small team ship a demo at all is what filled the field past the point where discovery still functions.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Edition</th><th>Total demos</th><th>AI disclosed</th><th>% disclosed</th><th>Basis</th></tr></thead>
+      <tbody>
+        <tr><td>October 2024</td><td>~2,900</td><td>~400 (est.)</td><td>~14%</td><td><span class="tag tag-dim">Estimated</span></td></tr>
+        <tr><td>February 2025</td><td>~2,300</td><td>Not tracked</td><td>~15% (est.)</td><td><span class="tag tag-dim">Estimated</span></td></tr>
+        <tr><td>June 2025</td><td>~2,645</td><td>Not tracked</td><td>~16% (est.)</td><td><span class="tag tag-dim">Estimated</span></td></tr>
+        <tr><td>October 2025</td><td>~2,960</td><td>504–507</td><td>~17%</td><td><span class="tag tag-teal">Counted</span></td></tr>
+        <tr><td>February 2026</td><td>~3,455</td><td>~750 (demo subset)</td><td>~17–21%</td><td><span class="tag tag-teal">Counted</span></td></tr>
+        <tr><td><strong>June 2026</strong></td><td><strong>4,382 demos / ~8,682 entries</strong></td><td><strong>1,163 demos / ~1,700 entries</strong></td><td><strong>26.5% demos / ~20% entries</strong></td><td><span class="tag tag-gold">GDCo + SteamDB</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="insight teal"><strong>The apples-to-apples number.</strong> The only clean consecutive-edition comparison uses GameDiscoverCo's demo pool with one methodology: 21.2 percent disclosure in February 2026, rising to 26.5 percent in June 2026. Same measurement, same Valve-defined demo population, back-to-back editions. That five-point jump is the real trend, not the wider event-pool figures that shift with how each outlet draws the boundary.</div>
+
+  <p>For platform context beyond Next Fest, roughly 7,818 Steam titles disclosed generative AI use in the first half of 2025 alone, against about 1,000 in all of 2024. By 2025, close to one in five new monthly Steam releases carried a disclosure. In the week ending June 14, 2026, immediately before the festival, more than 300 games shipped on Steam and 120 of them disclosed AI, a 40 percent rate for new weekly releases, per GameDiscoverCo tracking. The festival rate trails the new-release rate, which is the leading indicator worth watching.</p>
+</section>
+
+<!-- DISCLOSURE: WHAT AI IS USED FOR -->
+<section id="disclosure">
+  <div class="section-label">What Is Actually Disclosed</div>
+  <div class="chevrons"></div>
+  <h2>The disclosure tells you almost nothing.</h2><span class="h2-kicker">One checkbox, a dozen meanings.</span>
+  <p class="section-intro">A single disclosure covers a placeholder texture replaced before launch and a game built entirely from generated assets. That is the system's central flaw and the reason raw disclosure counts mislead. Here is what sits underneath the checkbox, ordered by how often it appears.</p>
+
+  <div class="bar-row"><div class="bar-label">Visual assets (art, textures)</div><div class="bar-bg"><div class="bar-fill" style="width:60%;background:var(--gold)"></div></div><div class="bar-val">~60%</div></div>
+  <div class="bar-row"><div class="bar-label">Marketing / store page art</div><div class="bar-bg"><div class="bar-fill" style="width:45%;background:var(--gold-light)"></div></div><div class="bar-val">High</div></div>
+  <div class="bar-row"><div class="bar-label">Audio (music, SFX, voice)</div><div class="bar-bg"><div class="bar-fill" style="width:30%;background:var(--coral)"></div></div><div class="bar-val">Smaller</div></div>
+  <div class="bar-row"><div class="bar-label">Translation / localization</div><div class="bar-bg"><div class="bar-fill" style="width:28%;background:var(--teal)"></div></div><div class="bar-val">Common</div></div>
+  <div class="bar-row"><div class="bar-label">Writing / dialogue</div><div class="bar-bg"><div class="bar-fill" style="width:18%;background:var(--purple)"></div></div><div class="bar-val">Lower</div></div>
+  <div class="bar-row"><div class="bar-label">Code / game logic</div><div class="bar-bg"><div class="bar-fill" style="width:15%;background:var(--blue)"></div></div><div class="bar-val">Exempt*</div></div>
+  <div class="bar-row"><div class="bar-label">Live-generated content</div><div class="bar-bg"><div class="bar-fill" style="width:6%;background:var(--text-dim)"></div></div><div class="bar-val">Rare</div></div>
+
+  <div class="insight"><strong>The split that matters.</strong> Visual content drives roughly 60 percent of disclosures. Audio is a smaller share but generates the loudest reaction, because a synthetic voice is unmistakable in a way a generated texture is not. The category a studio picks determines its risk far more than whether it discloses at all. <em>*Code assistance stopped requiring disclosure under the January 2026 policy rewrite.</em></div>
+</section>
+
+<!-- PERFORMANCE -->
+<section id="performance">
+  <div class="section-label">The Performance Gap</div>
+  <div class="chevrons"></div>
+  <h2>AI-disclosed games miss the top tier.</h2><span class="h2-kicker">Every edition, the same shape.</span>
+  <p class="section-intro">The clearest performance signal is the official most-played list. AI-disclosed games appear there at a fraction of their share of the field, and the gap holds across every edition with data. This is the one performance claim the public numbers actually support.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Edition</th><th>AI in top 10</th><th>AI in top 100</th><th>Pool rate</th><th>Gap</th></tr></thead>
+      <tbody>
+        <tr><td>October 2025</td><td>0–1</td><td>~3 in top 50</td><td>17%</td><td><span class="tag tag-coral">~3–4×</span></td></tr>
+        <tr><td>February 2026</td><td>Not specified</td><td>10 of 100 (10%)</td><td>17–21%</td><td><span class="tag tag-coral">~2×</span></td></tr>
+        <tr><td><strong>June 2026</strong></td><td><strong>1 of 10 (10%)</strong></td><td>Not yet counted</td><td><strong>26.5%</strong></td><td><span class="tag tag-coral">2.5×+</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>In February 2026, a manual review of the top 100 demos found exactly 10 carrying AI disclosures, a 10 percent rate against a 17 to 21 percent pool. Four of those ten disclosed AI only for placeholder assets already slated for replacement. In June 2026, the top 10 most-played carried a single AI-disclosed title against a 26.5 percent demo pool, a gap of more than two and a half times.</p>
+
+  <div class="insight purple"><strong>The one that made it: Embers of the Uncrowned, rank #10.</strong> A dark-fantasy MMORPG from Nexon, a publicly traded publisher with roughly 9,800 employees. Its disclosure is broad and forward-looking, covering visual content, marketing, live chat translation, and partial localization, with explicit deference to human authorship. It performed because the demo shipped a polished, multi-hour build and because Nexon's name carries genre trust that offsets disclosure hesitancy. That is brand immunity, not a model an indie can copy.<div class="insight" style="margin-top:0"><strong>Data note:</strong> The 26.5% disclosure rate applies to GameDiscoverCo's tracked pool of 4,382 eligible demos. For the full event of roughly 8,682 entries, the disclosure rate is nearer to <strong>20 percent</strong> — both figures are valid but refer to different populations.</div>
+</div>
+
+  <h3>Wishlist performance: the honest gap in the data</h3>
+  <p>No public dataset compares AI-disclosed and non-disclosed games on wishlists across a Next Fest. Valve does not publish AI-stratified figures, and no independent survey has done the stratification. What is observable: none of the top-tier wishlist earners in February or June 2026 carry visible AI disclosures, and the two most-played demos of June 2026 both carry none. That is a pattern, not a controlled comparison, and this report will not present it as one.</p>
+
+  <div class="insight teal"><strong>The counterexample is not one game. It is the top two.</strong> The two most-played demos of the largest Next Fest on record were both handcrafted and both carried no AI disclosure. BOMBANANA, from indie team Lefto Studio, finished #1 with more than 675,000 players, over a million demo library adds, and a 40,000-plus peak concurrent on SteamDB. IRON NEST, a two-person team, finished #2 at 99 percent Overwhelmingly Positive with 124,622 wishlists in five days. Against a field disclosing AI at 20 to 26.5 percent, the chart topped out on craft. That is a pattern, not a cherry-picked exception. It still does not prove AI lost, because no one measured the AI cohort against a control, but it is a far harder data point than any single breakout.</div>
+</section>
+
+<!-- AVOIDANCE -->
+<section id="avoidance">
+  <div class="section-label">The Avoidance Effect</div>
+  <div class="chevrons"></div>
+  <h2>The penalty players impose themselves.</h2><span class="h2-kicker">The policy never had to.</span>
+  <p class="section-intro">Valve's disclosure carries no formal penalty. Players built one anyway. The mechanism is consistent across independent reports and it compounds through the festival's own ranking algorithm.</p>
+
+  <div class="card-row">
+    <div class="card gold"><div class="clabel">Step 1</div><div class="cval">Check</div><div class="csub">Informed players scan for a disclosure before engaging, often via a browser extension.</div></div>
+    <div class="card coral"><div class="clabel">Step 2</div><div class="cval">Skip</div><div class="csub">On finding one, most skip the demo regardless of the stated scope of AI use.</div></div>
+    <div class="card purple"><div class="clabel">Step 3</div><div class="cval">Signal</div><div class="csub">Lower playtime and conversion feed the algorithm a weak-engagement signal.</div></div>
+    <div class="card"><div class="clabel">Step 4</div><div class="cval">Bury</div><div class="csub">After Day 3, ranking shifts from randomized to engagement-weighted. The signal compounds.</div></div>
+  </div>
+
+  <p>A Kotaku test of 16 games from the June 2026 main hub found 10 tripped an AI-disclosure warning from a browser extension, a 62.5 percent hit rate among featured games. Treat that as one spot check, not a field rate, the sample is sixteen games. The behavioral conclusion holds regardless of the exact percentage: disclosed games face real, measurable avoidance from exactly the engaged genre fans a serious studio is trying to win.</p>
+
+  <div class="insight coral"><strong>The avoidance reaches the buy side.</strong> The behavior is not confined to players. Publishers have stated publicly that AI capsule art is an immediate reason to skip a demo while browsing. When the people writing checks pass on the capsule image, the penalty is no longer just a player preference. It is a market signal that forms before the gameplay is ever seen.</div>
+
+  <div class="insight"><strong>The discovery cost lands on everyone.</strong> At roughly one in four demos disclosing AI, a quarter of the randomized early-festival exposures risk generating a negative signal from informed players. That degrades the algorithm's ability to identify which games deserve amplification, which means the handcrafted unknown loses its best window, the randomized early-fest slot, to the noise. The damage is not the AI games. It is what they do to discovery for the games below the median.</div>
+</section>
+
+<!-- THE PLAYBOOK -->
+<section id="playbook">
+  <div class="section-label">The Playbook</div>
+  <div class="chevrons"></div>
+  <h2>The studios that used AI and still won.</h2><span class="h2-kicker">They used it where no one looks.</span>
+  <p class="section-intro">Here the report turns from the crisis to the pattern underneath it. Every team that cracked the top 100 carrying an AI disclosure shared one trait: the AI footprint was narrow, confined to non-hero surfaces, and almost always paired with a replacement plan or a human-finalization statement. The disclosure was something a player met after forming a positive impression of the gameplay, never before. What follows is drawn from developer statements and industry reporting, not independent audit, and is framed as such.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Studio / Title</th><th>Team</th><th>AI use</th><th>Why it held</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Embers of the Uncrowned</strong><br><span style="font-size:11px;color:var(--text-dim)">Nexon</span></td><td>Major publisher</td><td>Live-service localization, marketing, partial dialogue</td><td><span class="tag tag-purple">Brand immunity</span></td></tr>
+        <tr><td><strong>Warhounds</strong><br><span style="font-size:11px;color:var(--text-dim)">Everplay DMCC</span></td><td>~20 veterans</td><td>Placeholder portraits → eliminated</td><td><span class="tag tag-teal">Narrow + replaced</span></td></tr>
+        <tr><td><strong>Esports Manager 2026</strong><br><span style="font-size:11px;color:var(--text-dim)">Neurona Games</span></td><td>2–6</td><td>Procedural faces, personality text</td><td><span class="tag tag-gold">Scale solution</span></td></tr>
+        <tr><td><strong>Copa City</strong><br><span style="font-size:11px;color:var(--text-dim)">Triple Espresso</span></td><td>~10–20 veterans</td><td>Demo placeholder art → replaced</td><td><span class="tag tag-teal">Novel concept</span></td></tr>
+        <tr><td><strong>Fearwoods</strong><br><span style="font-size:11px;color:var(--text-dim)">Fearwoods Studio</span></td><td>1–4 (micro)</td><td>AI-assisted painting in Photoshop</td><td><span class="tag tag-gold">Human-finalized</span></td></tr>
+        <tr><td><strong>Vacation Cafe Simulator</strong><br><span style="font-size:11px;color:var(--text-dim)">Alice Games</span></td><td>1–3 (micro)</td><td>Music, concept art, translation, all human-edited</td><td><span class="tag tag-gold">Cozy audience</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="insight teal"><strong>The Warhounds lesson, in one line.</strong> Everplay disclosed AI portraits as temporary placeholders, named the exact surface, and committed to replacing them with 100-plus hand-made portraits. It still drew an AI complaint in nearly every second negative review. Then they eliminated the AI entirely, rendering portraits directly from each character's in-game 3D model, a system that solves character customization better than static AI art ever could. Community tolerance runs lower than formal review scores suggest, and the studios that performed treated AI as something to engineer out, not defend.</div>
+
+  <h3>The one consistent failure mode</h3>
+  <p>Across every profile, the punished surface is the same: AI art on the storefront, capsule images and screenshots, where it is most visible and triggers avoidance before any gameplay impression forms. None of the performers led with AI on a hero surface. The ones that did are not in the top 100.</p>
+</section>
+
+<!-- USE TIERS -->
+<section id="tiers">
+  <div class="section-label">Use Tiers</div>
+  <div class="chevrons"></div>
+  <h2>Map the AI to the player's eye.</h2><span class="h2-kicker">Surface area is the whole risk.</span>
+  <p class="section-intro">Synthesizing across the performers, AI use sorts into three tiers by how directly a player encounters it. The teams that performed lived almost entirely in Tier 1, with limited and clearly communicated Tier 2. None operated primarily in Tier 3.</p>
+
+  <div class="card-row">
+    <div class="card teal"><div class="clabel">Tier 1 · Lowest risk</div><div class="cval">Invisible or justified</div><div class="csub">Live-service localization, procedural text for simulation scale, AI-assisted painting with human finalization, code assistance (now exempt). The player never meets it as art.</div></div>
+    <div class="card gold"><div class="clabel">Tier 2 · Moderate risk</div><div class="cval">Visible but defensible</div><div class="csub">Demo placeholder portraits with an executed replacement plan, ambient music in a gameplay-first genre, translation with human review. Survivable with transparent disclosure.</div></div>
+    <div class="card coral"><div class="clabel">Tier 3 · High risk</div><div class="cval">Visible and controversial</div><div class="csub">AI capsule and marketing art not clearly replaced, AI voice for player-facing characters, identifiable AI dialogue, and any undisclosed use. This is where demos die before momentum.</div></div>
+  </div>
+
+  <div class="insight"><strong>The test, stated plainly.</strong> If the AI is in the backend generating content players never directly encounter as art, it is almost certainly an asset. If it is in the first image a player sees on the store page, it is almost certainly a liability. The disclosure is identical in both cases. The outcome is not.</div>
+</section>
+
+<!-- TEAM SIZE -->
+<section id="teamsize">
+  <div class="section-label">Team Size</div>
+  <div class="chevrons"></div>
+  <h2>Scale changes what AI is for.</h2><span class="h2-kicker">Gaps, systems, or shortcuts.</span>
+  <p class="section-intro">How a team uses AI tracks its size with surprising consistency. Small teams cover discipline gaps they cannot staff. Large teams scale systems they already run. The teams that get punished use AI as a visible shortcut on inspected surfaces, and that failure is independent of size.</p>
+
+  <div class="compare-band">
+    <div class="compare-col">
+      <div class="compare-header"><div class="ed-name" style="color:var(--gold)">Micro · 1–5</div><div class="ed-meta">Alice Games, Fearwoods</div></div>
+      <div class="compare-body">
+        <div class="compare-kv"><div class="kk">AI covers</div><div class="vv">Music, concept art, translation, art-pipeline acceleration</div></div>
+        <div class="compare-kv"><div class="kk">The risk</div><div class="vv">Any AI on the capsule or hero character is seen instantly</div></div>
+        <div class="compare-kv"><div class="kk">Best practice</div><div class="vv">Human art for the first five seconds; AI for everything secondary</div></div>
+      </div>
+    </div>
+    <div class="compare-col">
+      <div class="compare-header"><div class="ed-name" style="color:var(--teal)">Small · 5–20</div><div class="ed-meta">Neurona, Everplay, Triple Espresso</div></div>
+      <div class="compare-body">
+        <div class="compare-kv"><div class="kk">AI covers</div><div class="vv">Specific scale problems: procedural faces, personality text</div></div>
+        <div class="compare-kv"><div class="kk">The edge</div><div class="vv">Veteran teams know which disciplines need human craft</div></div>
+        <div class="compare-kv"><div class="kk">The warning</div><div class="vv">Even disclosed, replaced portraits drew heavy review backlash</div></div>
+      </div>
+    </div>
+    <div class="compare-col">
+      <div class="compare-header"><div class="ed-name" style="color:var(--purple)">Large · 50+</div><div class="ed-meta">Nexon</div></div>
+      <div class="compare-body">
+        <div class="compare-kv"><div class="kk">AI covers</div><div class="vv">Live-service pipelines: localization, scaled systems</div></div>
+        <div class="compare-kv"><div class="kk">The buffer</div><div class="vv">Established brand trust offsets disclosure hesitancy</div></div>
+        <div class="compare-kv"><div class="kk">The catch</div><div class="vv">Depends on credibility built over years; indies cannot borrow it</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="insight purple"><strong>The review-volume signal.</strong> One analysis of nearly 10,000 paid Steam titles released across 2025 reported that an AI disclosure tracked with materially fewer reviews on average, and that the effect ran stronger for higher-ambition games, not weaker. This report cites that as reported, not independently verified. If it holds, the mechanism is intuitive: the players most likely to punish AI are the engaged genre fans who write reviews and build communities, exactly the audience a serious studio needs. Casual players never check. The core audience does.</div>
+</section>
+
+<!-- VALVE POLICY -->
+<section id="policy">
+  <div class="section-label">Valve Policy</div>
+  <div class="chevrons"></div>
+  <h2>A self-report system at the wrong scale.</h2><span class="h2-kicker">Visible enough to hurt, too weak to inform.</span>
+  <p class="section-intro">Every structural flaw in the disclosure system traces to one design choice: it is voluntary, unenforced, and buried at the bottom of the store page. The January 2026 rewrite clarified scope but left the enforcement gap untouched.</p>
+
+  <div class="timeline">
+    <div class="timeline-item key">
+      <div class="timeline-date">2024</div>
+      <div class="timeline-event">The policy is born</div>
+      <div class="timeline-note">Mandatory disclosure for AI-generated content in the game, store page, or marketing. Two categories established: pre-generated and live-generated, the latter requiring guardrail disclosures.</div>
+    </div>
+    <div class="timeline-item key">
+      <div class="timeline-date">January 2026</div>
+      <div class="timeline-event">The critical rewrite</div>
+      <div class="timeline-note">First major revision since 2024. Clarified that AI-powered dev tools used for efficiency, code helpers, ideation, do not require disclosure. The line: disclose what ships or appears in marketing; exempt internal tooling that produces no player-facing output. Added a Steam Overlay button to report illegal live-generated content.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">Ongoing</div>
+      <div class="timeline-event">The enforcement gap</div>
+      <div class="timeline-note">No automated detection. No audit. No penalty for non-disclosure. A developer can ship AI art throughout a game, decline to disclose, and face zero consequence unless community members catch it.</div>
+    </div>
+  </div>
+
+  <div class="insight coral"><strong>The undercount is structural.</strong> Because compliance is voluntary and unpenalized, the 20 to 26.5 percent figure is almost certainly a floor. The true share of demos using AI in some form, including the undisclosed, is unknown, and observers consistently describe it as higher. The disclosure system produces the worst outcome available: visible enough to drive player avoidance and artist resentment, too weak to actually inform a purchase or filter the content it exists to label.</div>
+
+  <h3>What Valve has not done</h3>
+  <p>No AI filter or hide toggle, the single most-requested feature for two years running. No enforcement mechanism or penalty. No quality review for AI-heavy demos. No badge near the top of the store page. No public response to the filter requests. Valve has historically resisted curation, preferring market dynamics to handle quality. A field of 8,600 demos is the stress test of whether that philosophy survives.</p>
+</section>
+
+<!-- COUNCIL VIEW -->
+<section id="council">
+  <div class="section-label">Council View</div>
+  <div class="chevrons"></div>
+  <h2>Decisions for October 2026.</h2><span class="h2-kicker">The right question to ask.</span>
+  <p class="section-intro">The lesson is not avoid AI, and it is not use AI freely. It is map your AI use to the player's path through your store page and demo, and ask at each touchpoint whether the AI is visible. That single question separates the performers from the casualties.</p>
+
+  <div class="card-row">
+    <div class="card gold"><div class="clabel">01</div><div class="cval">Audit by surface</div><div class="csub">Walk your store page as a player would. Capsule, screenshots, trailer, first demo minute. Any AI on those surfaces is a Tier 3 liability. Move it or replace it.</div></div>
+    <div class="card teal"><div class="clabel">02</div><div class="cval">Keep AI in the backend</div><div class="csub">Localization, procedural text, pipeline acceleration with human finalization. If the player never meets it as art, it reads as an asset, not a tell.</div></div>
+    <div class="card purple"><div class="clabel">03</div><div class="cval">If you disclose, name and replace</div><div class="csub">Specific surface, explicit replacement plan, executed. The performers treated disclosed AI as something to engineer out, and said so.</div></div>
+  </div>
+
+  <div class="insight"><strong>What is changing by October.</strong> Per GameDiscoverCo analysis, Godot's share of the field rose from 9.2 to 12.6 percent, a tilt toward smaller handcrafted projects. Browser extensions that flag disclosures are spreading, which will deepen early-engagement drops for disclosed games. New-release AI rates near 40 percent point toward a festival rate approaching 30 percent. And curated alternatives to the mega-festival are being tested, a segmentation that could route around the saturation entirely. The studios that win the next edition will be the ones that understood the surface-area rule before the field did.</div>
+
+  <div class="insight teal"><strong>The reframe.</strong> AI raised the noise floor. Execution decided who got noticed. The disclosure debate treats AI as a moral binary, used or not. The performance data treats it as a question of placement, seen or not. For a studio planning October, only the second framing is actionable, and it is the one the winners already operate by.</div>
+</section>
+
+<!-- ABOUT THE AUTHOR -->
+<section id="author" style="border-top:1px solid var(--border)">
+  <div class="section-label">About the Author</div>
+  <h2 style="margin-bottom:1.25rem">Abbas Saleem</h2>
+  <p>Abbas Saleem is a Principal Consultant at <a href="https://www.llamagriffin.com/">Llama &amp; Griffin Consultants</a>, advising game studios, streaming platforms, and investment funds across six continents. He writes The Pattern Recognition: gaming industry intelligence 12 to 24 months before it becomes consensus. <a href="https://www.linkedin.com/in/abbassaleemkhan/">LinkedIn</a> | <a href="https://calendly.com/abbas-llamaandgriffin">Schedule a call</a></p>
+</section>
+
+<footer>
+  <div>Llama &amp; Griffin Consultants · Steam Next Fest Performance Suite · <span>llamagriffin.com</span></div>
+  <div style="color:var(--text-dim)">recognizingpatterns.substack.com</div>
+</footer>
+
+</body>
+</html>

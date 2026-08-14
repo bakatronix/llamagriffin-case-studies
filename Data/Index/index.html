@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The Big Mac Index rebuilt for game currencies. Track what Robux, V-Bucks, Minecoins, Valorant Points, Oneiric Shards, and Genesis Crystals actually cost in every market, updated daily.">
+<meta property="og:title" content="Play Money Index — Virtual Currency Prices by Country">
+<meta property="og:description" content="Live pricing index for Roblox, Fortnite, Minecraft, Valorant, Honkai: Star Rail and Genshin Impact currencies across up to 14 markets. Updated daily.">
+<title>Play Money Index — Virtual Currency Prices by Country 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f7f4ee;--bg2:#fdfcf9;--bg3:#eae7e0;
+  --border:#d2cdc3;--border-med:#c5bfb5;
+  --text:#232323;--text-muted:#37342f;--text-dim:#6b6660;
+  --gold:#c3a55f;--gold-dim:rgba(195,165,95,0.12);
+  --teal:#2a8f76;--teal-dim:rgba(42,143,118,0.10);
+  --coral:#b85a3a;--coral-dim:rgba(184,90,58,0.10);
+  --purple:#6b64b3;--purple-dim:rgba(107,100,179,0.10);
+  --font-d:'Playfair Display',serif;
+  --font-b:'DM Sans',sans-serif;
+  --font-m:'IBM Plex Mono';
+}
+body{background:var(--bg);color:var(--text);font-family:var(--font-b);font-size:15px;line-height:1.7}
+a{color:var(--gold);text-decoration:none}a:hover{text-decoration:underline}
+
+/* SUITE NAV */
+#suite-nav{background:#f5f1e8;border-bottom:1px solid rgba(30,25,20,0.12);padding:0 2rem;display:flex;align-items:center;height:36px;font-family:var(--font-m);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;position:sticky;top:0;z-index:200;overflow-x:auto}
+.suite-brand{color:#c3a55f;margin-right:1.5rem;padding-right:1.5rem;border-right:1px solid rgba(30,25,20,0.12);white-space:nowrap;font-weight:500}
+.suite-link{color:#8a8480;padding:0 0.75rem;height:36px;display:flex;align-items:center;white-space:nowrap;text-decoration:none;transition:color 0.15s}
+.suite-link:hover{color:#c3a55f;text-decoration:none}
+
+/* MAIN NAV */
+#main-nav{position:sticky;top:36px;z-index:100;background:rgba(247,244,238,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;height:52px;overflow-x:auto}
+#main-nav a{color:var(--text-dim);font-family:var(--font-m);font-size:10px;font-weight:500;letter-spacing:0.09em;text-transform:uppercase;padding:0 0.9rem;height:52px;display:flex;align-items:center;border-bottom:2px solid transparent;white-space:nowrap;text-decoration:none;transition:color 0.15s,border-color 0.15s}
+#main-nav a:hover,#main-nav a.active{color:var(--gold);border-bottom-color:var(--gold)}
+nav a.nav-brand{font-family:var(--font-d) !important;font-size:14px !important;font-weight:700 !important;color:var(--text) !important;margin-right:1.5rem;padding-right:1.5rem;border-right:1px solid var(--border);white-space:nowrap;text-transform:none !important;letter-spacing:normal !important;padding:0 1.5rem 0 0 !important;height:52px}
+
+/* HERO */
+.hero{padding:5rem 2rem 3.5rem;max-width:960px;margin:0 auto}
+.hero-eyebrow{font-family:var(--font-m);font-size:10px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;display:flex;align-items:center;gap:10px}
+.hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold)}
+.hero h1{font-family:var(--font-d);font-size:clamp(2.2rem,5vw,3.6rem);font-weight:700;line-height:1.05;color:var(--text);margin-bottom:0.75rem}
+.hero h1 span{color:var(--gold);font-style:italic}
+.hero-sub{font-size:15px;color:var(--text-muted);max-width:none;margin-bottom:2.5rem;line-height:1.65}
+
+/* STAT GRID */
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:3rem}
+.stat-cell{background:var(--bg2);padding:1.25rem 1.5rem}
+.stat-val{font-family:var(--font-d);font-size:1.7rem;font-weight:700;color:var(--gold);line-height:1;margin-bottom:5px}
+.stat-val.teal{color:var(--teal)}
+.stat-val.coral{color:var(--coral)}
+.stat-val.purple{color:var(--purple)}
+.stat-lbl{font-family:var(--font-m);font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.07em}
+
+/* SECTIONS */
+section{max-width:960px;margin:0 auto;padding:2rem 2rem;border-top:1px solid var(--border)}
+.section-label{font-family:var(--font-m);font-size:9px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.3rem}
+h2{font-family:var(--font-d);font-size:1.55rem;font-weight:700;color:var(--text);margin-bottom:0.25rem;line-height:1.15}
+.h2-kicker{font-family:var(--font-d);font-size:1.3rem;font-weight:700;color:var(--gold);font-style:italic;display:block;margin-bottom:1.5rem}
+.section-intro{font-size:15px;color:var(--text-muted);max-width:none;margin-bottom:2rem;line-height:1.7}
+p{color:var(--text-muted);margin-bottom:1rem;font-size:15px;max-width:none;line-height:1.7}
+p strong{color:var(--text);font-weight:600}
+p:last-child{margin-bottom:0}
+h3{font-family:var(--font-d);font-size:18px;font-weight:700;letter-spacing:normal;text-transform:none;color:var(--text);margin:2rem 0 0.75rem}
+
+/* CHART */
+.chart-section{margin-bottom:0}
+.chart-wrap{background:var(--bg2);border:1px solid var(--border);border-radius:4px;padding:1.5rem 1.5rem 1rem;margin-bottom:0.75rem}
+.chart-caption{font-family:var(--font-m);font-size:10px;color:var(--text-dim);letter-spacing:0.06em;text-transform:uppercase}
+.fx-status{font-family:var(--font-m);font-size:10px;color:var(--text-dim);letter-spacing:0.07em;text-transform:uppercase;margin-bottom:1.5rem}
+.fx-status .live{color:var(--teal)}
+.fx-status .fallback{color:var(--coral)}
+
+/* INDEX UNIVERSE */
+.index-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-bottom:1rem}
+.index-card{background:var(--bg2);border:1.5px solid var(--border-med);border-radius:6px;padding:22px 22px;display:flex;flex-direction:column;gap:0;transition:border-color 0.15s}
+.index-card:hover{border-color:var(--gold)}.card-title-row{display:flex;align-items:flex-start;gap:10px;margin:0.5rem 0 0.1rem}.card-title-row a{text-decoration:none;color:inherit;display:flex;align-items:flex-start;gap:10px;cursor:pointer}.game-icon{width:34px;height:34px;border-radius:8px;object-fit:cover;flex-shrink:0;box-shadow:0 1px 4px rgba(0,0,0,0.15)}
+.index-card.live-card{border-color:var(--border-med)}
+.index-card.planned-card{opacity:0.7}
+.card-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px}
+.card-tag{font-family:var(--font-m);font-size:8.5px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;padding:3px 8px;border-radius:2px;white-space:nowrap}
+.tag-live{background:var(--teal-dim);color:var(--teal)}
+.tag-planned{background:rgba(35,35,35,0.07);color:var(--text-dim)}
+.tag-cat{background:var(--gold-dim);color:var(--gold);font-size:8px}
+.card-currency{font-family:var(--font-d);font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:4px}
+.card-game{font-family:var(--font-m);font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px}
+.card-desc{font-size:13px;color:var(--text-muted);line-height:1.55;margin-bottom:12px;flex:1}
+.card-meta{font-family:var(--font-m);font-size:9.5px;color:var(--text-dim);display:flex;flex-direction:column;gap:2px;margin-bottom:12px}
+.card-link{font-family:var(--font-m);font-size:9.5px;font-weight:500;color:var(--gold);text-transform:uppercase;letter-spacing:0.08em}
+
+/* INSIGHT */
+.insight{border-left:2px solid var(--gold);background:var(--gold-dim);border-radius:0 4px 4px 0;padding:1rem 1.25rem;margin:1.5rem 0;font-size:14px;color:var(--text-muted);line-height:1.65}
+.insight strong{color:var(--text);font-weight:600}
+
+/* FORMULA */
+.formula-block{background:var(--bg3);border:1px solid var(--border-med);border-radius:4px;padding:1rem 1.25rem;font-family:var(--font-m);font-size:12px;color:var(--text-dim);line-height:1.8;margin:1.5rem 0}
+
+/* FOOTER */
+footer{max-width:960px;margin:0 auto;padding:2rem 2rem 3rem;border-top:1px solid var(--border);font-size:12px;color:var(--text-dim);display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;align-items:center}
+footer span{color:var(--gold)}
+
+/* MOVES */
+.move-item{background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:0 4px 4px 0;padding:0.85rem 1.25rem;margin-bottom:0.75rem;display:flex;flex-direction:column;gap:4px}
+.move-item.cheaper{border-left-color:var(--teal)}
+.move-item.expensive{border-left-color:var(--coral)}
+.move-head{display:flex;justify-content:space-between;align-items:baseline;gap:1rem}
+.move-currency{font-family:var(--font-m);font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim)}
+.move-delta{font-family:var(--font-m);font-size:10px;font-weight:600;color:var(--text-dim)}
+.move-note{font-size:13.5px;color:var(--text-muted);line-height:1.55}
+.move-flag{font-family:var(--font-m);font-size:9px;color:var(--text-dim);letter-spacing:0.06em;text-transform:uppercase;margin-top:2px}
+.no-moves{font-family:var(--font-m);font-size:10px;color:var(--text-dim);letter-spacing:0.08em;text-transform:uppercase;padding:1rem 0}
+
+  .accord-wrap{border:1px solid var(--border-med);border-radius:6px;overflow:hidden;margin-bottom:2rem}
+  .accord-item{border-bottom:1px solid var(--border-med)}
+  .accord-item:last-child{border-bottom:none}
+  .accord-btn{width:100%;background:var(--bg2);border:none;cursor:pointer;padding:1rem 1.25rem;display:flex;align-items:center;gap:12px;text-align:left;transition:background 0.15s}
+  .accord-btn:hover{background:var(--bg3)}
+  .accord-btn.open{background:var(--gold-dim)}
+  .accord-label{font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--text);flex:1}
+  .accord-chevron{width:16px;height:16px;stroke:var(--text-dim);fill:none;stroke-width:2;stroke-linecap:round;flex-shrink:0;transition:transform 0.2s}
+  .accord-btn.open .accord-chevron{transform:rotate(180deg);stroke:var(--gold)}
+  .accord-icon{width:16px;height:16px;stroke:var(--gold);fill:none;stroke-width:1.5;flex-shrink:0}
+  .accord-body{display:none;padding:1.1rem 1.25rem;background:var(--bg)}
+  .accord-body.open{display:block}
+  .accord-body p{font-size:14.5px;color:var(--text-muted);margin-bottom:0.8rem;line-height:1.7;max-width:none}
+  .accord-body p:last-child{margin-bottom:0}
+
+  .formula-steps{display:flex;flex-direction:column;gap:0;margin:1.5rem 0;border:1px solid var(--border-med);border-radius:6px;overflow:hidden}
+  .fstep{display:flex;align-items:stretch;border-bottom:1px solid var(--border-med);background:var(--bg2)}
+  .fstep:last-child{border-bottom:none}
+  .fstep-n{width:48px;min-width:48px;display:flex;align-items:center;justify-content:center;color:var(--gold);background:var(--bg3);border-right:1px solid var(--border-med)}
+  .fstep-body{padding:0.75rem 1.1rem;display:flex;flex-direction:column;gap:3px}
+  .fstep-label{font-family:var(--font-m);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim)}
+  .fstep-body code{font-family:var(--font-m);font-size:13px;color:var(--text);background:none;padding:0}
+
+  .chart-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:0.75rem}
+  .chart-col{display:flex;flex-direction:column;gap:0.5rem}
+  .chart-col-label{font-family:var(--font-m);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);margin:0}
+
+  /* Cross-index bar chart */
+  .idx-bar-chart{display:flex;flex-direction:column;gap:0.75rem;margin:1.5rem 0}
+  .idx-bar-row{display:grid;grid-template-columns:140px 1fr 56px;grid-template-rows:auto auto;gap:0 8px;align-items:center;cursor:default}
+  .idx-bar-label{font-family:var(--font-m);font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:var(--text);grid-row:1}
+  .idx-bar-track{position:relative;height:14px;background:var(--bg3);border-radius:3px;overflow:hidden;grid-row:1}
+  .idx-bar-zero{position:absolute;left:50%;top:0;bottom:0;width:1px;background:var(--border-med)}
+  .idx-bar-fill{height:100%;border-radius:2px;transition:width 0.4s}
+  .idx-bar-val{font-family:var(--font-m);font-size:11px;font-weight:600;grid-row:1;text-align:right}
+  .idx-bar-sub{font-family:var(--font-m);font-size:9px;color:var(--text-dim);grid-column:2/4;grid-row:2;letter-spacing:0.04em;padding-top:2px}
+
+  /* Country leaderboard */
+  .lb-chart{display:flex;flex-direction:column;gap:0.6rem;margin:1.5rem 0}
+  .lb-row{display:grid;grid-template-columns:160px 1fr 56px 32px;gap:0 8px;align-items:center;cursor:default}
+  .lb-flag-name{font-family:var(--font-m);font-size:10px;letter-spacing:0.05em;color:var(--text)}
+  .lb-bar-wrap{height:12px;background:var(--bg3);border-radius:3px;overflow:hidden}
+  .lb-bar{height:100%;border-radius:2px;transition:width 0.4s}
+  .lb-val{font-family:var(--font-m);font-size:11px;font-weight:600;text-align:right}
+  .lb-count{font-family:var(--font-m);font-size:9px;color:var(--text-dim);text-align:right}
+
+  /* Heatmap */
+  .hm-wrap{overflow-x:auto;margin:1.5rem 0;border-radius:6px;border:1px solid var(--border)}
+  .hm-table{border-collapse:collapse;width:100%;min-width:700px;font-family:var(--font-m);font-size:9px}
+  .hm-table th{background:var(--bg3);padding:6px 8px;text-align:center;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-dim);font-weight:600;border-bottom:1px solid var(--border);white-space:nowrap}
+  .hm-table th:first-child{text-align:left}
+  .hm-table td{padding:5px 8px;text-align:center;border-bottom:1px solid rgba(0,0,0,0.06);font-size:9px;letter-spacing:0.05em}
+  .hm-table td:first-child{text-align:left}
+  .hm-country{font-size:10px;color:var(--text);white-space:nowrap;background:var(--bg2) !important;border-right:1px solid var(--border)}
+  .hm-table tr:last-child td{border-bottom:none}
+.card-link{color:#2a8f76 !important;font-family:var(--font-m);font-size:9px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:5px;border:1px solid #2a8f76;border-radius:4px;padding:4px 10px;margin-top:1rem;width:fit-content;transition:background 0.15s}.card-link:hover{background:rgba(42,143,118,0.08)}
+
+</style>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="canonical" href="http://www.llamagriffin.com/Data/Index/">
+</head>
+<body>
+
+<div id="suite-nav">
+  <span class="suite-brand">The Play Money Index &middot; The Pattern Recognition</span>
+  <a href="https://www.llamagriffin.com" class="suite-link">Llama &amp; Griffin</a>
+  <a href="https://recognizingpatterns.substack.com" class="suite-link" target="_blank" rel="noopener">Substack</a>
+</div>
+
+<nav id="main-nav">
+  <a href="https://www.llamagriffin.com" class="nav-brand">Llama &amp; Griffin Consultants</a>
+  <a href="#cross-index">Today's Picture</a>
+  <a href="#leaderboard">Leaderboard</a>
+  <a href="#moves">Today's Moves</a>
+  <a href="#heatmap">Heatmap</a>
+  <a href="#indexes">Currencies</a>
+  <a href="#about">About</a>
+  <a href="#method">Method</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero" id="hero">
+  <div class="hero-eyebrow">Llama &amp; Griffin &middot; The Pattern Recognition &middot; Live Data</div>
+  <h1>The Price of <span>Play Money.</span></h1>
+  <p>In 2025, people put $6.8 billion into Robux alone and creators earned more than $1.5 billion from it, both the company's own numbers. The generation holding the rest is a few years from its first salaries.</p>
+<p>Last Christmas the most requested gift among American children was in-game currency: 43% of kids aged five to seventeen, according to the <a href="https://www.theesa.com/holidayguide/" target="_blank" rel="noopener" style="color:var(--gold,#c3a55f);text-decoration:underline;text-underline-offset:2px"><strong>ESA</strong></a>. This is the first money a generation actually holds, and nobody was keeping a public record of what it costs them.</p>
+<p><strong>This desk tracks what that money is actually worth:</strong> one benchmark bundle per currency, priced in every market that sells it, converted daily, measured against the US. Built for the parents paying in it, the studios pricing against it, and the analysts covering the first economy a generation grew up inside.</p>
+<p>This is Big Mac Index but for game currencies, rebuilt for the first money a generation actually holds.</p>
+
+  <div class="fx-status" id="fx-status">FX source: loading&hellip;</div>
+
+  <div class="stat-grid">
+    <div class="stat-cell"><div class="stat-val coral" id="stat-dearest">&hellip;</div><div class="stat-lbl" id="stat-dearest-lbl">Most expensive market</div></div>
+    <div class="stat-cell"><div class="stat-val teal" id="stat-cheapest">&hellip;</div><div class="stat-lbl" id="stat-cheapest-lbl">Cheapest market</div></div>
+    <div class="stat-cell"><div class="stat-val" id="stat-spread">&hellip;</div><div class="stat-lbl">Widest spread (Robux)</div></div>
+    <div class="stat-cell"><div class="stat-val purple" id="stat-distorted">&hellip;</div><div class="stat-lbl" id="stat-distorted-lbl">Most distorted market</div></div>
+    <div class="stat-cell"><div class="stat-val purple">6</div><div class="stat-lbl">Live indexes</div></div>
+  </div>
+  <!-- CROSS-INDEX CHART -->
+  <div class="chart-section">
+    <div class="chart-wrap" style="position:relative;height:280px">
+      <canvas id="indexChart"></canvas>
+    </div>
+      </a>
+    
+    
+    
+    
+    
+  </div>
+  <p class="chart-caption" id="chart-caption">Average world premium / discount vs US baseline &middot; normalized to cost per 100 base units &middot; 22-day backfill + daily live FX &middot; all six indexes</p>
+  </div>
+</div>
+
+<!-- TODAY'S MOVES -->
+<section id="cross-index">
+  <div class="section-label">Today's Picture</div>
+  <h2>Cross-Index Premium / Discount</h2>
+  <span class="h2-kicker">Median world premium or discount vs US baseline, per currency.</span>
+  <div class="idx-bar-chart"><div class="idx-bar-row" title="Cheapest: India (-16.9%)  |  Dearest: United Kingdom (+20.9%)  |  Spread: 37.9pp">
+  <div class="idx-bar-label">Robux</div>
+  <div class="idx-bar-track">
+    <div class="idx-bar-zero"></div>
+    <div class="idx-bar-fill" style="width:0.075%;background:#2a8f76;margin-left:auto"></div>
+  </div>
+  <div class="idx-bar-val" style="color:#2a8f76">-0.0%</div>
+  <div class="idx-bar-sub">India -16.9% to United Kingdom +20.9%</div>
+</div><div class="idx-bar-row" title="Cheapest: Singapore (-40.6%)  |  Dearest: Mexico (+22.1%)  |  Spread: 62.7pp">
+  <div class="idx-bar-label">V-Bucks</div>
+  <div class="idx-bar-track">
+    <div class="idx-bar-zero"></div>
+    <div class="idx-bar-fill" style="width:37.925%;background:#2a8f76;margin-left:auto"></div>
+  </div>
+  <div class="idx-bar-val" style="color:#2a8f76">-15.2%</div>
+  <div class="idx-bar-sub">Singapore -40.6% to Mexico +22.1%</div>
+</div><div class="idx-bar-row" title="Cheapest: Brazil (-25.7%)  |  Dearest: Germany (+14.3%)  |  Spread: 40.1pp">
+  <div class="idx-bar-label">Minecoins</div>
+  <div class="idx-bar-track">
+    <div class="idx-bar-zero"></div>
+    <div class="idx-bar-fill" style="width:23.224999999999998%;background:#b85a3a;"></div>
+  </div>
+  <div class="idx-bar-val" style="color:#b85a3a">+9.3%</div>
+  <div class="idx-bar-sub">Brazil -25.7% to Germany +14.3%</div>
+</div><div class="idx-bar-row" title="Cheapest: Japan (-24.4%)  |  Dearest: Germany (+37.2%)  |  Spread: 61.6pp">
+  <div class="idx-bar-label">Oneiric Shards</div>
+  <div class="idx-bar-track">
+    <div class="idx-bar-zero"></div>
+    <div class="idx-bar-fill" style="width:10.075000000000001%;background:#b85a3a;"></div>
+  </div>
+  <div class="idx-bar-val" style="color:#b85a3a">+4.0%</div>
+  <div class="idx-bar-sub">Japan -24.4% to Germany +37.2%</div>
+</div><div class="idx-bar-row" title="Cheapest: Philippines (-35.0%)  |  Dearest: Germany (+14.5%)  |  Spread: 49.5pp">
+  <div class="idx-bar-label">Valorant Points</div>
+  <div class="idx-bar-track">
+    <div class="idx-bar-zero"></div>
+    <div class="idx-bar-fill" style="width:7.449999999999999%;background:#b85a3a;"></div>
+  </div>
+  <div class="idx-bar-val" style="color:#b85a3a">+3.0%</div>
+  <div class="idx-bar-sub">Philippines -35.0% to Germany +14.5%</div>
+</div><div class="idx-bar-row" title="Cheapest: Japan (-24.4%)  |  Dearest: United Kingdom (+34.4%)  |  Spread: 58.8pp">
+  <div class="idx-bar-label">Genesis Crystals</div>
+  <div class="idx-bar-track">
+    <div class="idx-bar-zero"></div>
+    <div class="idx-bar-fill" style="width:0.7000000000000001%;background:#b85a3a;"></div>
+  </div>
+  <div class="idx-bar-val" style="color:#b85a3a">+0.3%</div>
+  <div class="idx-bar-sub">Japan -24.4% to United Kingdom +34.4%</div>
+</div></div>
+  <p class="chart-caption">Median premium or discount across all non-US markets for each index &middot; normalized to cost per 100 base units &middot; hover for cheapest and dearest market</p>
+</section>
+
+<section id="leaderboard">
+  <div class="section-label">Country Leaderboard</div>
+  <h2>Where Play Money Goes Furthest</h2>
+  <span class="h2-kicker">Average premium or discount across all indexes a country appears in.</span>
+  <div class="lb-chart"><div class="lb-row" title="Oneiric Shards: -24.4% | Genesis Crystals: -24.4%">
+  <div class="lb-flag-name">🇯🇵 Japan</div>
+  <div class="lb-bar-wrap"><div class="lb-bar" style="width:69.68571428571428%;background:#2a8f76"></div></div>
+  <div class="lb-val" style="color:#2a8f76">-24.4%</div>
+  <div class="lb-count">2/6</div>
+</div><div class="lb-row" title="Valorant Points: -35.0% | Oneiric Shards: -13.5% | Genesis Crystals: -13.5%">
+  <div class="lb-flag-name">🇵🇭 Philippines</div>
+  <div class="lb-bar-wrap"><div class="lb-bar" style="width:59.0%;background:#2a8f76"></div></div>
+  <div class="lb-val" style="color:#2a8f76">-20.6%</div>
+  <div class="lb-count">3/6</div>
+</div><div class="lb-row" title="Oneiric Shards: -14.7% | Genesis Crystals: -14.7%">
+  <div class="lb-flag-name">🇰🇷 South Korea</div>
+  <div class="lb-bar-wrap"><div class="lb-bar" style="width:41.885714285714286%;background:#2a8f76"></div></div>
+  <div class="lb-val" style="color:#2a8f76">-14.7%</div>
+  <div class="lb-count">2/6</div>
+</div><div class="lb-row" title="V-Bucks: -30.4% | Minecoins: -25.7% | Valorant Points: -21.9% | Robux: -2.4% | Genesis Crystals: +0.3% | Oneiric Shards: +4.2%">
+  <div class="lb-flag-name">🇧🇷 Brazil</div>
+  <div class="lb-bar-wrap"><div class="lb-bar" style="width:36.199999999999996%;background:#2a8f76"></div></div>
+  <div class="lb-val" style="color:#2a8f76">-12.7%</div>
+  <div class="lb-count">6/6</div>
+</div><div class="lb-row" title="V-Bucks: -35.3% | Robux: +12.2%">
+  <div class="lb-flag-name">🇿🇦 South Africa</div>
+  <div class="lb-bar-wrap"><div class="lb-bar" style="width:33.05714285714286%;background:#2a8f76"></div></div>
+  <div class="lb-val" style="color:#2a8f76">-11.6%</div>
+  <div class="lb-count">2/6</div>
+</div><div class="lb-row" title="Robux: -11.9% | Oneiric Shards: -7.4% | Genesis Crystals: -7.4%">
+  <div class="lb-flag-name">🇮🇩 Indonesia</div>
+  <div class="lb-bar-wrap"><div class="lb-bar" style="width:25.457142857142856%;background:#2a8f76"></div></div>
+  <div class="lb-val" style="color:#2a8f76">-8.9%</div>
+  <div class="lb-count">3/6</div>
+</div><div class="lb-row" title="V-Bucks: -23.1% | Robux: -16.9% | Valorant Points: -10.2% | Oneiric Shards: +3.9% | Genesis Crystals: +3.9%">
+  <div class="lb-flag-name">🇮🇳 India</div>
+  <div class="lb-bar-wrap"><div class="lb-bar" style="width:24.257142857142856%;background:#2a8f76"></div></div>
+  <div class="lb-val" style="color:#2a8f76">-8.5%</div>
+  <div class="lb-count">5/6</div>
+</div><div class="lb-row" title="V-Bucks: -40.6% | Valorant Points: +3.1% | Robux: +4.7% | Oneiric Shards: +13.6% | Genesis Crystals: +13.6%">
+  <div class="lb-flag-name">🇸🇬 Singapore</div>
+  <div class="lb-bar-wrap"><div class="lb-bar" style="width:3.2285714285714286%;background:#5aab8f"></div></div>
+  <div class="lb-val" style="color:#5aab8f">-1.1%</div>
+  <div class="lb-count">5/6</div>
+</div><div class="lb-row" title="V-Bucks: -7.3% | Robux: -2.3% | Valorant Points: +3.0% | Minecoins: +4.4% | Oneiric Shards: +7.0% | Genesis Crystals: +7.0%">
+  <div class="lb-flag-name">🇦🇺 Australia</div>
+  <div class="lb-bar-wrap"><div class="lb-bar" style="width:5.571428571428571%;background:#c87a5a"></div></div>
+  <div class="lb-val" style="color:#c87a5a">+1.9%</div>
+  <div class="lb-count">6/6</div>
+</div><div class="lb-row" title="Robux: +2.5% | Valorant Points: +3.1% | Oneiric Shards: +14.1% | Genesis Crystals: +14.1% | V-Bucks: +22.1%">
+  <div class="lb-flag-name">🇲🇽 Mexico</div>
+  <div class="lb-bar-wrap"><div class="lb-bar" style="width:31.91428571428571%;background:#b85a3a"></div></div>
+  <div class="lb-val" style="color:#b85a3a">+11.2%</div>
+  <div class="lb-count">5/6</div>
+</div><div class="lb-row" title="V-Bucks: +14.3% | Minecoins: +14.3% | Genesis Crystals: +14.3% | Valorant Points: +14.5% | Oneiric Shards: +37.2%">
+  <div class="lb-flag-name">🇩🇪 Germany</div>
+  <div class="lb-bar-wrap"><div class="lb-bar" style="width:54.14285714285714%;background:#b85a3a"></div></div>
+  <div class="lb-val" style="color:#b85a3a">+18.9%</div>
+  <div class="lb-count">5/6</div>
+</div><div class="lb-row" title="V-Bucks: +4.5% | Valorant Points: +10.2% | Minecoins: +14.2% | Robux: +20.9% | Oneiric Shards: +34.4% | Genesis Crystals: +34.4%">
+  <div class="lb-flag-name">🇬🇧 United Kingdom</div>
+  <div class="lb-bar-wrap"><div class="lb-bar" style="width:56.42857142857143%;background:#b85a3a"></div></div>
+  <div class="lb-val" style="color:#b85a3a">+19.8%</div>
+  <div class="lb-count">6/6</div>
+</div></div>
+  <p class="chart-caption">Countries ranked cheapest to dearest &middot; average of premium/discount across indexes tracked &middot; minimum 2 indexes required &middot; n/6 = indexes included</p>
+</section>
+
+<section id="moves">
+  <div class="section-label">Section 00</div>
+  <h2>Today's Moves</h2>
+  <span class="h2-kicker">What shifted since yesterday.</span>
+  <p class="section-intro">A move prints when a market shifts past its confidence threshold: 2.5 points for verified prices, 5 for provisional. The cause, FX drift or a publisher repricing, is reviewed before it is published. Quiet days say so.</p>
+  <div id="moves-feed">
+    <p style="font-family:var(--font-m);font-size:10px;color:var(--text-dim);letter-spacing:0.08em;text-transform:uppercase">No moves today. All markets within threshold.</p>
+  </div>
+</section>
+
+<!-- INDEX UNIVERSE -->
+<section id="heatmap">
+  <div class="section-label">Full Picture</div>
+  <h2>Market vs Currency Heatmap</h2>
+  <span class="h2-kicker">Every market, every index, in one view.</span>
+  <div class="hm-wrap"><table class="hm-table">
+    <thead><tr><th>Market</th><th>Robux</th><th>V-Bucks</th><th>Minecoi</th><th>Oneiric</th><th>Valoran</th><th>Genesis</th></tr></thead>
+    <tbody><tr><td class="hm-country">🇯🇵 Japan</td><td style="background:#f0ede6;color:#999">—</td><td style="background:#f0ede6;color:#999">—</td><td style="background:#f0ede6;color:#999">—</td><td style="background:#1a6e5a;color:#fff">-24%</td><td style="background:#f0ede6;color:#999">—</td><td style="background:#1a6e5a;color:#fff">-24%</td></tr><tr><td class="hm-country">🇵🇭 Philippines</td><td style="background:#f0ede6;color:#999">—</td><td style="background:#f0ede6;color:#999">—</td><td style="background:#f0ede6;color:#999">—</td><td style="background:#2a8f76;color:#fff">-13%</td><td style="background:#1a6e5a;color:#fff">-35%</td><td style="background:#2a8f76;color:#fff">-13%</td></tr><tr><td class="hm-country">🇰🇷 South Korea</td><td style="background:#f0ede6;color:#999">—</td><td style="background:#f0ede6;color:#999">—</td><td style="background:#f0ede6;color:#999">—</td><td style="background:#2a8f76;color:#fff">-15%</td><td style="background:#f0ede6;color:#999">—</td><td style="background:#2a8f76;color:#fff">-15%</td></tr><tr><td class="hm-country">🇧🇷 Brazil</td><td style="background:#6dc4ab;color:#232323">-2%</td><td style="background:#1a6e5a;color:#fff">-30%</td><td style="background:#1a6e5a;color:#fff">-26%</td><td style="background:#e0a088;color:#232323">+4%</td><td style="background:#1a6e5a;color:#fff">-22%</td><td style="background:#e8e4dc;color:#232323">+0%</td></tr><tr><td class="hm-country">🇿🇦 South Africa</td><td style="background:#c97050;color:#fff">+12%</td><td style="background:#1a6e5a;color:#fff">-35%</td><td style="background:#f0ede6;color:#999">—</td><td style="background:#f0ede6;color:#999">—</td><td style="background:#f0ede6;color:#999">—</td><td style="background:#f0ede6;color:#999">—</td></tr><tr><td class="hm-country">🇮🇩 Indonesia</td><td style="background:#2a8f76;color:#fff">-12%</td><td style="background:#f0ede6;color:#999">—</td><td style="background:#f0ede6;color:#999">—</td><td style="background:#6dc4ab;color:#232323">-7%</td><td style="background:#f0ede6;color:#999">—</td><td style="background:#6dc4ab;color:#232323">-7%</td></tr><tr><td class="hm-country">🇮🇳 India</td><td style="background:#2a8f76;color:#fff">-17%</td><td style="background:#1a6e5a;color:#fff">-23%</td><td style="background:#f0ede6;color:#999">—</td><td style="background:#e0a088;color:#232323">+4%</td><td style="background:#2a8f76;color:#fff">-10%</td><td style="background:#e0a088;color:#232323">+4%</td></tr><tr><td class="hm-country">🇸🇬 Singapore</td><td style="background:#e0a088;color:#232323">+5%</td><td style="background:#1a6e5a;color:#fff">-41%</td><td style="background:#f0ede6;color:#999">—</td><td style="background:#c97050;color:#fff">+14%</td><td style="background:#e0a088;color:#232323">+3%</td><td style="background:#c97050;color:#fff">+14%</td></tr><tr><td class="hm-country">🇦🇺 Australia</td><td style="background:#6dc4ab;color:#232323">-2%</td><td style="background:#6dc4ab;color:#232323">-7%</td><td style="background:#e0a088;color:#232323">+4%</td><td style="background:#e0a088;color:#232323">+7%</td><td style="background:#e0a088;color:#232323">+3%</td><td style="background:#e0a088;color:#232323">+7%</td></tr><tr><td class="hm-country">🇲🇽 Mexico</td><td style="background:#e0a088;color:#232323">+2%</td><td style="background:#8b3a22;color:#fff">+22%</td><td style="background:#f0ede6;color:#999">—</td><td style="background:#c97050;color:#fff">+14%</td><td style="background:#e0a088;color:#232323">+3%</td><td style="background:#c97050;color:#fff">+14%</td></tr><tr><td class="hm-country">🇩🇪 Germany</td><td style="background:#f0ede6;color:#999">—</td><td style="background:#c97050;color:#fff">+14%</td><td style="background:#c97050;color:#fff">+14%</td><td style="background:#8b3a22;color:#fff">+37%</td><td style="background:#c97050;color:#fff">+14%</td><td style="background:#c97050;color:#fff">+14%</td></tr><tr><td class="hm-country">🇬🇧 United Kingdom</td><td style="background:#8b3a22;color:#fff">+21%</td><td style="background:#e0a088;color:#232323">+4%</td><td style="background:#c97050;color:#fff">+14%</td><td style="background:#8b3a22;color:#fff">+34%</td><td style="background:#c97050;color:#fff">+10%</td><td style="background:#8b3a22;color:#fff">+34%</td></tr></tbody>
+  </table></div>
+  <p class="chart-caption">Premium / discount vs US baseline per market-index pair &middot; deep teal = large discount &middot; deep coral = large premium &middot; — = not tracked</p>
+</section>
+
+<section id="indexes">
+  <div class="section-label">The Currencies</div>
+  <h2>Index Universe</h2>
+  <span class="h2-kicker">One method. One currency per page.</span>
+  <p class="section-intro">Same formula, same FX source, same confidence rules, every page.</p>
+
+  <div class="index-grid">
+
+    <div class="index-card live-card">
+      <div class="card-top">
+        <span class="card-tag tag-live">&#9679; Live</span>
+        <span class="card-tag tag-cat">Platform Economy</span>
+      </div>
+      <div class="card-title-row"><a href="./robux/" style="text-decoration:none;color:inherit;display:flex;align-items:flex-start;gap:10px">
+        <img src="./icon-roblox.jpg" class="game-icon" alt="Roblox">
+        <div>
+          <div class="card-currency">Robux</div>
+          <div class="card-game">Roblox</div>
+        </div></a>
+      </div>
+      <div class="card-desc">The flagship. The first currency most Gen Alpha players ever spend. 800 Robux, web store, tracked daily.</div>
+      <div class="card-meta">
+        <span>Benchmark: 800 Robux</span>
+        <span>Storefront: Roblox web store</span>
+        <span>Markets: 11 tracked</span>
+      </div>
+      <a href="./robux/" class="card-link">View the Robux Index &rarr;</a>
+    </div>
+
+    <div class="index-card live-card">
+      <div class="card-top">
+        <span class="card-tag tag-live">&#9679; Live</span>
+        <span class="card-tag tag-cat">Cosmetics Economy</span>
+      </div>
+      <div class="card-title-row"><a href="./vbucks/" style="text-decoration:none;color:inherit;display:flex;align-items:flex-start;gap:10px">
+        <img src="./icon-fortnite.jpg" class="game-icon" alt="Fortnite">
+        <div>
+          <div class="card-currency">V-Bucks</div>
+          <div class="card-game">Fortnite</div>
+        </div></a>
+      </div>
+      <div class="card-desc">No cash-out exists, so the price tag is the whole story. 800 V-Bucks, Epic-published regional prices, benchmarked after the March 2026 bundle cut.</div>
+      <div class="card-meta">
+        <span>Benchmark: 800 V-Bucks</span>
+        <span>Storefront: Epic web store (proxy: Xbox Store)</span>
+        <span>Markets: 9 tracked</span>
+      </div>
+      <a href="./vbucks/" class="card-link">View the V-Bucks Index &rarr;</a>
+    </div>
+
+    <div class="index-card live-card">
+      <div class="card-top">
+        <span class="card-tag tag-live">&#9679; Live</span>
+        <span class="card-tag tag-cat">Platform Economy</span>
+      </div>
+      <div class="card-title-row"><a href="./minecoins/" style="text-decoration:none;color:inherit;display:flex;align-items:flex-start;gap:10px">
+        <img src="./icon-minecraft.jpg" class="game-icon" alt="Minecraft">
+        <div>
+          <div class="card-currency">Minecoins</div>
+          <div class="card-game">Minecraft</div>
+        </div></a>
+      </div>
+      <div class="card-desc">Third to launch. The most legible benchmark in the category, and the desk's step beyond the two giants.</div>
+      <div class="card-meta">
+        <span>Benchmark: 1,720 Minecoins</span>
+        <span>Storefront: Minecraft Marketplace</span>
+        <span>Markets: 5 tracked</span>
+      </div>
+      <a href="./minecoins/" class="card-link">View the Minecoins Index &rarr;</a>
+    </div>
+
+    <div class="index-card live-card">
+      <div class="card-top">
+        <span class="card-tag tag-live">&#9679; Live</span>
+        <span class="card-tag tag-cat">Collection Economy</span>
+      </div>
+      <div class="card-title-row"><a href="./oneiric/" style="text-decoration:none;color:inherit;display:flex;align-items:flex-start;gap:10px">
+        <img src="./icon-honkai.jpg" class="game-icon" alt="Honkai: Star Rail">
+        <div>
+          <div class="card-currency">Oneiric Shards</div>
+          <div class="card-game">Honkai: Star Rail</div>
+        </div></a>
+      </div>
+      <div class="card-desc">First live-service entry. First-time bonuses quarantined from steady-state pricing before anything prints.</div>
+      <div class="card-meta">
+        <span>Benchmark: 980 Oneiric Shards</span>
+        <span>Storefront: HoYoverse top-up center</span>
+        <span>Markets: 13 tracked</span>
+      </div>
+      <a href="./oneiric/" class="card-link">View the Oneiric Shards Index &rarr;</a>
+    </div>
+
+    <div class="index-card live-card">
+      <div class="card-top">
+        <span class="card-tag tag-live">&#9679; Live</span>
+        <span class="card-tag tag-cat">Cosmetics Economy</span>
+      </div>
+      <div class="card-title-row"><a href="./valorant/" style="text-decoration:none;color:inherit;display:flex;align-items:flex-start;gap:10px">
+        <img src="./icon-valorant.jpg" class="game-icon" alt="Valorant">
+        <div>
+          <div class="card-currency">Valorant Points</div>
+          <div class="card-game">Valorant</div>
+        </div></a>
+      </div>
+      <div class="card-desc">Riot varies regional pricing hard from a canonical web store. A clean test of storefront discipline.</div>
+      <div class="card-meta">
+        <span>Benchmark: 950 VP base</span>
+        <span>Storefront: Riot web store</span>
+        <span>Markets: 10 tracked</span>
+      </div>
+      <a href="./valorant/" class="card-link">View the Valorant Points Index &rarr;</a>
+    </div>
+    <div class="index-card live-card">
+      <div class="card-top">
+        <span class="card-tag tag-live">&#9679; Live</span>
+        <span class="card-tag tag-cat">Live-Service Economy</span>
+      </div>
+      <div class="card-title-row"><a href="./genshin/" style="text-decoration:none;color:inherit;display:flex;align-items:flex-start;gap:10px">
+        <img src="./icon-genshin.jpg?v=2" class="game-icon" alt="Genshin Impact">
+        <div>
+          <div class="card-currency">Genesis Crystals</div>
+          <div class="card-game">Genshin Impact</div>
+        </div></a>
+      </div>
+      <div class="card-desc">HoYoverse charges the same number in every currency. The exchange rate is the story. 980 crystals across 14 markets, benchmarked daily.</div>
+      <div class="card-meta">
+        <span>Benchmark: 980 Genesis Crystals</span>
+        <span>Storefront: HoYoverse top-up center</span>
+        <span>Markets: 14 tracked</span>
+      </div>
+      <a href="./genshin/" class="card-link">View the Genesis Crystals Index &rarr;</a>
+    </div>
+
+  </div>
+
+  <p style="font-family:var(--font-m);font-size:10px;color:var(--text-dim);letter-spacing:0.06em;text-transform:uppercase;margin-top:0.5rem">Six live indexes. The country leaderboard is active.</p>
+</section>
+
+<!-- METHOD -->
+<section id="about">
+  <div class="section-label">What This Is</div>
+  <h2>The Big Mac Index of Game Currencies</h2>
+  <span class="h2-kicker">Because parents are giving allowances in Robux.</span>
+  <p>The Economist has tracked the price of a Big Mac across countries since 1986. The logic is simple: one product, sold everywhere, reveals how far purchasing power stretches across markets. This index applies the same move to game currencies.</p>
+  <p>In households across twelve countries, parents top up Robux, V-Bucks, and other premium currencies as a regular allowance. The amounts feel similar. The real cost is not. A parent in India topping up 800 Robux spends the equivalent of $8.29. A parent in the United Kingdom spends $12.15 for the same thing. Neither parent is looking at exchange rates. They are looking at a number their child asked for.</p>
+  <p>This index tracks that gap daily, across every major market where these currencies are sold. It uses the same FX source, the same confidence-tagging system, and the same normalization formula for every currency it covers. The question it answers is not which store is cheapest. It is who is being asked to pay the most real money for the same unit of digital play, and how far that gap moves when nobody is watching.</p>
+</section>
+
+<section id="method">
+  <div class="section-label">The Method</div>
+  <h2>Common Framework</h2>
+  <span class="h2-kicker">One formula across all indexes.</span>
+  <p class="section-intro">Every page in the series uses the same calculation, the same FX source, and the same confidence-tagging system. This is what allows the homepage to compare across entirely different game currencies without bundle-size distortion.</p>
+
+  <h3>The normalization step</h3>
+  <p>Robux, V-Bucks, Minecoins, and Oneiric Shards have different bundle sizes and very different per-unit economics. Different pack sizes lie when compared raw. Everything on this desk is normalized to the cost of 100 base units before any comparison happens. The series therefore normalizes every benchmark to <strong>cost per 100 base units</strong> before comparing across currencies.</p>
+
+  <div class="formula-steps">
+    <div class="fstep">
+      <span class="fstep-n">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+          <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+        </svg>
+      </span>
+      <div class="fstep-body"><div class="fstep-label">Convert to USD</div><code>Implied USD = Local Price &divide; FX Rate</code></div>
+    </div>
+    <div class="fstep">
+      <span class="fstep-n">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+          <circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/>
+          <line x1="5" y1="12" x2="19" y2="12"/>
+        </svg>
+      </span>
+      <div class="fstep-body"><div class="fstep-label">Normalize per unit</div><code>Implied USD / unit = Implied USD &divide; Bundle Size</code></div>
+    </div>
+    <div class="fstep">
+      <span class="fstep-n">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+          <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/>
+          <rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
+        </svg>
+      </span>
+      <div class="fstep-body"><div class="fstep-label">Scale to 100 units</div><code>Implied USD / 100u = Implied USD / unit &times; 100</code></div>
+    </div>
+    <div class="fstep">
+      <span class="fstep-n">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+          <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+          <polyline points="16 7 22 7 22 13"/>
+        </svg>
+      </span>
+      <div class="fstep-body"><div class="fstep-label">Measure vs US baseline</div><code>Premium / Discount % = ( Local &divide; US &minus; 1 ) &times; 100</code></div>
+    </div>
+  </div>
+
+  <div class="insight"><strong>Base units only.</strong> The face value on the pack. Bonuses and promotional extras are secondary panels, never rows. Standard always-on bonus units, first-time double bonuses, and promotional extras are excluded from the primary calculation. They appear as secondary panels on child pages, not in the main ranking.</div>
+
+  <h3>Data rules</h3>
+  <div class="accord-wrap">
+    <div class="accord-item">
+      <button class="accord-btn" onclick="toggleAccord(this)">
+        <svg class="accord-icon" viewBox="0 0 18 18"><rect x="3" y="3" width="12" height="12" rx="2"/><path d="M9 7v4M7 9h4"/></svg>
+        <span class="accord-label">One benchmark bundle per currency</span>
+        <svg class="accord-chevron" viewBox="0 0 16 16"><path d="M4 6l4 4 4-4"/></svg>
+      </button>
+      <div class="accord-body"><p>Every market uses the identical bundle size. Every market prices the identical pack. Tier substitution would smuggle the distortion straight back in.</p></div>
+    </div>
+    <div class="accord-item">
+      <button class="accord-btn" onclick="toggleAccord(this)">
+        <svg class="accord-icon" viewBox="0 0 18 18"><path d="M3 9h12M3 5h12M3 13h7"/></svg>
+        <span class="accord-label">Steady-state pricing only</span>
+        <svg class="accord-chevron" viewBox="0 0 16 16"><path d="M4 6l4 4 4-4"/></svg>
+      </button>
+      <div class="accord-body"><p>A promotion is not a price. Launch bonuses and monthly passes are secondary panels on the child pages.</p></div>
+    </div>
+    <div class="accord-item">
+      <button class="accord-btn" onclick="toggleAccord(this)">
+        <svg class="accord-icon" viewBox="0 0 18 18"><circle cx="9" cy="9" r="7"/><path d="M9 6v3.5l2 2"/></svg>
+        <span class="accord-label">One FX source: Frankfurter</span>
+        <svg class="accord-chevron" viewBox="0 0 16 16"><path d="M4 6l4 4 4-4"/></svg>
+      </button>
+      <div class="accord-body"><p>Mid-market rates blended from 84 central banks, refreshed daily, no key, no vendor. Every page draws from the same well.</p></div>
+    </div>
+    <div class="accord-item">
+      <button class="accord-btn" onclick="toggleAccord(this)">
+        <svg class="accord-icon" viewBox="0 0 18 18"><path d="M3 5h12M3 9h12M3 13h8"/></svg>
+        <span class="accord-label">Storefront list price comparison</span>
+        <svg class="accord-chevron" viewBox="0 0 16 16"><path d="M4 6l4 4 4-4"/></svg>
+      </button>
+      <div class="accord-body"><p>The index compares the price displayed on each regional storefront. UK and EU tags include VAT. That premium is disclosed on each page, not normalized away, because tax is part of what a player pays.</p></div>
+    </div>
+    <div class="accord-item">
+      <button class="accord-btn" onclick="toggleAccord(this)">
+        <svg class="accord-icon" viewBox="0 0 18 18"><circle cx="9" cy="9" r="7"/><path d="M9 6h.01M9 9v4"/></svg>
+        <span class="accord-label">Source confidence tiers</span>
+        <svg class="accord-chevron" viewBox="0 0 16 16"><path d="M4 6l4 4 4-4"/></svg>
+      </button>
+      <div class="accord-body"><p>Official, Confirmed, Third-party provisional, Contested. Lower confidence, higher bar before a move prints.</p></div>
+    </div>
+    <div class="accord-item">
+      <button class="accord-btn" onclick="toggleAccord(this)">
+        <svg class="accord-icon" viewBox="0 0 18 18"><path d="M9 4v10M4 9h10"/></svg>
+        <span class="accord-label">Pegged currencies</span>
+        <svg class="accord-chevron" viewBox="0 0 16 16"><path d="M4 6l4 4 4-4"/></svg>
+      </button>
+      <div class="accord-body"><p>The dirham and its siblings appear in the tables but not the drift charts. A peg has no story to tell.</p></div>
+    </div>
+  </div>
+  <p style="font-family:var(--font-m);font-size:10px;letter-spacing:0.05em;color:var(--text-dim);margin-top:1.5rem;line-height:1.7">The Play Money Index is independent analysis by Llama &amp; Griffin, affiliated with and endorsed by none of the platforms it covers. Product names refer to the products. Nothing here sells, resells, or advises on acquiring any game currency.</p>
+</section>
+
+<!-- WHY IT MATTERS -->
+<section id="why">
+  <div class="section-label">Why It Matters</div>
+  <h2>The Reframe</h2>
+  <span class="h2-kicker">Store credit, dressed as money.</span>
+  <p>Every currency on this desk borrows the grammar of money: the coin, the wallet, the balance in the corner of the screen. Almost none of them grants the one right that makes money money, which is the right to leave. A generation is learning what a price is from inside these systems. Somebody should be keeping the ledger.</p>
+  <p>The numbers update daily. The read on what they mean ships on <em>The Pattern Recognition</em>. <a href="https://recognizingpatterns.substack.com" class="card-link" style="display:inline">Get the weekly close</a></p>
+  
+</section>
+
+<footer>
+  <div>Abbas Saleem is a Principal Consultant at <a href="https://www.llamagriffin.com/" target="_blank" rel="noopener">Llama &amp; Griffin</a>, advising game studios, streaming platforms, and investment funds across six continents. He writes The Pattern Recognition: gaming industry intelligence 12 to 24 months before it becomes consensus. <a href="https://www.linkedin.com/in/abbassaleemkhan/" target="_blank" rel="noopener">LinkedIn</a></div>
+  <div><span>&#9650;&#9650;&#9650;&#9650;</span> The Pattern Recognition</div>
+</footer>
+
+<script>
+(function(){
+"use strict";
+
+var CROSS_DATA = {"Robux":[{"d":"2026-06-18","v":0.98},{"d":"2026-06-19","v":1.02},{"d":"2026-06-22","v":1.03},{"d":"2026-06-23","v":0.55},{"d":"2026-06-24","v":0.1},{"d":"2026-06-25","v":0.15},{"d":"2026-06-26","v":0.58},{"d":"2026-06-29","v":0.68},{"d":"2026-06-30","v":0.6},{"d":"2026-07-01","v":0.38},{"d":"2026-07-02","v":0.42},{"d":"2026-07-03","v":0.89},{"d":"2026-07-06","v":0.78},{"d":"2026-07-07","v":1.13},{"d":"2026-07-08","v":0.56},{"d":"2026-07-09","v":0.72},{"d":"2026-07-10","v":0.93},{"d":"2026-07-13","v":0.85},{"d":"2026-07-14","v":0.66},{"d":"2026-07-15","v":0.97},{"d":"2026-07-16","v":1.21},{"d":"2026-07-17","v":0.85}],"V-Bucks":[{"d":"2026-06-18","v":-11.81},{"d":"2026-06-19","v":-11.78},{"d":"2026-06-22","v":-11.79},{"d":"2026-06-23","v":-12.25},{"d":"2026-06-24","v":-12.66},{"d":"2026-06-25","v":-12.63},{"d":"2026-06-26","v":-12.27},{"d":"2026-06-29","v":-12.19},{"d":"2026-06-30","v":-12.25},{"d":"2026-07-01","v":-12.41},{"d":"2026-07-02","v":-12.35},{"d":"2026-07-03","v":-11.93},{"d":"2026-07-06","v":-12.04},{"d":"2026-07-07","v":-11.78},{"d":"2026-07-08","v":-12.2},{"d":"2026-07-09","v":-12.02},{"d":"2026-07-10","v":-11.88},{"d":"2026-07-13","v":-11.95},{"d":"2026-07-14","v":-12.11},{"d":"2026-07-15","v":-11.85},{"d":"2026-07-16","v":-11.62},{"d":"2026-07-17","v":-11.96}],"Minecoins":[{"d":"2026-06-18","v":1.42},{"d":"2026-06-19","v":1.43},{"d":"2026-06-22","v":1.44},{"d":"2026-06-23","v":0.87},{"d":"2026-06-24","v":0.39},{"d":"2026-06-25","v":0.36},{"d":"2026-06-26","v":0.76},{"d":"2026-06-29","v":0.83},{"d":"2026-06-30","v":0.68},{"d":"2026-07-01","v":0.68},{"d":"2026-07-02","v":0.8},{"d":"2026-07-03","v":1.23},{"d":"2026-07-06","v":1.17},{"d":"2026-07-07","v":1.49},{"d":"2026-07-08","v":1.19},{"d":"2026-07-09","v":1.47},{"d":"2026-07-10","v":1.65},{"d":"2026-07-13","v":1.54},{"d":"2026-07-14","v":1.46},{"d":"2026-07-15","v":1.81},{"d":"2026-07-16","v":2.27},{"d":"2026-07-17","v":1.8}],"Oneiric Shards":[{"d":"2026-06-18","v":4.59},{"d":"2026-06-19","v":4.65},{"d":"2026-06-22","v":4.52},{"d":"2026-06-23","v":4.17},{"d":"2026-06-24","v":3.78},{"d":"2026-06-25","v":3.82},{"d":"2026-06-26","v":4.14},{"d":"2026-06-29","v":4.16},{"d":"2026-06-30","v":3.99},{"d":"2026-07-01","v":3.78},{"d":"2026-07-02","v":3.88},{"d":"2026-07-03","v":4.29},{"d":"2026-07-06","v":4.13},{"d":"2026-07-07","v":4.51},{"d":"2026-07-08","v":4.14},{"d":"2026-07-09","v":4.27},{"d":"2026-07-10","v":4.44},{"d":"2026-07-13","v":4.44},{"d":"2026-07-14","v":4.32},{"d":"2026-07-15","v":4.5},{"d":"2026-07-16","v":4.8},{"d":"2026-07-17","v":4.56}],"Valorant Points":[{"d":"2026-06-18","v":-7.17},{"d":"2026-06-19","v":-7.14},{"d":"2026-06-22","v":-7.23},{"d":"2026-06-23","v":-7.62},{"d":"2026-06-24","v":-7.97},{"d":"2026-06-25","v":-7.94},{"d":"2026-06-26","v":-7.69},{"d":"2026-06-29","v":-7.63},{"d":"2026-06-30","v":-7.74},{"d":"2026-07-01","v":-7.9},{"d":"2026-07-02","v":-7.85},{"d":"2026-07-03","v":-7.54},{"d":"2026-07-06","v":-7.65},{"d":"2026-07-07","v":-7.39},{"d":"2026-07-08","v":-7.73},{"d":"2026-07-09","v":-7.56},{"d":"2026-07-10","v":-7.47},{"d":"2026-07-13","v":-7.53},{"d":"2026-07-14","v":-7.66},{"d":"2026-07-15","v":-7.46},{"d":"2026-07-16","v":-7.23},{"d":"2026-07-17","v":-7.5}],"Genesis Crystals":[{"d":"2026-06-18","v":1.28},{"d":"2026-06-19","v":1.34},{"d":"2026-06-22","v":1.23},{"d":"2026-06-23","v":0.91},{"d":"2026-06-24","v":0.56},{"d":"2026-06-25","v":0.6},{"d":"2026-06-26","v":0.89},{"d":"2026-06-29","v":0.91},{"d":"2026-06-30","v":0.75},{"d":"2026-07-01","v":0.56},{"d":"2026-07-02","v":0.66},{"d":"2026-07-03","v":1.02},{"d":"2026-07-06","v":0.88},{"d":"2026-07-07","v":1.22},{"d":"2026-07-08","v":0.89},{"d":"2026-07-09","v":1.0},{"d":"2026-07-10","v":1.16},{"d":"2026-07-13","v":1.16},{"d":"2026-07-14","v":1.05},{"d":"2026-07-15","v":1.21},{"d":"2026-07-16","v":1.48},{"d":"2026-07-17","v":1.27}]};
+var labels = ["2026-06-18","2026-06-19","2026-06-22","2026-06-23","2026-06-24","2026-06-25","2026-06-26","2026-06-29","2026-06-30","2026-07-01","2026-07-02","2026-07-03","2026-07-06","2026-07-07","2026-07-08","2026-07-09","2026-07-10","2026-07-13","2026-07-14","2026-07-15","2026-07-16","2026-07-17"];
+var datasets = [{"label":"Robux","data":[0.98,1.02,1.03,0.55,0.1,0.15,0.58,0.68,0.6,0.38,0.42,0.89,0.78,1.13,0.56,0.72,0.93,0.85,0.66,0.97,1.21,0.85],"borderColor":"#20808D","backgroundColor":"rgba(32,128,141,0.08)","borderWidth":2,"pointRadius":0,"pointHoverRadius":4,"tension":0.4,"fill":false},{"label":"V-Bucks","data":[-11.81,-11.78,-11.79,-12.25,-12.66,-12.63,-12.27,-12.19,-12.25,-12.41,-12.35,-11.93,-12.04,-11.78,-12.2,-12.02,-11.88,-11.95,-12.11,-11.85,-11.62,-11.96],"borderColor":"#1b8cff","backgroundColor":"rgba(27,140,255,0.08)","borderWidth":2,"pointRadius":0,"pointHoverRadius":4,"tension":0.4,"fill":false},{"label":"Minecoins","data":[1.42,1.43,1.44,0.87,0.39,0.36,0.76,0.83,0.68,0.68,0.8,1.23,1.17,1.49,1.19,1.47,1.65,1.54,1.46,1.81,2.27,1.8],"borderColor":"#4CAF50","backgroundColor":"rgba(76,175,80,0.08)","borderWidth":2,"pointRadius":0,"pointHoverRadius":4,"tension":0.4,"fill":false},{"label":"Oneiric Shards","data":[4.59,4.65,4.52,4.17,3.78,3.82,4.14,4.16,3.99,3.78,3.88,4.29,4.13,4.51,4.14,4.27,4.44,4.44,4.32,4.5,4.8,4.56],"borderColor":"#9C6FDB","backgroundColor":"rgba(156,111,219,0.08)","borderWidth":2,"pointRadius":0,"pointHoverRadius":4,"tension":0.4,"fill":false},{"label":"Valorant Points","data":[-7.17,-7.14,-7.23,-7.62,-7.97,-7.94,-7.69,-7.63,-7.74,-7.9,-7.85,-7.54,-7.65,-7.39,-7.73,-7.56,-7.47,-7.53,-7.66,-7.46,-7.23,-7.5],"borderColor":"#E53935","backgroundColor":"rgba(229,57,53,0.08)","borderWidth":2,"pointRadius":0,"pointHoverRadius":4,"tension":0.4,"fill":false},{"label":"Genesis Crystals","data":[1.28,1.34,1.23,0.91,0.56,0.6,0.89,0.91,0.75,0.56,0.66,1.02,0.88,1.22,0.89,1.0,1.16,1.16,1.05,1.21,1.48,1.27],"borderColor":"#F0A500","backgroundColor":"rgba(240,165,0,0.08)","borderWidth":2,"pointRadius":0,"pointHoverRadius":4,"tension":0.4,"fill":false}];
+
+window.addEventListener('DOMContentLoaded', function(){
+  var ctx = document.getElementById('indexChart');
+  if(!ctx) return;
+  new Chart(ctx, {
+    type:'line',
+    data:{labels:labels,datasets:datasets},
+    options:{
+      responsive:true,
+      maintainAspectRatio:false,
+      interaction:{mode:'index',intersect:false},
+      plugins:{
+        legend:{
+          display:true,position:'top',
+          labels:{font:{family:'IBM Plex Mono',size:9},color:'#6b6660',boxWidth:12,padding:16,usePointStyle:true,pointStyle:'circle'}
+        },
+        tooltip:{
+          backgroundColor:'#232323',titleColor:'#cdccca',bodyColor:'#8a8682',
+          titleFont:{family:'IBM Plex Mono',size:10},bodyFont:{family:'IBM Plex Mono',size:10},
+          padding:10,cornerRadius:3,
+          callbacks:{
+            label:function(ctx){
+              var v=ctx.parsed.y;
+              return ' '+ctx.dataset.label+': '+(v>=0?'+':'')+v.toFixed(2)+'%';
+            }
+          }
+        }
+      },
+      scales:{
+        x:{
+          grid:{color:'rgba(210,205,195,0.3)'},border:{display:false},
+          ticks:{font:{family:'IBM Plex Mono',size:8},color:'#6b6660',maxTicksLimit:7,maxRotation:0}
+        },
+        y:{
+          grid:{color:'rgba(210,205,195,0.3)'},border:{display:false},
+          ticks:{font:{family:'IBM Plex Mono',size:9},color:'#6b6660',callback:function(v){return (v>=0?'+':'')+v.toFixed(1)+'%';}}
+        }
+      },
+      layout:{padding:{top:8,right:16,bottom:0,left:0}}
+    }
+  });
+});
+})();
+
+// ── Stat grid population ─────────────────────────────────────────────────────
+(function(){
+  function setText(id,v){var e=document.getElementById(id);if(e)e.textContent=v;}
+  function fmt(n){return '$'+n.toFixed(2);}
+  function fmtP(n){return (n>=0?'+':'')+n.toFixed(1)+'%';}
+
+  fetch('./today.json').then(function(r){return r.json();}).then(function(today){
+    var robux = today.indexes && today.indexes.robux;
+    var rows  = robux && robux.markets ? robux.markets : [];
+    var nonBase = rows.filter(function(r){return !r.is_baseline;});
+    if(!nonBase.length) return;
+
+    var dearest  = nonBase.reduce(function(a,b){return b.premium_discount_pct > a.premium_discount_pct ? b : a;});
+    var cheapest = nonBase.reduce(function(a,b){return b.premium_discount_pct < a.premium_discount_pct ? b : a;});
+    var spread   = dearest.premium_discount_pct - cheapest.premium_discount_pct;
+    var distort  = nonBase.reduce(function(a,b){return Math.abs(b.premium_discount_pct) > Math.abs(a.premium_discount_pct) ? b : a;});
+
+    setText('stat-dearest',      fmt(dearest.implied_usd||0));
+    setText('stat-dearest-lbl',  'ROBUX · '+(dearest.market||'').toUpperCase());
+    setText('stat-cheapest',     fmt(cheapest.implied_usd||0));
+    setText('stat-cheapest-lbl', 'ROBUX · '+(cheapest.market||'').toUpperCase());
+    setText('stat-spread',       fmtP(spread));
+    setText('stat-distorted',    fmtP(Math.abs(distort.premium_discount_pct||0)));
+    setText('stat-distorted-lbl','ROBUX · '+(distort.market||'').toUpperCase());
+  }).catch(function(){});
+})();
+
+</script>
+<script>function toggleAccord(btn){btn.classList.toggle("open");var body=btn.nextElementSibling;body.classList.toggle("open");}</script>
+</body>
+</html>

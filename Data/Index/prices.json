@@ -1,0 +1,704 @@
+{
+  "schema_version": "1.0",
+  "methodology_version": "1.0",
+  "last_reviewed": "2026-07-17",
+  "fx_source": "frankfurter",
+  "fx_base": "USD",
+  "indexes": [
+    {
+      "game": "Roblox",
+      "currency": "Robux",
+      "slug": "robux",
+      "benchmark_bundle": 800,
+      "canonical_storefront": "Roblox web store",
+      "storefront_type": "web-store-canonical",
+      "status": "live",
+      "category": "platform-economy",
+      "note_800_vs_1000": "Since November 2024, $9.99 on the Roblox web store yields 1,000 Robux due to a 25% bonus. This index benchmarks the 800-Robux SKU, which remains a distinct purchasable tier. The distinction is intentional and explained in the methodology.",
+      "markets": [
+        {
+          "market": "United States",
+          "local_currency": "USD",
+          "local_price": 9.99,
+          "display_price": "$9.99",
+          "source_url": "https://www.roblox.com/upgrades/robux",
+          "source_confidence": "official",
+          "storefront_type": "web-store-canonical",
+          "last_verified": "2026-07-17",
+          "version": 1,
+          "superseded_by": null,
+          "is_baseline": true,
+          "notes": "US baseline. VAT-exclusive (no federal digital tax; state sales tax applied at checkout, not reflected in list price).",
+          "pegged": false
+        },
+        {
+          "market": "United Kingdom",
+          "local_currency": "GBP",
+          "local_price": 8.99,
+          "display_price": "\u00a38.99",
+          "source_url": null,
+          "source_confidence": "confirmed",
+          "storefront_type": "web-store-canonical",
+          "last_verified": "2026-07-17",
+          "version": 1,
+          "superseded_by": null,
+          "is_baseline": false,
+          "notes": "VAT-inclusive per UK consumer price display norms. Multiple independent sources confirm \u00a38.99.",
+          "pegged": false
+        },
+        {
+          "market": "Brazil",
+          "local_currency": "BRL",
+          "local_price": 49.9,
+          "display_price": "R$49.90",
+          "source_url": null,
+          "source_confidence": "third-party-provisional",
+          "storefront_type": "web-store-canonical",
+          "last_verified": "2026-05-01",
+          "version": 1,
+          "superseded_by": null,
+          "is_baseline": false,
+          "notes": "FoxReload distributor data, May 2026. Requires primary storefront verification. Other calculators imply ~R$56.40.",
+          "pegged": false
+        },
+        {
+          "market": "India",
+          "local_currency": "INR",
+          "local_price": 799,
+          "display_price": "\u20b9799",
+          "source_url": null,
+          "source_confidence": "contested",
+          "storefront_type": "web-store-canonical",
+          "last_verified": "2026-05-01",
+          "version": 1,
+          "superseded_by": null,
+          "is_baseline": false,
+          "notes": "Sources conflict: \u20b9640\u2013\u20b91,234 range observed across platforms. Requires direct storefront verification before treating as authoritative.",
+          "pegged": false
+        },
+        {
+          "market": "Australia",
+          "local_currency": "AUD",
+          "local_price": 13.99,
+          "display_price": "A$13.99",
+          "source_url": null,
+          "source_confidence": "third-party-provisional",
+          "storefront_type": "web-store-canonical",
+          "last_verified": "2026-07-17",
+          "version": 1,
+          "superseded_by": null,
+          "is_baseline": false,
+          "notes": "Based on A$6.99/400R pricing pattern. Requires direct storefront verification.",
+          "pegged": false
+        },
+        {
+          "market": "Singapore",
+          "local_currency": "SGD",
+          "local_price": 13.5,
+          "display_price": "S$13.50",
+          "source_url": null,
+          "source_confidence": "third-party-provisional",
+          "storefront_type": "web-store-canonical",
+          "last_verified": "2026-07-17",
+          "version": 1,
+          "superseded_by": null,
+          "is_baseline": false,
+          "notes": "FX-equivalent estimate. Roblox likely uses native SGD pricing. Requires storefront verification.",
+          "pegged": false
+        },
+        {
+          "market": "Mexico",
+          "local_currency": "MXN",
+          "local_price": 179,
+          "display_price": "MX$179",
+          "source_url": "https://rbblox.com/fr/blog/roblox-robux-mexico-precio",
+          "source_confidence": "third-party-provisional",
+          "storefront_type": "web-store-canonical",
+          "last_verified": "2026-07-17",
+          "version": 1,
+          "superseded_by": null,
+          "is_baseline": false,
+          "notes": "rbblox.com source, May 2026. Roblox has native MXN pricing. Requires direct storefront verification.",
+          "pegged": false
+        },
+        {
+          "market": "Saudi Arabia",
+          "local_currency": "SAR",
+          "local_price": 37.46,
+          "display_price": "SAR 37.46",
+          "source_url": null,
+          "source_confidence": "third-party-provisional",
+          "storefront_type": "web-store-canonical",
+          "last_verified": "2026-07-17",
+          "version": 1,
+          "superseded_by": null,
+          "is_baseline": false,
+          "notes": "SAR is pegged to USD at 3.75/USD. Price calculated from USD equivalent ($9.99). Gift card data (Tether.sa: 38 SAR) corroborates. Pegged currency excluded from drift charts.",
+          "pegged": true
+        },
+        {
+          "market": "UAE",
+          "local_currency": "AED",
+          "local_price": 36.67,
+          "display_price": "AED 36.67",
+          "source_url": null,
+          "source_confidence": "third-party-provisional",
+          "storefront_type": "web-store-canonical",
+          "last_verified": "2026-07-17",
+          "version": 1,
+          "superseded_by": null,
+          "is_baseline": false,
+          "notes": "AED pegged to USD at 3.6725/USD since 1997. Price calculated from USD equivalent ($9.99). Gift card data (MTC Game: 25 AED ~800R) is lower than expected. Pegged currency excluded from drift charts.",
+          "pegged": true
+        },
+        {
+          "market": "South Africa",
+          "local_currency": "ZAR",
+          "local_price": 185,
+          "display_price": "R185",
+          "source_url": null,
+          "source_confidence": "contested",
+          "storefront_type": "web-store-canonical",
+          "last_verified": "2026-07-17",
+          "version": 1,
+          "superseded_by": null,
+          "is_baseline": false,
+          "notes": "Reseller-reported. Official Roblox web store ZAR pricing unverified. Roblox support confirms South Africa gift cards exist. Direct storefront verification required.",
+          "pegged": false
+        },
+        {
+          "market": "Indonesia",
+          "local_currency": "IDR",
+          "local_price": 158000,
+          "display_price": "Rp 158,000",
+          "source_url": null,
+          "source_confidence": "contested",
+          "storefront_type": "web-store-canonical",
+          "last_verified": "2026-07-17",
+          "version": 1,
+          "superseded_by": null,
+          "is_baseline": false,
+          "notes": "Reseller-reported (lapakgaming.com). Roblox may bill in USD for Indonesian users rather than native IDR. Mechanism similar to Argentina. Direct storefront verification required.",
+          "pegged": false
+        }
+      ]
+    },
+    {
+      "game": "Fortnite",
+      "currency": "V-Bucks",
+      "slug": "vbucks",
+      "benchmark_bundle": 800,
+      "canonical_storefront": "Epic Games web store",
+      "storefront_type": "platform-dependent",
+      "status": "live",
+      "category": "cosmetics-economy",
+      "storefront_note": "Epic Games' web store is IP-geolocked and displays US pricing to non-US visitors. Regional prices were verified against Microsoft Xbox Store listings for the identical Epic-published 'Fortnite - 800 V-Bucks' product. Xbox Store is not the canonical storefront; it is the best available verified proxy for regional pricing. Actual Epic web store prices may differ marginally.",
+      "editorial_flags": [
+        {
+          "date": "2026-03-19",
+          "type": "benchmark-change",
+          "note": "Epic shrinkflation event: the $8.99 entry-level pack was reduced from 1,000 to 800 V-Bucks globally across all currencies. Benchmark updated from 1,000 to 800 V-Bucks. This is a publisher repricing event, not FX drift \u2014 treat any pre-/post-March-19 movement in implied USD as a step change, not continuous drift."
+        }
+      ],
+      "markets": [
+        {
+          "market": "United States",
+          "local_currency": "USD",
+          "local_price": 8.99,
+          "display_price": "$8.99",
+          "source_url": "https://www.fortnite.com/item-shop/v-bucks",
+          "source_confidence": "official",
+          "storefront_type": "web-store-canonical",
+          "last_verified": "2026-07-17",
+          "version": 1,
+          "superseded_by": null,
+          "is_baseline": true,
+          "notes": "US baseline. VAT-exclusive. Epic web store (confirmed live).",
+          "pegged": false
+        },
+        {
+          "market": "United Kingdom",
+          "local_currency": "GBP",
+          "local_price": 6.99,
+          "display_price": "\u00a36.99",
+          "source_url": "https://www.xbox.com/en-GB/games/store/fortnite-800-v-bucks/9N16XHX3MB1R",
+          "source_confidence": "verified-proxy",
+          "storefront_type": "platform-dependent",
+          "last_verified": "2026-07-17",
+          "version": 1,
+          "superseded_by": null,
+          "is_baseline": false,
+          "notes": "Xbox Store listing for Epic-published Fortnite 800 V-Bucks. UK consumer price (VAT-inclusive). Epic web store regional price unverifiable due to IP-geolocking.",
+          "pegged": false
+        },
+        {
+          "market": "Germany",
+          "local_currency": "EUR",
+          "local_price": 8.99,
+          "display_price": "\u20ac8.99",
+          "source_url": "https://www.xbox.com/de-DE/games/store/fortnite-800-v-bucks/9N16XHX3MB1R",
+          "source_confidence": "verified-proxy",
+          "storefront_type": "platform-dependent",
+          "last_verified": "2026-07-17",
+          "version": 1,
+          "superseded_by": null,
+          "is_baseline": false,
+          "notes": "Xbox Store listing. German storefront; VAT-inclusive per EU consumer price-indication rules. Other Eurozone markets tracked separately.",
+          "pegged": false
+        },
+        {
+          "market": "Brazil",
+          "local_currency": "BRL",
+          "local_price": 31.99,
+          "display_price": "R$31.99",
+          "source_url": "https://www.xbox.com/pt-BR/games/store/fortnite-800-v-bucks/9NGDHRZSJHB1",
+          "source_confidence": "verified-proxy",
+          "storefront_type": "platform-dependent",
+          "last_verified": "2026-07-17",
+          "version": 1,
+          "superseded_by": null,
+          "is_baseline": false,
+          "notes": "Xbox Store listing. Native BRL pricing, not USD pass-through.",
+          "pegged": false
+        },
+        {
+          "market": "India",
+          "local_currency": "INR",
+          "local_price": 666,
+          "display_price": "\u20b9666",
+          "source_url": "https://www.xbox.com/en-IN/games/store/fortnite-800-v-bucks/9N16XHX3MB1R",
+          "source_confidence": "verified-proxy",
+          "storefront_type": "platform-dependent",
+          "last_verified": "2026-07-17",
+          "version": 1,
+          "superseded_by": null,
+          "is_baseline": false,
+          "notes": "Xbox Store listing. INR pricing.",
+          "pegged": false
+        }
+      ]
+    },
+    {
+      "game": "Minecraft",
+      "currency": "Minecoins",
+      "slug": "minecoins",
+      "benchmark_bundle": 1720,
+      "benchmark_note": "Microsoft labels the pack as '1,600 + 120 Bonus Minecoins'. The 1,720 figure is the total delivered. The index prices what the buyer receives.",
+      "canonical_storefront": "Minecraft Marketplace",
+      "storefront_type": "platform-integrated",
+      "status": "live",
+      "category": "platform-economy",
+      "markets": [
+        {
+          "market": "United States",
+          "local_currency": "USD",
+          "local_price": 9.99,
+          "display_price": "$9.99",
+          "source_url": "https://www.minecraft.net/en-us/marketplace/buy-minecoins",
+          "source_confidence": "official",
+          "is_baseline": true,
+          "pegged": false,
+          "last_verified": "2026-07-18",
+          "notes": "US baseline. VAT-exclusive."
+        },
+        {
+          "market": "United Kingdom",
+          "local_currency": "GBP",
+          "local_price": 8.49,
+          "display_price": "\u00a38.49",
+          "source_url": "https://www.argos.co.uk",
+          "source_confidence": "confirmed",
+          "is_baseline": false,
+          "pegged": false,
+          "last_verified": "2026-07-18",
+          "notes": "Argos UK retail listing, official Xbox/Microsoft key."
+        },
+        {
+          "market": "Germany",
+          "local_currency": "EUR",
+          "local_price": 9.99,
+          "display_price": "\u20ac9.99",
+          "source_url": "https://www.idealo.de",
+          "source_confidence": "confirmed",
+          "is_baseline": false,
+          "pegged": false,
+          "last_verified": "2026-07-18",
+          "notes": "Multiple German retailers confirm \u20ac9.99. VAT-inclusive."
+        },
+        {
+          "market": "Brazil",
+          "local_currency": "BRL",
+          "local_price": 37.95,
+          "display_price": "R$37.95",
+          "source_url": "https://www.nuuvem.com",
+          "source_confidence": "confirmed",
+          "is_baseline": false,
+          "pegged": false,
+          "last_verified": "2026-07-18",
+          "notes": "Nuuvem Brazil (official digital retailer)."
+        },
+        {
+          "market": "Australia",
+          "local_currency": "AUD",
+          "local_price": 14.95,
+          "display_price": "A$14.95",
+          "source_url": "https://www.officeworks.com.au",
+          "source_confidence": "confirmed",
+          "is_baseline": false,
+          "pegged": false,
+          "last_verified": "2026-07-18",
+          "notes": "Officeworks Australia official listing. GST-inclusive."
+        }
+      ]
+    },
+    {
+      "slug": "oneiric",
+      "currency": "Oneiric Shards",
+      "game": "Honkai: Star Rail",
+      "publisher": "HoYoverse",
+      "benchmark_bundle": 980,
+      "benchmark_usd": 14.99,
+      "status": "live",
+      "markets": [
+        {
+          "market": "United States",
+          "local_currency": "USD",
+          "local_price": 14.99,
+          "is_baseline": true,
+          "source_confidence": "official",
+          "pegged": false
+        },
+        {
+          "market": "United Kingdom",
+          "local_currency": "GBP",
+          "local_price": 14.99,
+          "is_baseline": false,
+          "source_confidence": "confirmed",
+          "pegged": false
+        },
+        {
+          "market": "Germany",
+          "local_currency": "EUR",
+          "local_price": 17.99,
+          "is_baseline": false,
+          "source_confidence": "confirmed",
+          "pegged": false
+        },
+        {
+          "market": "Brazil",
+          "local_currency": "BRL",
+          "local_price": 79.9,
+          "is_baseline": false,
+          "source_confidence": "confirmed",
+          "pegged": false
+        },
+        {
+          "market": "India",
+          "local_currency": "INR",
+          "local_price": 1499,
+          "is_baseline": false,
+          "source_confidence": "confirmed",
+          "pegged": false
+        },
+        {
+          "market": "Australia",
+          "local_currency": "AUD",
+          "local_price": 22.99,
+          "is_baseline": false,
+          "source_confidence": "confirmed",
+          "pegged": false
+        },
+        {
+          "market": "Mexico",
+          "local_currency": "MXN",
+          "local_price": 299,
+          "is_baseline": false,
+          "source_confidence": "confirmed",
+          "pegged": false
+        },
+        {
+          "market": "Singapore",
+          "local_currency": "SGD",
+          "local_price": 21.98,
+          "is_baseline": false,
+          "source_confidence": "confirmed",
+          "pegged": false
+        },
+        {
+          "market": "Indonesia",
+          "local_currency": "IDR",
+          "local_price": 249000,
+          "is_baseline": false,
+          "source_confidence": "confirmed",
+          "pegged": false
+        },
+        {
+          "market": "Japan",
+          "local_currency": "JPY",
+          "local_price": 1840,
+          "is_baseline": false,
+          "source_confidence": "confirmed",
+          "pegged": false
+        },
+        {
+          "market": "Philippines",
+          "local_currency": "PHP",
+          "local_price": 799,
+          "is_baseline": false,
+          "source_confidence": "confirmed",
+          "pegged": false
+        },
+        {
+          "market": "South Korea",
+          "local_currency": "KRW",
+          "local_price": 19000,
+          "is_baseline": false,
+          "source_confidence": "confirmed",
+          "pegged": false
+        },
+        {
+          "market": "Hong Kong",
+          "local_currency": "HKD",
+          "local_price": 118,
+          "is_baseline": false,
+          "source_confidence": "confirmed",
+          "pegged": false
+        }
+      ]
+    },
+    {
+      "slug": "valorant",
+      "currency": "Valorant Points",
+      "game": "Valorant",
+      "publisher": "Riot Games",
+      "benchmark_bundle": 950,
+      "benchmark_usd": 9.99,
+      "status": "live",
+      "markets": [
+        {
+          "market": "United States",
+          "local_currency": "USD",
+          "local_price": 9.99,
+          "is_baseline": true,
+          "source_confidence": "official",
+          "pegged": false
+        },
+        {
+          "market": "United Kingdom",
+          "local_currency": "GBP",
+          "local_price": 8.19,
+          "is_baseline": false,
+          "source_confidence": "confirmed",
+          "pegged": false
+        },
+        {
+          "market": "Germany",
+          "local_currency": "EUR",
+          "local_price": 10.0,
+          "is_baseline": false,
+          "source_confidence": "confirmed",
+          "pegged": false
+        },
+        {
+          "market": "Australia",
+          "local_currency": "AUD",
+          "local_price": 14.75,
+          "is_baseline": false,
+          "source_confidence": "confirmed",
+          "pegged": false
+        },
+        {
+          "market": "Brazil",
+          "local_currency": "BRL",
+          "local_price": 39.9,
+          "is_baseline": false,
+          "source_confidence": "confirmed",
+          "pegged": false
+        },
+        {
+          "market": "India",
+          "local_currency": "INR",
+          "local_price": 864,
+          "is_baseline": false,
+          "source_confidence": "confirmed",
+          "pegged": false
+        },
+        {
+          "market": "Mexico",
+          "local_currency": "MXN",
+          "local_price": 180,
+          "is_baseline": false,
+          "source_confidence": "confirmed",
+          "pegged": false
+        },
+        {
+          "market": "Philippines",
+          "local_currency": "PHP",
+          "local_price": 400,
+          "is_baseline": false,
+          "source_confidence": "confirmed",
+          "pegged": false
+        },
+        {
+          "market": "Singapore",
+          "local_currency": "SGD",
+          "local_price": 13.3,
+          "is_baseline": false,
+          "source_confidence": "confirmed",
+          "pegged": false
+        },
+        {
+          "market": "Turkey",
+          "local_currency": "TRY",
+          "local_price": 310,
+          "is_baseline": false,
+          "source_confidence": "confirmed",
+          "pegged": false
+        }
+      ]
+    },
+    {
+      "slug": "genshin",
+      "currency": "Genesis Crystals",
+      "game": "Genshin Impact",
+      "publisher": "HoYoverse",
+      "benchmark_bundle": 980,
+      "benchmark_usd": 14.99,
+      "status": "live",
+      "markets": [
+        {
+          "market": "United States",
+          "local_currency": "USD",
+          "local_price": 14.99,
+          "is_baseline": true,
+          "source_confidence": "official",
+          "pegged": false
+        },
+        {
+          "market": "United Kingdom",
+          "local_currency": "GBP",
+          "local_price": 14.99,
+          "is_baseline": false,
+          "source_confidence": "confirmed",
+          "pegged": false
+        },
+        {
+          "market": "Germany",
+          "local_currency": "EUR",
+          "local_price": 14.99,
+          "is_baseline": false,
+          "source_confidence": "confirmed",
+          "pegged": false
+        },
+        {
+          "market": "Australia",
+          "local_currency": "AUD",
+          "local_price": 22.99,
+          "is_baseline": false,
+          "source_confidence": "confirmed",
+          "pegged": false
+        },
+        {
+          "market": "Brazil",
+          "local_currency": "BRL",
+          "local_price": 76.9,
+          "is_baseline": false,
+          "source_confidence": "confirmed",
+          "pegged": false
+        },
+        {
+          "market": "India",
+          "local_currency": "INR",
+          "local_price": 1499,
+          "is_baseline": false,
+          "source_confidence": "confirmed",
+          "pegged": false
+        },
+        {
+          "market": "Singapore",
+          "local_currency": "SGD",
+          "local_price": 21.98,
+          "is_baseline": false,
+          "source_confidence": "confirmed",
+          "pegged": false
+        },
+        {
+          "market": "Japan",
+          "local_currency": "JPY",
+          "local_price": 1840,
+          "is_baseline": false,
+          "source_confidence": "confirmed",
+          "pegged": false
+        },
+        {
+          "market": "Mexico",
+          "local_currency": "MXN",
+          "local_price": 299,
+          "is_baseline": false,
+          "source_confidence": "confirmed",
+          "pegged": false
+        },
+        {
+          "market": "Indonesia",
+          "local_currency": "IDR",
+          "local_price": 249000,
+          "is_baseline": false,
+          "source_confidence": "confirmed",
+          "pegged": false
+        },
+        {
+          "market": "South Korea",
+          "local_currency": "KRW",
+          "local_price": 18000,
+          "is_baseline": false,
+          "source_confidence": "confirmed",
+          "pegged": false
+        },
+        {
+          "market": "Philippines",
+          "local_currency": "PHP",
+          "local_price": 799,
+          "is_baseline": false,
+          "source_confidence": "confirmed",
+          "pegged": false
+        },
+        {
+          "market": "Vietnam",
+          "local_currency": "VND",
+          "local_price": 379000,
+          "is_baseline": false,
+          "source_confidence": "confirmed",
+          "pegged": false
+        },
+        {
+          "market": "Malaysia",
+          "local_currency": "MYR",
+          "local_price": 59.9,
+          "is_baseline": false,
+          "source_confidence": "confirmed",
+          "pegged": false
+        }
+      ]
+    }
+  ],
+  "planned_indexes": [
+    {
+      "slug": "vp",
+      "currency": "Valorant Points",
+      "game": "Valorant",
+      "category": "cosmetics-economy",
+      "benchmark_bundle": 1000,
+      "canonical_storefront": "Riot web store",
+      "status": "planned"
+    },
+    {
+      "slug": "shards",
+      "currency": "Oneiric Shards",
+      "game": "Honkai: Star Rail",
+      "category": "collection-economy",
+      "benchmark_bundle": 60,
+      "canonical_storefront": "HoYoverse top-up center",
+      "status": "planned"
+    }
+  ]
+}

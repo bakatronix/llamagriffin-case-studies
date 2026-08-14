@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="How much do 980 Oneiric Shards cost in your country? Live Honkai: Star Rail pull currency pricing across 13 markets, updated daily.">
+<meta property="og:title" content="Oneiric Shards Price by Country 2026 — Play Money Index">
+<meta property="og:description" content="Live Oneiric Shards pricing across 13 markets. 980 Honkai: Star Rail pull currency measured against the US, updated every day.">
+<meta property="og:type" content="website">
+<title>Oneiric Shards Price by Country 2026 — Play Money Index</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f7f4ee;--bg2:#fdfcf9;--bg3:#eae7e0;--bg4:#d2cdc3;
+  --border:#d2cdc3;--border-med:#c5bfb5;
+  --text:#232323;--text-muted:#37342f;--text-dim:#6b6660;
+  --gold:#c3a55f;--gold-light:#d4ba82;--gold-dim:rgba(195,165,95,0.12);
+  --teal:#2a8f76;--teal-light:#3daa8e;--teal-dim:rgba(42,143,118,0.10);
+  --purple:#6b64b3;--purple-light:#8f88cc;--purple-dim:rgba(107,100,179,0.10);
+  --coral:#b85a3a;--coral-light:#cb7055;--coral-dim:rgba(184,90,58,0.10);
+  --blue:#3d77c4;--blue-light:#6699d8;--blue-dim:rgba(61,119,196,0.10);
+  --font-display:'Playfair Display',serif;
+  --font-body:'DM Sans',sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7;min-height:100vh}
+a{color:var(--gold);text-decoration:none}a:hover{text-decoration:underline}
+
+/* SUITE NAV STRIP */
+#suite-nav{background:#f5f1e8;border-bottom:1px solid rgba(30,25,20,0.12);padding:0 2rem;display:flex;align-items:center;height:36px;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.09em;text-transform:uppercase;gap:0;overflow-x:auto;position:sticky;top:0;z-index:200}
+.suite-brand{color:#C9A84C;margin-right:1.5rem;padding-right:1.5rem;border-right:1px solid rgba(30,25,20,0.12);white-space:nowrap;font-weight:500}
+.suite-link{color:#8a8480;padding:0 0.8rem;height:36px;display:flex;align-items:center;white-space:nowrap;border-bottom:2px solid transparent;transition:color 0.15s,border-color 0.15s;text-decoration:none}
+.suite-link:hover{color:#C9A84C;text-decoration:none}
+
+/* MAIN NAV */
+#main-nav{position:sticky;top:36px;z-index:100;background:rgba(247,244,238,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;height:52px;overflow-x:auto;gap:0}
+#main-nav a{color:var(--text-dim);font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.09em;text-transform:uppercase;padding:0 0.9rem;height:52px;display:flex;align-items:center;border-bottom:2px solid transparent;white-space:nowrap;transition:color 0.15s,border-color 0.15s;text-decoration:none}
+#main-nav a:hover{color:var(--gold);text-decoration:none;border-bottom-color:rgba(195,165,95,0.3)}
+#main-nav a.active{color:var(--gold);border-bottom-color:var(--gold)}
+nav a.nav-brand{font-family:var(--font-display) !important;font-size:14px !important;font-weight:700 !important;color:var(--text) !important;margin-right:1.5rem;padding-right:1.5rem;border-right:1px solid var(--border);white-space:nowrap;text-transform:none !important;letter-spacing:normal !important;padding:0 1.5rem 0 0 !important;height:52px}
+
+.hero{max-width:960px;margin:0 auto;padding:2rem 2rem;position:relative}
+.hero-eyebrow{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;display:flex;align-items:center;gap:10px}
+.hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold);display:inline-block}
+.hero h1{font-family:var(--font-display);font-size:clamp(2rem,5vw,3.4rem);font-weight:700;line-height:1.07;color:var(--text);margin-bottom:0.75rem}
+.hero h1 span{color:var(--gold);font-style:italic;white-space:nowrap}
+.hero-sub{font-size:15px;color:var(--text-muted);max-width:none;margin-bottom:2.5rem;line-height:1.65}
+.hero-meta{display:flex;gap:1.5rem;margin-bottom:2.5rem;flex-wrap:wrap}
+.hero-meta-item{font-family:var(--font-mono);font-size:10px;letter-spacing:0.09em;color:var(--text-dim);text-transform:uppercase}
+.hero-meta-item span{color:var(--text-muted);font-weight:500}
+
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:1rem}
+.stat-cell{background:var(--bg2);padding:1.25rem 1.5rem}
+.stat-val{font-family:var(--font-display);font-size:1.6rem;font-weight:700;color:var(--gold);line-height:1;margin-bottom:5px}
+.stat-val.teal{color:var(--teal)}
+.stat-val.purple{color:var(--purple)}
+.stat-val.coral{color:var(--coral)}
+.stat-lbl{font-family:var(--font-mono);font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.07em}
+
+section{max-width:960px;margin:0 auto;padding:2rem 2rem;border-top:1px solid var(--border)}
+.section-label{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.3rem}
+h2{font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--text);margin-bottom:0.25rem;line-height:1.15}
+.h2-kicker{font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--gold);font-style:italic;display:block;margin-bottom:1.5rem}
+.section-intro{font-size:15px;color:var(--text-muted);max-width:none;margin-bottom:2rem;line-height:1.7}
+h3{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);margin:2.5rem 0 1rem}
+h3:first-of-type{margin-top:0}
+p{color:var(--text-muted);margin-bottom:1rem;font-size:15px;max-width:none;line-height:1.7}
+p strong{color:var(--text);font-weight:600}
+p:last-child{margin-bottom:0}
+
+.table-wrap{margin-bottom:1.5rem;border:1px solid var(--border);border-radius:4px;overflow:hidden;overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead th{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);padding:0.75rem 1rem;text-align:left;border-bottom:1px solid var(--border-med);background:var(--bg3);white-space:nowrap}
+tbody tr{border-bottom:1px solid var(--border);transition:background 0.1s}
+tbody tr:last-child{border-bottom:none}
+tbody tr:hover{background:var(--bg3)}
+tbody td{padding:0.65rem 1rem;color:var(--text-muted);vertical-align:middle}
+tbody td:first-child{color:var(--text)}
+td.num{font-family:var(--font-mono);font-size:12px;white-space:nowrap}
+
+.tag{display:inline-block;font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;padding:2px 7px;border-radius:2px;white-space:nowrap}
+.tag-gold{background:var(--gold-dim);color:var(--gold)}
+.tag-teal{background:var(--teal-dim);color:var(--teal)}
+.tag-purple{background:var(--purple-dim);color:var(--purple)}
+.tag-coral{background:var(--coral-dim);color:var(--coral)}
+.tag-dim{background:rgba(35,35,35,0.07);color:var(--text-dim)}
+  .tag-blue{background:rgba(61,119,196,0.10);color:#3d77c4}
+
+.insight{border-left:2px solid var(--gold);background:var(--gold-dim);border-radius:0 4px 4px 0;padding:1rem 1.25rem;margin:1.5rem 0;font-size:14px;color:var(--text-muted);line-height:1.65}
+.insight strong{color:var(--text);font-weight:600}
+.insight.teal{border-color:var(--teal);background:var(--teal-dim)}
+.insight.teal strong{color:var(--teal)}
+.insight.coral{border-color:var(--coral);background:var(--coral-dim)}
+.insight.coral strong{color:var(--coral)}
+
+.bar-row{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.bar-country{font-family:var(--font-mono);font-size:11px;color:var(--text);width:110px;flex-shrink:0;text-align:right}
+.bar-track{flex:1;height:22px;background:var(--bg3);border-radius:2px;position:relative;overflow:hidden}
+.bar-fill{height:100%;border-radius:2px;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;font-family:var(--font-mono);font-size:10px;color:#fff;min-width:52px;transition:width 0.6s ease}
+
+.methodology-note{font-size:13px;color:var(--text-dim);border-top:1px dashed var(--border-med);padding-top:1.25rem;margin-top:2rem;max-width:none;line-height:1.65}
+
+.status-line{font-family:var(--font-mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim);margin-bottom:1.5rem}
+.status-line .live{color:var(--teal)}
+.status-line .fallback{color:var(--coral)}
+
+footer{max-width:960px;margin:0 auto;padding:2rem 2rem 3rem;border-top:1px solid var(--border);font-size:12px;color:var(--text-dim);display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;align-items:center}
+footer span{color:var(--gold)}
+
+  /* ACCORDION */
+  .accord-wrap{border:1px solid var(--border-med);border-radius:6px;overflow:hidden;margin-bottom:2rem}
+  .accord-item{border-bottom:1px solid var(--border-med)}
+  .accord-item:last-child{border-bottom:none}
+  .accord-btn{width:100%;background:var(--bg2);border:none;cursor:pointer;padding:1rem 1.25rem;display:flex;align-items:center;gap:12px;text-align:left;transition:background 0.15s}
+  .accord-btn:hover{background:var(--bg3)}
+  .accord-btn.open{background:var(--gold-dim)}
+  .accord-icon{width:18px;height:18px;flex-shrink:0;stroke:var(--gold);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+  .accord-label{font-family:var(--font-m);font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text);flex:1}
+  .accord-chevron{width:16px;height:16px;flex-shrink:0;stroke:var(--text-dim);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform 0.2s}
+  .accord-btn.open .accord-chevron{transform:rotate(180deg);stroke:var(--gold)}
+  .accord-body{display:none;padding:1.25rem 1.25rem 1.25rem 3.25rem;background:var(--bg2);border-top:1px solid var(--border)}
+  .accord-body.open{display:block}
+  .accord-body p{font-size:14.5px;color:var(--text-muted);margin-bottom:0.8rem;line-height:1.7;max-width:none}
+  .accord-body p:last-child{margin-bottom:0}
+  .accord-body ul{margin:0 0 0.8rem 1rem;display:flex;flex-direction:column;gap:0.45rem}
+  .accord-body ul:last-child{margin-bottom:0}
+  .accord-body li{font-size:14.5px;color:var(--text-muted);line-height:1.65}
+  .accord-body li strong{color:var(--text);font-weight:600}
+.data-fresh{font-family:var(--font-mono,monospace);font-size:9px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim,#888);margin-bottom:1.5rem;display:flex;align-items:center;gap:8px}.data-fresh-dot{width:7px;height:7px;border-radius:50%;background:#4CAF50;display:inline-block;flex-shrink:0}
+.cix-table{width:100%;border-collapse:collapse;margin:1rem 0}.cix-table th{font-family:var(--font-mono,monospace);font-size:9px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim);padding:8px 12px;border-bottom:1px solid var(--border);text-align:right}.cix-table th:first-child{text-align:left}.cix-name{font-family:var(--font-mono,monospace);font-size:10px;color:var(--text);padding:7px 12px;border-bottom:1px solid rgba(0,0,0,0.05)}.cix-val{font-family:var(--font-mono,monospace);font-size:11px;font-weight:600;padding:7px 12px;text-align:right;border-bottom:1px solid rgba(0,0,0,0.05)}
+</style>
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+  <link rel="canonical" href="http://www.llamagriffin.com/Data/Index/oneiric/">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "Dataset",
+    "name": "The Oneiric Shards Index",
+    "description": "Daily index tracking the implied USD cost of 980 Oneiric Shards across 13 markets, measured against the US baseline price.",
+    "url": "http://www.llamagriffin.com/Data/Index/oneiric/",
+    "creator": {
+      "@type": "Organization",
+      "name": "Llama & Griffin Consultants",
+      "url": "http://www.llamagriffin.com"
+    },
+    "temporalCoverage": "2026-07-22/..",
+    "spatialCoverage": "Global",
+    "variableMeasured": "Premium or discount vs US baseline for Oneiric Shards pricing in Honkai: Star Rail",
+    "updateFrequency": "Daily",
+    "keywords": ["Oneiric Shards price by country", "Oneiric Shards cost comparison", "Honkai: Star Rail currency pricing", "virtual currency purchasing power"]
+  }
+  </script>
+</head>
+<body>
+
+<div id="suite-nav">
+  <span class="suite-brand">The Oneiric Shards Index &middot; The Pattern Recognition</span>
+  <a href="../" class="suite-link">&#8592; All Indexes</a><a href="https://www.llamagriffin.com" class="suite-link">Llama &amp; Griffin</a>
+  <a href="https://recognizingpatterns.substack.com" class="suite-link" target="_blank" rel="noopener">Substack</a>
+</div>
+
+<nav id="main-nav">
+  <a href="https://www.llamagriffin.com" class="nav-brand">Llama &amp; Griffin Consultants</a>
+  <a href="#chart" class="nav-link">Implied Cost</a>
+  <a href="#index" class="nav-link active">The Index</a>
+  <a href="#interpretation" class="nav-link">Interpretation</a>
+  <a href="#drift" class="nav-link">Drift Over Time</a>
+  <a href="#cross-comparison" class="nav-link">Cross-Index</a>
+  <a href="#what-it-means" class="nav-link">So What?</a>
+  <a href="#methodology" class="nav-link">Methodology</a>
+  <a href="#reframe" class="nav-link">The Reframe</a>
+</nav>
+
+<div class="hero">
+<div class="hero-eyebrow">Llama &amp; Griffin &middot; The Pattern Recognition &middot; Live Data</div>
+<h1>The Same Pull, <span>Priced by Passport.</span></h1>
+<p class="hero-sub">The pull currency at the centre of the fastest-growing gacha franchise in the world. HoYoverse publishes regional prices openly on their top-up website. This page converts them daily, normalizes to cost per 100 shards, and measures who pays the most against the US at $14.99.</p>
+<div class="hero-meta">
+<div class="hero-meta-item">Benchmark <span>980 Oneiric Shards, HoYoverse top-up center</span></div>
+<div class="hero-meta-item">Baseline <span>United States, $14.99</span></div>
+<div class="hero-meta-item">FX Updated <span id="fx-date">loading</span></div>
+</div>
+<div class="data-fresh"><span class="data-fresh-dot"></span><span>Local prices: stardb.gg Nov 2024 &middot; FX: daily live &middot; Snapshots: daily 02:00 UTC</span></div>
+
+<p style="font-family:var(--font-mono,monospace);font-size:10px;letter-spacing:0.06em;color:var(--text-dim,#888);margin-top:0.5rem;line-height:1.7">The 980-shard pack delivers 1,090 total in steady state (including the standing bonus). This index prices the labelled 980-shard base. First-time double bonuses are tracked separately and not included in the primary ranking.</p>
+<div class="stat-grid" id="stat-grid">
+<div class="stat-cell"><div class="stat-val" id="stat-cheapest">&#8230;</div><div class="stat-lbl" id="stat-cheapest-lbl">Cheapest market</div></div>
+<div class="stat-cell"><div class="stat-val coral" id="stat-dearest">&#8230;</div><div class="stat-lbl" id="stat-dearest-lbl">Most expensive market</div></div>
+<div class="stat-cell"><div class="stat-val teal" id="stat-spread">&#8230;</div><div class="stat-lbl">Cheapest vs dearest spread</div></div>
+<div class="stat-cell"><div class="stat-val purple" id="stat-markets">4</div><div class="stat-lbl">Markets tracked</div></div>
+</div>
+</div>
+
+<section id="chart">
+<div class="section-label">Section 01</div>
+<h2>Implied Cost in US Dollars</h2>
+<span class="h2-kicker">The same purchase, in dollars, today.</span>
+<p class="section-intro">The US bar at $14.99 is the line. Below it, money buys more pulls. Above it, the identical 980-shard top-up costs more.</p>
+<div id="bars"></div>
+<p class="chart-caption" id="bars-caption" style="font-family:var(--font-mono);font-size:10px;color:var(--text-dim);letter-spacing:0.06em;text-transform:uppercase;margin-top:0.75rem">Implied USD cost of 980 Oneiric Shards by market &middot; recalculated on page load against daily FX</p>
+</section>
+
+<section id="index">
+<div class="section-label">Section 02</div>
+<h2>The Index</h2>
+<span class="h2-kicker">The table HoYoverse actually does publish — and most players never look at it.</span>
+<p style="font-size:14.5px;color:var(--text-muted);line-height:1.7;margin-bottom:1.25rem">Local price, converted at today's rate, measured against $14.99. Negative is a discount to the US. Positive is a premium for the same 980-shard bundle.</p>
+<div class="status-line" id="fx-status">FX source: loading</div>
+<div class="table-wrap">
+<table id="index-table">
+<thead>
+<tr>
+<th>Market</th>
+<th>Local Price (980 Shards)</th>
+<th>Implied USD Today</th>
+<th>vs US Baseline</th>
+<th>Shard-Implied FX</th>
+<th>Confidence</th>
+</tr>
+</thead>
+<tbody id="index-body">
+</tbody>
+</table>
+</div>
+<div class="accord-wrap" style="margin-top:1.5rem">
+  <div class="accord-item">
+    <button class="accord-btn" onclick="toggleAccord(this)">
+      <svg class="accord-icon" viewBox="0 0 18 18"><circle cx="9" cy="9" r="7"/><path d="M9 6h.01M9 9v4"/></svg>
+      <span class="accord-label">How to read the Shard-implied FX column</span>
+      <svg class="accord-chevron" viewBox="0 0 16 16"><path d="M4 6l4 4 4-4"/></svg>
+    </button>
+    <div class="accord-body"><p>The rate at which the local 980-shard bundle would cost exactly $14.99. Above the market rate: the tag has drifted cheap. Below it: that market is overpaying for the same pull budget.</p>
+      <p></p>
+      <p></p></div>
+  </div>
+  <div class="accord-item">
+    <button class="accord-btn" onclick="toggleAccord(this)">
+      <svg class="accord-icon" viewBox="0 0 18 18"><circle cx="9" cy="9" r="7"/><path d="M9 6.5l2.5 2.5-5 0"/></svg>
+      <span class="accord-label">Markets excluded from the main table</span>
+      <svg class="accord-chevron" viewBox="0 0 16 16"><path d="M4 6l4 4 4-4"/></svg>
+    </button>
+    <div class="accord-body"><p><strong>Argentina:</strong> HoYoverse covers most major markets with local-currency pricing on the official top-up website. Markets billed in USD rather than a local currency are flagged and excluded from the comparison until a local-currency price is confirmed on the official site.</p>
+      <p><strong>Turkey:</strong> Turkey: HoYoverse has historically offered significant Turkey-region discounts. The TRY price fluctuates substantially and is tracked separately as a volatility note, not in the main table.</p>
+      </div>
+  </div>
+</div>
+
+</section>
+
+<section id="interpretation">
+<div class="section-label">Section 03</div>
+<h2>Today's Interpretation</h2>
+<span class="h2-kicker">The sentence underneath the numbers.</span>
+<div id="interp-body">
+<p class="section-intro" style="color:var(--text-dim)">Loading today's data&hellip;</p>
+</div>
+</section>
+
+<section id="drift">
+<div class="section-label">Section 04</div>
+<h2>Drift Over Time</h2>
+<span class="h2-kicker">Repegs are events. Everything between is drift.</span>
+<p>Vertical jumps were HoYoverse. Everything else was the market. Between adjustments, the real dollar cost of 980 Oneiric Shards drifts with the exchange rate. This page captures that drift daily.</p>
+
+
+<canvas id="driftChart" width="800" height="280" style="display:none"></canvas>
+<div id="drift-empty" style="background:var(--bg2);border:1px solid var(--border-med);border-radius:6px;padding:2.5rem;text-align:center;margin-top:1.5rem">
+  <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem">Tracking started July 22, 2026</div>
+  <div style="font-family:var(--font-serif);font-size:20px;font-weight:700;color:var(--text);margin-bottom:0.4rem">Drift data available from July 29, 2026</div>
+  <div style="font-family:var(--font-mono);font-size:10px;color:var(--text-dim)">This index requires 7 days of daily snapshots before the drift chart is meaningful. Check back on July 29, 2026.</div>
+</div>
+
+<script>function toggleAccord(btn){btn.classList.toggle('open');var body=btn.nextElementSibling;body.classList.toggle('open');}</script>
+
+</section>
+
+
+
+<section id="cross-comparison">
+  <div class="section-label">Context</div>
+  <h2>How Oneiric Shards Compare in These Markets</h2>
+  <span class="h2-kicker">Premium or discount vs US baseline for all six indexes, today.</span>
+  <p>Japan (-24.4%) is one of the deepest discounts across the entire desk. Germany (+37.2%) runs a premium — HoYoverse charges €17.99 for the pack it sells at $14.99 in the US. The same publisher's Genesis Crystals carries an even larger Germany premium (+14.3%) because HoYoverse charges €14.99 there, the same number as USD but in a stronger currency.</p>
+  <table class="cix-table">
+    <thead><tr><th>Currency</th><th>Japan</th><th>Germany</th></tr></thead>
+    <tbody><tr><td class="cix-name">Robux</td><td class="cix-val" style="color:#888">—</td><td class="cix-val" style="color:#888">—</td></tr><tr><td class="cix-name">V-Bucks</td><td class="cix-val" style="color:#888">—</td><td class="cix-val" style="color:#b85a3a">+14.3%</td></tr><tr><td class="cix-name">Minecoins</td><td class="cix-val" style="color:#888">—</td><td class="cix-val" style="color:#b85a3a">+14.3%</td></tr><tr><td class="cix-name">Oneiric Shards</td><td class="cix-val" style="color:#2a8f76">-24.4%</td><td class="cix-val" style="color:#b85a3a">+37.2%</td></tr><tr><td class="cix-name">Valorant Points</td><td class="cix-val" style="color:#888">—</td><td class="cix-val" style="color:#b85a3a">+14.5%</td></tr><tr><td class="cix-name">Genesis Crystals</td><td class="cix-val" style="color:#2a8f76">-24.4%</td><td class="cix-val" style="color:#b85a3a">+14.3%</td></tr></tbody>
+  </table>
+  <p class="chart-caption">Premium (+) or discount (-) vs US baseline &middot; all six indexes &middot; live FX &middot; cost per 100 base units</p>
+</section>
+
+<section id="what-it-means">
+  <div class="section-label">So What?</div>
+  <h2>What This Means for Players</h2>
+  <span class="h2-kicker">Translating the numbers into plain English.</span>
+  <p>Oneiric Shards are the pull currency for Honkai: Star Rail's banner system. HoYoverse publishes every regional rate openly on the official top-up website — one of the most transparent pricing structures on this desk. Japan consistently sits at a deep discount because the yen is weak against the dollar. Germany consistently pays a premium because HoYoverse charges €17.99 for the 980-shard pack it sells at $14.99 in the US.</p>
+  <p>These shards cannot be transferred or cashed out. The pity counter, the banner odds, and the pull budget all stay on the account where the top-up was made. The gap between Japan and Germany for the same 980 shards is the entire spread of this index.</p>
+</section>
+
+<section id="methodology">
+<div class="section-label">Section 05</div>
+<h2>Methodology</h2>
+<span class="h2-kicker">How this index is built.</span>
+<div class="accord-wrap">
+
+  <div class="accord-item">
+    <button class="accord-btn" onclick="toggleAccord(this)">
+      <svg class="accord-icon" viewBox="0 0 18 18"><circle cx="9" cy="9" r="7"/><path d="M9 6v3.5l2 2"/></svg>
+      <span class="accord-label">Data inputs</span>
+      <svg class="accord-chevron" viewBox="0 0 16 16"><path d="M4 6l4 4 4-4"/></svg>
+    </button>
+    <div class="accord-body">
+      <ul>
+        <li><strong>US price:</strong> Roblox web store. Confirmed current. Tagged Official.</li>
+        <li><strong>Regional prices:</strong> FoxReload distributor data, May 2026. Tagged Reseller-reported or Contested until direct storefront verification. India prices conflict across sources and are flagged.</li>
+        <li><strong>Exchange rates:</strong> Frankfurter. Daily mid-market rates from 84 central banks, fetched on every page load. Falls back to a stamped snapshot if the fetch fails.</li>
+        <li><strong>Storefront:</strong> Web store prices only. App-store purchases carry a platform commission and are excluded.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="accord-item">
+    <button class="accord-btn" onclick="toggleAccord(this)">
+      <svg class="accord-icon" viewBox="0 0 18 18"><circle cx="9" cy="9" r="7"/><path d="M9 6h.01M9 9v4"/></svg>
+      <span class="accord-label">What this index does not claim</span>
+      <svg class="accord-chevron" viewBox="0 0 16 16"><path d="M4 6l4 4 4-4"/></svg>
+    </button>
+    <div class="accord-body">
+      <ul>
+        <li>It does not claim Roblox is mispricing anything. Regional pricing is deliberate purchasing power adjustment.</li>
+        <li>Part of any gap reflects that policy working as intended, alongside app-store matrices and local tax treatment.</li>
+        <li>Oneiric Shards cannot be transferred between regional accounts. These gaps are not a practical arbitrage route.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="accord-item">
+    <button class="accord-btn" onclick="toggleAccord(this)">
+      <svg class="accord-icon" viewBox="0 0 18 18"><rect x="3" y="3" width="12" height="12" rx="2"/><path d="M9 7v4M7 9h4"/></svg>
+      <span class="accord-label">The 980 vs. 1,090 distinction</span>
+      <svg class="accord-chevron" viewBox="0 0 16 16"><path d="M4 6l4 4 4-4"/></svg>
+    </button>
+    <div class="accord-body">
+      <p>Since November 2024, $9.99 on the Roblox web store yields 1,000 Robux due to a 25% bonus. The 800-Robux SKU remains a distinct purchasable tier and is still the labelled bundle in most regional storefronts.</p>
+      <p>This index benchmarks the 800-Robux bundle. The distinction is intentional: the index measures the bundle price, not the effective yield after bonus.</p>
+    </div>
+  </div>
+
+  <div class="accord-item">
+    <button class="accord-btn" onclick="toggleAccord(this)">
+      <svg class="accord-icon" viewBox="0 0 18 18"><path d="M3 9h12M3 5h12M3 13h7"/></svg>
+      <span class="accord-label">Regional pricing vs. USD-billed markets</span>
+      <svg class="accord-chevron" viewBox="0 0 16 16"><path d="M4 6l4 4 4-4"/></svg>
+    </button>
+    <div class="accord-body">
+      <ul>
+        <li><strong>Roblox-set local prices:</strong> Roblox denominates the purchase in local currency for certain markets. These appear in the main table.</li>
+        <li><strong>USD-billed with local tax:</strong> Markets like Argentina are billed in USD. Local banks apply import taxes and withholding at checkout. This is tracked separately in the Argentina note, not the main table.</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+<div class="methodology-note">Benchmark bundle: 980 Oneiric Shards via HoYoverse top-up center. Baseline: United States at $14.99. Source: stardb.gg (official HoYoverse top-up prices verified 2024-11-01).. FX: Frankfurter (api.frankfurter.dev) · daily mid-market rates from 84 central banks. Price table last audited: 17 July 2026. Verification status shown per row: Official (Roblox storefront), Confirmed (multiple independent sources), Reseller-reported (provisional, single distributor), Contested (sources diverge by 30%+ and require primary-source verification before treating as authoritative). Argentina and Turkey are excluded from the main table on structural grounds; see note in Section 01.</div>
+
+<p style="font-family:var(--font-mono,monospace);font-size:10px;letter-spacing:0.05em;color:var(--text-dim,#888);margin-top:1.5rem;line-height:1.7">The Oneiric Shards Index is independent analysis by Llama &amp; Griffin, not affiliated with or endorsed by HoYoverse or miHoYo. The Oneiric Shards name refers to the product. Nothing on this page sells, resells, or advises on acquiring Oneiric Shards.</p>
+</section>
+
+<section id="reframe">
+<div class="section-label">Section 06</div>
+<h2>The Reframe</h2>
+<span class="h2-kicker">Pull currency. Transparent pricing. Thirteen markets.</span>
+<p>Gacha pricing is transparent by design: HoYoverse publishes every regional rate on their top-up website. Most players never look across markets. This page does it for them. The same 980 shards, the same pull probability, the same pity counter — different real money, depending on passport. Not what 980 Oneiric Shards costs. Who is asked to pay the most for the identical pull budget, and how quietly the gap moves.</p>
+<p>This index updates daily. The read on what it means ships on <em>The Pattern Recognition</em>. <a href="https://recognizingpatterns.substack.com" class="card-link" style="display:inline;font-family:inherit;font-size:inherit;text-transform:none;letter-spacing:normal">Get the weekly close</a></p>
+
+</section>
+
+<footer>
+<div>Abbas Saleem is a Principal Consultant at <a href="https://www.llamagriffin.com/" target="_blank" rel="noopener noreferrer">Llama &amp; Griffin</a>, advising game studios, streaming platforms, and investment funds across six continents. He writes The Pattern Recognition: gaming industry intelligence 12 to 24 months before it becomes consensus. <a href="https://www.linkedin.com/in/abbassaleemkhan/" target="_blank" rel="noopener noreferrer">LinkedIn</a></div>
+<div><span>&#9650;&#9650;&#9650;&#9650;</span> The Pattern Recognition</div>
+</footer>
+
+<script>
+(function(){
+"use strict";
+var PRICES=[
+  {market:"United States", cur:"USD",price:14.99, disp:"$14.99",      status:"official",  pegged:false},
+  {market:"United Kingdom",cur:"GBP",price:14.99, disp:"\u00a314.99",  status:"confirmed", pegged:false},
+  {market:"Germany",       cur:"EUR",price:17.99, disp:"\u20ac17.99",  status:"confirmed", pegged:false},
+  {market:"Brazil",        cur:"BRL",price:79.90, disp:"R$79.90",    status:"confirmed", pegged:false},
+  {market:"India",         cur:"INR",price:1499,  disp:"\u20b91,499",  status:"confirmed", pegged:false},
+  {market:"Australia",     cur:"AUD",price:22.99, disp:"A$22.99",    status:"confirmed", pegged:false},
+  {market:"Mexico",        cur:"MXN",price:299,   disp:"MX$299",     status:"confirmed", pegged:false},
+  {market:"Singapore",     cur:"SGD",price:21.98, disp:"S$21.98",    status:"confirmed", pegged:false},
+  {market:"Indonesia",     cur:"IDR",price:249000,disp:"Rp249,000",  status:"confirmed", pegged:false},
+  {market:"Japan",         cur:"JPY",price:1840,  disp:"\u00a51,840",  status:"confirmed", pegged:false},
+  {market:"Philippines",   cur:"PHP",price:799,   disp:"\u20b1799",    status:"confirmed", pegged:false},
+  {market:"South Korea",   cur:"KRW",price:19000, disp:"\u20a919,000",  status:"confirmed", pegged:false},
+  {market:"Hong Kong",     cur:"HKD",price:118,   disp:"HK$118",     status:"confirmed", pegged:false}
+];
+var BASELINE_USD=14.99;
+var FX_FALLBACK={date:"2026-07-18",rates:{USD:1,GBP:0.741,EUR:0.872,BRL:5.08,INR:83.5,AUD:1.43,MXN:17.4,SGD:1.29,IDR:15900,JPY:153,PHP:55.6,KRW:1320,HKD:7.78}};
+var FLAGS={"United States":"🇺🇸","United Kingdom":"🇬🇧","Germany":"🇩🇪","Brazil":"🇧🇷","India":"🇮🇳","Australia":"🇦🇺","Mexico":"🇲🇽","Singapore":"🇸🇬","Indonesia":"🇮🇩","Japan":"🇯🇵","Philippines":"🇵🇭","South Korea":"🇰🇷","Hong Kong":"🇭🇰"};
+function fmtUSD(v){return"$"+v.toFixed(2)}
+function fmtPct(v){var s=v>=0?"+":"\u2212";return s+Math.abs(v).toFixed(1)+"%"}
+function render(rates,fxDate,live){
+  var statusEl=document.getElementById("fx-status");
+  if(live){statusEl.innerHTML='FX source: <span class="live">live \u00B7 open.er-api.com \u00B7 '+fxDate+'</span>';}
+  else{statusEl.innerHTML='FX source: <span class="fallback">fallback snapshot \u00B7 '+fxDate+' \u00B7 live fetch unavailable</span>';}
+  document.getElementById("fx-date").textContent=fxDate;
+  var rows=PRICES.map(function(p){var rate=rates[p.cur];var impliedUSD=rate?(p.price/rate):null;var valuation=impliedUSD!==null?((impliedUSD/BASELINE_USD)-1)*100:null;var impliedFX=p.price/BASELINE_USD;return{p:p,rate:rate,impliedUSD:impliedUSD,valuation:valuation,impliedFX:impliedFX};}).filter(function(r){return r.impliedUSD!==null;});
+  rows.sort(function(a,b){return a.impliedUSD-b.impliedUSD;});
+  var body=document.getElementById("index-body");body.innerHTML="";
+  rows.forEach(function(r){var tr=document.createElement("tr");var valClass=r.valuation<-1?"tag-teal":(r.valuation>1?"tag-coral":"tag-dim");var STATUS_TAGS={"official":'<span class="tag tag-gold">Official</span>',"confirmed":'<span class="tag tag-teal">Confirmed</span>',"verified-proxy":'<span class="tag tag-blue">Verified proxy</span>',"provisional":'<span class="tag tag-dim">Provisional</span>',"contested":'<span class="tag tag-coral">Contested</span>',"reseller":'<span class="tag tag-purple">Reseller</span>'};var statusTag=STATUS_TAGS[r.p.status]||'<span class="tag tag-dim">Unverified</span>';tr.innerHTML="<td>"+(FLAGS[r.p.market]||"")+" "+r.p.market+"</td>"+'<td class="num">'+r.p.disp+"</td>"+'<td class="num">'+fmtUSD(r.impliedUSD)+"</td>"+'<td class="num"><span class="tag '+valClass+'">'+fmtPct(r.valuation)+"</span></td>"+'<td class="num">'+r.impliedFX.toFixed(2)+" "+r.p.cur+"/USD</td>"+"<td>"+statusTag+"</td>";body.appendChild(tr);});
+  var cheapest=rows[0];var dearest=rows[rows.length-1];
+  document.getElementById("stat-cheapest").textContent=fmtUSD(cheapest.impliedUSD);
+  document.getElementById("stat-cheapest-lbl").textContent="Cheapest \u00B7 "+cheapest.p.market;
+  document.getElementById("stat-dearest").textContent=fmtUSD(dearest.impliedUSD);
+  document.getElementById("stat-dearest-lbl").textContent="Most expensive \u00B7 "+dearest.p.market;
+  var spread=((dearest.impliedUSD/cheapest.impliedUSD)-1)*100;
+  document.getElementById("stat-spread").textContent="+"+spread.toFixed(0)+"%";
+  document.getElementById("stat-markets").textContent=String(rows.length);
+  var bars=document.getElementById("bars");bars.innerHTML="";
+  var maxVal=Math.max.apply(null,rows.map(function(r){return r.impliedUSD;}));
+  rows.forEach(function(r){var row=document.createElement("div");row.className="bar-row";var isUS=r.p.cur==="USD";var color=isUS?"var(--gold)":(r.impliedUSD<BASELINE_USD?"var(--teal)":"var(--coral)");var widthPct=Math.max((r.impliedUSD/maxVal)*100,14);row.innerHTML='<div class="bar-country">'+r.p.market+"</div>"+'<div class="bar-track"><div class="bar-fill" style="width:'+widthPct.toFixed(1)+'%;background:'+color+'">'+fmtUSD(r.impliedUSD)+"</div></div>";bars.appendChild(row);});
+}
+function renderInterpretation(d) {
+  var el = document.getElementById('interp-body');
+  if (!el || !d) return;
+  var idx = d.indexes && d.indexes.robux;
+  if (!idx) { el.innerHTML = '<p>Data not yet available.</p>'; return; }
+  var cheapest = idx.cheapest;
+  var dearest  = idx.dearest;
+  var spread   = idx.spread_pct;
+  var moves    = d.moves && d.moves.filter(function(m){return m.currency==='OneiricShards';});
+
+  var html = '<p><strong>As of ' + d.date + '</strong> (FX: ' + d.fx_date + '): ';
+  html += 'The cheapest market for 980 Oneiric Shards is <strong>' + cheapest.market + '</strong> at $' + cheapest.implied_usd.toFixed(2) + ' (' + (cheapest.premium_discount_pct).toFixed(1) + '% below the US baseline). ';
+  html += 'The most expensive is <strong>' + dearest.market + '</strong> at $' + dearest.implied_usd.toFixed(2) + ' (+' + dearest.premium_discount_pct.toFixed(1) + '%). ';
+  html += 'The spread between cheapest and dearest is <strong>' + spread.toFixed(1) + ' percentage points</strong>.</p>';
+
+  if (moves && moves.length) {
+    html += '<p><strong>Moves since yesterday:</strong> ';
+    html += moves.map(function(m){ return m.market + ' moved ' + m.direction + ' by ' + m.delta + ' pp (' + m.new_pct + '% vs US).'; }).join(' ');
+    html += ' Causal explanation requires editorial review before publication.</p>';
+  } else {
+    html += '<p style="font-family:var(--font-mono);font-size:10px;color:var(--text-dim);letter-spacing:0.07em;text-transform:uppercase">No moves exceed the volatility threshold today. Thresholds: 2.5 pp for official/confirmed \u00B7 5 pp for provisional/contested.</p>';
+  }
+
+  html += '<div class="insight" style="margin-top:1.5rem"><strong>FX drift vs publisher repricing.</strong> The implied USD cost of 980 Oneiric Shards changes daily as currency markets move against Roblox\'s sticky local sticker prices. When an implied cost shifts significantly, it is almost always FX drift rather than a HoYoverse repricing event. HoYoverse adjusts regional pricing periodically and the price table is updated manually when that happens.</div>';
+
+  el.innerHTML = html;
+}
+
+function renderDrift(snapData) {
+  var canvas = document.getElementById('driftChart');
+  var emptyEl = document.getElementById('drift-empty');
+  if (!canvas) return;
+
+  // Filter to last 30 days of Robux rows
+  var today = new Date();
+  var cutoff = new Date(today - 30 * 24 * 60 * 60 * 1000);
+  var rows = snapData.filter(function(r) {
+    return r.currency === 'Oneiric Shards' && !r.is_baseline && new Date(r.date) >= cutoff;
+  });
+
+  // Need at least 7 data points to be useful
+  var dates = [...new Set(rows.map(function(r){return r.date;}))].sort();
+  if (dates.length < 3) {
+    canvas.style.display = 'none';
+    if (emptyEl) emptyEl.style.display = 'block';
+    return;
+  }
+
+
+  canvas.style.display = 'block';
+  if (emptyEl) emptyEl.style.display = 'none';
+  var MARKETS = ['Japan', 'United Kingdom', 'Brazil'];
+  var COLORS  = ['rgba(42,143,118', 'rgba(184,90,58', 'rgba(195,165,95'];
+
+  var datasets = MARKETS.map(function(market, i) {
+    var byDate = {};
+    rows.filter(function(r){return r.market===market;}).forEach(function(r){byDate[r.date]=r.premium_discount_pct;});
+    return {
+      label: market,
+      type: 'bar',
+      data: dates.map(function(d){return byDate[d]!==undefined ? byDate[d] : null;}),
+      backgroundColor: COLORS[i]+',0.8)',
+      borderColor: COLORS[i]+',1)',
+      borderWidth: 0,
+      borderRadius: 2,
+      spanGaps: true,
+      order: 2
+    };
+  });
+
+  // Dashed average line
+  var avgData = dates.map(function(d) {
+    var vals = rows.filter(function(r){return r.date===d;}).map(function(r){return r.premium_discount_pct;});
+    if (!vals.length) return null;
+    return Math.round((vals.reduce(function(a,b){return a+b;},0)/vals.length)*10)/10;
+  });
+  datasets.push({
+    label: 'Average',
+    type: 'line',
+    data: avgData,
+    borderColor: 'rgba(195,165,95,0.9)',
+    backgroundColor: 'transparent',
+    borderWidth: 2,
+    borderDash: [5,4],
+    pointRadius: 0,
+    tension: 0.3,
+    fill: false,
+    spanGaps: true,
+    order: 1
+  });
+
+  new Chart(canvas, {
+    type: 'bar',
+    data: { labels: dates, datasets: datasets },
+    options: {
+      responsive: true,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: { position: 'top', labels: { font: { family: '"IBM Plex Mono",monospace', size: 10 }, color: '#6b6660', boxWidth: 20, boxHeight: 2, padding: 12 } },
+        tooltip: {
+          callbacks: { label: function(ctx){ return ' '+ctx.dataset.label+': '+(ctx.parsed.y>=0?'+':'')+ctx.parsed.y.toFixed(1)+'% vs US'; } },
+          backgroundColor: '#232323', titleColor: '#cdccca', bodyColor: '#8a8682',
+          titleFont: { family: '"IBM Plex Mono",monospace', size: 10 },
+          bodyFont: { family: '"IBM Plex Mono",monospace', size: 10 },
+          padding: 10, cornerRadius: 3
+        }
+      },
+      scales: {
+        x: { grid: { display: false }, border: { display: false }, ticks: { font: { family: '"IBM Plex Mono",monospace', size: 9 }, color: '#6b6660', maxTicksLimit: 10 } },
+        y: {
+          grid: { color: function(ctx){ return ctx.tick.value===0 ? 'rgba(107,102,96,0.5)' : 'rgba(210,205,195,0.35)'; } },
+          border: { display: false },
+          ticks: { font: { family: '"IBM Plex Mono",monospace', size: 9 }, color: '#6b6660', callback: function(v){ return (v>=0?'+':'')+v+'%'; } }
+        }
+      },
+      layout: { padding: { top: 8, right: 8 } }
+    }
+  });
+}
+
+function init(){
+  fetch("https://api.frankfurter.dev/v1/latest?base=USD")
+    .then(function(res){if(!res.ok){throw new Error("HTTP "+res.status);}return res.json();})
+    .then(function(data){if(data&&data.result==="success"&&data.rates){var d=data.time_last_update_utc?data.time_last_update_utc.slice(0,16):new Date().toISOString().slice(0,10);render(data.rates,d,true);}else{throw new Error("bad payload");}})
+    .catch(function(){render(FX_FALLBACK.rates,FX_FALLBACK.date,false);});
+
+  // Load today.json for interpretation section
+  fetch('../today.json')
+    .then(function(r){ return r.json(); })
+    .then(function(d){ renderInterpretation(d); })
+    .catch(function(){
+      var el = document.getElementById('interp-body');
+      if (el) el.innerHTML = '<p>Data not yet available.</p>';
+    });
+
+  // Load historical snapshots for drift chart
+  fetch('../snapshots.jsonl')
+    .then(function(r){ return r.text(); })
+    .then(function(text){
+      var rows = text.trim().split('\n').filter(Boolean).map(function(l){ try{ return JSON.parse(l); } catch(e){ return null; } }).filter(Boolean);
+      renderDrift(rows);
+    })
+    .catch(function(){
+      var canvas = document.getElementById('driftChart');
+      var emptyEl = document.getElementById('drift-empty');
+      if (canvas) canvas.style.display = 'none';
+      if (emptyEl) emptyEl.style.display = 'block';
+    });
+
+  var links=document.querySelectorAll("#main-nav a");
+  var sections=[];
+  links.forEach(function(a){var id=a.getAttribute("href");if(id&&id.charAt(0)==="#"){var el=document.querySelector(id);if(el){sections.push({a:a,el:el});}}});
+  window.addEventListener("scroll",function(){var y=window.scrollY+90;var current=sections[0];sections.forEach(function(s){if(s.el.offsetTop<=y){current=s;}});links.forEach(function(a){a.classList.remove("active");});if(current){current.a.classList.add("active");}},{passive:true});
+}
+init();
+})();
+</script>
+</body>
+</html>

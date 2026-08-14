@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Gacha Paradox: Exhaustion and China's Premium PC Audience · Part 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  /* L&G Brand Palette */
+  --bg:#f7f4ee;--bg2:#fdfcf9;--bg3:#eae7e0;--bg4:#d2cdc3;
+  --border:#d2cdc3;--border-med:#c5bfb5;
+  --text:#232323;--text-muted:#37342f;--text-dim:#6b6660;
+  /* L&G Accent */
+  --gold:#c3a55f;--gold-light:#d4ba82;--gold-dim:rgba(195,165,95,0.12);
+  /* Semantic data colours, warm-muted for cream background */
+  --teal:#2a8f76;--teal-light:#3daa8e;--teal-dim:rgba(42,143,118,0.10);
+  --purple:#6b64b3;--purple-light:#8f88cc;--purple-dim:rgba(107,100,179,0.10);
+  --coral:#b85a3a;--coral-light:#cb7055;--coral-dim:rgba(184,90,58,0.10);
+  --blue:#3d77c4;--blue-light:#6699d8;--blue-dim:rgba(61,119,196,0.10);
+  --font-display:'Playfair Display',serif;
+  --font-body:'DM Sans',sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7;min-height:100vh}
+a{color:var(--gold);text-decoration:none}a:hover{text-decoration:underline}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(247,244,238,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;height:52px;overflow-x:auto;gap:0}
+nav a{color:var(--text-dim);font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.09em;text-transform:uppercase;padding:0 0.9rem;height:52px;display:flex;align-items:center;border-bottom:2px solid transparent;white-space:nowrap;transition:color 0.15s,border-color 0.15s}
+nav a:hover{color:var(--gold);text-decoration:none;border-bottom-color:rgba(195,165,95,0.3)}
+nav a.active{color:var(--gold);border-bottom-color:var(--gold)}
+.nav-brand{font-family:var(--font-display);font-size:14px;font-weight:700;color:var(--text);margin-right:1.5rem;padding-right:1.5rem;border-right:1px solid var(--border);white-space:nowrap;text-transform:none;letter-spacing:normal}
+.nav-divider{width:1px;height:20px;background:var(--border);margin:0 0.5rem;flex-shrink:0}
+
+/* HERO */
+.hero{padding:5rem 2rem 4rem;max-width:960px;margin:0 auto;position:relative}
+.hero-eyebrow{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;display:flex;align-items:center;gap:10px}
+.hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold);display:inline-block}
+.hero h1{font-family:var(--font-display);font-size:clamp(2rem,5vw,3.4rem);font-weight:700;line-height:1.07;color:var(--text);margin-bottom:0.75rem}
+.hero h1 span{color:var(--gold);font-style:italic}
+.hero-sub{font-size:15px;color:var(--text-muted);max-width:580px;margin-bottom:2.5rem;line-height:1.65}
+.hero-meta{display:flex;gap:1.5rem;margin-bottom:2.5rem;flex-wrap:wrap}
+.hero-meta-item{font-family:var(--font-mono);font-size:10px;letter-spacing:0.09em;color:var(--text-dim);text-transform:uppercase}
+.hero-meta-item span{color:var(--text-muted);font-weight:500}
+
+/* STAT GRID */
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:3rem}
+.stat-cell{background:var(--bg2);padding:1.25rem 1.5rem}
+.stat-val{font-family:var(--font-display);font-size:1.6rem;font-weight:700;color:var(--gold);line-height:1;margin-bottom:5px}
+.stat-val.teal{color:var(--teal)}
+.stat-val.purple{color:var(--purple)}
+.stat-val.coral{color:var(--coral)}
+.stat-lbl{font-family:var(--font-mono);font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.07em}
+
+/* CHEVRON ACCENT */
+.chevrons{display:flex;gap:5px;margin-bottom:0.5rem}
+.chevrons::before{content:'▲▲▲▲';font-size:8px;color:var(--gold);letter-spacing:3px}
+
+/* SECTIONS */
+section{max-width:960px;margin:0 auto;padding:3.5rem 2rem;border-top:1px solid var(--border)}
+.section-label{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.3rem}
+h2{font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--text);margin-bottom:0.25rem;line-height:1.15}
+.h2-kicker{font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--gold);font-style:italic;display:block;margin-bottom:1.5rem}
+.section-intro{font-size:15px;color:var(--text-muted);max-width:700px;margin-bottom:2rem;line-height:1.7}
+h3{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);margin:2.5rem 0 1rem}
+h3:first-of-type{margin-top:0}
+p{color:var(--text-muted);margin-bottom:1rem;font-size:15px;max-width:72ch;line-height:1.7}
+p strong{color:var(--text);font-weight:600}
+p:last-child{margin-bottom:0}
+
+/* TABLES */
+.table-wrap{overflow-x:auto;margin-bottom:1.5rem;border:1px solid var(--border);border-radius:4px;overflow:hidden}
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead th{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);padding:0.75rem 1rem;text-align:left;border-bottom:1px solid var(--border-med);background:var(--bg3);white-space:nowrap}
+tbody tr{border-bottom:1px solid var(--border);transition:background 0.1s}
+tbody tr:last-child{border-bottom:none}
+tbody tr:hover{background:var(--bg3)}
+tbody td{padding:0.65rem 1rem;color:var(--text-muted);vertical-align:middle}
+tbody td:first-child{color:var(--text)}
+
+/* TAGS/BADGES */
+.tag{display:inline-block;font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;padding:2px 7px;border-radius:2px;white-space:nowrap}
+.tag-gold{background:var(--gold-dim);color:var(--gold)}
+.tag-teal{background:var(--teal-dim);color:var(--teal)}
+.tag-purple{background:var(--purple-dim);color:var(--purple)}
+.tag-coral{background:var(--coral-dim);color:var(--coral)}
+.tag-blue{background:var(--blue-dim);color:var(--blue)}
+.tag-dim{background:rgba(35,35,35,0.07);color:var(--text-dim)}
+.tag-official{background:var(--teal-dim);color:var(--teal)}
+.tag-inferred{background:var(--purple-dim);color:var(--purple)}
+
+.rank-badge{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:3px;font-family:var(--font-mono);font-size:10px;font-weight:500;background:var(--bg3);color:var(--text-dim);margin-right:6px;flex-shrink:0}
+.rank-badge.top3{background:var(--gold-dim);color:var(--gold)}
+.rank-badge.top10{background:var(--teal-dim);color:var(--teal)}
+
+/* INSIGHTS */
+.insight{border-left:2px solid var(--gold);background:var(--gold-dim);border-radius:0 4px 4px 0;padding:1rem 1.25rem;margin:1.5rem 0;font-size:14px;color:var(--text-muted);line-height:1.65}
+.insight strong{color:var(--text);font-weight:600}
+.insight.teal{border-color:var(--teal);background:var(--teal-dim)}
+.insight.teal strong{color:var(--teal)}
+.insight.purple{border-color:var(--purple);background:var(--purple-dim)}
+.insight.purple strong{color:var(--purple)}
+.insight.coral{border-color:var(--coral);background:var(--coral-dim)}
+.insight.coral strong{color:var(--coral)}
+.insight.blue{border-color:var(--blue);background:var(--blue-dim)}
+.insight.blue strong{color:var(--blue)}
+
+/* CARDS */
+.card-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:1.75rem}
+.card{background:var(--bg2);padding:1.25rem 1.5rem}
+.card .clabel{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);margin-bottom:6px}
+.card .cval{font-family:var(--font-display);font-size:1.3rem;font-weight:700;color:var(--text);line-height:1.1;margin-bottom:3px}
+.card .csub{font-size:12px;color:var(--text-muted);line-height:1.45}
+.card.gold .cval{color:var(--gold)}
+.card.teal .cval{color:var(--teal)}
+.card.purple .cval{color:var(--purple)}
+.card.coral .cval{color:var(--coral)}
+.card.blue .cval{color:var(--blue)}
+
+/* TABS */
+.tabs{display:flex;gap:2px;margin-bottom:1.25rem;border-bottom:1px solid var(--border)}
+.tab-btn{font-family:var(--font-mono);font-size:10px;font-weight:500;background:none;border:none;color:var(--text-dim);padding:0.6rem 1rem;cursor:pointer;border-bottom:2px solid transparent;transition:color 0.15s,border-color 0.15s;margin-bottom:-1px;letter-spacing:0.08em;text-transform:uppercase}
+.tab-btn:hover{color:var(--text-muted)}
+.tab-btn.active{color:var(--gold);border-bottom-color:var(--gold)}
+.tab-panel{display:none}.tab-panel.active{display:block}
+
+/* TIMELINE */
+.timeline{position:relative;padding-left:1.5rem}
+.timeline::before{content:'';position:absolute;left:0;top:6px;bottom:6px;width:1px;background:var(--border-med)}
+.timeline-item{position:relative;padding:0 0 1.5rem 1.5rem}
+.timeline-item::before{content:'';position:absolute;left:-4px;top:6px;width:8px;height:8px;border-radius:50%;background:var(--bg3);border:1px solid var(--border-med)}
+.timeline-item.key::before{background:var(--gold);border-color:var(--gold)}
+.timeline-date{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.09em;text-transform:uppercase;color:var(--gold);margin-bottom:2px}
+.timeline-event{font-size:14px;color:var(--text);font-weight:500}
+.timeline-note{font-size:12px;color:var(--text-muted);margin-top:4px;line-height:1.55}
+
+/* CHART */
+.chart-wrap{position:relative;width:100%;height:340px;margin-bottom:1.5rem}
+.chart-legend{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:10px;font-size:12px;color:var(--text-muted)}
+.chart-legend span{display:flex;align-items:center;gap:6px}
+.swatch{width:10px;height:10px;border-radius:2px;flex-shrink:0}
+
+/* BARS */
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.bar-label{font-size:12px;color:var(--text-muted);min-width:180px;flex-shrink:0}
+.bar-bg{flex:1;height:5px;background:var(--bg4);border-radius:3px;overflow:hidden}
+.bar-fill{height:100%;border-radius:3px}
+.bar-val{font-family:var(--font-mono);font-size:12px;font-weight:500;color:var(--text);min-width:80px;text-align:right;flex-shrink:0}
+
+/* PLAYBOOK STEPS */
+.steps{counter-reset:step;margin-bottom:1.5rem}
+.step{position:relative;padding:0 0 1.5rem 3rem;counter-increment:step}
+.step::before{content:counter(step);position:absolute;left:0;top:0;width:28px;height:28px;border-radius:4px;background:var(--gold-dim);color:var(--gold);font-family:var(--font-mono);font-size:13px;font-weight:500;display:flex;align-items:center;justify-content:center}
+.step-title{font-size:14px;color:var(--text);font-weight:600;margin-bottom:3px}
+.step-body{font-size:13px;color:var(--text-muted);line-height:1.6;max-width:68ch}
+
+/* SUBSCRIBE CTA */
+.subscribe{background:var(--bg3);border:1px solid var(--border-med);border-radius:6px;padding:1.75rem 2rem;margin:2.5rem 0;text-align:center}
+.subscribe .sub-eyebrow{font-family:var(--font-mono);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem}
+.subscribe .sub-head{font-family:var(--font-display);font-size:1.25rem;font-weight:700;color:var(--text);margin-bottom:0.5rem}
+.subscribe .sub-body{font-size:13px;color:var(--text-muted);max-width:52ch;margin:0 auto 1.1rem;line-height:1.6}
+.subscribe a.sub-btn{display:inline-block;background:var(--gold);color:#fff;font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:0.65rem 1.5rem;border-radius:4px;font-weight:500}
+.subscribe a.sub-btn:hover{background:var(--gold-light);text-decoration:none}
+
+/* FOOTER */
+footer{max-width:960px;margin:0 auto;padding:2rem 2rem 3rem;border-top:1px solid var(--border);font-size:12px;color:var(--text-dim);display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;align-items:center}
+footer span{color:var(--gold)}
+
+@media(max-width:600px){
+  .bar-label{min-width:120px;font-size:11px}
+  h2{font-size:1.25rem}
+  .chart-wrap{height:280px}
+}
+</style>
+</head>
+<body>
+
+<div id="suite-nav" style="background:#f5f1e8;border-bottom:1px solid rgba(30,25,20,0.12);padding:0 2rem;display:flex;align-items:center;height:36px;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.09em;text-transform:uppercase;gap:0;overflow-x:auto;position:sticky;top:0;z-index:200">
+  <span style="color:#C9A84C;margin-right:1.5rem;padding-right:1.5rem;border-right:1px solid rgba(30,25,20,0.12);white-space:nowrap;font-weight:500">China Series · The Pattern Recognition</span>
+  <a href="index.html" class="suite-link">Overview</a>
+  <a href="part-1.html" class="suite-link">Part I · The Market</a>
+  <a href="part-2.html" class="suite-link active">Part II · The Audience</a>
+  <a href="part-3.html" class="suite-link">Part III · The Product</a>
+</div>
+<style>
+  .suite-link{color:#9490A0;padding:0 0.85rem;height:36px;display:inline-flex;align-items:center;border-bottom:2px solid transparent;white-space:nowrap;text-decoration:none;transition:color 0.15s}
+  .suite-link:hover{color:#C9A84C;border-bottom-color:rgba(201,168,76,0.3)}
+  .suite-link.active{color:#C9A84C;border-bottom-color:#C9A84C}
+  #main-nav{top:36px !important}
+</style>
+<nav id="main-nav"><a class="nav-brand" href="https://www.llamagriffin.com" target="_blank" rel="noopener noreferrer" style="color:var(--text);text-decoration:none">Llama &amp; Griffin Consultants</a>
+  <a href="#overview" class="active">Overview</a>
+  <a href="#extraction">Extraction</a>
+  <a href="#contraction">Contraction</a>
+  <a href="#regulatory">Regulatory</a>
+  <a href="#relief">The Relief</a>
+  <a href="#pivot">The Pivot</a>
+  <a href="#tables">Data</a>
+  <a href="#studios">For Studios</a>
+  <a href="#reframe">The Reframe</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero" id="overview">
+  <div class="hero-eyebrow">The Pattern Recognition · Market Intelligence Report · Part 2</div>
+  <h1>The Gacha<br><span>Paradox</span></h1>
+  <p class="hero-sub">Part 1 showed China is the largest market for premium PC games. This is the puzzle inside that data: the same audience that funded the most extractive monetization in gaming history is now the most enthusiastic premium buyer on Steam. Extraction did not fail. It worked completely, and the audience it trained is reaching for the alternative with the urgency of relief.</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item">Published <span>2026</span></div>
+    <div class="hero-meta-item">Series <span>The China Multiplier, Part 2</span></div>
+    <div class="hero-meta-item">Focus <span>Gacha exhaustion / Premium PC</span></div>
+  </div>
+  <div class="stat-grid">
+    <div class="stat-cell"><div class="stat-val coral">-46%</div><div class="stat-lbl">Genshin mobile revenue, 2023→2024</div></div>
+    <div class="stat-cell"><div class="stat-val">$710M</div><div class="stat-lbl">Genshin 2024 mobile (first year under $1B)</div></div>
+    <div class="stat-cell"><div class="stat-val teal">~70%</div><div class="stat-lbl">Wukong launch China share</div></div>
+    <div class="stat-cell"><div class="stat-val purple">$80B</div><div class="stat-lbl">CN market cap wiped, Dec 2023 draft rules</div></div>
+    <div class="stat-cell"><div class="stat-val">8M+</div><div class="stat-lbl">Animula Nook pre-registrations</div></div>
+    <div class="stat-cell"><div class="stat-val teal">62%</div><div class="stat-lbl">CN PC spenders who increased spend (2024)</div></div>
+  </div>
+</div>
+
+<!-- EXTRACTION -->
+<section id="extraction">
+  <div class="section-label">Section 01</div>
+  <div class="chevrons"></div><h2>The Architecture of Extraction</h2><span class="h2-kicker">It worked exactly as designed.</span>
+  <p class="section-intro">A gacha system is a randomized reward mechanic: players spend premium currency for a probabilistic chance at rare characters or items. The name comes from the Japanese gashapon capsule-toy machine, and the mechanic is functionally a slot machine with layered art direction and narrative framing that separates it visually from its casino equivalent.</p>
+
+  <p><strong>The pity system is the structural elaboration that separates gacha design from a simple slot machine.</strong> Pity guarantees a high-rarity outcome before a fixed maximum number of pulls, the hard pity ceiling, while soft pity gradually raises the probability of success as the player nears that ceiling. This creates a defined cost ceiling that makes spending feel bounded and rational, which in practice drives more consistent spending than pure randomness would. Pity does not reduce how much players spend. It structures spending into a cycle that feels manageable while extracting reliably.</p>
+
+  <p>The psychological mechanisms are well-documented. Variable-ratio reinforcement, in which rewards arrive at unpredictable intervals, produces stronger and more persistent behavioral patterns than fixed-schedule rewards. The near-miss, where a pull fails but lands close to the pity threshold, activates reward circuitry in patterns consistent with gambling near-misses in the neuroscience literature. Time-limited banners drive FOMO, power creep makes new characters outpace existing ones, and stamina systems require daily engagement. Together they convert a game from a leisure activity into something closer to an obligation.</p>
+
+  <div class="insight purple">
+    <strong>The regulatory acknowledgment:</strong> The academic literature is consistent that gacha spending shows meaningful associations with problem-gambling risk profiles, particularly among younger users. The FTC's January 2025 settlement with HoYoverse, a $20 million fine plus a ban on selling loot boxes to under-16s without parental consent, was the first major US enforcement action treating gacha as a form of loot box subject to deceptive-practice provisions.
+  </div>
+
+  <h3>What the architecture produced</h3>
+  <p>At its peak the system worked better than almost any consumer product in history. Genshin Impact generated $1.8 to $1.9 billion in its first full year. Its China revenue alone exceeded $5 billion on iOS and Android before third-party stores, PC, and console, which Niko Partners projected would push the global lifetime total past $10 billion. Honor of Kings has cleared $13 billion since 2015. Zenless Zone Zero earned $97.5 million in its launch month of July 2024, which was 32% of its entire first-year mobile revenue concentrated in a single month. These are not signs of a flawed system. They are evidence it worked exactly as designed. The question is what it produced in its audience over a decade.</p>
+</section>
+
+<!-- CONTRACTION -->
+<section id="contraction">
+  <div class="section-label">Section 02</div>
+  <div class="chevrons"></div><h2>The Contraction Is Visible in the Data</h2><span class="h2-kicker">The curve that matters.</span>
+  <p class="section-intro">Genshin Impact's annual mobile revenue tells the story with unusual clarity. By 2024 it had fallen below $1 billion for the first time, to roughly 40% of its 2022 peak, with monthly active users back near the 2020 launch baseline.</p>
+
+  <h3>Genshin Impact annual mobile revenue</h3>
+  <div class="chart-wrap"><canvas id="genshinChart"></canvas></div>
+  <div class="chart-legend">
+    <span><span class="swatch" style="background:#c3a55f"></span>Annual mobile revenue (USD billions)</span>
+    <span><span class="swatch" style="background:#b85a3a"></span>Year-on-year change</span>
+  </div>
+
+  <div class="insight coral">
+    <strong>Who is eating the audience:</strong> Niko Partners attributed the decline to increased competition in the RPG genre and cannibalization across miHoYo's own titles. That last phrase matters. Honkai: Star Rail and Zenless Zone Zero are not expanding the gacha-ARPG market, they are redistributing an existing pool of players. The subgenre is not growing.
+  </div>
+
+  <h3>The spike-and-collapse pattern</h3>
+  <p>Zenless Zone Zero launched in July 2024 and immediately showed the stress in the model. Its $97.5 million launch month was miHoYo's weakest opening since Genshin itself. By its first anniversary in July 2025, ZZZ had earned $442 million across twelve months, with that $97.5 million front-loaded into the launch. The genre's standard pattern is brief revenue spikes aligned with new character banners, and the magnitude of those spikes has been declining over time.</p>
+
+  <div class="insight">
+    <strong>The most recent authoritative read:</strong> The Naavik digest published May 2026 describes the trajectory without euphemism: this is no longer an expanding total addressable market, it is largely a zero-sum bloodbath. The piece documents that Tencent's Animula Nook and miHoYo's Petit Planet, both lifestyle-simulation titles in development or testing as of mid-2026, represent a deliberate pivot by the two largest gaming companies in China away from the gacha-ARPG model.
+  </div>
+
+  <h3>The structural fatigue problem</h3>
+  <p><strong>The paradox the system creates is precise: the players who have engaged longest and spent most are the first to exhaust.</strong> A 2026 META-X analysis described the mechanism directly. Monetization design converts the playful into the obligatory: daily login requirements, time-limited events, non-accumulating premium currency, content built for heavy spenders, all create a work relationship with the game rather than a play relationship. Fatigue is not a bug in this system. It is an emergent property of the design.</p>
+
+  <p>What exits that system is not a bankrupt audience. It is a trained one. A player who has spent three to five years navigating banner cycles, pity math, stamina caps, daily resets, and FOMO windows has been educated in the language of gaming monetization in a way most Western players have not. When that player meets a premium PC game with no microtransactions, no daily login, no stamina system, and a flat price, they do not experience it as a neutral baseline. They experience it as relief.</p>
+</section>
+
+<!-- REGULATORY -->
+<section id="regulatory">
+  <div class="section-label">Section 03</div>
+  <div class="chevrons"></div><h2>The Regulatory Confirmation</h2><span class="h2-kicker">The government was ahead of the studios.</span>
+  <p class="section-intro">Chinese regulators have been more explicit about the gacha model's problems than the industry that built it, and the market's reaction to proposed rules revealed exactly how structurally dependent the sector is on the mechanics being targeted.</p>
+
+  <p>The 2021 restrictions on under-18 gaming eliminated weekday play for minors entirely and limited them to one hour on Fridays, Saturdays, Sundays, and public holidays, between 8 and 9pm only. The rules were not aimed at gacha specifically but at compulsive engagement design that regulators called a threat to youth mental health, "spiritual opium" in the language of a People's Daily op-ed that preceded the crackdown.</p>
+
+  <p><strong>The December 2023 draft regulations were more targeted.</strong> Beijing proposed banning daily login rewards, first-purchase bonuses, and consecutive-spending bonuses outright, the core mechanics of gacha retention. The response was immediate: Tencent lost roughly $47 billion in market capitalization in a single day, NetEase shed $16.4 billion in a 25% decline, and the sector saw roughly $80 billion wiped before officials softened the language and delayed implementation. The studios most exposed were not minor operators. They were Tencent and miHoYo, the companies whose titles define the global gacha market.</p>
+
+  <div class="insight teal">
+    <strong>Two regulators, one direction:</strong> The FTC's January 2025 settlement with Cognosphere, HoYoverse's US subsidiary, added a Western dimension: a $20 million fine and a ban on selling loot boxes to under-16s without explicit parental consent, with guidance that explicitly named gacha as a form of loot box. Both the world's largest gaming market and the world's largest consumer economy have now moved against the core mechanics of this model. The lifestyle-sim pivot by Tencent and miHoYo is not purely artistic evolution. It is regulatory risk management expressed as product development.
+  </div>
+</section>
+
+<!-- THE RELIEF -->
+<section id="relief">
+  <div class="section-label">Section 04</div>
+  <div class="chevrons"></div><h2>The Relief Is The Product</h2><span class="h2-kicker">Not premium-friendly despite the gacha decade. Because of it.</span>
+  <p class="section-intro">Across genres, price points, and studios of origin, the pattern is the same: China is the largest single market for premium PC titles that offer a clean transaction. One purchase, complete experience, no ongoing extraction.</p>
+
+  <h3>China share of Steam sales, premium titles</h3>
+  <div id="share-bars"></div>
+
+  <p>The structural counterpart is in the spending data. Niko Partners found that 62% of Chinese PC game spenders increased their spending year-on-year in 2024, with 19% spending at least 30% more than the prior year. PC gaming saw the highest increase in individual spending of any platform in China that year. Steam held its position as the primary PC platform, used by roughly 79 to 80% of Chinese PC gamers who play premium titles. This is not an audience that has run out of money or lost the habit of spending. It is an audience trained to spend by one model and now allocating increasing share toward a different one.</p>
+
+  <div class="insight">
+    <strong>The behavioral economics:</strong> Years of calculating pity math, banner pull counts, and stamina-to-value conversions produce a player who understands exactly what their money is buying. When that player evaluates a $60 premium PC game, a single payment for complete content, no hidden rates, no banner calendar, no FOMO timer, lands as an extraordinarily clean deal. The conditioning to expect probability gates and daily resets means the absence of those systems registers as a positive feature, not a neutral baseline. Black Myth: Wukong was not just a great game in a vacuum. It was a great game arriving at the exact moment the gacha-trained audience was looking for an alternative.
+  </div>
+</section>
+
+<div style="max-width:960px;margin:0 auto;padding:0 2rem">
+  <div class="subscribe">
+    <div class="sub-eyebrow">The Pattern Recognition</div>
+    <div class="sub-head">Gaming intelligence 12 to 24 months before consensus</div>
+    <div class="sub-body">The relief window is measurably open in the Steam data now, and it will not stay open. Subscribe for the patterns forming before they become the trade everyone makes.</div>
+    <a class="sub-btn" href="https://recognizingpatterns.substack.com" target="_blank" rel="noopener noreferrer">Subscribe</a>
+  </div>
+</div>
+
+<!-- THE PIVOT -->
+<section id="pivot">
+  <div class="section-label">Section 05</div>
+  <div class="chevrons"></div><h2>The Model the Audience Is Leaving</h2><span class="h2-kicker">The studios are following the data.</span>
+  <p class="section-intro">The companies that defined gacha monetization are building lifestyle-sim alternatives, not because they ran out of ideas, but because the competitive and regulatory environment for the gacha-ARPG format has deteriorated materially.</p>
+
+  <div class="card-row">
+    <div class="card teal"><div class="clabel">Tencent · Animula Nook</div><div class="cval">8M+</div><div class="csub">Global pre-registrations. Lilliput-style life sim; removes combat, gacha collection, power systems. PC, Mac, Switch 2, PS5</div></div>
+    <div class="card purple"><div class="clabel">HoYoverse · Petit Planet</div><div class="cval">Beta 2</div><div class="csub">Cosmic life-sim in the Animal Crossing genre. "Stardrift Test" ran Apr 2026. Monetizes cosmetics and furniture, not character gacha</div></div>
+  </div>
+
+  <p><strong>The audience confirmed this before the studios did.</strong> Naavik frames the move plainly: the Tencent and miHoYo pivots are a response to a market that is no longer expanding but is now a zero-sum contest of gacha-ARPGs cannibalizing each other's player bases. The studios are following the data the audience generated first.</p>
+
+  <h3>What "zero-sum bloodbath" means in practice</h3>
+  <p>The saturation is visible in user-acquisition economics. To launch a recent major title in APAC, publishers are now deploying more than 14,000 distinct marketing creatives within days of launch just to cut through the noise. Acquisition costs in the gacha-ARPG space have reached levels that make new entrants economically non-viable. The gacha monthly-revenue tracker community noted broad category declines through early 2026, describing a saturation point where everyone receives slightly less than usual. Chinese PC gaming spending was rising over the same period, which suggests wallet allocation is shifting rather than shrinking.</p>
+</section>
+
+<!-- DATA TABLES -->
+<section id="tables">
+  <div class="section-label">Section 06</div>
+  <div class="chevrons"></div><h2>The Evidence Base</h2><span class="h2-kicker">Every figure to its window.</span>
+  <p class="section-intro">Revenue figures are labeled by measurement window, because launch-month, launch-year, and rolling-twelve-month numbers describe different things and are easy to misread as contradictions when they are not.</p>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab(this,'tab-trajectory')">miHoYo Trajectory</button>
+    <button class="tab-btn" onclick="switchTab(this,'tab-premium')">Premium Counterpoint</button>
+    <button class="tab-btn" onclick="switchTab(this,'tab-pivot')">The Pivot</button>
+    <button class="tab-btn" onclick="switchTab(this,'tab-reg')">Regulatory Timeline</button>
+  </div>
+
+  <div id="tab-trajectory" class="tab-panel active">
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Title</th><th>Launch</th><th>Launch month</th><th>First 12 months</th><th>Status</th></tr></thead>
+        <tbody id="traj-tbody"></tbody>
+      </table>
+    </div>
+    <div class="insight coral">
+      <strong>Reading the windows:</strong> Genshin's launch-month figure (~$160M) and its 2020 partial-calendar-year figure ($0.4B) are different measurements of the same launch, not conflicting numbers. The line that matters is the annual trend: $1.9B peak in 2022 down to $710M in 2024.
+    </div>
+  </div>
+
+  <div id="tab-premium" class="tab-panel">
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Title</th><th>Developer / Origin</th><th>China share</th><th>CN price</th><th>Confidence</th></tr></thead>
+        <tbody id="premium-tbody"></tbody>
+      </table>
+    </div>
+    <div class="insight teal">
+      <strong>The diversity signal:</strong> The titles span souls-like, action, co-op, and cinematic narrative. The Chinese PC audience is not a souls-like audience that happens to be large. It is a heterogeneous, premium-minded audience that responds to quality across genres when the product and the transaction are both honest.
+    </div>
+  </div>
+
+  <div id="tab-pivot" class="tab-panel">
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Company</th><th>Legacy gacha titles</th><th>New direction</th><th>In development</th></tr></thead>
+        <tbody id="pivot-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div id="tab-reg" class="tab-panel">
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Date</th><th>Action</th><th>Impact</th></tr></thead>
+        <tbody id="reg-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- FOR STUDIOS -->
+<section id="studios">
+  <div class="section-label">Section 07</div>
+  <div class="chevrons"></div><h2>What This Means for Studios</h2><span class="h2-kicker">Four conditions, causally linked.</span>
+  <p class="section-intro">The Chinese PC audience in 2025 and 2026 is not simply large. It is large, and actively moving spending toward premium experiences, and increasingly fatigued by the model that trained it, and supported by growing individual PC budgets. These conditions are not independent. They are causally related, and together they produce an audience that is economically motivated, behaviorally trained, and actively seeking the alternative.</p>
+
+  <div class="steps">
+    <div class="step"><div class="step-title">For premium PC studios</div><div class="step-body">The ¥268 Stellar Blade price was not a concession. It was a signal: a real product at a real price, complete. That signal landed because the audience has spent years receiving the opposite. A studio apologizing for its $40 to $60 price by wrapping it in free-to-play language or battle-pass incentives is misreading what this audience wants. The cleanness of the transaction is part of the product.</div></div>
+    <div class="step"><div class="step-title">For gacha-adjacent Western free-to-play</div><div class="step-body">The two largest Chinese gaming companies are exiting the gacha-ARPG pool. The studios most experienced in extractive monetization have concluded the market has saturated and the regulatory environment has deteriorated. A Western studio entering with a derivative model is not accessing the Chinese market. It is arriving late to a crowded room its most successful occupants are leaving.</div></div>
+    <div class="step"><div class="step-title">For mid-tier studios</div><div class="step-body">The cultural content signals that work for premium PC in China, mythological IP, historical setting, aesthetics that reference rather than mock Chinese design, are also the signals that drive organic discovery on Bilibili and Douyin. A title that takes this seriously is more likely to hit the China multiplier and more likely to generate the short-video discovery that drives 44 to 45% of new game discovery among Chinese PC gamers.</div></div>
+  </div>
+
+  <div class="insight purple">
+    <strong>The demand signal no one talks about:</strong> Road to Empress, a cinematic interactive narrative in a genre that averaged roughly 5,400 Steam units sold in 2025, sold one million copies in two weeks at ¥39. Not a souls-like, not open-world, not a known franchise: a text-and-choice palace drama. VG Insights shows it drawing overwhelmingly from Chinese players while still capturing international audiences. Its sequel launched globally on June 9, 2026, and sold two million copies in twelve days, taking the series past four million combined. A franchise formed around what was, by Western metrics, an unsellable genre.
+  </div>
+</section>
+
+<!-- THE REFRAME -->
+<section id="reframe">
+  <div class="section-label">Section 08</div>
+  <div class="chevrons"></div><h2>The Reframe</h2><span class="h2-kicker">A decade of extraction created hunger for the alternative.</span>
+  <p>The Chinese gaming audience is not premium-friendly despite the gacha decade. It is premium-friendly because of it. Genshin Impact spent five years and roughly $1.9 billion at peak annual revenue training an audience to expect that spending on games requires probability gates, daily resets, and FOMO timers. When Black Myth, Stellar Blade, and Road to Empress arrived without any of those, one price, complete content, no extraction, the trained audience reached for them with the enthusiasm of someone who has wanted to buy something properly for a long time and finally found something worth buying.</p>
+
+  <p><strong>The studios capturing this share now are not doing it by accident.</strong> They are delivering complete, culturally legible, properly priced premium experiences to an audience at the precise inflection point between the model it spent and the model it wants. That inflection point will not last. The lifestyle-sim pivot by Tencent and miHoYo will produce a new category of high-quality, lower-pressure free-to-play that competes for the same wallet. The window in which premium PC feels maximally like relief is now, and it is measurably open in the Steam data.</p>
+
+  <p>The studios still building gacha-adjacent models for the Chinese market are not reading the same data. The studios delivering the relief are. The difference shows in the sales figures.</p>
+
+  <h2 style="margin-top:3rem;margin-bottom:1.25rem">Abbas Saleem</h2>
+  <p>Abbas Saleem is a Principal Consultant at <a href="https://www.llamagriffin.com/">Llama &amp; Griffin</a>, advising game studios, streaming platforms, and investment funds across six continents. He writes The Pattern Recognition: gaming industry intelligence 12 to 24 months before it becomes consensus. <a href="https://www.linkedin.com/in/abbassaleemkhan/">LinkedIn</a> | <a href="https://cal.com/llamagriffin/30min">Schedule a call</a></p>
+</section>
+
+<footer>
+  <div>The China Series · <span>Llama &amp; Griffin Consultants</span></div>
+  <div><span>recognizingpatterns.substack.com</span> · llamagriffin.com</div>
+</footer>
+
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+// GENSHIN DECLINE CHART: the visual payload
+function buildGenshinChart(){
+  new Chart(document.getElementById('genshinChart'),{
+    type:'bar',
+    data:{
+      labels:['2020 (partial)','2021','2022','2023','2024'],
+      datasets:[
+        {label:'Annual mobile revenue (USD B)',data:[0.4,1.8,1.9,1.3,0.7],backgroundColor:['rgba(195,165,95,0.45)','rgba(195,165,95,0.75)','rgba(195,165,95,0.9)','rgba(184,90,58,0.6)','rgba(184,90,58,0.85)'],borderWidth:0,borderRadius:3},
+        {label:'YoY change (%)',data:[null,null,5.6,-31.6,-46.2],type:'line',yAxisID:'y2',borderColor:'#b85a3a',backgroundColor:'#b85a3a',tension:0.3,pointRadius:4,pointBackgroundColor:'#b85a3a',borderWidth:2}
+      ]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{mode:'index',intersect:false,callbacks:{label:function(c){if(c.dataset.yAxisID==='y2'){return c.raw===null?'':'YoY: '+c.raw+'%';}return '$'+c.raw+'B mobile';}}}},
+      scales:{
+        x:{grid:{color:'rgba(35,35,35,0.07)'},ticks:{color:'#6b6660',font:{size:11}}},
+        y:{grid:{color:'rgba(35,35,35,0.07)'},ticks:{color:'#6b6660',font:{size:11},callback:v=>'$'+v+'B'},title:{display:true,text:'Mobile revenue (USD B)',color:'#6b6660',font:{size:10}}},
+        y2:{position:'right',grid:{display:false},ticks:{color:'#b85a3a',font:{size:11},callback:v=>v+'%'},title:{display:true,text:'YoY change',color:'#b85a3a',font:{size:10}}}
+      }
+    }
+  });
+}
+
+// CHINA SHARE BARS: Part 1 callback
+function buildShareBars(){
+  const share = [
+    {name:'Black Myth: Wukong (¥268)',val:70,color:'#c3a55f'},
+    {name:'Split Fiction (regional)',val:49,lo:38,hi:60,color:'#6b64b3'},
+    {name:'Stellar Blade (¥268)',val:57,lo:56,hi:58,color:'#2a8f76'},
+    {name:'Road to Empress (¥39)',val:60,color:'#3daa8e',note:'majority'},
+  ];
+  const wrap = document.getElementById('share-bars');
+  share.forEach(d=>{
+    const pct = Math.max(1, d.val);
+    const label = d.note ? 'majority' : (d.lo!==undefined ? `${d.lo}–${d.hi}%` : `~${d.val}%`);
+    wrap.innerHTML += `<div class="bar-row">
+      <span class="bar-label">${d.name}</span>
+      <div class="bar-bg"><div class="bar-fill" style="width:${pct}%;background:${d.color}"></div></div>
+      <span class="bar-val">${label}</span>
+    </div>`;
+  });
+}
+
+// TRAJECTORY TABLE
+const traj = [
+  {title:'Genshin Impact',launch:'Sept 2020',lm:'~$160M',y1:'$1.8B',status:'Declining; $710M in 2024',cls:'tag-coral'},
+  {title:'Honkai: Star Rail',launch:'Apr 2023',lm:'~$200M+',y1:'~$800M',status:'Stable decline',cls:'tag-purple'},
+  {title:'Zenless Zone Zero',launch:'Jul 2024',lm:'$97.5M',y1:'$442M',status:'Structural decline underway',cls:'tag-coral'},
+];
+function buildTrajTable(){
+  const tb=document.getElementById('traj-tbody');
+  traj.forEach(d=>{
+    tb.innerHTML+=`<tr>
+      <td style="font-weight:500;color:var(--text)">${d.title}</td>
+      <td style="font-size:12px">${d.launch}</td>
+      <td style="font-family:var(--font-mono);font-size:12px">${d.lm}</td>
+      <td style="font-family:var(--font-mono);font-size:12px;color:var(--gold)">${d.y1}</td>
+      <td><span class="tag ${d.cls}">${d.status}</span></td>
+    </tr>`;
+  });
+}
+
+// PREMIUM COUNTERPOINT TABLE
+const premium = [
+  {title:'Black Myth: Wukong',origin:'Game Science / China',share:'~70%',price:'¥268',conf:'official',confLabel:'Game Science art director'},
+  {title:'Stellar Blade',origin:'Shift Up / Korea',share:'~56–58%',price:'¥268',conf:'inferred',confLabel:'Alinea Analytics'},
+  {title:'Split Fiction',origin:'Hazelight / Sweden',share:'~38–60%',price:'Regional',conf:'inferred',confLabel:'Alinea Analytics'},
+  {title:'Road to Empress',origin:'New One Studio / China',share:'Majority',price:'¥39',conf:'inferred',confLabel:'VG Insights'},
+];
+function buildPremiumTable(){
+  const tb=document.getElementById('premium-tbody');
+  premium.forEach(d=>{
+    tb.innerHTML+=`<tr>
+      <td style="font-weight:500;color:var(--text)">${d.title}</td>
+      <td style="font-size:12px">${d.origin}</td>
+      <td style="font-family:var(--font-mono);font-size:12px;color:var(--gold)">${d.share}</td>
+      <td style="font-family:var(--font-mono);font-size:12px">${d.price}</td>
+      <td><span class="tag ${d.conf==='official'?'tag-official':'tag-inferred'}" title="${d.confLabel}">${d.confLabel}</span></td>
+    </tr>`;
+  });
+}
+
+// PIVOT TABLE
+const pivot = [
+  {co:'Tencent',legacy:'Honor of Kings, PUBG Mobile',dir:'Lifestyle simulation',dev:'Animula Nook (8M+ pre-regs)'},
+  {co:'HoYoverse / miHoYo',legacy:'Genshin, HSR, ZZZ',dir:'Cozy life sim',dev:'Petit Planet (2nd beta Apr 2026)'},
+];
+function buildPivotTable(){
+  const tb=document.getElementById('pivot-tbody');
+  pivot.forEach(d=>{
+    tb.innerHTML+=`<tr>
+      <td style="font-weight:500;color:var(--text)">${d.co}</td>
+      <td style="font-size:12px">${d.legacy}</td>
+      <td style="font-size:12px;color:var(--teal)">${d.dir}</td>
+      <td style="font-size:12px;color:var(--text-dim)">${d.dev}</td>
+    </tr>`;
+  });
+}
+
+// REGULATORY TABLE
+const reg = [
+  {date:'Aug 2021',action:'Under-18 gaming banned Mon–Thu; 1hr Fri/Sat/Sun/holidays only',impact:'Major structural constraint on the next-generation player pipeline'},
+  {date:'Dec 2023',action:'China proposes banning daily login + consecutive-spending bonuses',impact:'~$80B wiped from Chinese gaming market caps in one day'},
+  {date:'Jan 2025',action:'FTC settles with HoYoverse; $20M fine, under-16 loot box limits',impact:'First major US enforcement against gacha mechanics'},
+];
+function buildRegTable(){
+  const tb=document.getElementById('reg-tbody');
+  reg.forEach(d=>{
+    tb.innerHTML+=`<tr>
+      <td style="font-family:var(--font-mono);font-size:12px;color:var(--gold);white-space:nowrap">${d.date}</td>
+      <td style="font-size:12px;color:var(--text)">${d.action}</td>
+      <td style="font-size:12px;color:var(--text-dim)">${d.impact}</td>
+    </tr>`;
+  });
+}
+
+function switchTab(btn,panelId){
+  const parent = btn.closest('section');
+  parent.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  parent.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(panelId).classList.add('active');
+}
+
+// NAV SCROLL SPY
+function initNav(){
+  const sects = document.querySelectorAll('section[id],.hero[id]');
+  const links = document.querySelectorAll('nav a');
+  const obs = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        links.forEach(l=>l.classList.remove('active'));
+        const a = document.querySelector(`nav a[href="#${e.target.id}"]`);
+        if(a)a.classList.add('active');
+      }
+    });
+  },{rootMargin:'-25% 0px -70% 0px'});
+  sects.forEach(s=>obs.observe(s));
+  links.forEach(l=>l.addEventListener('click',e=>{
+    e.preventDefault();
+    document.querySelector(l.getAttribute('href')).scrollIntoView({behavior:'smooth'});
+  }));
+}
+
+buildGenshinChart();
+buildShareBars();
+buildTrajTable();
+buildPremiumTable();
+buildPivotTable();
+buildRegTable();
+initNav();
+</script>
+</body>
+</html>

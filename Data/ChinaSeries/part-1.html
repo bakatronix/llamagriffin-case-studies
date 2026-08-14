@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="China became the world's largest games market in 2025. For premium PC titles on Steam, the Chinese audience now decides which games win. This is what ignoring it cost.">
+<meta property="og:title" content="The China Multiplier">
+<meta property="og:description" content="China became the world's largest games market in 2025. This is what ignoring it cost.">
+<meta property="og:type" content="article">
+<title>The China Multiplier: What Ignoring the Chinese Games Market Cost You · 2025</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  /* L&G Brand Palette */
+  --bg:#f7f4ee;--bg2:#fdfcf9;--bg3:#eae7e0;--bg4:#d2cdc3;
+  --border:#d2cdc3;--border-med:#c5bfb5;
+  --text:#232323;--text-muted:#37342f;--text-dim:#6b6660;
+  /* L&G Accent */
+  --gold:#c3a55f;--gold-light:#d4ba82;--gold-dim:rgba(195,165,95,0.12);
+  /* Semantic data colours, warm-muted for cream background */
+  --teal:#2a8f76;--teal-light:#3daa8e;--teal-dim:rgba(42,143,118,0.10);
+  --purple:#6b64b3;--purple-light:#8f88cc;--purple-dim:rgba(107,100,179,0.10);
+  --coral:#b85a3a;--coral-light:#cb7055;--coral-dim:rgba(184,90,58,0.10);
+  --blue:#3d77c4;--blue-light:#6699d8;--blue-dim:rgba(61,119,196,0.10);
+  --font-display:'Playfair Display',serif;
+  --font-body:'DM Sans',sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7;min-height:100vh}
+a{color:var(--gold);text-decoration:none}a:hover{text-decoration:underline}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(247,244,238,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;height:52px;overflow-x:auto;gap:0}
+nav a{color:var(--text-dim);font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.09em;text-transform:uppercase;padding:0 0.9rem;height:52px;display:flex;align-items:center;border-bottom:2px solid transparent;white-space:nowrap;transition:color 0.15s,border-color 0.15s}
+nav a:hover{color:var(--gold);text-decoration:none;border-bottom-color:rgba(195,165,95,0.3)}
+nav a.active{color:var(--gold);border-bottom-color:var(--gold)}
+.nav-brand{font-family:var(--font-display);font-size:14px;font-weight:700;color:var(--text);margin-right:1.5rem;padding-right:1.5rem;border-right:1px solid var(--border);white-space:nowrap;text-transform:none;letter-spacing:normal}
+.nav-divider{width:1px;height:20px;background:var(--border);margin:0 0.5rem;flex-shrink:0}
+
+/* HERO */
+.hero{padding:5rem 2rem 4rem;max-width:960px;margin:0 auto;position:relative}
+.hero-eyebrow{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;display:flex;align-items:center;gap:10px}
+.hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold);display:inline-block}
+.hero h1{font-family:var(--font-display);font-size:clamp(2rem,5vw,3.4rem);font-weight:700;line-height:1.07;color:var(--text);margin-bottom:0.75rem}
+.hero h1 span{color:var(--gold);font-style:italic}
+.hero-sub{font-size:15px;color:var(--text-muted);max-width:580px;margin-bottom:2.5rem;line-height:1.65}
+.hero-meta{display:flex;gap:1.5rem;margin-bottom:2.5rem;flex-wrap:wrap}
+.hero-meta-item{font-family:var(--font-mono);font-size:10px;letter-spacing:0.09em;color:var(--text-dim);text-transform:uppercase}
+.hero-meta-item span{color:var(--text-muted);font-weight:500}
+
+/* STAT GRID */
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:3rem}
+.stat-cell{background:var(--bg2);padding:1.25rem 1.5rem}
+.stat-val{font-family:var(--font-display);font-size:1.6rem;font-weight:700;color:var(--gold);line-height:1;margin-bottom:5px}
+.stat-val.teal{color:var(--teal)}
+.stat-val.purple{color:var(--purple)}
+.stat-val.coral{color:var(--coral)}
+.stat-lbl{font-family:var(--font-mono);font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.07em}
+
+/* CHEVRON ACCENT */
+.chevrons{display:flex;gap:5px;margin-bottom:0.5rem}
+.chevrons::before{content:'▲▲▲▲';font-size:8px;color:var(--gold);letter-spacing:3px}
+
+/* SECTIONS */
+section{max-width:960px;margin:0 auto;padding:3.5rem 2rem;border-top:1px solid var(--border)}
+.section-label{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.3rem}
+h2{font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--text);margin-bottom:0.25rem;line-height:1.15}
+.h2-kicker{font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--gold);font-style:italic;display:block;margin-bottom:1.5rem}
+.section-intro{font-size:15px;color:var(--text-muted);max-width:700px;margin-bottom:2rem;line-height:1.7}
+h3{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);margin:2.5rem 0 1rem}
+h3:first-of-type{margin-top:0}
+p{color:var(--text-muted);margin-bottom:1rem;font-size:15px;max-width:72ch;line-height:1.7}
+p strong{color:var(--text);font-weight:600}
+p:last-child{margin-bottom:0}
+
+/* TABLES */
+.table-wrap{overflow-x:auto;margin-bottom:1.5rem;border:1px solid var(--border);border-radius:4px;overflow:hidden}
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead th{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);padding:0.75rem 1rem;text-align:left;border-bottom:1px solid var(--border-med);background:var(--bg3);white-space:nowrap}
+tbody tr{border-bottom:1px solid var(--border);transition:background 0.1s}
+tbody tr:last-child{border-bottom:none}
+tbody tr:hover{background:var(--bg3)}
+tbody td{padding:0.65rem 1rem;color:var(--text-muted);vertical-align:middle}
+tbody td:first-child{color:var(--text)}
+
+/* TAGS/BADGES */
+.tag{display:inline-block;font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;padding:2px 7px;border-radius:2px;white-space:nowrap}
+.tag-gold{background:var(--gold-dim);color:var(--gold)}
+.tag-teal{background:var(--teal-dim);color:var(--teal)}
+.tag-purple{background:var(--purple-dim);color:var(--purple)}
+.tag-coral{background:var(--coral-dim);color:var(--coral)}
+.tag-blue{background:var(--blue-dim);color:var(--blue)}
+.tag-dim{background:rgba(35,35,35,0.07);color:var(--text-dim)}
+.tag-official{background:var(--teal-dim);color:var(--teal)}
+.tag-inferred{background:var(--purple-dim);color:var(--purple)}
+
+.rank-badge{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:3px;font-family:var(--font-mono);font-size:10px;font-weight:500;background:var(--bg3);color:var(--text-dim);margin-right:6px;flex-shrink:0}
+.rank-badge.top3{background:var(--gold-dim);color:var(--gold)}
+.rank-badge.top10{background:var(--teal-dim);color:var(--teal)}
+
+/* INSIGHTS */
+.insight{border-left:2px solid var(--gold);background:var(--gold-dim);border-radius:0 4px 4px 0;padding:1rem 1.25rem;margin:1.5rem 0;font-size:14px;color:var(--text-muted);line-height:1.65}
+.insight strong{color:var(--text);font-weight:600}
+.insight.teal{border-color:var(--teal);background:var(--teal-dim)}
+.insight.teal strong{color:var(--teal)}
+.insight.purple{border-color:var(--purple);background:var(--purple-dim)}
+.insight.purple strong{color:var(--purple)}
+.insight.coral{border-color:var(--coral);background:var(--coral-dim)}
+.insight.coral strong{color:var(--coral)}
+.insight.blue{border-color:var(--blue);background:var(--blue-dim)}
+.insight.blue strong{color:var(--blue)}
+
+/* CARDS */
+.card-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:1.75rem}
+.card{background:var(--bg2);padding:1.25rem 1.5rem}
+.card .clabel{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);margin-bottom:6px}
+.card .cval{font-family:var(--font-display);font-size:1.3rem;font-weight:700;color:var(--text);line-height:1.1;margin-bottom:3px}
+.card .csub{font-size:12px;color:var(--text-muted);line-height:1.45}
+.card.gold .cval{color:var(--gold)}
+.card.teal .cval{color:var(--teal)}
+.card.purple .cval{color:var(--purple)}
+.card.coral .cval{color:var(--coral)}
+.card.blue .cval{color:var(--blue)}
+.card.dim .cval{color:var(--text-dim)}
+
+/* TABS */
+.tabs{display:flex;gap:2px;margin-bottom:1.25rem;border-bottom:1px solid var(--border)}
+.tab-btn{font-family:var(--font-mono);font-size:10px;font-weight:500;background:none;border:none;color:var(--text-dim);padding:0.6rem 1rem;cursor:pointer;border-bottom:2px solid transparent;transition:color 0.15s,border-color 0.15s;margin-bottom:-1px;letter-spacing:0.08em;text-transform:uppercase}
+.tab-btn:hover{color:var(--text-muted)}
+.tab-btn.active{color:var(--gold);border-bottom-color:var(--gold)}
+.tab-panel{display:none}.tab-panel.active{display:block}
+
+/* TIMELINE */
+.timeline{position:relative;padding-left:1.5rem}
+.timeline::before{content:'';position:absolute;left:0;top:6px;bottom:6px;width:1px;background:var(--border-med)}
+.timeline-item{position:relative;padding:0 0 1.5rem 1.5rem}
+.timeline-item::before{content:'';position:absolute;left:-4px;top:6px;width:8px;height:8px;border-radius:50%;background:var(--bg3);border:1px solid var(--border-med)}
+.timeline-item.key::before{background:var(--gold);border-color:var(--gold)}
+.timeline-date{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.09em;text-transform:uppercase;color:var(--gold);margin-bottom:2px}
+.timeline-event{font-size:14px;color:var(--text);font-weight:500}
+.timeline-note{font-size:12px;color:var(--text-muted);margin-top:4px;line-height:1.55}
+
+/* CHART */
+.chart-wrap{position:relative;width:100%;margin-bottom:1.5rem}
+.chart-legend{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:10px;font-size:12px;color:var(--text-muted)}
+.chart-legend span{display:flex;align-items:center;gap:6px}
+.swatch{width:10px;height:10px;border-radius:2px;flex-shrink:0}
+
+/* BARS */
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.bar-label{font-size:12px;color:var(--text-muted);min-width:180px;flex-shrink:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar-bg{flex:1;height:5px;background:var(--bg4);border-radius:3px;overflow:hidden}
+.bar-fill{height:100%;border-radius:3px}
+.bar-val{font-family:var(--font-mono);font-size:12px;font-weight:500;color:var(--text);min-width:80px;text-align:right;flex-shrink:0;white-space:nowrap}
+
+/* EDITION COMPARE */
+.compare-band{display:flex;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:2rem}
+.compare-col{flex:1;min-width:140px}
+.compare-header{background:var(--bg3);padding:0.9rem 1.2rem;border-bottom:1px solid var(--border)}
+.compare-header .ed-name{font-family:var(--font-display);font-size:13px;font-weight:700}
+.compare-header .ed-meta{font-family:var(--font-mono);font-size:10px;color:var(--text-dim);margin-top:3px}
+.compare-body{background:var(--bg2);padding:1rem 1.2rem}
+.compare-kv{margin-bottom:10px}
+.compare-kv .kk{font-family:var(--font-mono);font-size:9px;text-transform:uppercase;letter-spacing:0.09em;color:var(--text-dim);margin-bottom:2px}
+.compare-kv .vv{font-size:13px;color:var(--text);font-weight:500}
+
+/* PLAYBOOK STEPS */
+.steps{counter-reset:step;margin-bottom:1.5rem}
+.step{position:relative;padding:0 0 1.5rem 3rem;counter-increment:step}
+.step::before{content:counter(step);position:absolute;left:0;top:0;width:28px;height:28px;border-radius:4px;background:var(--gold-dim);color:var(--gold);font-family:var(--font-mono);font-size:13px;font-weight:500;display:flex;align-items:center;justify-content:center}
+.step-title{font-size:14px;color:var(--text);font-weight:600;margin-bottom:3px}
+.step-body{font-size:13px;color:var(--text-muted);line-height:1.6;max-width:68ch}
+
+/* SUBSCRIBE CTA */
+.subscribe{background:var(--bg3);border:1px solid var(--border-med);border-radius:6px;padding:1.75rem 2rem;margin:2.5rem 0;text-align:center}
+.subscribe .sub-eyebrow{font-family:var(--font-mono);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem}
+.subscribe .sub-head{font-family:var(--font-display);font-size:1.25rem;font-weight:700;color:var(--text);margin-bottom:0.5rem}
+.subscribe .sub-body{font-size:13px;color:var(--text-muted);max-width:52ch;margin:0 auto 1.1rem;line-height:1.6}
+.subscribe a.sub-btn{display:inline-block;background:var(--gold);color:#fff;font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:0.65rem 1.5rem;border-radius:4px;font-weight:500}
+.subscribe a.sub-btn:hover{background:var(--gold-light);text-decoration:none}
+
+/* FOOTER */
+footer{max-width:960px;margin:0 auto;padding:2rem 2rem 3rem;border-top:1px solid var(--border);font-size:12px;color:var(--text-dim);display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;align-items:center}
+footer span{color:var(--gold)}
+
+@media(max-width:600px){
+  .bar-label{min-width:120px;font-size:11px}
+  h2{font-size:1.25rem}
+}
+</style>
+</head>
+<body>
+
+<div id="suite-nav" style="background:#f5f1e8;border-bottom:1px solid rgba(30,25,20,0.12);padding:0 2rem;display:flex;align-items:center;height:36px;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.09em;text-transform:uppercase;gap:0;overflow-x:auto;position:sticky;top:0;z-index:200">
+  <span style="color:#C9A84C;margin-right:1.5rem;padding-right:1.5rem;border-right:1px solid rgba(30,25,20,0.12);white-space:nowrap;font-weight:500">China Series · The Pattern Recognition</span>
+  <a href="index.html" class="suite-link">Overview</a>
+  <a href="part-1.html" class="suite-link active">Part I · The Market</a>
+  <a href="part-2.html" class="suite-link">Part II · The Audience</a>
+  <a href="part-3.html" class="suite-link">Part III · The Product</a>
+</div>
+<style>
+  .suite-link{color:#9490A0;padding:0 0.85rem;height:36px;display:inline-flex;align-items:center;border-bottom:2px solid transparent;white-space:nowrap;text-decoration:none;transition:color 0.15s}
+  .suite-link:hover{color:#C9A84C;border-bottom-color:rgba(201,168,76,0.3)}
+  .suite-link.active{color:#C9A84C;border-bottom-color:#C9A84C}
+  #main-nav{top:36px !important}
+</style>
+<nav id="main-nav"><a class="nav-brand" href="https://www.llamagriffin.com" target="_blank" rel="noopener noreferrer" style="color:var(--text);text-decoration:none">Llama &amp; Griffin Consultants</a>
+  <a href="#overview" class="active">Overview</a>
+  <a href="#market">The Market</a>
+  <a href="#steam">Steam Factor</a>
+  <a href="#multiplier">China Multiplier</a>
+  <a href="#forza">Forza Case</a>
+  <a href="#building">What They Build</a>
+  <a href="#mobile">Mobile Titans</a>
+  <a href="#playbook">Playbook</a>
+  <a href="#reframe">The Reframe</a>
+</nav>
+
+<main>
+<div class="hero" id="overview">
+  <div class="hero-eyebrow">The Pattern Recognition · Market Intelligence Report</div>
+  <h1>The China<br><span>Multiplier</span></h1>
+  <p class="hero-sub">In 2025 China became the largest games market on Earth. For premium PC titles on Steam, the Chinese audience is no longer a region to localize for later. It is the audience that decides which games win. Here is what ignoring it cost.</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item">Published <span>2025</span></div>
+    <div class="hero-meta-item">Coverage <span>The Pattern Recognition</span></div>
+    <div class="hero-meta-item">Focus <span>Premium PC / Steam</span></div>
+  </div>
+  <div class="stat-grid">
+    <div class="stat-cell"><div class="stat-val">$50.1B</div><div class="stat-lbl">China domestic market 2025</div></div>
+    <div class="stat-cell"><div class="stat-val teal">683M</div><div class="stat-lbl">Registered gamers</div></div>
+    <div class="stat-cell"><div class="stat-val purple">50%+</div><div class="stat-lbl">Chinese share of Steam users (Feb 2025)</div></div>
+    <div class="stat-cell"><div class="stat-val coral">$20.45B</div><div class="stat-lbl">Game exports 2025 (+10.23% YoY)</div></div>
+    <div class="stat-cell"><div class="stat-val">79%</div><div class="stat-lbl">Chinese PC gamers on Steam</div></div>
+    <div class="stat-cell"><div class="stat-val teal">+86.33%</div><div class="stat-lbl">Console segment growth YoY</div></div>
+  </div>
+</div>
+
+<!-- THE MARKET -->
+<section id="market">
+  <div class="section-label">Section 01</div>
+  <div class="chevrons" aria-hidden="true"></div><h2>The Market You Dismissed</h2><span class="h2-kicker">A $50 billion domestic engine.</span>
+  <p class="section-intro">China's domestic games market generated $50.1 billion in 2025, up 7.68% year-on-year with the growth rate accelerating, not slowing. This is the biggest single national gaming audience on the planet, and it is still expanding while Western markets hold at 2 to 3 percent.</p>
+
+  <p>After a regulatory contraction in 2022, when Beijing froze license approvals for 263 days and the market dropped 10.33%, the recovery has been total. Total registered gamers reached <strong>683 million</strong>, roughly twice the entire population of the United States. Every segment is growing at once.</p>
+
+  <h3>Revenue by segment, 2025</h3>
+  <div id="segment-bars"></div>
+
+  <div class="insight teal">
+    <strong>The read:</strong> Mobile dominates at 73.29% of domestic revenue, but the story for premium PC publishers is the client-PC segment at 22.28% and a console market that grew 86.33% in a single year off a historically negligible base. The question was never whether Chinese players spend. It is whether they spend on your game.
+  </div>
+</section>
+
+<!-- STEAM FACTOR -->
+<section id="steam">
+  <div class="section-label">Section 02</div>
+  <div class="chevrons" aria-hidden="true"></div><h2>The Steam Factor</h2><span class="h2-kicker">China is your player base.</span>
+  <p class="section-intro">For PC developers the platform reality is unambiguous. Steam is the number one PC distribution channel in China, and in February 2025 Chinese-speaking users crossed half of the entire global Steam user base for the month. That was not a quiet milestone: it happened in the same window Steam set a new all-time concurrent-user record, pushing past 40 million simultaneous users for the first time. The Chinese surge and the platform's biggest day on record were the same event.</p>
+
+  <div class="card-row">
+    <div class="card teal"><div class="clabel">Steam penetration</div><div class="cval">79%</div><div class="csub">of Chinese PC gamers use Steam, most on the international version without a VPN</div></div>
+    <div class="card gold"><div class="clabel">Global share, Feb 2025</div><div class="cval">50%+</div><div class="csub">Chinese-speaking users of the entire Steam base that month, up 20.88% MoM</div></div>
+    <div class="card purple"><div class="clabel">Spending trend</div><div class="cval">62%</div><div class="csub">of Chinese PC gamers increased game spending year-on-year in 2024</div></div>
+    <div class="card coral"><div class="clabel">Language rank</div><div class="cval">#2</div><div class="csub">Simplified Chinese is consistently the second most-used language on Steam</div></div>
+  </div>
+
+  <p>These are not casual browsers. They are motivated buyers actively looking for things to purchase. A premium title with no Chinese localization, no regional pricing, and no community presence is invisible to this audience by design, not by accident.</p>
+</section>
+
+<!-- CHINA MULTIPLIER -->
+<section id="multiplier">
+  <div class="section-label">Section 03</div>
+  <div class="chevrons" aria-hidden="true"></div><h2>The China Multiplier</h2><span class="h2-kicker">The data is not theoretical.</span>
+  <p class="section-intro">Across well-localized premium titles, Chinese players consistently represent 20 to 60 percent or more of Steam sales. This is the single highest-leverage market access available in the industry, and three recent launches prove it.</p>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab(this,'tab-mult-chart')">Share of Sales</button>
+    <button class="tab-btn" onclick="switchTab(this,'tab-mult-cases')">Case Detail</button>
+  </div>
+
+  <div id="tab-mult-chart" class="tab-panel active">
+    <h3>China's share of Steam sales, by title</h3>
+    <div id="mult-bars"></div>
+    <div class="insight">
+      <strong>What this means for a $50M title:</strong> For a game generating $50 million in Steam revenue with no China focus, appropriate localization could conservatively add $20 to $30 million, often for an investment of $100,000 to $500,000 in localization, dubbing, and regional marketing. The ROI is among the highest available anywhere in games.
+    </div>
+  </div>
+
+  <div id="tab-mult-cases" class="tab-panel">
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Title</th><th>Studio / Origin</th><th>China share</th><th>Confidence</th><th>What they did right</th></tr></thead>
+        <tbody id="mult-tbody"></tbody>
+      </table>
+    </div>
+    <div class="insight teal">
+      <strong>Stellar Blade:</strong> A Korean game that became PlayStation's fastest-ever PC hit on the back of a full Chinese dub with lip-sync (absent from the PlayStation version), local pricing at ¥268 against a $60 US baseline, and targeted in-region promotion. It sold a million PC copies in three days, with roughly 58% of them in China: on the order of 580,000 copies from a single geography in 72 hours. The localization likely cost six figures. The return was continental.
+    </div>
+  </div>
+</section>
+
+<!-- FORZA CASE -->
+<section id="forza">
+  <div class="section-label">Section 04</div>
+  <div class="chevrons" aria-hidden="true"></div><h2>The Forza Case Study</h2><span class="h2-kicker">A masterclass in what not to do.</span>
+  <p class="section-intro">No example illustrates the cost more vividly than the 2023 launch of Forza Motorsport by Turn 10 and Xbox Game Studios. Deep regional discounting without cultural investment is not a strategy. It is the floor, and the game still underperformed below it.</p>
+
+  <div class="card-row">
+    <div class="card coral"><div class="clabel">Peak concurrent (launch)</div><div class="cval">4,703</div><div class="csub">Less than a quarter of Minecraft Legends or Hi-Fi Rush, both smaller Xbox releases that year</div></div>
+    <div class="card coral"><div class="clabel">Concurrent now (Jun 2026)</div><div class="cval">~400</div><div class="csub">Down from an already-weak launch peak; the game has essentially emptied out</div></div>
+    <div class="card dim"><div class="clabel">Franchise status</div><div class="cval">Cancelled</div><div class="csub">Turn 10 shuttered the Forza Motorsport team in July 2025, under two years after launch</div></div>
+    <div class="card dim"><div class="clabel">Chinese cars at launch</div><div class="cval">0</div><div class="csub">500+ cars in the core lineup, none of them Chinese</div></div>
+  </div>
+
+  <h3>The pricing contrast</h3>
+  <p><strong>Stellar Blade's ¥268 was a deliberate, premium-minded localization play.</strong> Forza's multi-tier discounting was reflexive markdown with none of the cultural alignment behind it. The Premium edition sat at ¥328 against $99.99 in the US, selling its top tier to Chinese players at less than half price while giving them no reason to care.</p>
+
+  <h3>The car problem</h3>
+  <p>The deeper failure is cultural. Forza Motorsport launched with zero Chinese models at a moment when Chinese automotive manufacturing has gone through a global quality revolution. Players were not driving the cars their own market now leads the world in building.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Marque</th><th>Signal</th><th>What it represents</th></tr></thead>
+      <tbody id="cars-tbody"></tbody>
+    </table>
+  </div>
+
+  <div class="insight coral">
+    <strong>The kill shot:</strong> In July 2025, Turn 10's content coordinator confirmed the studio had shuttered the Forza Motorsport team entirely. Xbox killed the franchise under two years after launch. The lifetime Steam score sits at 46% Mixed across all languages, and recent reviews actually ticked upward, but it did not matter. A game that launched mispriced for the cultural investment behind it, with zero Chinese cars, in the largest games market on Earth, did not get a turnaround. It got a tombstone. Forza Horizon 5, the casual sibling, had added Chinese cars in February 2022 and a full Lucky Stars pack in January 2024. The "serious" racing game never made that acknowledgment, and now it never will.
+  </div>
+</section>
+
+<div style="max-width:960px;margin:0 auto;padding:0 2rem">
+  <div class="subscribe">
+    <div class="sub-eyebrow">The Pattern Recognition</div>
+    <div class="sub-head">Gaming intelligence 12 to 24 months before consensus</div>
+    <div class="sub-body">The China multiplier was visible in the data years before most Western publishers acted on it. Subscribe for the patterns that are forming now.</div>
+    <a class="sub-btn" href="https://recognizingpatterns.substack.com" target="_blank" rel="noopener noreferrer">Subscribe</a>
+  </div>
+</div>
+
+<!-- WHAT THEY BUILD -->
+<section id="building">
+  <div class="section-label">Section 05</div>
+  <div class="chevrons" aria-hidden="true"></div><h2>What Chinese Developers Build</h2><span class="h2-kicker">For the world, not just for China.</span>
+  <p class="section-intro">The familiar framing asks whether the West can sell to China. The more consequential question is what China is building, because those titles are now outcompeting Western games on Western platforms.</p>
+
+  <h3>Black Myth: Wukong, the dam breaking</h3>
+  <p>Game Science's action RPG sold <strong>10 million copies in three days</strong>, surpassed 25 million by early 2025, and peaked at 2.4 million concurrent players on Steam, the highest ever recorded for a single-player game. It was built on a confirmed development budget of roughly $43 million, around $70 million including marketing, over six years. That is modest by Western AAA standards, and the return is not: Steam revenue alone crossed $1 billion within two months of launch. Goldman Sachs called it a seminal moment for Chinese game development.</p>
+
+  <p>The home-market signal is the part Western publishers should sit with. At launch, an estimated 70% of Black Myth: Wukong's sales came from China, a figure attributed to Game Science's own art director. The country did not just accept the game, it launched it. That is the exact buyer intent, concentrated and immediate, that a well-localized Western title leaves on the table by default.</p>
+
+  <h3>Genre spread of globally successful Chinese titles</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Title</th><th>Genre</th><th>Status</th><th>Global signal</th></tr></thead>
+      <tbody id="genre-spread-tbody"></tbody>
+    </table>
+  </div>
+
+  <div class="insight purple">
+    <strong>The correction:</strong> The idea that Chinese games are low-effort mobile clones was not just outdated. It was never accurate. It was a failure of attention. In 2024, all ten of the top-grossing new mobile games globally were made in Asia. And the wave is still building: Where Winds Meet and Wuchang: Fallen Feathers are the next premium PC titles in the pipeline, which makes this a structural shift, not a single breakout year to wait out.
+  </div>
+</section>
+
+<!-- MOBILE TITANS -->
+<section id="mobile">
+  <div class="section-label">Section 06</div>
+  <div class="chevrons" aria-hidden="true"></div><h2>The Mobile Titans</h2><span class="h2-kicker">Bigger than you know.</span>
+  <p class="section-intro">Chinese mobile games do not merely compete globally. They set the ceiling. Genshin Impact crossed $10 billion in lifetime player spending by end of 2025, the fastest mobile game ever to reach that figure, with major revenue from Japan, the US, and South Korea.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Game</th><th>Developer</th><th>2025 global revenue</th><th>Note</th></tr></thead>
+      <tbody id="mobile-tbody"></tbody>
+    </table>
+  </div>
+
+  <div class="insight">
+    <strong>The cross-border proof:</strong> Honor of Kings has earned $13 billion since its 2015 launch. Genshin's $10 billion lifetime figure came substantially from outside China, proving Chinese aesthetic and design transcend any cultural border. PUBG Mobile, itself a Chinese adaptation of a Korean PC game, draws the majority of its spending from China while still generating tens of millions monthly from the West.
+  </div>
+</section>
+
+<!-- PLAYBOOK -->
+<section id="playbook">
+  <div class="section-label">Section 07</div>
+  <div class="chevrons" aria-hidden="true"></div><h2>How To Not Leave It On The Table</h2><span class="h2-kicker">For premium PC, the path is simpler than you think.</span>
+  <p class="section-intro">China is not easy. Domestic regulatory requirements are stringent and mobile distribution is fragmented. But for premium PC titles on Steam, the pathway is significantly simpler, and it comes down to five moves.</p>
+
+  <div class="steps">
+    <div class="step"><div class="step-title">Regional pricing</div><div class="step-body">Steam has a recommended pricing framework for China. Use it. The Stellar Blade price of ¥268 against a $60 US baseline is the model. Forza's multi-tier discounting without cultural investment is the anti-model.</div></div>
+    <div class="step"><div class="step-title">Chinese localization</div><div class="step-body">At minimum, Simplified Chinese subtitles and UI. Ideally a Chinese dub with lip-sync for narrative-heavy titles. The cost is a fraction of a single salary; the return is a continental audience.</div></div>
+    <div class="step"><div class="step-title">Relevant content</div><div class="step-body">In a racing game, include Chinese cars. In an action RPG, draw from Chinese mythology where it fits. Players are not asking for tokenism. They are asking not to be invisible.</div></div>
+    <div class="step"><div class="step-title">Platform presence</div><div class="step-body">Bilibili, Weibo, Douyin. In 2024, 44.5% of Chinese gamers discovered new games through short videos on platforms like Douyin. Content marketing in China lives on Chinese platforms, not Twitter or Instagram.</div></div>
+    <div class="step"><div class="step-title">Attend the market</div><div class="step-body">Steam Next Fest is watched closely by Chinese players. A localized store page, demo, and wishlist campaign reaching Chinese communities via KOLs on Bilibili dramatically improves demo performance.</div></div>
+  </div>
+
+  <div class="insight teal">
+    <strong>Next Fest is co-determined by China now:</strong> June 2025's top wishlist winner was Stellar Blade with 227,200 new wishlists, a result driven by its position in the Chinese market. Games that enter with no Chinese language support and no China-specific marketing are competing for the remaining half of available attention. That is a self-imposed handicap.
+  </div>
+
+  <h3>Next Fest performance by localization posture</h3>
+  <p>The clearest signal sits at the top of the leaderboard. These are the two best-documented cases, not a comprehensive survey: a fuller breakdown by localization status across all entrants is the subject of separate Next Fest coverage.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Title</th><th>Edition</th><th>CN language</th><th>CN pricing</th><th>Result</th></tr></thead>
+      <tbody id="nextfest-tbody"></tbody>
+    </table>
+  </div>
+  <div class="insight">
+    <strong>The pattern in the two clean cases:</strong> Once Human, a NetEase title built for the Chinese audience from the ground up, swept all three Next Fest categories at once. Stellar Blade, a Korean title with full Chinese localization and ¥268 regional pricing, topped the wishlist board in its edition. Localization posture is not the only variable, but it is conspicuously present in both of the events' biggest winners.
+  </div>
+</section>
+
+<!-- THE REFRAME -->
+<section id="reframe">
+  <div class="section-label">Section 08</div>
+  <div class="chevrons" aria-hidden="true"></div><h2>The Reframe</h2><span class="h2-kicker">The market did not wait for permission.</span>
+  <p>China's games market did not reach $50 billion because Western publishers granted it legitimacy. It grew because 683 million people wanted to play. It produced a global blockbuster that crossed $1 billion on Steam alone in Black Myth: Wukong, the highest-grossing mobile game on Earth in Honor of Kings, and the fastest-ever $10 billion franchise in Genshin Impact, all while Western studios were "monitoring the market."</p>
+
+  <p><strong>The Forza Motorsport story is the whole problem in miniature.</strong> A franchise with deep roots in car culture, sold into a market that now manufactures some of the most advanced electric vehicles on the planet, launched without a single Chinese car and without the cultural investment that might have made hundreds of millions of potential customers feel seen. It peaked at 4,703 concurrent players, drifted down to a few hundred, and in July 2025 the franchise was cancelled outright. The market they ignored is still growing. The game that ignored it is gone.</p>
+
+  <p>Meanwhile Chinese developers have set records that may stand for a generation, and the Chinese gaming audience, 79% of which uses the global Steam platform, spends more on games every year. The market didn't ignore you. You ignored it. And now you know what that cost.</p>
+
+  <h2 style="margin-top:3rem;margin-bottom:1.25rem">Abbas Saleem</h2>
+  <p>Abbas Saleem is a Principal Consultant at <a href="https://www.llamagriffin.com/">Llama &amp; Griffin</a>, advising game studios, streaming platforms, and investment funds across six continents. He writes The Pattern Recognition: gaming industry intelligence 12 to 24 months before it becomes consensus. <a href="https://www.linkedin.com/in/abbassaleemkhan/">LinkedIn</a> | <a href="https://cal.com/llamagriffin/30min">Schedule a call</a></p>
+</section>
+
+</main>
+
+<footer>
+  <div>The China Series · <span>Llama &amp; Griffin Consultants</span></div>
+  <div><span>recognizingpatterns.substack.com</span> · llamagriffin.com</div>
+</footer>
+
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<script>
+// SEGMENT REVENUE BARS
+function buildSegmentBars(){
+  const seg = [
+    {name:'Mobile',val:73.29,max:100,color:'#c3a55f'},
+    {name:'Client / PC',val:22.28,max:100,color:'#2a8f76'},
+    {name:'Console',val:4.43,max:100,color:'#6b64b3',badge:'+86.33% YoY'},
+  ];
+  const wrap = document.getElementById('segment-bars');
+  seg.forEach(d=>{
+    const pct = Math.max(0.5, Math.round((d.val/d.max)*100));
+    const badge = d.badge ? ` <span style="color:var(--teal);font-size:10px">${d.badge}</span>` : '';
+    wrap.innerHTML += `<div class="bar-row">
+      <span class="bar-label">${d.name}</span>
+      <div class="bar-bg"><div class="bar-fill" style="width:${pct}%;background:${d.color}"></div></div>
+      <span class="bar-val">${d.val}%${badge}</span>
+    </div>`;
+  });
+}
+
+// CHINA MULTIPLIER BARS: the visual payload
+function buildMultBars(){
+  const mult = [
+    {name:'Stellar Blade',val:59,lo:55,hi:63,color:'#c3a55f'},
+    {name:'It Takes Two (lifetime est.)',val:50,lo:50,hi:50,color:'#2a8f76'},
+    {name:'Split Fiction',val:49,lo:38,hi:60,color:'#6b64b3'},
+    {name:'Many top-20 Steam titles',val:20,lo:20,hi:20,color:'#6b6660'},
+    {name:'North America (Stellar Blade)',val:8,lo:8,hi:8,color:'#c5bfb5'},
+  ];
+  const wrap = document.getElementById('mult-bars');
+  mult.forEach(d=>{
+    const pct = Math.max(1, d.val);
+    const range = d.lo!==d.hi ? `${d.lo}–${d.hi}%` : `${d.val}%`;
+    wrap.innerHTML += `<div class="bar-row">
+      <span class="bar-label">${d.name}</span>
+      <div class="bar-bg"><div class="bar-fill" style="width:${pct}%;background:${d.color}"></div></div>
+      <span class="bar-val">${range}</span>
+    </div>`;
+  });
+}
+
+// MULTIPLIER CASE TABLE
+const multCases = [
+  {title:'Stellar Blade',origin:'Shift Up / Korea',share:'~55–63%',conf:'inferred',did:'Full CN dub with lip-sync, ¥268 pricing, in-region promotion; NA was just 8%'},
+  {title:'Split Fiction',origin:'Hazelight / Sweden',share:'~38–60%',conf:'inferred',did:'$100M+ Steam revenue; China its top market per Alinea Analytics'},
+  {title:'It Takes Two',origin:'Hazelight / Sweden',share:'~50% lifetime',conf:'inferred',did:'23M lifetime copies; roughly half attributed to Chinese players'},
+  {title:'Once Human',origin:'NetEase Starry / China',share:'native',conf:'official',did:'Swept all three Next Fest categories June 2024; 10M downloads month one'},
+];
+function buildMultTable(){
+  const tb = document.getElementById('mult-tbody');
+  multCases.forEach(d=>{
+    tb.innerHTML += `<tr>
+      <td style="font-weight:500;color:var(--text)">${d.title}</td>
+      <td style="font-size:12px">${d.origin}</td>
+      <td>${d.share}</td>
+      <td><span class="tag ${d.conf==='official'?'tag-official':'tag-inferred'}">${d.conf}</span></td>
+      <td style="font-size:12px;color:var(--text-dim)">${d.did}</td>
+    </tr>`;
+  });
+}
+
+// CARS TABLE
+const cars = [
+  {marque:'BYD',signal:'World #1 EV maker',rep:'Seal AWD performance trim does 0–100 in 3.8s, 523hp, 355mi range, five-star Euro NCAP'},
+  {marque:'NIO',signal:'Nürburgring record',rep:'EP9 produces 1,341hp from four motors; 6:45.9 lap; now expanding into Europe'},
+  {marque:'Xpeng / Li Auto',signal:'Tech parity+',rep:'Regularly outperform Western equivalents on range and features at price'},
+  {marque:'Changan / Hongqi',signal:'Heritage + scale',rep:'Domestic marques with rapidly rising global quality'},
+];
+function buildCarsTable(){
+  const tb = document.getElementById('cars-tbody');
+  cars.forEach(d=>{
+    tb.innerHTML += `<tr>
+      <td style="font-weight:500;color:var(--text)">${d.marque}</td>
+      <td><span class="tag tag-coral">${d.signal}</span></td>
+      <td style="font-size:12px;color:var(--text-dim)">${d.rep}</td>
+    </tr>`;
+  });
+}
+
+// GENRE SPREAD TABLE
+const genreSpread = [
+  {title:'Black Myth: Wukong',genre:'Single-player action RPG',status:'Released 2024',cls:'tag-teal',signal:'2.4M CCU peak; AAA prestige'},
+  {title:'PUBG Mobile',genre:'Battle royale shooter',status:'Live',cls:'tag-teal',signal:'Global phenomenon'},
+  {title:'Genshin Impact',genre:'Open-world gacha RPG',status:'Live',cls:'tag-teal',signal:'$10B+ lifetime franchise'},
+  {title:'Once Human',genre:'Multiplayer survival',status:'Released 2024',cls:'tag-teal',signal:'Next Fest champion'},
+  {title:'Honor of Kings',genre:'Mobile MOBA',status:'Live since 2015',cls:'tag-teal',signal:'Global esports property'},
+  {title:'Wuthering Waves',genre:'Soulslike / RPG',status:'Released 2024',cls:'tag-teal',signal:'Entered global top 10 in 2025'},
+  {title:'The Awakener: Battle Tendency',genre:'Dynasty Warriors-inspired',status:'Upcoming',cls:'tag-purple',signal:'Top-3 WL gainer, Next Fest Feb 2026'},
+  {title:'Where Winds Meet',genre:'Wuxia open-world (NetEase)',status:'Upcoming',cls:'tag-purple',signal:'Next wave; major Steam wishlist volume'},
+  {title:'Wuchang: Fallen Feathers',genre:'Soulslike',status:'Upcoming',cls:'tag-purple',signal:'Next wave; strong Next Fest performance'},
+];
+function buildGenreSpread(){
+  const tb = document.getElementById('genre-spread-tbody');
+  genreSpread.forEach(d=>{
+    tb.innerHTML += `<tr>
+      <td style="font-weight:500;color:var(--text)">${d.title}</td>
+      <td style="font-size:12px">${d.genre}</td>
+      <td><span class="tag ${d.cls}">${d.status}</span></td>
+      <td style="font-size:12px;color:var(--text-dim)">${d.signal}</td>
+    </tr>`;
+  });
+}
+
+// NEXT FEST LOCALIZATION TABLE
+const nextfest = [
+  {title:'Once Human',edition:'Jun 2024',cn:'Native',price:'CN-built',result:'Swept all 3 categories (wishlist, trending, demo players)',cls:'tag-teal'},
+  {title:'Stellar Blade',edition:'Jun 2025',cn:'Full + dub',price:'¥268',result:'Top wishlist earner, 227,200 new wishlists',cls:'tag-teal'},
+];
+function buildNextFestTable(){
+  const tb = document.getElementById('nextfest-tbody');
+  nextfest.forEach(d=>{
+    tb.innerHTML += `<tr>
+      <td style="font-weight:500;color:var(--text)">${d.title}</td>
+      <td style="font-size:12px">${d.edition}</td>
+      <td><span class="tag ${d.cls}">${d.cn}</span></td>
+      <td style="font-family:var(--font-mono);font-size:12px">${d.price}</td>
+      <td style="font-size:12px;color:var(--text-dim)">${d.result}</td>
+    </tr>`;
+  });
+}
+
+// MOBILE TITANS TABLE
+const mobile = [
+  {game:'Honor of Kings',dev:'Tencent (Timi)',rev:'~$1.68B',note:'$13B since 2015 launch'},
+  {game:'PUBG Mobile / Peacekeeper Elite',dev:'Tencent',rev:'~$1.12B',note:'Combined; 66% of spend from China'},
+  {game:'Honkai: Star Rail',dev:'miHoYo / HoYoverse',rev:'~$423M',note:'Cross-border strength'},
+  {game:'Love and Deepspace',dev:'Paper Games',rev:'~$369M',note:'Otome breakout'},
+  {game:'Genshin Impact',dev:'miHoYo / HoYoverse',rev:'~$335M mobile',note:'2025 down sharply from $1.9B peak; $10B+ lifetime'},
+];
+function buildMobileTable(){
+  const tb = document.getElementById('mobile-tbody');
+  mobile.forEach(d=>{
+    tb.innerHTML += `<tr>
+      <td style="font-weight:500;color:var(--text)">${d.game}</td>
+      <td style="font-size:12px">${d.dev}</td>
+      <td style="font-family:var(--font-mono);font-size:12px;color:var(--gold)">${d.rev}</td>
+      <td style="font-size:12px;color:var(--text-dim)">${d.note}</td>
+    </tr>`;
+  });
+}
+
+function switchTab(btn,panelId){
+  const parent = btn.closest('section');
+  parent.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  parent.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(panelId).classList.add('active');
+}
+
+// NAV SCROLL SPY
+function initNav(){
+  const sects = document.querySelectorAll('section[id],.hero[id]');
+  const links = document.querySelectorAll('nav a');
+  const obs = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        links.forEach(l=>l.classList.remove('active'));
+        const a = document.querySelector(`nav a[href="#${e.target.id}"]`);
+        if(a)a.classList.add('active');
+      }
+    });
+  },{rootMargin:'-25% 0px -70% 0px'});
+  sects.forEach(s=>obs.observe(s));
+  links.forEach(l=>l.addEventListener('click',e=>{
+    e.preventDefault();
+    document.querySelector(l.getAttribute('href')).scrollIntoView({behavior:'smooth'});
+  }));
+}
+
+buildSegmentBars();
+buildMultBars();
+buildMultTable();
+buildCarsTable();
+buildGenreSpread();
+buildNextFestTable();
+buildMobileTable();
+initNav();
+</script>
+</body>
+</html>

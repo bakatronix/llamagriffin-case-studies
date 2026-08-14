@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <link rel="canonical" href="https://www.llamagriffin.com/Data/FoundersPlaybook/part-1.html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Global game content revenue hit a third consecutive record in 2025. Private investment fell 55%. These are not contradictions in a cycle, they are features of a bifurcation that is now structural.">
+<meta property="og:title" content="The Founder's Playbook: Record Revenue, Structural Collapse">
+<meta property="og:description" content="The market is not in trouble. The middle of it is.">
+<meta property="og:type" content="article">
+<title>Record Revenue, Structural Collapse · Part I · The Founder's Playbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  /* L&G Brand Palette */
+  --bg:#f7f4ee;--bg2:#fdfcf9;--bg3:#eae7e0;--bg4:#d2cdc3;
+  --border:#d2cdc3;--border-med:#c5bfb5;
+  --text:#232323;--text-muted:#37342f;--text-dim:#6b6660;
+  /* L&G Accent */
+  --gold:#c3a55f;--gold-light:#d4ba82;--gold-dim:rgba(195,165,95,0.12);
+  /* Semantic data colors , warm-muted for cream bg */
+  --teal:#2a8f76;--teal-light:#3daa8e;--teal-dim:rgba(42,143,118,0.10);
+  --purple:#6b64b3;--purple-light:#8f88cc;--purple-dim:rgba(107,100,179,0.10);
+  --coral:#b85a3a;--coral-light:#cb7055;--coral-dim:rgba(184,90,58,0.10);
+  --blue:#3d77c4;--blue-light:#6699d8;--blue-dim:rgba(61,119,196,0.10);
+  --font-display:'Playfair Display',serif;
+  --font-body:'DM Sans',sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7;min-height:100vh}
+a{color:var(--gold);text-decoration:none}a:hover{text-decoration:underline}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(247,244,238,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;height:52px;overflow-x:auto;gap:0}
+nav a{color:var(--text-dim);font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.09em;text-transform:uppercase;padding:0 0.9rem;height:52px;display:flex;align-items:center;border-bottom:2px solid transparent;white-space:nowrap;transition:color 0.15s,border-color 0.15s}
+nav a:hover{color:var(--gold);text-decoration:none;border-bottom-color:rgba(195,165,95,0.3)}
+nav a.active{color:var(--gold);border-bottom-color:var(--gold)}
+.nav-brand{font-family:var(--font-display);font-size:14px;font-weight:700;color:var(--text);margin-right:1.5rem;padding-right:1.5rem;border-right:1px solid var(--border);white-space:nowrap;text-transform:none;letter-spacing:normal}
+.nav-divider{width:1px;height:20px;background:var(--border);margin:0 0.5rem;flex-shrink:0}
+
+/* HERO */
+.hero{padding:5rem 2rem 4rem;max-width:960px;margin:0 auto;position:relative}
+.hero-eyebrow{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;display:flex;align-items:center;gap:10px}
+.hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold);display:inline-block}
+.hero h1{font-family:var(--font-display);font-size:clamp(2rem,5vw,3.4rem);font-weight:700;line-height:1.07;color:var(--text);margin-bottom:0.75rem}
+.hero h1 span{color:var(--gold);font-style:italic}
+.hero-sub{font-size:15px;color:var(--text-muted);max-width:580px;margin-bottom:2.5rem;line-height:1.65}
+.hero-meta{display:flex;gap:1.5rem;margin-bottom:2.5rem;flex-wrap:wrap}
+.hero-meta-item{font-family:var(--font-mono);font-size:10px;letter-spacing:0.09em;color:var(--text-dim);text-transform:uppercase}
+.hero-meta-item span{color:var(--text-muted);font-weight:500}
+
+/* STAT GRID */
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:3rem}
+.stat-cell{background:var(--bg2);padding:1.25rem 1.5rem}
+.stat-val{font-family:var(--font-display);font-size:1.6rem;font-weight:700;color:var(--gold);line-height:1;margin-bottom:5px}
+.stat-val.teal{color:var(--teal)}
+.stat-val.purple{color:var(--purple)}
+.stat-val.coral{color:var(--coral)}
+.stat-lbl{font-family:var(--font-mono);font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.07em}
+
+/* CHEVRON ACCENT */
+.chevrons{display:flex;gap:5px;margin-bottom:0.5rem}
+.chevrons::before{content:'▲▲▲▲';font-size:8px;color:var(--gold);letter-spacing:3px}
+
+/* SECTIONS */
+section{max-width:960px;margin:0 auto;padding:4rem 2rem;border-top:1px solid var(--border)}
+.section-label{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.3rem}
+h2{font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--text);margin-bottom:0.25rem;line-height:1.15}
+.h2-kicker{font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--gold);font-style:italic;display:block;margin-bottom:1.5rem}
+.section-intro{font-size:15px;color:var(--text-muted);max-width:700px;margin-bottom:2rem;line-height:1.7}
+h3{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);margin:2.5rem 0 1rem}
+h3:first-of-type{margin-top:0}
+p{color:var(--text-muted);margin-bottom:1rem;font-size:15px;max-width:72ch;line-height:1.7}
+p strong{color:var(--text);font-weight:600}
+p:last-child{margin-bottom:0}
+
+/* TABLES */
+.table-wrap{margin-bottom:1.5rem;border:1px solid var(--border);border-radius:4px;overflow:hidden;overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead th{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);padding:0.75rem 1rem;text-align:left;border-bottom:1px solid var(--border-med);background:var(--bg3);white-space:nowrap}
+tbody tr{border-bottom:1px solid var(--border);transition:background 0.1s}
+tbody tr:last-child{border-bottom:none}
+tbody tr:hover{background:var(--bg3)}
+tbody td{padding:0.65rem 1rem;color:var(--text-muted);vertical-align:middle}
+tbody td:first-child{color:var(--text)}
+
+/* TAGS/BADGES */
+.tag{display:inline-block;font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;padding:2px 7px;border-radius:2px;white-space:nowrap}
+.tag-gold{background:var(--gold-dim);color:var(--gold)}
+.tag-teal{background:var(--teal-dim);color:var(--teal)}
+.tag-purple{background:var(--purple-dim);color:var(--purple)}
+.tag-coral{background:var(--coral-dim);color:var(--coral)}
+.tag-blue{background:var(--blue-dim);color:var(--blue)}
+.tag-dim{background:rgba(35,35,35,0.07);color:var(--text-dim)}
+.tag-official{background:var(--teal-dim);color:var(--teal)}
+.tag-inferred{background:var(--purple-dim);color:var(--purple)}
+
+.rank-badge{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:3px;font-family:var(--font-mono);font-size:10px;font-weight:500;background:var(--bg3);color:var(--text-dim);margin-right:6px;flex-shrink:0}
+.rank-badge.top3{background:var(--gold-dim);color:var(--gold)}
+.rank-badge.top10{background:var(--teal-dim);color:var(--teal)}
+
+/* INSIGHTS */
+.insight{border-left:2px solid var(--gold);background:var(--gold-dim);border-radius:0 4px 4px 0;padding:1rem 1.25rem;margin:1.5rem 0;font-size:14px;color:var(--text-muted);line-height:1.65}
+.insight strong{color:var(--text);font-weight:600}
+.insight.teal{border-color:var(--teal);background:var(--teal-dim)}
+.insight.teal strong{color:var(--teal)}
+.insight.purple{border-color:var(--purple);background:var(--purple-dim)}
+.insight.purple strong{color:var(--purple)}
+.insight.coral{border-color:var(--coral);background:var(--coral-dim)}
+.insight.coral strong{color:var(--coral)}
+.insight.blue{border-color:var(--blue);background:var(--blue-dim)}
+.insight.blue strong{color:var(--blue)}
+
+/* CARDS */
+.card-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:1.75rem}
+.card{background:var(--bg2);padding:1.25rem 1.5rem}
+.card .clabel{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);margin-bottom:6px}
+.card .cval{font-family:var(--font-display);font-size:1.3rem;font-weight:700;color:var(--text);line-height:1.1;margin-bottom:3px}
+.card .csub{font-size:12px;color:var(--text-muted);line-height:1.45}
+.card.gold .cval{color:var(--gold)}
+.card.teal .cval{color:var(--teal)}
+.card.purple .cval{color:var(--purple)}
+.card.coral .cval{color:var(--coral)}
+.card.blue .cval{color:var(--blue)}
+
+/* TABS */
+.tabs{display:flex;gap:2px;margin-bottom:1.25rem;border-bottom:1px solid var(--border)}
+.tab-btn{font-family:var(--font-mono);font-size:10px;font-weight:500;background:none;border:none;color:var(--text-dim);padding:0.6rem 1rem;cursor:pointer;border-bottom:2px solid transparent;transition:color 0.15s,border-color 0.15s;margin-bottom:-1px;letter-spacing:0.08em;text-transform:uppercase}
+.tab-btn:hover{color:var(--text-muted)}
+.tab-btn.active{color:var(--gold);border-bottom-color:var(--gold)}
+.tab-panel{display:none}.tab-panel.active{display:block}
+
+/* TIMELINE */
+.timeline{position:relative;padding-left:1.5rem}
+.timeline::before{content:'';position:absolute;left:0;top:6px;bottom:6px;width:1px;background:var(--border-med)}
+.timeline-item{position:relative;padding:0 0 1.5rem 1.5rem}
+.timeline-item::before{content:'';position:absolute;left:-4px;top:6px;width:8px;height:8px;border-radius:50%;background:var(--bg3);border:1px solid var(--border-med)}
+.timeline-item.key::before{background:var(--gold);border-color:var(--gold)}
+.timeline-date{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.09em;text-transform:uppercase;color:var(--gold);margin-bottom:2px}
+.timeline-event{font-size:14px;color:var(--text);font-weight:500}
+.timeline-note{font-size:12px;color:var(--text-muted);margin-top:4px;line-height:1.55}
+
+/* CHART */
+.chart-wrap{position:relative;width:100%;margin-bottom:2.5rem;overflow:hidden}
+.chart-legend{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:10px;font-size:12px;color:var(--text-muted)}
+.chart-legend span{display:flex;align-items:center;gap:6px}
+.swatch{width:10px;height:10px;border-radius:2px;flex-shrink:0}
+
+/* EDITION LABELS */
+.edition-label{font-family:var(--font-display);font-size:12px;letter-spacing:0.02em}
+.edition-june26{color:var(--gold)}
+.edition-feb26{color:var(--teal)}
+.edition-oct25{color:var(--purple)}
+.edition-jun25{color:var(--blue)}
+.edition-feb25{color:var(--coral)}
+
+/* ROGUELITE */
+.rog-badge{display:inline-block;width:6px;height:6px;border-radius:50%;margin-right:6px}
+.rog-breakout{background:var(--gold)}
+.rog-strong{background:var(--teal)}
+.rog-solid{background:var(--purple)}
+.rog-avg{background:var(--text-dim)}
+
+/* BARS */
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.bar-label{font-size:12px;color:var(--text-muted);min-width:180px;flex-shrink:0}
+.bar-bg{flex:1;height:5px;background:var(--bg4);border-radius:3px;overflow:hidden}
+.bar-fill{height:100%;border-radius:3px}
+.bar-val{font-family:var(--font-mono);font-size:12px;font-weight:500;color:var(--text);min-width:80px;text-align:right;flex-shrink:0}
+
+/* EDITION COMPARE */
+.compare-band{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:2rem}
+.compare-col{display:grid;grid-template-rows:subgrid;background:var(--bg2)}
+.compare-col[data-rows="4"]{grid-row:span 4}
+.compare-col[data-rows="5"]{grid-row:span 5}
+.compare-header{background:var(--bg3);padding:0.9rem 1.2rem}
+.compare-header .ed-name{font-family:var(--font-display);font-size:13px;font-weight:700}
+.compare-header .ed-meta{font-family:var(--font-mono);font-size:10px;color:var(--text-dim);margin-top:3px}
+.compare-body{display:contents}
+.compare-kv{margin:0;padding:0.85rem 1.2rem;border-top:1px solid var(--border)}
+.compare-kv .kk{font-family:var(--font-mono);font-size:9px;text-transform:uppercase;letter-spacing:0.09em;color:var(--text-dim);margin-bottom:2px}
+.compare-kv .vv{font-size:13px;color:var(--text);font-weight:500}
+
+/* FOOTER */
+footer{max-width:960px;margin:0 auto;padding:2rem 2rem 3rem;border-top:1px solid var(--border);font-size:12px;color:var(--text-dim);display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;align-items:center}
+footer span{color:var(--gold)}
+
+@media(max-width:600px){
+  .bar-label{min-width:120px;font-size:11px}
+  h2{font-size:1.25rem}
+}
+
+
+/* NAV (single sticky bar, sample-accurate) */
+nav{position:sticky;top:0;z-index:100;background:rgba(245,241,232,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;height:52px;gap:0;overflow-x:auto}
+.nav-brand{font-family:var(--font-display);font-size:14px;font-weight:700;color:var(--text);margin-right:1.5rem;padding-right:1.5rem;border-right:1px solid var(--border-med);white-space:nowrap;text-decoration:none;text-transform:none;letter-spacing:normal}
+.nav-brand:hover{text-decoration:none;opacity:0.8}
+nav a.nav-link{color:var(--text-dim);font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.09em;text-transform:uppercase;padding:0 0.9rem;height:52px;display:flex;align-items:center;border-bottom:2px solid transparent;white-space:nowrap;transition:color 0.15s,border-color 0.15s;text-decoration:none}
+nav a.nav-link:hover{color:var(--gold);border-bottom-color:rgba(201,168,76,0.3);text-decoration:none}
+nav a.nav-link.active{color:var(--gold);border-bottom-color:var(--gold)}
+/* SERIES NAV */
+.series-nav{max-width:960px;margin:0 auto;padding:2.5rem 2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.series-link{font-family:var(--font-mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim);text-decoration:none}
+.series-link span{display:block;color:var(--gold);font-size:13px;margin-top:4px;font-family:var(--font-display);font-style:italic;text-transform:none;letter-spacing:0}
+.series-link.next{text-align:right;margin-left:auto}
+/* BIO */
+.bio{max-width:960px;margin:0 auto;padding:1.5rem 2rem 1rem}
+.bio p{font-size:13px;color:var(--text-muted);max-width:72ch}
+/* HERO block (report pages) */
+.hero{max-width:960px;margin:0 auto;padding:4rem 2rem 3rem}
+.hero-eyebrow{font-family:var(--font-mono);font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:10px}
+.hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold);display:inline-block}
+.hero h1{font-family:var(--font-display);font-size:clamp(2.2rem,5vw,3.2rem);font-weight:700;line-height:1.06;color:var(--text);margin-bottom:0.1rem}
+.hero h1 span{display:block;font-style:italic;color:var(--gold)}
+.hero-sub{font-size:15px;color:var(--text-muted);max-width:660px;margin:1.5rem 0 2rem;line-height:1.7}
+.hero-meta{display:flex;gap:2rem;margin-bottom:2rem;flex-wrap:wrap;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:0.75rem 0}
+.hero-meta-item{font-family:var(--font-mono);font-size:10px;letter-spacing:0.09em;text-transform:uppercase;color:var(--text-dim)}
+.hero-meta-item span{color:var(--text-muted);font-weight:500}
+/* PARTS GRID (hub) */
+.parts{max-width:960px;margin:0 auto;padding:0 2rem 3rem}
+.parts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+@media(max-width:700px){.parts-grid{grid-template-columns:1fr}}
+.part-card{background:var(--bg2);border:1px solid var(--border-med);border-radius:3px;padding:1.75rem;display:flex;flex-direction:column;gap:0.5rem;transition:border-color 0.15s,box-shadow 0.15s;text-decoration:none;color:inherit}
+.part-card:hover{border-color:var(--gold);box-shadow:0 2px 12px rgba(201,168,76,0.12);text-decoration:none}
+.part-num{font-family:var(--font-display);font-size:1.4rem;font-weight:700;color:var(--gold);font-style:italic}
+.part-title{font-family:var(--font-display);font-size:1.05rem;font-weight:700;color:var(--text);line-height:1.25}
+.part-desc{font-size:13px;color:var(--text-muted);line-height:1.65;flex:1}
+.part-link{font-family:var(--font-mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);margin-top:0.5rem}
+  .source-link{display:inline-block;font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);text-decoration:none;background:var(--bg3);border:1px solid var(--border-med);border-radius:3px;padding:3px 9px;white-space:nowrap;transition:border-color 0.15s,background 0.15s}
+  .source-link:hover{border-color:var(--gold);background:var(--gold-dim);text-decoration:none}
+  .source-plain{color:var(--text-dim,#6b6660)}
+  table{width:100%;border-collapse:collapse;margin-bottom:0;font-size:14px}
+  table+p, table+h3{margin-top:2rem}
+  .table-wrap+p,.table-wrap+h3{margin-top:2rem}
+/* Layout consistency overrides */
+  h3{margin-top:2.5rem;margin-bottom:1rem;font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--text)}
+  .card{padding:1.5rem}
+  .card .clabel{font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);margin-bottom:8px;font-family:var(--font-mono)}
+  .card .cval{font-size:1.1rem;font-weight:700;font-family:var(--font-display);color:var(--text);margin-bottom:8px;line-height:1.25}
+  .card .csub{font-size:13px;color:var(--text-muted);line-height:1.6}
+  .card-row>.card{display:grid;grid-template-rows:subgrid;grid-row:span 3;align-content:start}
+/* Equal section spacing: zero margins on true last children, padding carries the rhythm */
+  section > *:last-child { margin-bottom: 0 !important }
+  .hero > *:last-child   { margin-bottom: 0 !important }
+  .compare-band { margin-top: 2rem; margin-bottom: 2.5rem }
+  .table-wrap   { margin-bottom: 2.5rem }
+  .insight      { margin-bottom: 1.5rem }
+  .timeline     { margin-bottom: 2rem }
+  .hero > .stat-grid:last-child { margin-bottom: 0 }
+
+  /* SUITE NAV */
+  .suite-link{color:#9490A0;padding:0 0.85rem;height:36px;display:inline-flex;align-items:center;border-bottom:2px solid transparent;white-space:nowrap;text-decoration:none;transition:color 0.15s}
+  .suite-link:hover{color:#C9A84C;border-bottom-color:rgba(201,168,76,0.3)}
+  .suite-link.active{color:#C9A84C;border-bottom-color:#C9A84C}
+  #main-nav{top:36px !important}
+
+  /* CALLOUT STAT BLOCK */
+
+.table-source{font-family:var(--font-mono);font-size:10px;color:var(--text-dim);margin:-1rem 0 2rem;max-width:none}
+
+.list-band{border:1px solid var(--border);border-radius:4px;overflow:hidden;background:var(--border);display:grid;gap:1px;margin:0 0 2.5rem;counter-reset:li;padding:0}
+.list-band>li{background:var(--bg2);padding:1.25rem 1.5rem 1.25rem 1.25rem;display:grid;grid-template-columns:44px 1fr;column-gap:0.5rem;counter-increment:li;list-style:none}
+.list-band>li::before{content:counter(li,decimal-leading-zero);font-family:var(--font-mono);font-size:11px;font-weight:500;color:var(--gold);padding-top:3px;grid-row:1/span 3}
+.list-band>li>strong{font-size:14.5px;color:var(--text);font-weight:600;margin-bottom:0.35rem}
+.list-band>li>p{grid-column:2;font-size:14px;margin-bottom:0;max-width:none}
+.list-band .yn{grid-column:2;display:flex;gap:1.5rem;flex-wrap:wrap;margin-top:0.5rem}
+.list-band .yn span{font-size:12.5px;color:var(--text-muted);line-height:1.55;flex:1;min-width:220px}
+.list-band .yn b{font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;display:block;margin-bottom:2px}
+.list-band .yn .yes b{color:var(--teal)}
+.list-band .yn .no b{color:var(--coral)}
+</style>
+</head>
+<body>
+
+<div id="suite-nav" style="background:#f5f1e8;border-bottom:1px solid rgba(30,25,20,0.12);padding:0 2rem;display:flex;align-items:center;height:36px;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.09em;text-transform:uppercase;gap:0;overflow-x:auto;position:sticky;top:0;z-index:200">
+  <span style="color:#C9A84C;margin-right:1.5rem;padding-right:1.5rem;border-right:1px solid rgba(30,25,20,0.12);white-space:nowrap;font-weight:500">The Founder's Playbook &middot; The Pattern Recognition</span>
+  <a href="index.html" class="suite-link">Overview</a>
+  <a href="part-1.html" class="suite-link active">Part I &middot; The Fracture</a>
+  <a href="part-2.html" class="suite-link">Part II &middot; The Funnel</a>
+  <a href="part-3.html" class="suite-link">Part III &middot; The Playbook</a>
+</div>
+
+<nav id="main-nav">
+  <a href="https://www.llamagriffin.com" class="nav-brand" style="text-transform:none;letter-spacing:normal">Llama &amp; Griffin Consultants</a>
+  <a href="#top" class="nav-link">Overview</a>
+  <a href="#paradox" class="nav-link">The Revenue Paradox</a>
+  <a href="#supply" class="nav-link">The Supply Problem</a>
+  <a href="#funding" class="nav-link">The Funding Reset</a>
+</nav>
+
+<main>
+
+<div class="hero" id="top">
+  <div class="hero-eyebrow">Part I &middot; The Fracture</div>
+  <h1>Record Revenue, <span>Structural Collapse</span></h1>
+  <p class="hero-sub">The market is not in trouble. The middle of it is.</p>
+  <p class="hero-sub">Global game content revenue hit a third consecutive record in 2025. Private investment fell 55%. These are not contradictions in a cycle, they are features of a bifurcation that is now structural.</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item">Series <span>The Founder's Playbook</span></div>
+    <div class="hero-meta-item">Published <span>July 2026</span></div>
+    <div class="hero-meta-item">Sources <span>Matthew Ball &middot; GDC &middot; Konvoy &middot; S&amp;P</span></div>
+  </div>
+  <div class="stat-grid">
+    <div class="stat-cell"><div class="stat-val">$195.6B</div><div class="stat-lbl">Global content revenue 2025, +5.3% YoY</div></div>
+    <div class="stat-cell"><div class="stat-val coral">$55B+</div><div class="stat-lbl">Deal value in 2025, single EA acquisition = $55.19B</div></div>
+    <div class="stat-cell"><div class="stat-val purple">208</div><div class="stat-lbl">Private equity deals in 2025, down 45% YoY</div></div>
+    <div class="stat-cell"><div class="stat-val teal">$193M</div><div class="stat-lbl">Gaming VC in Q2 2025, down 62% YoY</div></div>
+  </div>
+</div>
+
+<section id="paradox">
+  <div class="section-label">Section 01</div>
+  <div class="chevrons"></div><h2>The Revenue Paradox</h2><span class="h2-kicker">The industry keeps growing. The capital that fuels its next generation keeps contracting.</span>
+  <p class="section-intro">Global game content revenue reached <strong>$195.6 billion in 2025</strong>, a 5.3% year-on-year increase and a third consecutive record, confirmed by Matthew Ball's 2026 State of Video Gaming presentation Matthew Ball, 2026.</p>
+
+  <p>Steam alone generated an estimated <strong>$17.7 to $17.9 billion</strong> in gross revenue, up approximately 15% year-over-year. The headline growth, though, sits on top of a market that has split cleanly in two. The bifurcation is internal: of roughly 19,000 to 21,000 games released in 2025, only approximately <strong>300 generated over $1 million in gross revenue</strong> Simon Carless, GameDiscoverCo.</p>
+
+  <div class="stat-grid">
+    <div class="stat-cell"><div class="stat-val">$249</div><div class="stat-lbl">Median indie gross, full year 2025</div></div>
+    <div class="stat-cell"><div class="stat-val">$174</div><div class="stat-lbl">To the developer after Valve's 30% cut</div></div>
+    <div class="stat-cell"><div class="stat-val coral">66%+</div><div class="stat-lbl">Of games earned under $1,000 all year</div></div>
+  </div>
+
+  <p>That $249 median sits directly beside a $195.6 billion top line. Both are the same market, measured at different altitudes.</p>
+
+  <div class="insight coral">
+    <strong>The read for founders.</strong> Aggregate revenue figures describe an industry. They do not describe the studio-level odds. A studio greenlit against the top-line number and financed against the median outcome is financed for a market that does not exist.
+  </div>
+</section>
+
+<section id="supply">
+  <div class="section-label">Section 02</div>
+  <div class="chevrons"></div><h2>The Supply Problem Is Not Coming. It Already Arrived.</h2><span class="h2-kicker">21,541 new titles. 80% invisible on arrival.</span>
+  <p class="section-intro">Steam received <strong>21,541 new titles in 2025</strong>, the highest annual release count in the platform's history, up from 18,573 in 2024 and 14,054 in 2023 SteamDB. The cumulative catalog sits at 129,330 games as of mid-July 2026.</p>
+
+  <h3>Release volume history</h3>
+  <div style="position:relative;width:100%;max-width:760px;margin:0 0 0.5rem">
+    <canvas id="releaseChart" height="180"></canvas>
+  </div>
+  <p style="font-family:var(--font-mono);font-size:9px;color:var(--text-dim);letter-spacing:0.06em;text-transform:uppercase;margin:0 0 2rem">2026 YTD as of July 12, 2026 &middot; Source: SteamDB</p>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script>
+  (function(){
+    var labels = ['2021','2022','2023','2024','2025','2026 YTD'];
+    var vals   = [11233, 12268, 14054, 18573, 21541, 6841];
+    var changes= ['','+9%','+15%','+32%','+16%','YTD'];
+    var gold   = '#c3a55f';
+    var goldDim= 'rgba(195,165,95,0.38)';
+    var bg     = getComputedStyle(document.documentElement).getPropertyValue('--bg2').trim() || '#f1ede4';
+
+    Chart.register({
+      id:'topLabels',
+      afterDatasetsDraw(chart){
+        var ctx=chart.ctx;
+        chart.data.datasets[0].data.forEach(function(val,i){
+          var meta=chart.getDatasetMeta(0);
+          var bar=meta.data[i];
+          ctx.save();
+          ctx.font='500 10px "IBM Plex Mono", monospace';
+          ctx.fillStyle='#6b6660';
+          ctx.textAlign='center';
+          ctx.textBaseline='bottom';
+          ctx.fillText(val.toLocaleString(), bar.x, bar.y - 5);
+          if(changes[i]){
+            ctx.font='500 9px "IBM Plex Mono", monospace';
+            ctx.fillStyle= i===5 ? '#8a8480' : '#c3a55f';
+            ctx.fillText(changes[i], bar.x, bar.y - 17);
+          }
+          ctx.restore();
+        });
+      }
+    });
+
+    new Chart(document.getElementById('releaseChart'),{
+      type:'bar',
+      data:{
+        labels:labels,
+        datasets:[{
+          data:vals,
+          backgroundColor:['rgba(195,165,95,0.75)','rgba(195,165,95,0.75)','rgba(195,165,95,0.75)','rgba(195,165,95,0.75)','rgba(195,165,95,0.9)','rgba(195,165,95,0.35)'],
+          borderColor:['#c3a55f','#c3a55f','#c3a55f','#c3a55f','#c3a55f','rgba(195,165,95,0.6)'],
+          borderWidth:1,
+          borderRadius:3,
+          borderSkipped:false
+        }]
+      },
+      options:{
+        responsive:true,
+        plugins:{
+          legend:{display:false},
+          tooltip:{
+            callbacks:{
+              label:function(ctx){return ' '+ctx.parsed.y.toLocaleString()+' releases'},
+              afterLabel:function(ctx){return changes[ctx.dataIndex]?'Change: '+changes[ctx.dataIndex]:''}
+            },
+            backgroundColor:'#232323',
+            titleColor:'#cdccca',
+            bodyColor:'#cdccca',
+            titleFont:{family:'"IBM Plex Mono"',size:10},
+            bodyFont:{family:'"IBM Plex Mono"',size:10},
+            padding:10,
+            cornerRadius:3
+          }
+        },
+        scales:{
+          x:{
+            grid:{display:false},
+            border:{display:false},
+            ticks:{font:{family:'"IBM Plex Mono"',size:10},color:'#6b6660'}
+          },
+          y:{
+            grid:{color:'rgba(210,205,195,0.5)',lineWidth:1},
+            border:{display:false,dash:[3,3]},
+            ticks:{
+              font:{family:'"IBM Plex Mono"',size:9},
+              color:'#8a8480',
+              callback:function(v){return v>=1000?(v/1000)+'k':v}
+            },
+            max:24000
+          }
+        },
+        layout:{padding:{top:36,right:4,bottom:0,left:0}}
+      }
+    });
+  })();
+  </script>
+
+  <p>Growth in release volume is slowing even as the count keeps climbing: the 2025 increase was approximately 16% over 2024, down from 2024's 32% jump over 2023. The deceleration in growth rate does not change the saturation problem. It just means the market is arriving at the ceiling more slowly than the prior year suggested it would.</p>
+
+  <p>Roughly <strong>80% of Steam releases fail to generate enough player activity</strong> for Valve to enable community features on the store page KitGuru. Nearly half of 2025 releases received fewer than 10 reviews TechSpot. SteamDB data from mid-December 2025 shows the shape clearly: 2,229 games had zero reviews, 7,098 had only 1 to 9 reviews, and only 3,096 games had 100 or more reviews.</p>
+
+  <div class="insight">
+    <strong>A note on reading SteamDB counts.</strong> SteamDB revises annual release counts retroactively as delisted titles are removed and backfilled entries land, so aggregator snapshots of the same year can differ by hundreds or more. Every figure in this table is from the live SteamDB release summary as of July 12, 2026, and should be read as a snapshot, not a fixed record.
+  </div>
+</section>
+
+<section id="funding">
+  <div class="section-label">Section 03</div>
+  <div class="chevrons"></div><h2>The Funding Structure Has Already Reset</h2><span class="h2-kicker">Not a correction. A structural reset.</span>
+  <p class="section-intro">Between 2021 and 2025, private pre-seed funding in games fell from approximately $400 million per quarter to under $100 million per quarter Konvoy. That is not a dip inside a cycle. It is a different capital environment.</p>
+
+  <p>S&amp;P Global Market Intelligence data shows private equity deal volume fell 45% year-on-year to 208 deals in 2025. Deal value, on paper, surged to $55.92 billion, but that figure is almost entirely the proposed $55.19 billion EA acquisition, a single outlier that has no bearing on access to capital for studio founders. Strip it out and the deal-value picture matches the deal-volume collapse.</p>
+
+  <p>Konvoy's data shows gaming VC <strong>fell 62% year-on-year in Q2 2025</strong> to just $193 million across 60 deals. PitchBook data confirms Q1 2025 saw just 44 pre-seed and seed deals, the fewest since Q3 2018.</p>
+
+  <h3>GDC 2026 State of the Game Industry findings</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Finding</th><th>Figure</th><th>Source</th></tr></thead>
+      <tbody>
+        <tr><td>Developers who self-fund</td><td>35% (86% for solo devs)</td><td>GDC 2026</td></tr>
+        <tr><td>Respondents laid off in prior two years</td><td>Over a quarter</td><td>GDC 2026</td></tr>
+        <tr><td>AAA respondents whose companies had layoffs</td><td>Nearly two-thirds</td><td>GDC 2026</td></tr>
+        <tr><td>GenAI negative impact view</td><td>52% (up from 18% in 2024)</td><td>GDC 2026</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="table-source">Source: <a href="https://gdconf.com/article/gdc-2026-state-of-the-game-industry-reveals-impact-of-layoffs-generative-ai-and-more/" target="_blank" rel="noopener">GDC 2026 State of the Game Industry</a></p>
+
+  <h3>Xbox restructuring, July 2026</h3>
+  <p>Announced July 6, 2026: 3,200 job cuts, 20% of divisional headcount Bloomberg. Four studios were formally divested: Ninja Theory and Undead Labs to new owners, Compulsion Games and Double Fine returning to their founders with runway funding and IP rights. Arkane Lyon in France entered a separate mandatory Works Council consultation under French labor law. Sale, spinoff, or closure all remain possible; the process is expected to take months.</p>
+
+  <p>CEO Asha Sharma's internal memo described margins running <strong>3 to 10 times lower than comparable platform businesses</strong>. Compulsion Games and Double Fine are returning to private ownership with runway funding and full IP rights, a structure worth watching as a template for what divestiture can look like when it is not simply a shutdown.</p>
+
+  <div class="insight purple">
+    <strong>What this means for a 2022-vintage studio.</strong> The capital environment your studio was greenlit against no longer exists. Pre-seed money has fallen by roughly three-quarters in real terms. A platform holder with Microsoft's balance sheet is restructuring on the same margin logic a founder now has to apply to their own studio. Part III builds the funding map for what is actually available now.
+  </div>
+</section>
+
+<div class="bio">
+  <p>Abbas Saleem is a Principal Consultant at <a href="https://www.llamagriffin.com/" target="_blank" rel="noopener noreferrer">Llama &amp; Griffin</a>, advising game studios, streaming platforms, and investment funds across six continents. He writes The Pattern Recognition: gaming industry intelligence 12 to 24 months before it becomes consensus. <a href="https://www.linkedin.com/in/abbassaleemkhan/" target="_blank" rel="noopener noreferrer">LinkedIn</a> | <a href="https://cal.com/llamagriffin/30min" target="_blank" rel="noopener noreferrer">Book a conversation</a></p>
+</div>
+
+<div class="series-nav">
+  <a class="series-link" href="index.html">Series Home<span>The Founder's Playbook</span></a>
+  <a class="series-link next" href="part-2.html">Part II<span>The Funnel</span></a>
+</div>
+
+<footer>
+  <div>The Founder's Playbook &middot; <span>Llama &amp; Griffin Consultants</span></div>
+  <div><span>recognizingpatterns.substack.com</span> &middot; llamagriffin.com</div>
+</footer>
+
+</main>
+<script>
+function initNav(){
+  const sects=document.querySelectorAll('section[id],.hero[id]');
+  const links=document.querySelectorAll('#main-nav a');
+  const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.remove('active'));const a=document.querySelector(`#main-nav a[href="#${e.target.id}"]`);if(a)a.classList.add('active');}})},{rootMargin:'-25% 0px -70% 0px'});
+  sects.forEach(s=>obs.observe(s));
+  links.forEach(l=>l.addEventListener('click',e=>{e.preventDefault();document.querySelector(l.getAttribute('href')).scrollIntoView({behavior:'smooth'});}));
+}
+initNav();
+</script>
+</body>
+</html>
