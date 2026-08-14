@@ -121,17 +121,18 @@ table.compare tr:last-child td{border-bottom:none}
 .tag-likely{background:var(--purple-dim);color:var(--purple)}
 
 /* TOC */
-.toc{margin:2rem auto;max-width:960px}
-.toc .toc-title{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);margin-bottom:0.75rem}
-.toc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
-.toc-card{background:var(--bg2);border:1px solid var(--border);border-radius:4px;padding:1rem 1.25rem;text-decoration:none;display:flex;flex-direction:column;gap:0.2rem}
-.toc-card:hover{text-decoration:none}
-.toc-card .toc-num{font-family:var(--font-mono);font-size:10px;font-weight:500;color:var(--gold)}
-.toc-card .toc-name{font-family:var(--font-body);font-size:15px;color:var(--text);line-height:1.35}
-.toc-card:hover .toc-name{color:var(--gold)}
-.toc-card .toc-kicker{font-size:12px;color:var(--text-muted);line-height:1.5}
-.toc-card-full{grid-column:1/-1}
-@media(max-width:700px){.toc-grid{grid-template-columns:1fr}}
+.toc{background:var(--bg2);border:1px solid var(--border-med);border-radius:4px;padding:1.5rem 1.75rem;margin:2rem auto;max-width:960px}
+.toc .toc-title{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);margin-bottom:0.9rem}
+.toc-row{display:grid;grid-template-columns:2.5rem 1fr;align-items:baseline;padding:0.9rem 0;border-bottom:1px solid var(--border);text-decoration:none}
+.toc-row:first-child{padding-top:0}
+.toc-row:last-child{border-bottom:none;padding-bottom:0}
+.toc-row:hover{text-decoration:none}
+.toc-row .toc-num{font-family:var(--font-mono);font-size:11px;color:var(--gold)}
+.toc-row .toc-name{display:block;font-family:var(--font-body);font-size:16px;color:var(--text);line-height:1.35}
+.toc-row:hover .toc-name{color:var(--gold)}
+.toc-row:hover .toc-num{color:var(--text)}
+.toc-row .toc-kicker{display:block;font-size:13px;color:var(--text-muted);line-height:1.5;margin-top:3px}
+@media(max-width:700px){.toc-row{grid-template-columns:2rem 1fr}.toc-row .toc-name{font-size:15px}.toc-row .toc-kicker{font-size:12px}}
 
 /* SERIES NAV */
 .series-nav{max-width:960px;margin:0 auto;padding:2.5rem 2rem;border-top:1px solid var(--border);display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
@@ -201,14 +202,12 @@ footer .methodology{width:100%;font-size:11px;color:var(--text-dim);line-height:
 
 <div class="toc">
   <div class="toc-title">In this part</div>
-  <div class="toc-grid">
-    <a href="#appstore" class="toc-card"><div class="toc-num">01</div><div class="toc-name">Apple App Store</div><div class="toc-kicker">Fewer downloads, far more money: a smaller audience worth more per head.</div></a>
-    <a href="#googleplay" class="toc-card"><div class="toc-num">02</div><div class="toc-name">Google Play</div><div class="toc-kicker">The volume platform: most of the world's installs, a fraction of the money.</div></a>
-    <a href="#concentration" class="toc-card"><div class="toc-num">03</div><div class="toc-name">Mobile Revenue Concentration</div><div class="toc-kicker">Mobile's winner-take-most problem is at least as extreme as Steam's: arguably worse.</div></a>
-    <a href="#discoverability" class="toc-card"><div class="toc-num">04</div><div class="toc-name">Discoverability: Editorial vs. Algorithmic</div><div class="toc-kicker">The same F2P economics, two different paths to visibility: very different UA costs.</div></a>
-    <a href="#matrix" class="toc-card"><div class="toc-num">05</div><div class="toc-name">The Decision Matrix</div><div class="toc-kicker">Match the economy to the game, not the game to the cheapest commission.</div></a>
-    <a href="#diagnostic" class="toc-card"><div class="toc-num">06</div><div class="toc-name">Diagnostic Questions</div><div class="toc-kicker">Before greenlighting a platform strategy, five things for a whiteboard.</div></a>
-  </div>
+    <a href="#appstore" class="toc-row"><span class="toc-num">01</span><span class="toc-body"><span class="toc-name">Apple App Store</span><span class="toc-kicker">Fewer downloads, far more money: a smaller audience worth more per head.</span></span></a>
+    <a href="#googleplay" class="toc-row"><span class="toc-num">02</span><span class="toc-body"><span class="toc-name">Google Play</span><span class="toc-kicker">The volume platform: most of the world's installs, a fraction of the money.</span></span></a>
+    <a href="#concentration" class="toc-row"><span class="toc-num">03</span><span class="toc-body"><span class="toc-name">Mobile Revenue Concentration</span><span class="toc-kicker">Mobile's winner-take-most problem is at least as extreme as Steam's: arguably worse.</span></span></a>
+    <a href="#discoverability" class="toc-row"><span class="toc-num">04</span><span class="toc-body"><span class="toc-name">Discoverability: Editorial vs. Algorithmic</span><span class="toc-kicker">The same F2P economics, two different paths to visibility: very different UA costs.</span></span></a>
+    <a href="#matrix" class="toc-row"><span class="toc-num">05</span><span class="toc-body"><span class="toc-name">The Decision Matrix</span><span class="toc-kicker">Match the economy to the game, not the game to the cheapest commission.</span></span></a>
+    <a href="#diagnostic" class="toc-row"><span class="toc-num">06</span><span class="toc-body"><span class="toc-name">Diagnostic Questions</span><span class="toc-kicker">Before greenlighting a platform strategy, five things for a whiteboard.</span></span></a>
 </div>
 
 <main>

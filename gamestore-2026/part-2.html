@@ -120,17 +120,18 @@ table.compare tr:last-child td{border-bottom:none}
 .tag-likely{background:var(--purple-dim);color:var(--purple)}
 
 /* TOC */
-.toc{margin:2rem auto;max-width:960px}
-.toc .toc-title{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);margin-bottom:0.75rem}
-.toc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
-.toc-card{background:var(--bg2);border:1px solid var(--border);border-radius:4px;padding:1rem 1.25rem;text-decoration:none;display:flex;flex-direction:column;gap:0.2rem}
-.toc-card:hover{text-decoration:none}
-.toc-card .toc-num{font-family:var(--font-mono);font-size:10px;font-weight:500;color:var(--gold)}
-.toc-card .toc-name{font-family:var(--font-body);font-size:15px;color:var(--text);line-height:1.35}
-.toc-card:hover .toc-name{color:var(--gold)}
-.toc-card .toc-kicker{font-size:12px;color:var(--text-muted);line-height:1.5}
-.toc-card-full{grid-column:1/-1}
-@media(max-width:700px){.toc-grid{grid-template-columns:1fr}}
+.toc{background:var(--bg2);border:1px solid var(--border-med);border-radius:4px;padding:1.5rem 1.75rem;margin:2rem auto;max-width:960px}
+.toc .toc-title{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);margin-bottom:0.9rem}
+.toc-row{display:grid;grid-template-columns:2.5rem 1fr;align-items:baseline;padding:0.9rem 0;border-bottom:1px solid var(--border);text-decoration:none}
+.toc-row:first-child{padding-top:0}
+.toc-row:last-child{border-bottom:none;padding-bottom:0}
+.toc-row:hover{text-decoration:none}
+.toc-row .toc-num{font-family:var(--font-mono);font-size:11px;color:var(--gold)}
+.toc-row .toc-name{display:block;font-family:var(--font-body);font-size:16px;color:var(--text);line-height:1.35}
+.toc-row:hover .toc-name{color:var(--gold)}
+.toc-row:hover .toc-num{color:var(--text)}
+.toc-row .toc-kicker{display:block;font-size:13px;color:var(--text-muted);line-height:1.5;margin-top:3px}
+@media(max-width:700px){.toc-row{grid-template-columns:2rem 1fr}.toc-row .toc-name{font-size:15px}.toc-row .toc-kicker{font-size:12px}}
 
 /* SERIES NAV */
 .series-nav{max-width:960px;margin:0 auto;padding:2.5rem 2rem;border-top:1px solid var(--border);display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
@@ -194,13 +195,11 @@ footer .methodology{width:100%;font-size:11px;color:var(--text-dim);line-height:
 
 <div class="toc">
   <div class="toc-title">In this part</div>
-  <div class="toc-grid">
-    <a href="#steam" class="toc-card"><div class="toc-num">01</div><div class="toc-name">Steam</div><div class="toc-kicker">The dominant platform, and the platform nobody can agree on the size of.</div></a>
-    <a href="#epic" class="toc-card"><div class="toc-num">02</div><div class="toc-name">Epic Games Store</div><div class="toc-kicker">The developer-friendly challenger: leaner commission, a fraction of the scale.</div></a>
-    <a href="#playstation" class="toc-card"><div class="toc-num">03</div><div class="toc-name">PlayStation Network</div><div class="toc-kicker">Console economics measured in a different currency than storefront revenue.</div></a>
-    <a href="#xbox" class="toc-card"><div class="toc-num">04</div><div class="toc-name">Xbox</div><div class="toc-kicker">A headline figure that was already out of date by the time it circulated.</div></a>
-    <a href="#traps" class="toc-card toc-card-full"><div class="toc-num">05</div><div class="toc-name">Cross-Storefront Comparison Traps</div><div class="toc-kicker">Four errors that show up in nearly every platform comparison table.</div></a>
-  </div>
+    <a href="#steam" class="toc-row"><span class="toc-num">01</span><span class="toc-body"><span class="toc-name">Steam</span><span class="toc-kicker">The dominant platform, and the platform nobody can agree on the size of.</span></span></a>
+    <a href="#epic" class="toc-row"><span class="toc-num">02</span><span class="toc-body"><span class="toc-name">Epic Games Store</span><span class="toc-kicker">The developer-friendly challenger: leaner commission, a fraction of the scale.</span></span></a>
+    <a href="#playstation" class="toc-row"><span class="toc-num">03</span><span class="toc-body"><span class="toc-name">PlayStation Network</span><span class="toc-kicker">Console economics measured in a different currency than storefront revenue.</span></span></a>
+    <a href="#xbox" class="toc-row"><span class="toc-num">04</span><span class="toc-body"><span class="toc-name">Xbox</span><span class="toc-kicker">A headline figure that was already out of date by the time it circulated.</span></span></a>
+    <a href="#traps" class="toc-row"><span class="toc-num">05</span><span class="toc-body"><span class="toc-name">Cross-Storefront Comparison Traps</span><span class="toc-kicker">Four errors that show up in nearly every platform comparison table.</span></span></a>
 </div>
 
 <main>
