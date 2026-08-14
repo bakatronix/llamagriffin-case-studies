@@ -126,13 +126,17 @@ table.compare tr:last-child td{border-bottom:none}
 .conf-likely{color:var(--purple)}
 
 /* TOC */
-.toc{background:var(--bg2);border:1px solid var(--border-med);border-radius:4px;padding:1.25rem 1.5rem;margin:2rem auto;max-width:960px}
+.toc{margin:2rem auto;max-width:960px}
 .toc .toc-title{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);margin-bottom:0.75rem}
-.toc ol{list-style:none;counter-reset:toc-item;padding:0;margin:0}
-.toc li{counter-increment:toc-item;margin-bottom:6px}
-.toc li::before{content:counter(toc-item,decimal-leading-zero);font-family:var(--font-mono);font-size:10px;font-weight:500;color:var(--gold);margin-right:12px}
-.toc a{font-size:14px;color:var(--text-muted);transition:color 0.15s}
-.toc a:hover{color:var(--gold);text-decoration:none}
+.toc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.toc-card{background:var(--bg2);padding:1rem 1.25rem;text-decoration:none;display:flex;flex-direction:column;gap:0.2rem}
+.toc-card:hover{text-decoration:none}
+.toc-card .toc-num{font-family:var(--font-mono);font-size:10px;font-weight:500;color:var(--gold)}
+.toc-card .toc-name{font-family:var(--font-body);font-size:15px;color:var(--text);line-height:1.35}
+.toc-card:hover .toc-name{color:var(--gold)}
+.toc-card .toc-kicker{font-size:12px;color:var(--text-muted);line-height:1.5}
+.toc-card-full{grid-column:1/-1}
+@media(max-width:700px){.toc-grid{grid-template-columns:1fr}}
 
 /* SERIES NAV */
 .series-nav{max-width:960px;margin:0 auto;padding:2.5rem 2rem;border-top:1px solid var(--border);display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
@@ -202,15 +206,15 @@ footer .methodology{width:100%;font-size:11px;color:var(--text-dim);line-height:
 
 <div class="toc">
   <div class="toc-title">In this part</div>
-  <ol>
-    <li><a href="#s1">The Core Divergence</a></li>
-    <li><a href="#s2">FTUE: Seduction vs. Delivery</a></li>
-    <li><a href="#s3">The Steam Refund Clock</a></li>
-    <li><a href="#s4">Where Each Model Fails</a></li>
-    <li><a href="#s5">User Acquisition Economics</a></li>
-    <li><a href="#s6">Commission Structure: All Six Storefronts</a></li>
-    <li><a href="#s7">The Decision Model</a></li>
-  </ol>
+  <div class="toc-grid">
+    <a href="#s1" class="toc-card"><div class="toc-num">01</div><div class="toc-name">The Core Divergence</div><div class="toc-kicker">One transaction moment, not two similar businesses.</div></a>
+    <a href="#s2" class="toc-card"><div class="toc-num">02</div><div class="toc-name">FTUE: Seduction vs. Delivery</div><div class="toc-kicker">The job description is different before the money changes hands.</div></a>
+    <a href="#s3" class="toc-card"><div class="toc-num">03</div><div class="toc-name">The Steam Refund Clock</div><div class="toc-kicker">A hidden design deadline that mobile never faces.</div></a>
+    <a href="#s4" class="toc-card"><div class="toc-num">04</div><div class="toc-name">Where Each Model Fails</div><div class="toc-kicker">Opposite failure modes, same underlying error: bad timing.</div></a>
+    <a href="#s5" class="toc-card"><div class="toc-num">05</div><div class="toc-name">User Acquisition Economics</div><div class="toc-kicker">A dollar of revenue is not a dollar of revenue.</div></a>
+    <a href="#s6" class="toc-card"><div class="toc-num">06</div><div class="toc-name">Commission Structure: All Six Storefronts</div><div class="toc-kicker">The cut is never just the headline percentage.</div></a>
+    <a href="#s7" class="toc-card"><div class="toc-num">07</div><div class="toc-name">The Decision Model</div><div class="toc-kicker">The question isn't "which store is cheaper." It's "which economy matches your game."</div></a>
+  </div>
 </div>
 
 <main>
