@@ -83,23 +83,13 @@ p:last-child{margin-bottom:0}
 /* TABLES */
 main > section:first-of-type{border-top:none}
 /* CHARTS */
-.chart{margin:2rem 0 1.5rem;padding:1.5rem 1.5rem 1.25rem;background:var(--bg2);border:1px solid var(--border);border-radius:4px}
-.chart-title{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);margin-bottom:1rem}
-.chart svg{width:100%;height:auto;display:block;overflow:visible}
-.chart figcaption{font-family:var(--font-mono);font-size:10px;color:var(--text-dim);line-height:1.65;margin-top:1rem;border-top:1px solid var(--border);padding-top:0.75rem}
-.chart figcaption a{color:var(--gold);text-decoration:none}
-.chart figcaption a:hover{text-decoration:underline}
-.chart-legend{display:flex;gap:1.25rem;flex-wrap:wrap;margin-bottom:1.1rem;font-family:var(--font-mono);font-size:10px;color:var(--text-dim)}
-.chart-legend span{display:flex;align-items:center;gap:7px}
-.chart-legend i{width:10px;height:10px;border-radius:2px;display:inline-block}
-.chart .lbl{font-family:var(--font-mono);font-size:11px;fill:var(--text)}
-.chart .sub{font-family:var(--font-mono);font-size:9px;fill:var(--text-dim)}
-.chart .val{font-family:var(--font-mono);font-size:11px;font-weight:500;fill:var(--text)}
-.chart .valx{font-family:var(--font-mono);font-size:10px;fill:var(--bg2);font-weight:500}
-.chart .ax{font-family:var(--font-mono);font-size:9px;fill:var(--text-dim)}
-.chart .grid{stroke:var(--border);stroke-width:1}
-.chart .base{stroke:var(--border-med);stroke-width:1}
-@media(max-width:700px){.chart{padding:1.1rem 1rem}}
+.chart-wrap{position:relative;width:100%;margin:1.5rem 0 2.5rem}
+.chart-legend{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:12px;font-size:12px;color:var(--text-muted)}
+.chart-legend span{display:flex;align-items:center;gap:6px}
+.swatch{width:10px;height:10px;border-radius:2px;flex-shrink:0}
+.chart-note{font-family:var(--font-mono);font-size:10px;color:var(--text-dim);margin:0 0 2.5rem;line-height:1.65;max-width:72ch}
+.chart-note a{color:var(--gold);text-decoration:none}
+.chart-note a:hover{text-decoration:underline}
 .table-wrap{margin-bottom:1.5rem;border:1px solid var(--border);border-radius:4px;overflow:hidden;overflow-x:auto}
 table{width:100%;border-collapse:collapse;font-size:13px}
 thead th{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);padding:0.75rem 1rem;text-align:left;border-bottom:1px solid var(--border-med);background:var(--bg3);white-space:nowrap}
@@ -231,22 +221,28 @@ footer .methodology{width:100%;font-size:11px;color:var(--text-dim);line-height:
       </tbody>
     </table>
   </div>
-<figure class="chart">
-    <div class="chart-title">Five rulers: what each firm counted when it said &ldquo;Steam revenue&rdquo;</div>
-    <svg viewBox="0 0 720 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Five analytics firms’ 2025 Steam revenue figures, each measuring a different scope"><line class="grid" x1="214" y1="14" x2="214" y2="314"/><text class="ax" x="214" y="8" text-anchor="middle">$0B</text><line class="grid" x1="340" y1="14" x2="340" y2="314"/><text class="ax" x="340" y="8" text-anchor="middle">$5B</text><line class="grid" x1="465" y1="14" x2="465" y2="314"/><text class="ax" x="465" y="8" text-anchor="middle">$10B</text><line class="grid" x1="591" y1="14" x2="591" y2="314"/><text class="ax" x="591" y="8" text-anchor="middle">$15B</text><text class="lbl" x="0" y="42">Alinea Analytics</text><text class="sub" x="0" y="57">Platform-wide: paid, F2P, in-game</text><rect x="214" y="32" width="444.5" height="22" fill="var(--blue)" rx="1"/><text class="val" x="667.5" y="48">$17.7B</text><text class="lbl" x="0" y="102">GameDiscoverCo</text><text class="sub" x="0" y="117">Platform-wide, incl. Valve titles</text><rect x="214" y="92" width="424.4" height="22" fill="var(--blue)" rx="1"/><text class="val" x="647.4" y="108">$16.9B</text><text class="lbl" x="0" y="162">Sensor Tower</text><text class="sub" x="0" y="177">Cross-platform gaming comparison</text><rect x="214" y="152" width="293.8" height="22" fill="var(--blue)" rx="1"/><text class="val" x="516.8" y="168">$11.7B</text><text class="lbl" x="0" y="222">Video Game Insights</text><text class="sub" x="0" y="237">Paid game sales only (2024 fcst.)</text><rect x="214" y="212" width="221.0" height="22" fill="var(--blue)" rx="1"/><text class="val" x="444.0" y="228">$8.8B</text><text class="lbl" x="0" y="282">Gamalytic</text><text class="sub" x="0" y="297">New 2025 releases only</text><rect x="214" y="272" width="118.0" height="22" fill="var(--blue)" rx="1"/><text class="val" x="341.0" y="288">$4.7B</text><line class="base" x1="214" y1="14" x2="214" y2="314"/></svg>
-    <figcaption>These bars are not five estimates of one number. They are five answers to five different questions, and the scope beneath each firm name is the question it answered. Full-year 2025 unless noted. Sensor Tower&rsquo;s figure comes from its cross-platform gaming comparison and appears to undercount Steam relative to firms specialising in PC storefront tracking.</figcaption>
-  </figure>
+<h3>Five rulers: what each firm counted when it said "Steam revenue"</h3>
+<div class="chart-wrap" style="height:320px">
+  <div class="chart-legend">
+    <span><span class="swatch" style="background:#3d77c4"></span>2025 Steam revenue, by firm</span>
+  </div>
+  <canvas id="rulersChart" role="img" aria-label="Five analytics firms' 2025 Steam revenue figures, each measuring a different scope"></canvas>
+</div>
+<p class="chart-note">These bars are not five estimates of one number. They are five answers to five different questions, and the scope beneath each firm name is the question it answered. Full-year 2025 unless noted. Sensor Tower's figure comes from its cross-platform gaming comparison and appears to undercount Steam relative to firms specialising in PC storefront tracking.</p>
 
 
   <h3>Commission Structure</h3>
   <p>Valve charges a standard 30% cut on the first $10 million a game earns, dropping to 25% between $10M–$50M, and 20% above $50M lifetime. The tiers apply by revenue tranche, not by title, so a game that crossed $50M still paid 30% on its first $10M and 25% on the next $40M. The blended effective payout rate across all non-Valve games in 2025 was approximately 76%, meaning Valve's average effective cut fell closer to 24% overall; but that average is pulled down almost entirely by a small number of top-earning titles.</p>
   <p>Games grossing over $50 million lifetime accounted for $7.74 billion of the $14.98 billion in third-party revenue. Valve tiers by revenue tranche rather than by title, so every game that crossed $50 million still paid 30% on its first $10 million. About $3.5 billion of third-party revenue sat in that 30% tranche, generating roughly $1.05 billion of Valve's $3.54 billion total royalty for the year. The reduced rates apply to a small number of titles, and the blended 24% figure describes almost no individual developer's experience. <span class="tag tag-directional">Directional</span> <span class="tag tag-prov">Third-party estimate (<a href="https://newsletter.gamediscover.co/p/revealed-the-numbers-behind-steams" target="_blank" rel="noopener">GDCo</a> tier analysis)</span></p>
 
-  <figure class="chart">
-    <div class="chart-title">Valve&rsquo;s 2025 royalty, by revenue tranche</div>
-    <svg viewBox="0 0 720 174" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Valve 2025 royalty by revenue tranche"><line class="grid" x1="186" y1="14" x2="186" y2="158"/><text class="ax" x="186" y="8" text-anchor="middle">$0</text><line class="grid" x1="317" y1="14" x2="317" y2="158"/><text class="ax" x="317" y="8" text-anchor="middle">$0.5B</text><line class="grid" x1="448" y1="14" x2="448" y2="158"/><text class="ax" x="448" y="8" text-anchor="middle">$1.0B</text><line class="grid" x1="580" y1="14" x2="580" y2="158"/><text class="ax" x="580" y="8" text-anchor="middle">$1.5B</text><text class="lbl" x="0" y="46">30% tranche</text><rect x="186" y="32" width="275.6" height="20" fill="var(--coral)" rx="1"/><text class="val" x="470.6" y="47">$1.05B</text><text class="lbl" x="0" y="94">25% tranche</text><rect x="186" y="80" width="245.4" height="20" fill="var(--coral)" rx="1"/><text class="val" x="440.4" y="95">$935M</text><text class="lbl" x="0" y="142">20% tranche</text><rect x="186" y="128" width="406.9" height="20" fill="var(--coral)" rx="1"/><text class="val" x="601.9" y="143">$1.55B</text><line class="base" x1="186" y1="14" x2="186" y2="158"/></svg>
-    <figcaption>Total platform royalty of $3.54 billion on $14.98 billion of third-party revenue, which is where the 24% blended figure comes from. The 30% tranche is the first $10 million of every game, not a set of small games: roughly $3.5 billion of revenue sat in it. Source: <a href="https://newsletter.gamediscover.co/p/revealed-the-numbers-behind-steams" target="_blank" rel="noopener noreferrer">GameDiscoverCo</a>.</figcaption>
-  </figure>
+  <h3>Valve's 2025 royalty, by revenue tranche</h3>
+<div class="chart-wrap" style="height:200px">
+  <div class="chart-legend">
+    <span><span class="swatch" style="background:#b85a3a"></span>Royalty collected</span>
+  </div>
+  <canvas id="royaltyChart" role="img" aria-label="Valve 2025 royalty by revenue tranche"></canvas>
+</div>
+<p class="chart-note">Total platform royalty of $3.54 billion on $14.98 billion of third-party revenue, which is where the 24% blended figure comes from. The 30% tranche is the first $10 million of every game, not a set of small games: roughly $3.5 billion of revenue sat in it. Source: <a href="https://newsletter.gamediscover.co/p/revealed-the-numbers-behind-steams" target="_blank" rel="noopener noreferrer">GameDiscoverCo</a>.</p>
 
   <h3>The Concentration Floor</h3>
   <p><a href="https://80.lv/articles/analysts-report-drop-in-game-revenue-on-steam-despite-growing-number-of-releases" target="_blank" rel="noopener">Gamalytic</a>'s October 2025 read on that year's releases, taken with roughly 12,700 titles logged and the year still running: median gross revenue $249, the second-lowest since 2020; 66% of games earned under $1,000; 40% never recouped the $100 Steam Direct submission fee; 47.4% sold fewer than 100 copies; the bottom 30% averaged just $37. <span class="tag tag-directional">Directional</span> <span class="tag tag-prov">Third-party estimate (Gamalytic)</span></p>
@@ -387,6 +383,35 @@ function initNav(){
   links.forEach(function(l){l.addEventListener('click',function(e){e.preventDefault();document.querySelector(l.getAttribute('href')).scrollIntoView({behavior:'smooth'});})});
 }
 initNav();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+new Chart(document.getElementById('rulersChart'),{
+  type:'bar',
+  data:{labels:[['Alinea Analytics','Platform-wide: paid, F2P, in-game'],['GameDiscoverCo','Platform-wide, incl. Valve titles'],['Sensor Tower','Cross-platform gaming comparison'],['Video Game Insights','Paid game sales only (2024 fcst.)'],['Gamalytic','New 2025 releases only']],
+    datasets:[
+      {label:'2025 Steam revenue',data:[17.7,16.9,11.7,8.8,4.7],backgroundColor:'rgba(61,119,196,0.82)',borderWidth:0,borderRadius:3,maxBarThickness:24}
+    ]},
+  options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false}},
+    scales:{
+      x:{grid:{color:'rgba(35,35,35,0.07)'},ticks:{color:'#6b6660',font:{size:11},callback:v=>'$'+v+'B'}},
+      y:{grid:{display:false},ticks:{color:'#6b6660',font:{size:12}}}
+    }}
+});
+new Chart(document.getElementById('royaltyChart'),{
+  type:'bar',
+  data:{labels:['30% tranche','25% tranche','20% tranche'],
+    datasets:[
+      {label:'Royalty collected',data:[1050,935,1550],backgroundColor:'rgba(184,90,58,0.82)',borderWidth:0,borderRadius:3,maxBarThickness:24}
+    ]},
+  options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false}},
+    scales:{
+      x:{grid:{color:'rgba(35,35,35,0.07)'},ticks:{color:'#6b6660',font:{size:11},callback:v=> v>=1000 ? '$'+(v/1000)+'B' : '$'+v+'M'}},
+      y:{grid:{display:false},ticks:{color:'#6b6660',font:{size:12}}}
+    }}
+});
 </script>
 </body>
 </html>
