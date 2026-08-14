@@ -45,13 +45,13 @@ nav a.nav-link:hover{color:var(--gold);border-bottom-color:rgba(195,165,95,0.3);
 nav a.nav-link.active{color:var(--gold);border-bottom-color:var(--gold)}
 
 /* HERO */
-.hero{max-width:960px;margin:0 auto;padding:4rem 2rem 3rem}
+.hero{max-width:960px;margin:0 auto;padding:2.5rem 2rem 1.5rem}
 .hero-eyebrow{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:10px}
 .hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold);display:inline-block}
 .hero h1{font-family:var(--font-display);font-size:clamp(2.2rem,5vw,3.2rem);font-weight:700;line-height:1.06;color:var(--text);margin-bottom:0.1rem}
 .hero h1 span{display:block;font-style:italic;color:var(--gold)}
-.hero-sub{font-size:15px;color:var(--text-muted);max-width:660px;margin:1.5rem 0 2rem;line-height:1.7}
-.hero-meta{display:flex;gap:2rem;margin-bottom:2rem;flex-wrap:wrap;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:0.75rem 0}
+.hero-sub{font-size:15px;color:var(--text-muted);max-width:660px;margin:1.25rem 0 1.5rem;line-height:1.7}
+.hero-meta{display:flex;gap:2rem;margin-bottom:0;flex-wrap:wrap;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:0.75rem 0}
 .hero-meta-item{font-family:var(--font-mono);font-size:10px;letter-spacing:0.09em;text-transform:uppercase;color:var(--text-dim)}
 .hero-meta-item span{color:var(--text-muted);font-weight:500}
 
@@ -126,18 +126,6 @@ table.compare tr:last-child td{border-bottom:none}
 .conf-likely{color:var(--purple)}
 
 /* TOC */
-.toc{background:var(--bg2);border:1px solid var(--border-med);border-radius:4px;padding:1.5rem 1.75rem;margin:2rem auto;max-width:960px}
-.toc .toc-title{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);margin-bottom:0.9rem}
-.toc-row{display:grid;grid-template-columns:2.5rem 1fr;align-items:baseline;padding:0.9rem 0;border-bottom:1px solid var(--border);text-decoration:none}
-.toc-row:first-child{padding-top:0}
-.toc-row:last-child{border-bottom:none;padding-bottom:0}
-.toc-row:hover{text-decoration:none}
-.toc-row .toc-num{font-family:var(--font-mono);font-size:11px;color:var(--gold)}
-.toc-row .toc-name{display:block;font-family:var(--font-body);font-size:16px;color:var(--text);line-height:1.35}
-.toc-row:hover .toc-name{color:var(--gold)}
-.toc-row:hover .toc-num{color:var(--text)}
-.toc-row .toc-kicker{display:block;font-size:13px;color:var(--text-muted);line-height:1.5;margin-top:3px}
-@media(max-width:700px){.toc-row{grid-template-columns:2rem 1fr}.toc-row .toc-name{font-size:15px}.toc-row .toc-kicker{font-size:12px}}
 
 /* SERIES NAV */
 .series-nav{max-width:960px;margin:0 auto;padding:2.5rem 2rem;border-top:1px solid var(--border);display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
@@ -169,7 +157,7 @@ footer .methodology{width:100%;font-size:11px;color:var(--text-dim);line-height:
 
 @media(max-width:600px){
   .series-nav{grid-template-columns:1fr}
-  .hero{padding:3rem 1.5rem 2rem}
+  .hero{padding:2rem 1.5rem 1.25rem}
 }
 </style>
 </head>
@@ -204,21 +192,9 @@ footer .methodology{width:100%;font-size:11px;color:var(--text-dim);line-height:
     <div class="hero-meta-item">Sources <span>Steer Studios · Alinea · GDCo · Sensor Tower</span></div>
   </div>
 </div>
-
-<div class="toc">
-  <div class="toc-title">In this part</div>
-    <a href="#s1" class="toc-row"><span class="toc-num">01</span><span class="toc-body"><span class="toc-name">The Core Divergence</span><span class="toc-kicker">One transaction moment, not two similar businesses.</span></span></a>
-    <a href="#s2" class="toc-row"><span class="toc-num">02</span><span class="toc-body"><span class="toc-name">FTUE: Seduction vs. Delivery</span><span class="toc-kicker">The job description is different before the money changes hands.</span></span></a>
-    <a href="#s3" class="toc-row"><span class="toc-num">03</span><span class="toc-body"><span class="toc-name">The Steam Refund Clock</span><span class="toc-kicker">A hidden design deadline that mobile never faces.</span></span></a>
-    <a href="#s4" class="toc-row"><span class="toc-num">04</span><span class="toc-body"><span class="toc-name">Where Each Model Fails</span><span class="toc-kicker">Opposite failure modes, same underlying error: bad timing.</span></span></a>
-    <a href="#s5" class="toc-row"><span class="toc-num">05</span><span class="toc-body"><span class="toc-name">User Acquisition Economics</span><span class="toc-kicker">A dollar of revenue is not a dollar of revenue.</span></span></a>
-    <a href="#s6" class="toc-row"><span class="toc-num">06</span><span class="toc-body"><span class="toc-name">Commission Structure: All Six Storefronts</span><span class="toc-kicker">The cut is never just the headline percentage.</span></span></a>
-    <a href="#s7" class="toc-row"><span class="toc-num">07</span><span class="toc-body"><span class="toc-name">The Decision Model</span><span class="toc-kicker">The question isn't "which store is cheaper." It's "which economy matches your game."</span></span></a>
-</div>
-
 <main>
 
-<section id="s1">
+<section style="margin-top:2.5rem" id="s1">
   <div class="section-label">Section 01</div>
   <div class="chevrons"></div>
   <h2>The Core Divergence</h2>

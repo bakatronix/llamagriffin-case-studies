@@ -45,13 +45,13 @@ nav a.nav-link:hover{color:var(--gold);border-bottom-color:rgba(195,165,95,0.3);
 nav a.nav-link.active{color:var(--gold);border-bottom-color:var(--gold)}
 
 /* HERO */
-.hero{max-width:960px;margin:0 auto;padding:4rem 2rem 3rem}
+.hero{max-width:960px;margin:0 auto;padding:2.5rem 2rem 1.5rem}
 .hero-eyebrow{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:10px}
 .hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold);display:inline-block}
 .hero h1{font-family:var(--font-display);font-size:clamp(2.2rem,5vw,3.2rem);font-weight:700;line-height:1.06;color:var(--text);margin-bottom:0.1rem}
 .hero h1 span{display:block;font-style:italic;color:var(--gold)}
-.hero-sub{font-size:15px;color:var(--text-muted);max-width:660px;margin:1.5rem 0 2rem;line-height:1.7}
-.hero-meta{display:flex;gap:2rem;margin-bottom:2rem;flex-wrap:wrap;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:0.75rem 0}
+.hero-sub{font-size:15px;color:var(--text-muted);max-width:660px;margin:1.25rem 0 1.5rem;line-height:1.7}
+.hero-meta{display:flex;gap:2rem;margin-bottom:0;flex-wrap:wrap;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:0.75rem 0}
 .hero-meta-item{font-family:var(--font-mono);font-size:10px;letter-spacing:0.09em;text-transform:uppercase;color:var(--text-dim)}
 .hero-meta-item span{color:var(--text-muted);font-weight:500}
 
@@ -121,18 +121,6 @@ table.compare tr:last-child td{border-bottom:none}
 .tag-likely{background:var(--purple-dim);color:var(--purple)}
 
 /* TOC */
-.toc{background:var(--bg2);border:1px solid var(--border-med);border-radius:4px;padding:1.5rem 1.75rem;margin:2rem auto;max-width:960px}
-.toc .toc-title{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);margin-bottom:0.9rem}
-.toc-row{display:grid;grid-template-columns:2.5rem 1fr;align-items:baseline;padding:0.9rem 0;border-bottom:1px solid var(--border);text-decoration:none}
-.toc-row:first-child{padding-top:0}
-.toc-row:last-child{border-bottom:none;padding-bottom:0}
-.toc-row:hover{text-decoration:none}
-.toc-row .toc-num{font-family:var(--font-mono);font-size:11px;color:var(--gold)}
-.toc-row .toc-name{display:block;font-family:var(--font-body);font-size:16px;color:var(--text);line-height:1.35}
-.toc-row:hover .toc-name{color:var(--gold)}
-.toc-row:hover .toc-num{color:var(--text)}
-.toc-row .toc-kicker{display:block;font-size:13px;color:var(--text-muted);line-height:1.5;margin-top:3px}
-@media(max-width:700px){.toc-row{grid-template-columns:2rem 1fr}.toc-row .toc-name{font-size:15px}.toc-row .toc-kicker{font-size:12px}}
 
 /* SERIES NAV */
 .series-nav{max-width:960px;margin:0 auto;padding:2.5rem 2rem;border-top:1px solid var(--border);display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
@@ -165,7 +153,7 @@ footer .methodology{width:100%;font-size:11px;color:var(--text-dim);line-height:
 
 @media(max-width:600px){
   .series-nav{grid-template-columns:1fr}
-  .hero{padding:3rem 1.5rem 2rem}
+  .hero{padding:2rem 1.5rem 1.25rem}
 }
 </style>
 </head>
@@ -199,20 +187,9 @@ footer .methodology{width:100%;font-size:11px;color:var(--text-dim);line-height:
     <div class="hero-meta-item">Sources <span>Sensor Tower · Liftoff · ASOMobile · Naavik</span></div>
   </div>
 </div>
-
-<div class="toc">
-  <div class="toc-title">In this part</div>
-    <a href="#appstore" class="toc-row"><span class="toc-num">01</span><span class="toc-body"><span class="toc-name">Apple App Store</span><span class="toc-kicker">Fewer downloads, far more money: a smaller audience worth more per head.</span></span></a>
-    <a href="#googleplay" class="toc-row"><span class="toc-num">02</span><span class="toc-body"><span class="toc-name">Google Play</span><span class="toc-kicker">The volume platform: most of the world's installs, a fraction of the money.</span></span></a>
-    <a href="#concentration" class="toc-row"><span class="toc-num">03</span><span class="toc-body"><span class="toc-name">Mobile Revenue Concentration</span><span class="toc-kicker">Mobile's winner-take-most problem is at least as extreme as Steam's: arguably worse.</span></span></a>
-    <a href="#discoverability" class="toc-row"><span class="toc-num">04</span><span class="toc-body"><span class="toc-name">Discoverability: Editorial vs. Algorithmic</span><span class="toc-kicker">The same F2P economics, two different paths to visibility: very different UA costs.</span></span></a>
-    <a href="#matrix" class="toc-row"><span class="toc-num">05</span><span class="toc-body"><span class="toc-name">The Decision Matrix</span><span class="toc-kicker">Match the economy to the game, not the game to the cheapest commission.</span></span></a>
-    <a href="#diagnostic" class="toc-row"><span class="toc-num">06</span><span class="toc-body"><span class="toc-name">Diagnostic Questions</span><span class="toc-kicker">Before greenlighting a platform strategy, five things for a whiteboard.</span></span></a>
-</div>
-
 <main>
 
-<section id="appstore">
+<section style="margin-top:2.5rem" id="appstore">
   <div class="section-label">Section 01</div>
   <div class="chevrons"></div>
   <h2>Apple App Store</h2>
