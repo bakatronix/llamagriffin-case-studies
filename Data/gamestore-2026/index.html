@@ -57,6 +57,10 @@ nav a.nav-link.active{color:var(--gold);border-bottom-color:var(--gold)}
 .stat-val.coral{color:var(--coral)}
 .stat-lbl{font-family:var(--font-mono);font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.07em}
 
+/* READ ORDER */
+.read-order{max-width:960px;margin:0 auto;padding:0 2rem 2.5rem;font-family:var(--font-mono);font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-dim)}
+.read-order-label{color:var(--gold);font-weight:500;margin-right:0.5rem}
+
 /* PARTS GRID */
 .parts{max-width:960px;margin:0 auto;padding:0 2rem 3rem}
 .parts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
@@ -90,7 +94,9 @@ tbody td:first-child{color:var(--text)}
 .tag-coral{background:var(--coral-dim);color:var(--coral)}
 .tag-blue{background:var(--blue-dim);color:var(--blue)}
 .tag-dim{background:rgba(35,35,35,0.07);color:var(--text-dim)}
-.tag-certain{background:var(--teal-dim);color:var(--teal)}
+.tag-high{background:var(--teal-dim);color:var(--teal)}
+.tag-directional{background:var(--coral-dim);color:var(--coral)}
+.tag-prov{background:rgba(35,35,35,0.07);color:var(--text-dim)}
 .tag-likely{background:var(--purple-dim);color:var(--purple)}
 
 /* INSIGHT CALLOUTS */
@@ -113,6 +119,7 @@ tbody td:first-child{color:var(--text)}
 /* FOOTER */
 footer{max-width:960px;margin:0 auto;padding:1.25rem 2rem 2rem;border-top:1px solid var(--border);font-size:12px;color:var(--text-dim);display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;align-items:center}
 footer span{color:var(--gold)}
+footer .methodology{width:100%;font-size:11px;color:var(--text-dim);line-height:1.6;margin-top:0.75rem;border-top:1px solid var(--border);padding-top:0.75rem;max-width:none}
 
 /* STORE NAV (quick reference) */
 .store-nav{max-width:960px;margin:0 auto;padding:0 2rem 2rem}
@@ -120,7 +127,7 @@ footer span{color:var(--gold)}
 .store-nav-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:0.75rem}
 .store-nav-grid a{background:var(--bg2);border:1px solid var(--border-med);border-radius:3px;padding:1rem 1.25rem;display:flex;flex-direction:column;gap:0.15rem;transition:border-color 0.15s;text-decoration:none}
 .store-nav-grid a:hover{border-color:var(--gold);text-decoration:none}
-.store-nav-grid .store-icon{width:28px;height:28px;flex-shrink:0;margin-bottom:0.15rem}
+.store-nav-grid .store-icon{width:28px;height:28px;flex-shrink:0;margin-bottom:0.15rem;object-fit:contain}
 .store-nav-grid .store-name{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--text)}
 .store-nav-grid .store-tag{font-family:var(--font-mono);font-size:9px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim)}
 
@@ -141,24 +148,24 @@ footer span{color:var(--gold)}
 </nav>
 
 <div class="hero">
-  <div class="hero-eyebrow">The Pattern Recognition &middot; Intelligence Suite</div>
+  <div class="hero-eyebrow">Recognizing Patterns &middot; Intelligence Suite</div>
   <h1>Mobile vs Premium<span>The Store-by-Store Intelligence Report</span></h1>
-  <p class="hero-sub">Every major storefront runs a different economy. This suite maps the commission structures, revenue concentration, discoverability mechanics, and first-time-user-experience design that separate mobile free-to-play from premium PC and console distribution — and what each means for where a studio should launch.</p>
+  <p class="hero-sub">"Steam revenue" describes at least five different measurements, depending on which analytics firm and which scope is being cited. This suite maps the commission structures, revenue concentration, discoverability mechanics, and first-time-user-experience design that separate mobile free-to-play from premium PC and console distribution; what each means for where a studio should launch.</p>
   <div class="hero-meta">
-    <div class="hero-meta-item">Publication <span>The Pattern Recognition</span></div>
+    <div class="hero-meta-item">Publication <span>Recognizing Patterns</span></div>
     <div class="hero-meta-item">Published <span>August 2026</span></div>
     <div class="hero-meta-item">Reading <span>~35 min total</span></div>
   </div>
   <div class="stat-grid">
-    <div class="stat-cell"><div class="stat-val">37:1</div><div class="stat-lbl">Steam vs Epic, third-party revenue only</div></div>
-    <div class="stat-cell"><div class="stat-val teal">79%</div><div class="stat-lbl">Steam revenue now from back-catalogue titles</div></div>
-    <div class="stat-cell"><div class="stat-val coral">$249</div><div class="stat-lbl">Median gross revenue, 2025 Steam releases</div></div>
+    <div class="stat-cell"><div class="stat-val">5</div><div class="stat-lbl">Distinct measurements of "Steam revenue" in circulation</div></div>
+    <div class="stat-cell"><div class="stat-val teal">37:1</div><div class="stat-lbl">Steam vs Epic, third-party revenue only</div></div>
+    <div class="stat-cell"><div class="stat-val coral">79%</div><div class="stat-lbl">Steam revenue now from back-catalogue titles</div></div>
     <div class="stat-cell"><div class="stat-val purple">$4.6B</div><div class="stat-lbl">Gap between two firms' 2024 Steam estimates</div></div>
   </div>
 </div>
 
-<div class="insight finding">
-  <strong>No two analytics firms agree on what Steam actually made in 2024</strong> &mdash; Alinea says $15.4B, GameDiscoverCo says $10.8B &mdash; a $4.6 billion gap on a completed year. Every "Steam grew X%" headline in circulation depends entirely on which ruler was used, and most decks never say which one it was.
+<div class="read-order">
+  <span class="read-order-label">Reading order</span> Part I builds the framework the other two depend on. Read in order.
 </div>
 
 <div class="parts">
@@ -172,50 +179,54 @@ footer span{color:var(--gold)}
     <a href="part-2.html" class="part-card">
       <div class="part-num">II</div>
       <div class="part-title">Premium Storefronts</div>
-      <div class="part-desc">A source-audited breakdown of premium PC and console economics — the multi-firm Steam revenue discrepancy, Valve's tiered royalty, Epic's real third-party gap, and the console comparison traps.</div>
+      <div class="part-desc">A source-audited breakdown of premium PC and console economics: the multi-firm Steam revenue discrepancy, Valve's tiered royalty, Epic's real third-party gap, and the console comparison traps.</div>
       <div class="part-link">Open Part II &rarr;</div>
     </a>
     <a href="part-3.html" class="part-card">
       <div class="part-num">III</div>
       <div class="part-title">Mobile Storefronts &amp; Synthesis</div>
-      <div class="part-desc">App Store, Google Play, mobile's own revenue concentration crisis, the cross-platform decision matrix, and five diagnostic questions for a whiteboard.</div>
+      <div class="part-desc">App Store, Google Play, mobile's two-layer concentration problem, the cross-platform decision matrix, and five diagnostic questions for a whiteboard.</div>
       <div class="part-link">Open Part III &rarr;</div>
     </a>
   </div>
 </div>
 
 <div class="store-nav">
-  <div class="store-nav-title">Quick Reference — Jump to a storefront</div>
+  <div class="store-nav-title">Quick Reference: Jump to a storefront</div>
   <div class="store-nav-grid">
     <a href="part-2.html#steam">
-      <svg class="store-icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#1a2332" stroke-width="2"/><path d="M7 12a5 5 0 0 1 5-5v6l4 2" stroke="#1a2332" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <img class="store-icon" src="icon-steam.png" alt="Steam" width="28" height="28">
       <div class="store-name">Steam</div><div class="store-tag">Premium PC · Dominant</div>
     </a>
     <a href="part-2.html#epic">
-      <svg class="store-icon" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="4" fill="#18181b"/><text x="12" y="17" text-anchor="middle" font-family="IBM Plex Mono" font-weight="700" font-size="12" fill="white">E</text></svg>
+      <img class="store-icon" src="icon-epic.svg" alt="Epic Games Store" width="28" height="28">
       <div class="store-name">Epic Games Store</div><div class="store-tag">Premium PC · Challenger</div>
     </a>
     <a href="part-2.html#playstation">
-      <svg class="store-icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#003087"/><text x="12" y="16" text-anchor="middle" font-family="IBM Plex Mono" font-weight="700" font-size="9" fill="white">PS</text></svg>
+      <img class="store-icon" src="icon-playstation.svg" alt="PlayStation" width="28" height="28">
       <div class="store-name">PlayStation Network</div><div class="store-tag">Premium Console</div>
     </a>
     <a href="part-2.html#xbox">
-      <svg class="store-icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#107c10"/><text x="12" y="16" text-anchor="middle" font-family="IBM Plex Mono" font-weight="700" font-size="11" fill="white">X</text></svg>
+      <img class="store-icon" src="icon-xbox.svg" alt="Xbox" width="28" height="28">
       <div class="store-name">Xbox</div><div class="store-tag">Premium Console + Subscription</div>
     </a>
     <a href="part-3.html#appstore">
-      <svg class="store-icon" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="5" fill="#1d1d1f"/><path d="M12 6c-1.5 2-1 3.5-2 6-.5 1-.5 2 0 2.5 1 .5 3 0 4-2.5s-2-6-2-6Z" fill="none" stroke="white" stroke-width="1.5"/><path d="M7 6c1 2 1.5 4 2 8M12 14.5v3M14 6l2 3" stroke="white" stroke-width="1.2" stroke-linecap="round"/></svg>
+      <img class="store-icon" src="icon-apple.svg" alt="Apple App Store" width="28" height="28">
       <div class="store-name">Apple App Store</div><div class="store-tag">Mobile · Editorial-driven</div>
     </a>
     <a href="part-3.html#googleplay">
-      <svg class="store-icon" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="4" fill="white" stroke="#e8eaed" stroke-width="1"/><polygon points="10,7 18,12 10,17" fill="#34a853"/><polygon points="10,7 6,9 6,15 10,17" fill="#fbbc04"/><polygon points="6,9 10,12 6,15" fill="#ea4335"/><polygon points="18,12 10,7 10,12" fill="#4285f4"/></svg>
+      <img class="store-icon" src="icon-googleplay.svg" alt="Google Play" width="28" height="28">
       <div class="store-name">Google Play</div><div class="store-tag">Mobile · Scale-driven</div>
     </a>
   </div>
 </div>
 
+<div class="insight finding">
+  <strong>"Steam revenue" describes at least five different measurements,</strong> depending on which firm and scope is cited. On 2024 alone Alinea says $15.4B and GameDiscoverCo says $10.8B: a $4.6 billion gap on a completed year. Every "Steam grew X%" headline in circulation depends on which ruler was used, and most decks never say which one it was.
+</div>
+
 <div class="closing">
-  <p>Platform revenue growth and developer outcomes have decoupled far enough that the topline is not merely unhelpful as a greenlight input. It is actively misleading. <span>Read in order.</span></p>
+  <p>Platform revenue growth and developer outcomes have decoupled far enough that the topline is not merely unhelpful as a greenlight input. It is actively misleading.</p>
 </div>
 
 <footer>

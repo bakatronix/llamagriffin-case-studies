@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Steam, Epic, PlayStation, Xbox — the commission wars, the revenue concentration problem, and the comparison traps that make every cross-storefront chart at least partly wrong.">
-<meta property="og:title" content="Mobile vs Premium — Part II: Premium Storefronts">
+<meta name="description" content="Steam, Epic, PlayStation, Xbox: the commission wars, the revenue concentration problem, and the comparison traps that make every cross-storefront chart at least partly wrong.">
+<meta property="og:title" content="Mobile vs Premium, Part II: Premium Storefronts">
 <meta property="og:description" content="A source-audited breakdown of premium PC and console economics.">
 <meta property="og:type" content="article">
-<title>Premium Storefronts — Mobile vs Premium · Part II · Llama &amp; Griffin</title>
+<title>Premium Storefronts: Mobile vs Premium · Part II · Llama &amp; Griffin</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -45,13 +45,13 @@ nav a.nav-link:hover{color:var(--gold);border-bottom-color:rgba(195,165,95,0.3);
 nav a.nav-link.active{color:var(--gold);border-bottom-color:var(--gold)}
 
 /* HERO */
-.hero{max-width:960px;margin:0 auto;padding:4rem 2rem 3rem}
+.hero{max-width:960px;margin:0 auto;padding:2.5rem 2rem 1.5rem}
 .hero-eyebrow{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:10px}
 .hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold);display:inline-block}
 .hero h1{font-family:var(--font-display);font-size:clamp(2.2rem,5vw,3.2rem);font-weight:700;line-height:1.06;color:var(--text);margin-bottom:0.1rem}
 .hero h1 span{display:block;font-style:italic;color:var(--gold)}
-.hero-sub{font-size:15px;color:var(--text-muted);max-width:660px;margin:1.5rem 0 2rem;line-height:1.7}
-.hero-meta{display:flex;gap:2rem;margin-bottom:2rem;flex-wrap:wrap;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:0.75rem 0}
+.hero-sub{font-size:15px;color:var(--text-muted);max-width:660px;margin:1.25rem 0 1.5rem;line-height:1.7}
+.hero-meta{display:flex;gap:2rem;margin-bottom:0;flex-wrap:wrap;border-top:1px solid var(--border);padding:0.75rem 0}
 .hero-meta-item{font-family:var(--font-mono);font-size:10px;letter-spacing:0.09em;text-transform:uppercase;color:var(--text-dim)}
 .hero-meta-item span{color:var(--text-muted);font-weight:500}
 
@@ -69,7 +69,7 @@ nav a.nav-link.active{color:var(--gold);border-bottom-color:var(--gold)}
 .chevrons::before{content:'▲▲▲▲';font-size:8px;color:var(--gold);letter-spacing:3px}
 
 /* SECTIONS */
-section{max-width:960px;margin:0 auto;padding:4rem 2rem;border-top:1px solid var(--border)}
+section{max-width:960px;margin:0 auto;padding:2.5rem 2rem;border-top:1px solid var(--border)}
 .section-label{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.3rem}
 h2{font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--text);margin-bottom:0.25rem;line-height:1.15}
 .h2-kicker{font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--gold);font-style:italic;display:block;margin-bottom:1.5rem}
@@ -81,6 +81,15 @@ p strong{color:var(--text);font-weight:600}
 p:last-child{margin-bottom:0}
 
 /* TABLES */
+main > section:first-of-type{border-top:none}
+/* CHARTS */
+.chart-wrap{position:relative;width:100%;margin:1.5rem 0 2.5rem}
+.chart-legend{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:12px;font-size:12px;color:var(--text-muted)}
+.chart-legend span{display:flex;align-items:center;gap:6px}
+.swatch{width:10px;height:10px;border-radius:2px;flex-shrink:0}
+.chart-note{font-family:var(--font-mono);font-size:10px;color:var(--text-dim);margin:0 0 2.5rem;line-height:1.65;width:100%;max-width:none}
+.chart-note a{color:var(--gold);text-decoration:none}
+.chart-note a:hover{text-decoration:underline}
 .table-wrap{margin-bottom:1.5rem;border:1px solid var(--border);border-radius:4px;overflow:hidden;overflow-x:auto}
 table{width:100%;border-collapse:collapse;font-size:13px}
 thead th{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);padding:0.75rem 1rem;text-align:left;border-bottom:1px solid var(--border-med);background:var(--bg3);white-space:nowrap}
@@ -114,21 +123,16 @@ table.compare tr:last-child td{border-bottom:none}
 .tag{display:inline-block;font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;padding:2px 7px;border-radius:2px;white-space:nowrap}
 .tag-teal{background:var(--teal-dim);color:var(--teal)}
 .tag-purple{background:var(--purple-dim);color:var(--purple)}
-.tag-certain{background:var(--teal-dim);color:var(--teal)}
+.tag-high{background:var(--teal-dim);color:var(--teal)}
+.tag-directional{background:var(--coral-dim);color:var(--coral)}
+.tag-prov{background:rgba(35,35,35,0.07);color:var(--text-dim)}
 .tag-likely{background:var(--purple-dim);color:var(--purple)}
 
 /* TOC */
-.toc{background:var(--bg2);border:1px solid var(--border-med);border-radius:4px;padding:1.25rem 1.5rem;margin:2rem auto;max-width:960px}
-.toc .toc-title{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);margin-bottom:0.75rem}
-.toc ol{list-style:none;counter-reset:toc-item;padding:0;margin:0}
-.toc li{counter-increment:toc-item;margin-bottom:6px}
-.toc li::before{content:counter(toc-item,decimal-leading-zero);font-family:var(--font-mono);font-size:10px;font-weight:500;color:var(--gold);margin-right:12px}
-.toc a{font-size:14px;color:var(--text-muted);transition:color 0.15s}
-.toc a:hover{color:var(--gold);text-decoration:none}
 
 /* SERIES NAV */
 .series-nav{max-width:960px;margin:0 auto;padding:2.5rem 2rem;border-top:1px solid var(--border);display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
-@media(max-width:700px){.series-nav{grid-template-columns:1fr}}
+@media(max-width:700px){.series-nav{grid-template-columns:1fr}section{padding:2.5rem 1.5rem}footer{padding:2rem 1.5rem 2.5rem}}
 .series-nav a{background:var(--bg2);border:1px solid var(--border-med);border-radius:3px;padding:1.5rem;display:flex;flex-direction:column;gap:0.5rem;transition:border-color 0.15s,box-shadow 0.15s;text-decoration:none;color:inherit}
 .series-nav a:hover{border-color:var(--gold);box-shadow:0 2px 12px rgba(195,165,95,0.12);text-decoration:none}
 .series-nav a.active{border-color:var(--gold);background:var(--gold-dim)}
@@ -146,19 +150,20 @@ table.compare tr:last-child td{border-bottom:none}
 .bio p{font-size:13px;color:var(--text-muted);max-width:72ch}
 
 /* FOOTER */
-footer{max-width:960px;margin:0 auto;padding:1.25rem 2rem 2rem;border-top:1px solid var(--border);font-size:12px;color:var(--text-dim);display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;align-items:center}
+footer{max-width:960px;margin:0 auto;padding:2.5rem 2rem 2.5rem;border-top:1px solid var(--border);font-size:12px;color:var(--text-dim);display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;align-items:center}
 footer span{color:var(--gold)}
+footer .methodology{width:100%;font-size:11px;color:var(--text-dim);line-height:1.6;margin-top:0.75rem;border-top:1px solid var(--border);padding-top:0.75rem;max-width:none}
 
 @media(max-width:600px){
   .series-nav{grid-template-columns:1fr}
-  .hero{padding:3rem 1.5rem 2rem}
+  .hero{padding:2rem 1.5rem 1.25rem}
 }
 </style>
 </head>
 <body>
 
 <div id="suite-nav">
-  <span class="suite-brand">Mobile vs Premium &middot; The Pattern Recognition</span>
+  <span class="suite-brand">Mobile vs Premium &middot; Recognizing Patterns</span>
   <a href="index.html" class="suite-link">Overview</a>
   <a href="part-1.html" class="suite-link">Part I &middot; The Framework</a>
   <a href="part-2.html" class="suite-link active">Part II &middot; Premium Storefronts</a>
@@ -184,18 +189,6 @@ footer span{color:var(--gold)}
     <div class="hero-meta-item">Sources <span>Alinea · GDCo · Gamalytic · Microsoft 10-K · Sony IR</span></div>
   </div>
 </div>
-
-<div class="toc">
-  <div class="toc-title">In this part</div>
-  <ol>
-    <li><a href="#steam">Steam</a></li>
-    <li><a href="#epic">Epic Games Store</a></li>
-    <li><a href="#playstation">PlayStation Network</a></li>
-    <li><a href="#xbox">Xbox</a></li>
-    <li><a href="#traps">Cross-Storefront Comparison Traps</a></li>
-  </ol>
-</div>
-
 <main>
 
 <section id="steam">
@@ -206,36 +199,57 @@ footer span{color:var(--gold)}
 
   <div class="stat-grid">
     <div class="stat-cell"><div class="stat-val">$17.7B</div><div class="stat-lbl">2025 revenue (Alinea Analytics)</div></div>
-    <div class="stat-cell"><div class="stat-val teal">$16.9B</div><div class="stat-lbl">2025 revenue (GameDiscoverCo)</div></div>
+    <div class="stat-cell"><div class="stat-val teal">$16.9B</div><div class="stat-lbl">2025 revenue (<a href="https://newsletter.gamediscover.co/p/revealed-the-numbers-behind-steams" target="_blank" rel="noopener">GameDiscoverCo</a>)</div></div>
     <div class="stat-cell"><div class="stat-val purple">79%</div><div class="stat-lbl">Share from back-catalogue, H1 2026</div></div>
     <div class="stat-cell"><div class="stat-val coral">30%→20%</div><div class="stat-lbl">Royalty cut, tiered by lifetime revenue</div></div>
   </div>
 
-  <h3>Market Size — Four Rulers, Not One</h3>
-  <p>No two analytics firms agree on Steam's exact revenue, and the disagreement is larger than most reporting acknowledges. Alinea Analytics puts full-year 2025 at $17.7 billion and 2024 at $15.4 billion (+15% YoY). GameDiscoverCo puts 2025 at $16.9 billion and 2024 at $10.8 billion (+57% YoY) — a $4.6 billion gap on the same completed year, unreconciled by either firm. <span class="tag tag-certain">Certain — primary</span></p>
-  <p>A third firm, Gamalytic, measures new-release-only revenue and found just $4.7 billion generated by 2025's new games specifically, versus an estimated $10B+ from back catalogue. Video Game Insights measures paid game sales excluding microtransactions and forecast 2024 at $8.8 billion. "Steam revenue" describes at least four different measurements depending on which firm and which scope is being cited.</p>
+  <h3>Market Size: Five Rulers, Not One</h3>
+  <p>No two analytics firms agree on Steam's exact revenue, and the disagreement is larger than most reporting acknowledges. Alinea Analytics puts full-year 2025 at $17.7 billion and 2024 at $15.4 billion (+15% YoY). <a href="https://newsletter.gamediscover.co/p/revealed-the-numbers-behind-steams" target="_blank" rel="noopener">GameDiscoverCo</a> puts 2025 at $16.9 billion and 2024 at $10.8 billion (+57% YoY): a $4.6 billion gap on the same completed year, unreconciled by either firm. <span class="tag tag-high">High confidence</span> <span class="tag tag-prov">Third-party estimate</span></p>
+  <p>A 57% single-year increase on a mature platform is more consistent with a change in measurement scope than with market growth of that size. Neither firm has published a restatement explaining the shift. The gap should be read as evidence that the two series are not measuring the same thing, not as evidence that one of them is wrong.</p>
+  <p>A third firm, Gamalytic, measures new-release-only revenue and found just $4.7 billion generated by 2025's new games specifically, versus an estimated $10B+ from back catalogue. Video Game Insights measures paid game sales excluding microtransactions and forecast 2024 at $8.8 billion. "Steam revenue" describes at least five different measurements depending on which firm and which scope is being cited. Sensor Tower is the fifth, putting Steam at $11.7 billion in its cross-platform gaming comparison; that figure and the reason it runs low are covered in Part III.</p>
 
   <div class="table-wrap">
     <table>
       <thead><tr><th>Firm</th><th>2025 figure</th><th>Scope</th></tr></thead>
       <tbody>
         <tr><td>Alinea Analytics</td><td>$17.7B</td><td>Platform-wide: paid + F2P + in-game, new + back catalogue</td></tr>
-        <tr><td>GameDiscoverCo</td><td>$16.9B</td><td>Platform-wide, split $1.95B Valve titles / $14.98B third-party</td></tr>
+        <tr><td><a href="https://newsletter.gamediscover.co/p/revealed-the-numbers-behind-steams" target="_blank" rel="noopener">GameDiscoverCo</a></td><td>$16.9B</td><td>Platform-wide, split $1.95B Valve titles / $14.98B third-party</td></tr>
         <tr><td>Gamalytic</td><td>$4.7B</td><td>New 2025 releases only, back catalogue excluded</td></tr>
         <tr><td>Video Game Insights</td><td>$8.8B (2024 fcst.)</td><td>Paid game sales only, microtransactions excluded</td></tr>
+        <tr><td>Sensor Tower</td><td>$11.7B</td><td>Cross-platform gaming comparison; appears to undercount Steam relative to PC-specialist firms</td></tr>
       </tbody>
     </table>
   </div>
+<h3>Five rulers: what each firm counted when it said "Steam revenue"</h3>
+<div class="chart-wrap" style="height:320px">
+  <div class="chart-legend">
+    <span><span class="swatch" style="background:#3d77c4"></span>2025 Steam revenue, by firm</span>
+  </div>
+  <canvas id="rulersChart" role="img" aria-label="Five analytics firms' 2025 Steam revenue figures, each measuring a different scope"></canvas>
+</div>
+<p class="chart-note">These five bars do not represent five estimates of one number; they represent five different questions, and the scope listed beneath each firm's name is the question that firm chose to answer. All figures cover full-year 2025 unless otherwise noted. Sensor Tower's figure comes from its cross-platform gaming comparison and appears to undercount Steam relative to firms that specialize in PC storefront tracking.</p>
+
 
   <h3>Commission Structure</h3>
-  <p>Valve charges a standard 30% cut on the first $10 million a game earns, dropping to 25% between $10M–$50M, and 20% above $50M lifetime. The blended effective payout rate across all non-Valve games in 2025 was approximately 76%, meaning Valve's average effective cut fell closer to 24% overall — but that average is pulled down almost entirely by a small number of top-earning titles.</p>
-  <p>Games grossing over $50 million lifetime accounted for $7.74 billion of the $14.98 billion in third-party revenue. The standard 30% tier, which is what nearly every individual developer actually pays, covers only about $3.5 billion — less than a quarter of the money. <span class="tag tag-certain">Certain — primary, GDCo tier analysis</span></p>
+  <p>Valve charges a standard 30% cut on the first $10 million a game earns, dropping to 25% between $10M–$50M, and 20% above $50M lifetime. The tiers apply by revenue tranche, not by title, so a game that crossed $50M still paid 30% on its first $10M and 25% on the next $40M. The blended effective payout rate across all non-Valve games in 2025 was approximately 76%, meaning Valve's average effective cut fell closer to 24% overall; but that average is pulled down almost entirely by a small number of top-earning titles.</p>
+  <p>Games grossing over $50 million lifetime accounted for $7.74 billion of the $14.98 billion in third-party revenue. Valve tiers by revenue tranche rather than by title, so every game that crossed $50 million still paid 30% on its first $10 million. About $3.5 billion of third-party revenue sat in that 30% tranche, generating roughly $1.05 billion of Valve's $3.54 billion total royalty for the year. The reduced rates apply to a small number of titles, and the blended 24% figure describes almost no individual developer's experience. <span class="tag tag-directional">Directional</span> <span class="tag tag-prov">Third-party estimate (<a href="https://newsletter.gamediscover.co/p/revealed-the-numbers-behind-steams" target="_blank" rel="noopener">GDCo</a> tier analysis)</span></p>
+
+  <h3>Valve's 2025 royalty, by revenue tranche</h3>
+<div class="chart-wrap" style="height:200px">
+  <div class="chart-legend">
+    <span><span class="swatch" style="background:#b85a3a"></span>Royalty collected</span>
+  </div>
+  <canvas id="royaltyChart" role="img" aria-label="Valve 2025 royalty by revenue tranche"></canvas>
+</div>
+<p class="chart-note">Valve collected a total platform royalty of $3.54 billion on $14.98 billion of third-party revenue in 2025, which is the arithmetic behind the widely cited 24% blended rate. The 30% tranche applies to the first $10 million of every game's lifetime revenue, not to a separate pool of small games, and it generated $1.05 billion of that total royalty. This figure is sourced to <a href="https://newsletter.gamediscover.co/p/revealed-the-numbers-behind-steams" target="_blank" rel="noopener noreferrer">GameDiscoverCo</a>'s tier analysis.</p>
 
   <h3>The Concentration Floor</h3>
-  <p>Gamalytic's read on 2025 releases: median gross revenue $249, the second-lowest since 2020; 66% of games earned under $1,000; 40% never recouped the $100 Steam Direct submission fee; 47.4% sold fewer than 100 copies; the bottom 30% averaged just $37. <span class="tag tag-certain">Certain — multi-source</span></p>
+  <p><a href="https://80.lv/articles/analysts-report-drop-in-game-revenue-on-steam-despite-growing-number-of-releases" target="_blank" rel="noopener">Gamalytic</a>'s October 2025 read on that year's releases, taken with roughly 12,700 titles logged and the year still running: median gross revenue $249, the second-lowest since 2020; 66% of games earned under $1,000; 40% never recouped the $100 Steam Direct submission fee; 47.4% sold fewer than 100 copies; the bottom 30% averaged just $37. <span class="tag tag-directional">Directional</span> <span class="tag tag-prov">Third-party estimate (Gamalytic)</span></p>
+  <p>These are mid-year figures rather than a year-end position. Gamalytic's later reporting put the 2025 median closer to $318 across a larger release count, which is the direction a partial-year median moves as the tail fills in.</p>
 
   <div class="insight finding">
-    <strong>Back catalogue has climbed from 71% to 79% of Steam revenue between 2024 and H1 2026.</strong> The platform grows and the share reaching new games shrinks at the same time — both true, and only one makes the headline.
+    <strong>Back catalogue has climbed from 71% to 79% of Steam revenue between 2024 and H1 2026.</strong> The platform grows and the share reaching new games shrinks at the same time; both true, and only one makes the headline.
   </div>
 
   <div class="insight caveat">
@@ -247,7 +261,7 @@ footer span{color:var(--gold)}
   <div class="section-label">Section 02</div>
   <div class="chevrons"></div>
   <h2>Epic Games Store</h2>
-  <span class="h2-kicker">The developer-friendly challenger — leaner commission, a fraction of the scale.</span>
+  <span class="h2-kicker">The developer-friendly challenger: leaner commission, a fraction of the scale.</span>
 
   <div class="stat-grid">
     <div class="stat-cell"><div class="stat-val">14:1</div><div class="stat-lbl">Steam vs Epic, total platform revenue</div></div>
@@ -257,14 +271,14 @@ footer span{color:var(--gold)}
   </div>
 
   <h3>Commission Structure</h3>
-  <p>Epic charges a flat 12% commission, with 0% on a developer's first $1 million in revenue per product per year (introduced June 2025) — a sharp contrast to Steam's 30% base rate. <span class="tag tag-certain">Certain — primary</span></p>
+  <p>Epic charges a flat 12% commission, with 0% on a developer's first $1 million in revenue per product per year (introduced June 2025): a sharp contrast to Steam's 30% base rate. <span class="tag tag-high">High confidence</span> <span class="tag tag-prov">Company announcement</span></p>
 
-  <h3>Market Size — Why "14 to 1" Understates the Gap</h3>
-  <p>Epic Games Store topped $1.16 billion in total player spending in 2025, with third-party game revenue reaching $400 million, up 57% year-over-year. The store reported 78 million monthly active users, over 317 million total users, and 662 million free game downloads through its weekly free-games program. <span class="tag tag-certain">Certain — multi-source</span></p>
-  <p>The commonly quoted "14 to 1" gap versus Steam compares Steam's $16.9 billion platform total (which includes Valve's own Counter-Strike 2 and Dota 2) against Epic's $1.16 billion (which includes Fortnite) — both totals inflated by their owner's own hit game. <strong>Comparing third-party revenue only, the ratio widens to 37 to 1</strong> ($14.98B vs $400M), which is the number that actually matters to an independent developer deciding where to launch.</p>
+  <h3>Market Size: Why "14 to 1" Understates the Gap</h3>
+  <p>Epic Games Store topped $1.16 billion in total player spending in 2025, with third-party game revenue reaching $400 million, up 57% year-over-year. The store reported 78 million monthly active users, over 317 million total users, and 662 million free game downloads through its weekly free-games program. <span class="tag tag-high">High confidence</span> <span class="tag tag-prov">Company announcement</span></p>
+  <p>The commonly quoted "14 to 1" gap versus Steam compares Steam's $16.9 billion platform total (which includes Valve's own Counter-Strike 2 and Dota 2) against Epic's $1.16 billion (which includes Fortnite); both totals inflated by their owner's own hit game. <strong>Comparing third-party revenue only, the ratio widens to 37 to 1</strong> ($14.98B vs $400M), which is the number that actually matters to an independent developer deciding where to launch.</p>
 
   <div class="insight caveat">
-    <strong>Epic's $400M third-party figure explicitly excludes titles that self-process payments</strong> — EA Sports FC 26, Marvel Rivals, Valorant, and Grand Theft Auto V — meaning even the 37:1 gap likely understates Epic's true shortfall relative to Steam's fully-inclusive total.
+    <strong>Epic's $400M third-party figure explicitly excludes titles that self-process payments</strong> (EA Sports FC 26, Marvel Rivals, Valorant, and Grand Theft Auto V), meaning even the 37:1 gap likely understates Epic's true shortfall relative to Steam's fully-inclusive total.
   </div>
 
   <h3>Discoverability Mechanics</h3>
@@ -279,16 +293,18 @@ footer span{color:var(--gold)}
 
   <div class="stat-grid">
     <div class="stat-cell"><div class="stat-val">¥4.69T</div><div class="stat-lbl">FY2025 Game &amp; Network Services revenue</div></div>
-    <div class="stat-cell"><div class="stat-val teal">~$29.8B</div><div class="stat-lbl">Dollar-equivalent, corporate segment total</div></div>
+    <div class="stat-cell"><div class="stat-val teal">~$29.8B</div><div class="stat-lbl">Dollar-equivalent, corporate segment total · ¥157 JPY/USD, May 2026</div></div>
     <div class="stat-cell"><div class="stat-val purple">49%</div><div class="stat-lbl">Digital software &amp; add-on content share</div></div>
-    <div class="stat-cell"><div class="stat-val coral">84.2M</div><div class="stat-lbl">PS5 lifetime hardware units sold</div></div>
+    <div class="stat-cell"><div class="stat-val coral">95.3M</div><div class="stat-lbl">PS5 lifetime hardware units sold (as of June 30, 2026)</div></div>
   </div>
 
-  <h3>Market Size — The Comparison Trap</h3>
-  <p>Sony's Game &amp; Network Services (G&amp;NS) segment posted record revenue of ¥4.6857 trillion (roughly $29.8B) in FY2025 with operating profit of ¥463.3 billion. Digital software and add-on content together represent roughly 49% of total gaming segment revenue. PS5 lifetime hardware sales reached 84.2 million units.</p>
+  <h3>Market Size: The Comparison Trap</h3>
+  <p>Sony's Game &amp; Network Services (G&amp;NS) segment posted record revenue of ¥4.6857 trillion in FY2025 with operating profit of ¥463.3 billion. Digital software and add-on content together represent roughly 49% of total gaming segment revenue. PS5 lifetime hardware sales reached 95.3 million units as of June 30, 2026, the figure disclosed alongside Sony's FY2026 Q1 earnings. <span class="tag tag-high">High confidence</span> <span class="tag tag-prov">Company filing</span></p>
+  <p>Dollar figures above convert at approximately ¥157 to the dollar, the rate prevailing at the time of the FY2025 earnings release (May 2026). Recomputing at today's rate will produce a different number; the yen figure is the stable one.</p>
+  <p>As with revenue, hardware-unit figures are a moving target: a lifetime-sales number is only valid as of the date of the disclosure it came from, and any cross-platform comparison of install bases should carry the same date discipline this report applies to revenue snapshots.</p>
 
   <div class="insight caveat">
-    <strong>Sony's ¥4.6857T is corporate segment revenue</strong> — bundling hardware, subscriptions, first-party publishing, and network services — not a like-for-like figure against Steam's player-spending total ($16.9–17.7B). The genuinely comparable figure is what Valve itself keeps after cuts, estimated by Alinea at just over $4 billion in 2025. "Consoles are bigger than Steam" usually compares the wrong two columns of the ledger.
+    <strong>Sony's ¥4.6857T is corporate segment revenue</strong> (bundling hardware, subscriptions, first-party publishing, and network services) not a like-for-like figure against Steam's player-spending total ($16.9–17.7B). The genuinely comparable figure is what Valve itself keeps after cuts, estimated by Alinea at just over $4 billion in 2025 <span class="tag tag-directional">Directional</span> <span class="tag tag-prov">Third-party estimate</span>. "Consoles are bigger than Steam" usually compares the wrong two columns of the ledger.
   </div>
 </section>
 
@@ -305,9 +321,9 @@ footer span{color:var(--gold)}
     <div class="stat-cell"><div class="stat-val teal">$5B</div><div class="stat-lbl">Game Pass annual revenue (FY2025)</div></div>
   </div>
 
-  <h3>Market Size — Revision in Real Time</h3>
-  <p>Microsoft's Xbox content and services revenue reached $23.5 billion in FY2025, with Game Pass alone generating nearly $5 billion annually — roughly 21–22% of total Xbox content revenue, confirming Game Pass as a major and profitable pillar rather than a loss-leading subscription. <span class="tag tag-certain">Certain — primary, Microsoft 10-K</span></p>
-  <p>That FY2025 figure is already dated in most decks still circulating it: Microsoft's FY2026 (closed June 2026) showed Xbox revenue falling 7% to approximately $21.79 billion, driven by a 29% drop in hardware revenue and softer content and services growth. <span class="tag tag-certain">Certain — multi-source, primary filing</span></p>
+  <h3>Market Size: Revision in Real Time</h3>
+  <p><a href="https://www.microsoft.com/en-us/investor/earnings/fy-2026-q4/press-release-webcast" target="_blank" rel="noopener">Microsoft</a>'s Xbox content and services revenue reached $23.5 billion in FY2025, with Game Pass alone generating nearly $5 billion annually: roughly 21–22% of total Xbox content revenue, confirming Game Pass as a major and profitable pillar rather than a loss-leading subscription. <span class="tag tag-high">High confidence</span> <span class="tag tag-prov">Company filing</span></p>
+  <p>That FY2025 figure is already dated in most decks still circulating it: <a href="https://www.microsoft.com/en-us/investor/earnings/fy-2026-q4/press-release-webcast" target="_blank" rel="noopener">Microsoft</a>'s FY2026 (closed June 2026) showed Xbox revenue falling 7% to approximately $21.79 billion, driven by a 29% drop in hardware revenue and softer content and services growth. <span class="tag tag-high">High confidence</span> <span class="tag tag-prov">Company filing</span></p>
 
   <div class="insight source">
     <strong>Xbox's headline revenue figure is a moving target</strong> that most cross-storefront comparisons treat as static. Any deck citing "$23.5B" for Xbox without a date attached is already at least one fiscal year stale.
@@ -318,12 +334,13 @@ footer span{color:var(--gold)}
   <div class="section-label">Section 05</div>
   <div class="chevrons"></div>
   <h2>Cross-Storefront Comparison Traps</h2>
-  <span class="h2-kicker">Three errors that show up in nearly every platform comparison table.</span>
+  <span class="h2-kicker">Four errors that show up in nearly every platform comparison table.</span>
 
   <ol class="diagnostic-list">
     <li><strong>Platform-wide vs. third-party.</strong> Comparing Steam's full platform total against Epic's full platform total flatters both owners' first-party hits (CS2/Dota 2 vs. Fortnite) and hides the real developer-facing gap.</li>
-    <li><strong>Player spending vs. corporate revenue.</strong> Sony and Microsoft's segment revenue bundles hardware, subscriptions, and first-party publishing — not a like-for-like comparison to what players spend on a pure storefront like Steam.</li>
-    <li><strong>Stale snapshots.</strong> Every figure in this part has a fiscal-year or calendar-year attached for a reason — Xbox's FY2025 number was already superseded by the time most competitive decks were built around it.</li>
+    <li><strong>Player spending vs. corporate revenue.</strong> Sony and Microsoft's segment revenue bundles hardware, subscriptions, and first-party publishing; not a like-for-like comparison to what players spend on a pure storefront like Steam.</li>
+    <li><strong>Stale snapshots.</strong> Every figure in this part has a fiscal-year or calendar-year attached for a reason: Xbox's FY2025 number was already superseded by the time most competitive decks were built around it.</li>
+    <li><strong>Estimator scope.</strong> Every third-party estimate measures a different slice: paid-only, platform-wide, new-releases-only, or back-catalogue-included. The five Steam rulers in Section 01 are five different scopes, not five attempts at the same number.</li>
   </ol>
 </section>
 
@@ -348,12 +365,13 @@ footer span{color:var(--gold)}
 </div>
 
 <div class="bio">
-  <p>Abbas Saleem is a Principal Consultant at <a href="https://www.llamagriffin.com/" target="_blank" rel="noopener noreferrer">Llama &amp; Griffin</a>, advising game studios, streaming platforms, and investment funds across six continents. He writes The Pattern Recognition: gaming industry intelligence 12 to 24 months before it becomes consensus. <a href="https://www.linkedin.com/in/abbassaleemkhan/" target="_blank" rel="noopener noreferrer">LinkedIn</a> | <a href="https://cal.com/llamagriffin/30min" target="_blank" rel="noopener noreferrer">Book a conversation</a></p>
+  <p>Abbas Saleem is Principal Consultant at <a href="https://www.llamagriffin.com/" target="_blank" rel="noopener noreferrer">Llama &amp; Griffin</a>, advising game studios, publishers, and investors across MENA, South Asia, Southeast Asia, and Europe. He writes Recognizing Patterns: gaming industry intelligence 12 to 24 months before it becomes consensus. <a href="https://www.linkedin.com/in/abbassaleemkhan/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
 </div>
 
 <footer>
   <div>Mobile vs Premium · <span>Llama &amp; Griffin Consultants</span></div>
   <div><span>recognizingpatterns.substack.com</span> · llamagriffin.com</div>
+  <p class="methodology">Methodology: &ldquo;Company filing&rdquo; marks figures drawn from a company&rsquo;s own published financial disclosures. &ldquo;Third-party estimate&rdquo; marks figures produced by analytics firms (Alinea, GameDiscoverCo, Gamalytic, VGI, Sensor Tower, Moloco, Liftoff, and similar). Estimator figures measure different scopes by different methods and are not reconcilable across firms; a figure should always travel with the firm that produced it. Where a specific source document is publicly available, the figure links to it. Sources without a link are named but not linked because the underlying report is gated or has no stable public URL.</p>
 </footer>
 
 <script>
@@ -365,6 +383,35 @@ function initNav(){
   links.forEach(function(l){l.addEventListener('click',function(e){e.preventDefault();document.querySelector(l.getAttribute('href')).scrollIntoView({behavior:'smooth'});})});
 }
 initNav();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+new Chart(document.getElementById('rulersChart'),{
+  type:'bar',
+  data:{labels:[['Alinea Analytics','Platform-wide: paid, F2P, in-game'],['GameDiscoverCo','Platform-wide, incl. Valve titles'],['Sensor Tower','Cross-platform gaming comparison'],['Video Game Insights','Paid game sales only (2024 fcst.)'],['Gamalytic','New 2025 releases only']],
+    datasets:[
+      {label:'2025 Steam revenue',data:[17.7,16.9,11.7,8.8,4.7],backgroundColor:'rgba(61,119,196,0.82)',borderWidth:0,borderRadius:3,maxBarThickness:24}
+    ]},
+  options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false}},
+    scales:{
+      x:{grid:{color:'rgba(35,35,35,0.07)'},ticks:{color:'#6b6660',font:{size:11},callback:v=>'$'+v+'B'}},
+      y:{grid:{display:false},ticks:{color:'#6b6660',font:{size:12}}}
+    }}
+});
+new Chart(document.getElementById('royaltyChart'),{
+  type:'bar',
+  data:{labels:['30% tranche','25% tranche','20% tranche'],
+    datasets:[
+      {label:'Royalty collected',data:[1050,935,1550],backgroundColor:'rgba(184,90,58,0.82)',borderWidth:0,borderRadius:3,maxBarThickness:24}
+    ]},
+  options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false}},
+    scales:{
+      x:{grid:{color:'rgba(35,35,35,0.07)'},ticks:{color:'#6b6660',font:{size:11},callback:v=> v>=1000 ? '$'+(v/1000)+'B' : '$'+v+'M'}},
+      y:{grid:{display:false},ticks:{color:'#6b6660',font:{size:12}}}
+    }}
+});
 </script>
 </body>
 </html>
