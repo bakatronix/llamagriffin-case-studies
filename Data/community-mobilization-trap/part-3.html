@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,700&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>Part III: The Succession Problem | The Mobilization Trap</title>
+<meta name="description" content="The same gap measured across a century of political data, narrowed twice by the literature that contradicts it.">
+<meta property="og:title" content="Part III: The Succession Problem | The Mobilization Trap">
+<meta property="og:description" content="The same gap measured across a century of political data, narrowed twice by the literature that contradicts it.">
+<meta property="og:type" content="article">
+<style>
+:root{--cream:#F7F4EE;--ink:#232323;--gold:#C3A55F;--brown:#37342F;--mid:#6B6660;--border:#D2CDC3;--surface:#EAE7E0;--cardwhite:#FDFCF9}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:'DM Sans',-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif;font-size:16px;line-height:1.68;-webkit-font-smoothing:antialiased}
+.toprule{position:fixed;top:0;left:0;right:0;height:3px;background:var(--ink);z-index:60}
+.wrap{max-width:800px;margin:0 auto;padding:0 26px}
+a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--border)}
+a:hover{border-bottom-color:var(--gold)}
+
+/* Chevrons: 4 gold triangles, never more, never fewer */
+.chev{color:var(--gold);font-size:12px;letter-spacing:.14em;display:block;line-height:1}
+h2::before{content:"\25B2\25B2\25B2\25B2";color:var(--gold);font-size:10px;letter-spacing:.14em;display:block;line-height:1;margin-bottom:13px}
+h3::before{content:"\25B2\25B2\25B2\25B2";color:var(--gold);font-size:8px;letter-spacing:.14em;display:block;line-height:1;margin-bottom:10px}
+
+.eyebrow{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin:0}
+h1{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:clamp(42px,7.6vw,76px);line-height:1.02;letter-spacing:-.015em;margin:16px 0 10px}
+h2{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:clamp(29px,4.6vw,46px);line-height:1.1;letter-spacing:-.01em;margin:0 0 8px}
+h3{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:clamp(21px,2.7vw,27px);line-height:1.22;margin:34px 0 10px}
+.kick{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:700;color:var(--gold);font-size:clamp(23px,3.9vw,38px);line-height:1.16;margin:0 0 26px}
+h2+.kick,h2+p.kick{font-size:clamp(20px,3vw,30px);margin-top:-2px}
+
+.meta{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.09em;color:var(--mid);line-height:1.95;text-transform:uppercase}
+header.masthead{padding:86px 0 38px;border-bottom:.5px solid var(--border)}
+section{padding:52px 0;border-bottom:.5px solid var(--border)}
+section:last-of-type{border-bottom:none}
+.snum{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mid);display:block;margin-bottom:20px}
+p{margin:0 0 18px;color:var(--brown)}
+p.lede{font-size:19px;line-height:1.62;color:var(--ink)}
+section p:first-of-type{color:var(--ink)}
+strong,b{font-weight:600;color:var(--ink)}
+em,i{font-style:italic}
+ul{margin:0 0 18px;padding-left:20px;color:var(--brown)}
+li{margin-bottom:9px}
+
+/* Gap-based grid: background is the border colour, cells are cream. The gap IS the border. */
+.statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);margin:34px 0 12px}
+.stat{background:var(--cream);padding:22px 19px}
+.stat .n{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:34px;line-height:1;margin-bottom:11px;color:var(--ink)}
+.stat .l{font-size:12.5px;color:var(--mid);line-height:1.45}
+.fn{font-size:12.5px;color:var(--mid);line-height:1.55;margin:12px 0 0}
+
+.cards{display:grid;gap:1px;background:var(--border);border:1px solid var(--border);margin:30px 0 0}
+.card{background:var(--cream);padding:28px 26px;display:block;border:none}
+.card:hover{background:var(--cardwhite)}
+.card .pn{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.2em;color:var(--gold);text-transform:uppercase}
+.card h3{margin:12px 0 8px;font-size:25px}
+.card h3::before{content:none}
+.card p{font-size:15px;color:var(--mid);margin:0}
+
+.tw{overflow-x:auto;margin:28px 0;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;min-width:530px;font-size:14.5px}
+th{text-align:left;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:400;padding:0 15px 10px 0;border-bottom:1px solid var(--ink);vertical-align:bottom}
+td{padding:13px 15px 13px 0;border-bottom:.5px solid var(--border);vertical-align:top;line-height:1.55;color:var(--brown)}
+td:last-child,th:last-child{padding-right:0}
+.mono{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12.5px}
+
+.pull{border-left:1.5px solid var(--gold);padding:2px 0 2px 24px;margin:36px 0}
+.pull .h{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:12px}
+.pull p{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:500;font-size:24px;line-height:1.34;margin:0;color:var(--ink)}
+
+.note{background:var(--cardwhite);border:1px solid var(--border);border-left:1.5px solid var(--gold);padding:26px 26px;margin:30px 0}
+.note .h{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:13px}
+.note p:last-child{margin-bottom:0}
+
+.fig{margin:34px 0}
+.fig svg{width:100%;height:auto;display:block;border:1px solid var(--border)}
+.cap{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.07em;color:var(--mid);margin-top:12px;line-height:1.7;text-transform:uppercase}
+
+.conf{display:grid;gap:1px;background:var(--border);border:1px solid var(--border);margin:24px 0}
+.conf>div{background:var(--cardwhite);padding:24px 26px}
+.conf h4{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin:0 0 11px;font-weight:400}
+.conf p{font-size:14.5px;margin:0;color:var(--brown)}
+
+.pagenav{display:flex;justify-content:space-between;gap:20px;padding:40px 0;border-top:.5px solid var(--border);flex-wrap:wrap}
+.pagenav a{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;border:none;color:var(--mid)}
+.pagenav a:hover{color:var(--gold)}
+footer{padding:44px 0 66px;border-top:.5px solid var(--border);color:var(--mid);font-size:13.5px;line-height:1.7}
+footer .chev{margin-bottom:18px;font-size:8px}
+footer p{color:var(--mid)}
+.bio{font-size:14px;color:var(--mid);line-height:1.65}
+
+ol.diag{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:1px;background:var(--border);border:1px solid var(--border);counter-reset:d}
+ol.diag li{counter-increment:d;background:var(--cream);padding:26px 26px}
+ol.diag li::before{content:counter(d,decimal-leading-zero);font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.2em;color:var(--gold);display:block;margin-bottom:11px}
+ol.diag li p{margin:0;font-size:15px;color:var(--mid)}
+ol.diag li b{color:var(--ink);font-weight:600;display:block;margin-bottom:7px;font-size:17px;font-family:'Playfair Display',Georgia,serif;font-weight:700}
+@media(max-width:560px){body{font-size:15.5px}section{padding:40px 0}.pull p{font-size:20px}.stat .n{font-size:29px}}
+</style>
+</head>
+<body>
+<div class="toprule"></div>
+
+<header class="masthead">
+<div class="wrap">
+<span class="chev">&#9650;&#9650;&#9650;&#9650;</span>
+<p class="eyebrow" style="margin-top:20px"><a href="index.html" style="border:none;color:var(--mid)">The Mobilization Trap</a> &middot; Part III of Three</p>
+<h1>The Succession Problem</h1>
+<p class="kick">The same gap, measured across a century of political data, and narrowed twice by the literature that contradicts it.</p>
+<p class="meta">ROUGHLY 13 MINUTES &middot; RECOGNIZING PATTERNS &middot; LLAMA &amp; GRIFFIN</p>
+</div>
+</header>
+
+<section>
+<div class="wrap">
+<span class="snum">SECTION 01</span>
+<h2>Nepal, four days</h2>
+<p>On 4 September 2025 Nepal's Ministry of Communication and Information Technology <a href="https://www.hrw.org/news/2025/09/09/nepal-police-fire-on-gen-z-protest">ordered 26 social media platforms blocked</a> for failing to register by the previous day's deadline.</p>
+
+<p>On 8 September a crowd gathered at Naya Baneshwor Chowk, the junction one corner of which is occupied by Nepal's parliament. Human Rights Watch, working from verified drone and video footage, found that security forces <a href="https://www.hrw.org/news/2025/11/20/nepal-unlawful-use-of-force-during-gen-z-protest">used disproportionate force and fired indiscriminately on protesters multiple times over about three hours</a>, shooting people in the head, chest and abdomen, and that witness accounts and analysed footage do not show the grave and imminent danger to life that would justify intentional lethal force.</p>
+
+<p>Oli resigned on 9 September and the platform ban was lifted the same day. On 12 September, former chief justice Sushila Karki was <a href="https://www.reuters.com/world/asia-pacific/former-chief-justice-karki-named-nepals-first-female-pm-after-violent-unrest-2025-09-12/">sworn in as interim prime minister by President Ramchandra Paudel</a>, the first woman to lead Nepal. Reuters reports her selection followed talks between the president, army chief Ashok Raj Sigdel and protest representatives.</p>
+
+<div class="note">
+<span class="h">On the casualty figures, which are not interchangeable</span>
+<p>Five numbers circulate for Nepal and each counts a different thing. <strong>19</strong> is deaths in the police crackdown on 8 September alone, with over 300 injured. <strong>34</strong> is a health ministry running total as of 11 September, all causes. <strong>74</strong> is a cumulative UN figure for 8 to 22 September, later superseded. <strong>76</strong> is the judicial commission's count for 8 to 9 September nationwide, and separately Amnesty's count for a six-day window to 13 September. <strong>77</strong> is the Government of Nepal damage assessment, which explicitly adds 20 deaths occurring after 9 September.</p>
+<p>76 and 77 are not in conflict. They count different windows. Any report presenting them as a disputed toll has misread its own sources.</p>
+</div>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+<span class="snum">SECTION 02</span>
+<h2>And then, eighteen months</h2>
+<p>Nepal voted on <a href="https://kathmandupost.com/national/2026/03/12/voter-turnout-revised-to-60-percent-lowest-since-1991">5 March 2026, on a revised turnout of 59.84%, the lowest since 1991</a>. The Rastriya Swatantra Party took <a href="https://www.aljazeera.com/news/2026/3/12/ex-rapper-balendra-shah-sweeps-to-power-in-nepal-landslide-election-victory">182 of 275 seats</a>, against 38 for the Nepali Congress and 25 for Oli's party. Balendra Shah was <a href="https://www.aljazeera.com/news/2026/3/27/nepals-youngest-premier-sworn-in-after-releasing-new-rap-song-about-unity">sworn in on 27 March 2026</a> as Nepal's youngest prime minister.</p>
+
+<p>A movement that produced a head of government in four days did not produce the party that governs. The RSP was founded in 2022, four years before the vote and three years before the protests. Hold that detail. It is the whole of Section 06.</p>
+
+<div class="pull">
+<span class="h">The formulation</span>
+<p>A network conferred legitimacy in ninety-six hours. The army chief, the president and a party built four years earlier conferred power.</p>
+</div>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+<span class="snum">SECTION 03</span>
+<h2>Madagascar, where the movement lost the country it won</h2>
+<p>Protests began in Antananarivo on 25 September 2025 over water and electricity failures. By 29 September the UN High Commissioner for Human Rights, Volker T&uuml;rk, reported <a href="https://news.un.org/en/story/2025/09/1165991">at least 22 people killed and more than a hundred injured</a>, victims including protesters and bystanders killed by security forces. President Rajoelina disputed the count on 8 October, saying <a href="https://www.france24.com/en/live-news/20251009-police-meet-fresh-1-000-strong-protest-in-madagascar-with-tear-gas">there had been 12 confirmed deaths and all were looters and vandals</a>.</p>
+
+<p>Then the sequence that decided it, none of which the movement controlled.</p>
+
+<div class="tw">
+<table>
+<thead><tr><th style="width:17%">Date</th><th>Event</th></tr></thead>
+<tbody>
+<tr><td class="mono">11 Oct 2025</td><td>The CAPSAT unit announces it will refuse orders to fire, calling on forces to <a href="https://www.theguardian.com/world/2025/oct/11/soldiers-from-elite-capsat-unit-join-protests-against-madagascars-president">disobey orders to shoot at your fellow citizens</a></td></tr>
+<tr><td class="mono">12 Oct 2025</td><td>CAPSAT states that <a href="https://www.aljazeera.com/news/2025/10/12/madagascar-president-says-attempt-to-seize-power-illegally-under-way">all directives from the Malagasy army will emanate from its command centre</a>. Major General D&eacute;mosth&egrave;ne Pikulas is installed as Chief of Army Staff the same day</td></tr>
+<tr><td class="mono">14 Oct 2025</td><td>Colonel Michael Randrianirina announces on national radio that <a href="https://www.reuters.com/world/africa/madagascar-army-colonel-says-military-has-taken-charge-nation-2025-10-14/">the military has taken charge</a>. The National Assembly impeaches Rajoelina for dereliction of duty on <a href="https://www.reuters.com/world/africa/madagascar-president-rajoelina-impeached-by-lawmakers-reuters-witness-2025-10-14/">130 votes in favour and one abstention</a></td></tr>
+<tr><td class="mono">14 Oct 2025</td><td>Ordinance 2025-001 <a href="https://www.trtafrika.com/english/article/e89d87c16b74">suspends the 2010 constitution and five institutions</a>: the High Constitutional Court, the electoral commission, the Senate, the High Council for the Defence of Human Rights and the High Court of Justice. The National Assembly stays</td></tr>
+<tr><td class="mono">17 Oct 2025</td><td>Randrianirina is <a href="https://www.reuters.com/world/africa/madagascar-military-ruler-randrianirina-sworn-president-reuters-witness-2025-10-17/">sworn in as president</a>, with a transition of at most two years before elections</td></tr>
+</tbody>
+</table>
+</div>
+
+<p class="fn">Reuters reports the single non-affirmative ballot as an abstention or blank ballot, not a vote against. On the timeline, Reuters, Anadolu and Amnesty all report a maximum of two years; Al Jazeera alone reported the promise as 18 to 24 months.</p>
+
+<p>Six days from a mutiny to a sworn-in colonel. The movement's role in that sequence was to create the conditions. It had no role in the sequence itself.</p>
+
+<p>Amnesty International's assessment in March 2026 is the one that matters. The junta <a href="https://www.amnesty.org/en/latest/news/2026/03/from-gen-z-revolt-to-junta-control-madagascars-promise-of-change-is-slipping-away/">reshuffled the executive and made almost 600 appointments</a>, and the Gen Z youth movement and civil society it claims to have seized power for was neither involved nor consulted. On 15 March 2026 Randrianirina dismissed the entire cabinet without explanation. Elections are now oriented toward September 2027.</p>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+<span class="snum">SECTION 04</span>
+<h2>What the data says, and what its author says about it</h2>
+<p>Erica Chenoweth's NAVCO project is the standard quantitative source here, covering <a href="https://dataverse.harvard.edu/dataverse/navco">622 maximalist campaigns from 1900 to 2019</a>. Nonviolent campaign success rates rose through the twentieth century, peaked in the 1990s, and have fallen sharply since 2010, the decade in which digital organizing became universal.</p>
+
+<p>Chenoweth's own caveats are more useful to this argument than the headline. From the Carr Center's <a href="https://www.hks.harvard.edu/sites/default/files/2024-05/Erica%20Chenoweth_2020-005.pdf">cautionary update on the 3.5% rule</a>:</p>
+
+<ul>
+<li>It is a rule, not a law. Eighty-three percent of successful maximalist campaigns never crossed the threshold, and Bahrain exceeded 6% peak participation and decisively failed.</li>
+<li>The load-bearing sentence: the rule does not speak to leadership, strategic imagination, organizational capacity or sustainability.</li>
+<li>And the one that carries this report: building and maintaining momentum requires organizational capacity, and today's digital organizing environment makes it easier to coordinate mass protests but not necessarily to sustain them.</li>
+</ul>
+
+<p>Two structural limits belong alongside it, both stated by the authors. The dataset is <a href="https://www.belfercenter.org/sites/default/files/pantheon_files/files/publication/IS3301_pp007-044_Stephan_Chenoweth.pdf">knowingly biased toward success, because large mature campaigns are most commonly reported</a> and campaigns crushed in infancy cannot be included. And NAVCO's coding rule requires that campaigns have discernible leadership, which means leaderless networked mobilizations sit awkwardly inside the unit of analysis the numbers are built on.</p>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+<span class="snum">SECTION 05</span>
+<h2>Why capacity is the binding constraint</h2>
+<p>Zeynep Tufekci named the mechanism in 2017. Digital tools let movements grow to a size that would once have required years of organizing, without doing the organizing, and the capacities that organizing builds are the ones needed after the peak. Her term for the resulting paralysis is <strong>tactical freeze</strong>.</p>
+
+<p class="fn">The phrase "tactical freedom, strategic weakness", which appeared in an earlier draft of this report and elsewhere in our material, is not Tufekci's. It is our gloss and it is retired here.</p>
+
+<p>Jonathan Pinckney's ICNC work supplies the quantitative version and the operating instruction. Democracy is most likely, he finds, <a href="https://www.nonviolent-conflict.org/wp-content/uploads/2018/10/When-Civil-Resistance-Succeeds-Pinckney-monograph.pdf">when activists keep their social bases mobilized while directing that mobilization toward building new political institutions</a>. Two failure modes destroy it: rapid demobilization, which shifts the balance of force back to the remnants of the old regime, and street radicalism, which disrupts institutionalization from the other direction.</p>
+
+<p>His companion finding is sharper still: <a href="https://www.nonviolent-conflict.org/wp-content/uploads/2021/04/Pinckney_SR_How_To_Win_Well.pdf">winning via an election or negotiation tends to promote democratization, while extra-institutional seizures of power, even when primarily nonviolent, tend to make democratization less likely</a>. And the timing constraint that explains both Nepal and Madagascar: the power of the streets is highest just before breakthrough, and declines once breakthrough occurs. The window for placing people into institutions is open before the win, not after it.</p>
+
+<p>Mark Beissinger supplies the structural reason. The dominant contemporary form, which he calls the urban civic revolution, accounts for <a href="https://pup-assets.imgix.net/onix/images/9780691224756/9780691224749.pdf">almost two-fifths of all revolutionary episodes worldwide since 1985</a>, produces regimes that last significantly less time than those from social revolutions, and inherits the old state's corruption relationships intact. His mechanism sentence is the best in the literature:</p>
+
+<div class="pull">
+<span class="h">Beissinger, on scale against coherence</span>
+<p>The larger the number of individuals mobilized into revolutionary action, the more variegated the participants necessarily will be, and the more incentive there is for revolutionary leadership to act as a convener of anti-incumbent sentiment than a provider of organizational or ideological coherence. This problem is compounded when revolutionary mobilization occurs on a temporal scale of days and weeks.</p>
+</div>
+
+<p>Read that against Part I. Convening is acquisition. Coherence is retention. The trade-off is structural in both domains, and speed makes it worse in both.</p>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+<span class="snum">SECTION 06</span>
+<h2>The case against everything above</h2>
+<p>The strongest objections to this report were not raised against it. They were already in the literature it draws on, and two of them are decisive enough to narrow the claim.</p>
+
+<h3>Objection one: institutionalization is the trap, not the cure</h3>
+<p>Piven and Cloward's argument in <em>Poor People's Movements</em> is that mass defiance wins concessions and organizations do not. Their causal account is that organization-building <a href="https://files.libcom.org/files/2022-04/poorpeoplesmovements.pdf">draws people away from the streets and into the meeting rooms</a>, while the search for resources drives organizers inexorably toward elites. Organizations that survive do so, in their words, by abandoning their oppositional politics. The line that inverts this report entirely: by endeavouring to do what they cannot do, organizers fail to do what they can do.</p>
+
+<p>Michels supplies the structural version. <a href="https://archive.org/stream/politicalparties00michuoft/politicalparties00michuoft_djvu.txt">Who says organization, says oligarchy.</a> Building the institutions this report says networked movements lack would predictably destroy the internal democracy that made them attractive.</p>
+
+<p>Note that this is not a fringe position. McAdam concedes from inside the pro-organization camp that formal organizations render a movement vulnerable to oligarchization and co-optation, and Tarrow concedes that institutionalization often succeeds at the cost of transforming the movement into a party or interest group. The mechanism literature this report relies on already contains its own rebuttal.</p>
+
+<h3>Objection two: networked movements demonstrably do institutionalize</h3>
+
+<div class="tw">
+<table>
+<thead><tr><th style="width:22%">Movement to vehicle</th><th style="width:30%">Result</th><th style="width:14%">Lag</th><th>Vehicle provenance</th></tr></thead>
+<tbody>
+<tr><td>15-M to Podemos</td><td>20.7% and 69 seats, Dec 2015</td><td class="mono">4.6 yrs</td><td>Newly built, by a pre-existing academic and media network</td></tr>
+<tr><td>Grillo's network to M5S</td><td>32.7% and government, 2018</td><td class="mono">8.7 yrs</td><td>Newly built, on a national broadcaster-comedian's platform</td></tr>
+<tr><td>Pots and pans to the Pirates</td><td>14.5% and 10 seats, 2016</td><td class="mono">7.8 yrs</td><td>Launched by a sitting MP already inside parliament</td></tr>
+<tr><td>Euromaidan to Servant of the People</td><td>43% and a Rada majority, 2019</td><td class="mono">5.4 yrs</td><td>Built on a pre-registered party shell; no sourced link to Maidan</td></tr>
+<tr><td><em>Estallido social</em> to Boric</td><td>55.87% presidency, Dec 2021</td><td class="mono">2.2 yrs</td><td>Frente Amplio, founded 2017 out of the 2011 student movement</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>The claim that networked movements cannot institutionalize is false and this report retires it.</p>
+
+<p>What replaces it is narrower and survives all five cases. The lag from protest peak to serious electoral power clusters at roughly two to five years, and <strong>the vehicle is almost never improvised from the protest itself</strong>. Chile, the fastest and largest victory, ran through a coalition assembled eight years earlier out of a previous protest wave. Iceland's Pirates were launched from inside parliament. Servant of the People was built on a shell registered before it and cannot be tied to Maidan from any source located here. Podemos and M5S are the two genuine new builds, and both were founded by pre-existing political entrepreneurs rather than by the horizontal assemblies.</p>
+
+<div class="pull">
+<span class="h">The claim, as narrowed twice</span>
+<p>Networked movements mobilize far faster than they can build. Whoever holds a vehicle assembled before the moment captures it, whether or not they generated it. In Nepal that vehicle was four years old. In Madagascar it was an army unit.</p>
+</div>
+
+<p>Chile also demonstrates that institutional capture and programmatic victory are separable. Seventy-eight percent voted to draft a new constitution; <a href="https://www.bcn.cl/procesoconstituyente/plebiscito2022">61.86% then rejected the draft the resulting convention produced</a>.</p>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+<span class="snum">SECTION 07</span>
+<h2>The isomorphism</h2>
+
+<div class="tw">
+<table>
+<thead><tr><th style="width:26%">Structure</th><th style="width:37%">Games</th><th>Political movements</th></tr></thead>
+<tbody>
+<tr><td>What the model is good at</td><td>Acquisition. 11M, 20M, 12M players</td><td>Mobilization. A head of government in four days</td></tr>
+<tr><td>What it cannot do</td><td>Retention. Cadence for years</td><td>Institutionalization. Governing after the win</td></tr>
+<tr><td>What substitutes</td><td>Pre-supplied recognition, meaning IP</td><td>Pre-existing organization, meaning a party or an army</td></tr>
+<tr><td>How the failure shows</td><td>A decay curve. 98% gone in twelve months</td><td>A colonel, or a party founded four years earlier</td></tr>
+<tr><td>The measurable trend</td><td>Attention near zero-sum, 8% of hours to new releases</td><td>Success rates falling as digital organizing became universal</td></tr>
+<tr><td>The unasked question</td><td>Who funds the cadence in year three</td><td>Who governs on day thirty</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>The isomorphism is not decorative. Both domains have cheap, fast, effective mass coordination, and in neither did the multi-year organizational labour that converts coordination into durability get any cheaper. Both therefore reward whoever did that labour in advance, and both systematically underfund it because the funding case is built on the moment of acquisition.</p>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+<span class="snum">SECTION 08</span>
+<h2>The open question</h2>
+<p>Whether this is a transitional deficit or an inherent one is not settled and will not be settled by this report.</p>
+
+<p>The optimistic evidence is real and quantitative. Bethke and Pinckney's replication finds that regimes whose transition was induced by nonviolent resistance have a <a href="https://academic.oup.com/jpr/article/53/6/758/8365502">median survival of 47 years, against nine years where no resistance campaign influenced the transition and five where a violent campaign did</a>. Their own stated limit belongs with it: they measured the persistence of democracy, not its level of consolidation.</p>
+
+<p>The counter-evidence is also real. Lehoucq, adding peaceful reform campaigns that NAVCO omits, finds the <a href="https://home.uncg.edu/~f_lehouc/papers/Lehoucq%20CP%20Nonviolence%20Jan%202016.pdf">success rates of nonviolent and violent campaigns to be equal</a>.</p>
+
+<p>And there is a third reading this report cannot dismiss. If Piven and Cloward are right, then failing to institutionalize is not a failure. It is a refusal to be absorbed, chosen by people who have watched what absorption does. Nepal's movement handed power to a four-year-old party and Madagascar's lost it to a colonel. Whether either outcome was worse than becoming a party that stopped being the movement is a question the data cannot answer.</p>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+<span class="snum">THE INSTRUMENT</span>
+<h2>The year-three diagnostic</h2>
+<p>Six questions. They come out of Part I Section 04 and Part II Section 05, and they are the part of this report a studio can take into a room.</p>
+
+<ol class="diag">
+<li><b>Is your all-time peak behind you, and is that a regime or an accident?</b><p>Late peaks correlate with survival in this sample and the correlation is partly circular, because a game that grew has by definition not yet peaked. Treat it as a regime detector, never as an explanation, and never as a forecast on an unlaunched title.</p></li>
+<li><b>Does the product generate its own distribution when played?</b><p>PEAK converted 36,797 wishlists into more than 10 million copies because the purchase is a social act. That is a pre-production mechanic, not a marketing plan, and it cannot be added later.</p></li>
+<li><b>Is your organic wishlist rate above the floor?</b><p>No game below ten organic daily wishlists exceeded 3,000 units in launch week. Use this as a kill switch. Do not use a strong number as a forecast: dispersion runs 10 to 20 times, not 10 to 20 percent.</p></li>
+<li><b>Who funds the content cadence in year three?</b><p>Path of Exile shipped forty releases in ten years. If your greenlight case ends at launch plus twelve months, you have funded acquisition and called it a live game.</p></li>
+<li><b>If you are shipping an authoring layer, what does it cost to operate?</b><p>Crowfall's stated cause of death was the effort required to build new campaigns and run the game daily. Participation infrastructure lowers the cost of cadence. It is not a substitute for it, and it can be the bill that closes you.</p></li>
+<li><b>Who holds the vehicle if the moment arrives early?</b><p>The political version of the same question. If your audience shows up before your operating capacity does, someone else with pre-existing capacity captures them. That is the trap, in both domains.</p></li>
+</ol>
+
+<div class="pull">
+<span class="h">The missing instrument</span>
+<p>What a launch cost to market, next to what it earned. No publisher in this report disclosed one. Until that number exists, every thesis in this space is inference dressed as measurement, including this one.</p>
+</div>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+<span class="snum">CONFIDENCE</span>
+<h2>What we are sure of, and what we are not</h2>
+
+<div class="conf">
+<div>
+<h4>Certain &middot; primary or first-party</h4>
+<p>All Steam concurrency figures, read from SteamDB on 23 August 2026. The Nepal sequence, from Human Rights Watch, Reuters, Amnesty International and the Kathmandu Post. The Madagascar sequence, from OHCHR, Reuters, Al Jazeera, the Guardian, Anadolu and Amnesty International. Publisher-stated unit figures where the publisher is cited directly. All academic quotations, taken from the source PDFs rather than from summaries.</p>
+</div>
+<div>
+<h4>Likely &middot; strong but single-sourced or third-party estimated</h4>
+<p>The four acquisition figures in Part I Section 01, which are publisher-stated on four different definitions. Helldivers 2's 12 million, which rests on reporting of a Sony investor call rather than an IR document. AppMagic's 2025 unit estimates. Hytale's roughly 2.8 million launch concurrency, a co-founder statement carried by one outlet. Madagascar's election timeline, where Al Jazeera's 18 to 24 months differs from the two-year maximum reported elsewhere.</p>
+</div>
+<div>
+<h4>Uncertain &middot; flagged and not load-bearing</h4>
+<p>The decline in nonviolent campaign success rates since 2010 is Chenoweth's published finding and is used here as reported. It was not re-verified against a primary dataset release in this pass, and the argument does not depend on the exact figures. Hytale's current concurrency comes from a third-party tracker counting listed multiplayer servers only, and is not comparable to its launch figure. Policy-target reversals in Kenya, Indonesia and Morocco are cited in the wider literature but were not primary-verified here, so only Nepal and Madagascar carry the regime-target argument.</p>
+</div>
+<div>
+<h4>Cannot be sourced</h4>
+<p>Any per-era AAA failure <em>rate</em> with a denominator. Any marketing spend disclosed next to revenue for a named title. A verbatim Chenoweth and Stephan sentence for the frequently quoted 45-point democratic dividend, which is available only as reported by a reviewer. Any sourced statement linking Servant of the People to Euromaidan.</p>
+</div>
+<div>
+<h4>Corrected in this report</h4>
+<p>Three claims died in review and all three are in the text rather than a footnote: the periodization of push-marketing failure, participation infrastructure as a retention mechanism, and the claim that networked movements cannot institutionalize. A fourth correction is editorial: "tactical freedom, strategic weakness" is our gloss and not Zeynep Tufekci's phrase. Her term is "tactical freeze."</p>
+</div>
+</div>
+</div>
+</section>
+
+<div class="wrap">
+<div class="pagenav">
+<a href="part-2.html">&larr; Part II &middot; The Signal Is Not the Cause</a>
+<a href="index.html">Index &rarr;</a>
+</div>
+</div>
+<footer>
+<div class="wrap">
+<span class="chev">&#9650;&#9650;&#9650;&#9650;</span>
+<p style="margin:0 0 14px"><strong>The Mobilization Trap</strong> is part of <em>Recognizing Patterns</em>, the market intelligence practice of Llama &amp; Griffin Consultants.</p>
+<p class="bio">Abbas Saleem is Principal Consultant at Llama &amp; Griffin, advising game studios, publishers and investors across MENA, South Asia, Southeast Asia and Europe on go-to-market strategy, publisher relations and market entry. He writes <em>Recognizing Patterns</em>.</p>
+<p class="meta" style="margin-top:18px">PUBLISHED 23 AUGUST 2026 &middot; <a href="https://llamagriffin.com">LLAMAGRIFFIN.COM</a> &middot; <a href="https://recognizingpatterns.substack.com">RECOGNIZINGPATTERNS.SUBSTACK.COM</a></p>
+</div>
+</footer>
+</body>
+</html>

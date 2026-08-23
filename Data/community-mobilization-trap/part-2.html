@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,700&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>Part II: The Signal Is Not the Cause | The Mobilization Trap</title>
+<meta name="description" content="Product produces sentiment. Sentiment produces conversion. What survives of the community signal, stated precisely.">
+<meta property="og:title" content="Part II: The Signal Is Not the Cause | The Mobilization Trap">
+<meta property="og:description" content="Product produces sentiment. Sentiment produces conversion. What survives of the community signal, stated precisely.">
+<meta property="og:type" content="article">
+<style>
+:root{--cream:#F7F4EE;--ink:#232323;--gold:#C3A55F;--brown:#37342F;--mid:#6B6660;--border:#D2CDC3;--surface:#EAE7E0;--cardwhite:#FDFCF9}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:'DM Sans',-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif;font-size:16px;line-height:1.68;-webkit-font-smoothing:antialiased}
+.toprule{position:fixed;top:0;left:0;right:0;height:3px;background:var(--ink);z-index:60}
+.wrap{max-width:800px;margin:0 auto;padding:0 26px}
+a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--border)}
+a:hover{border-bottom-color:var(--gold)}
+
+/* Chevrons: 4 gold triangles, never more, never fewer */
+.chev{color:var(--gold);font-size:12px;letter-spacing:.14em;display:block;line-height:1}
+h2::before{content:"\25B2\25B2\25B2\25B2";color:var(--gold);font-size:10px;letter-spacing:.14em;display:block;line-height:1;margin-bottom:13px}
+h3::before{content:"\25B2\25B2\25B2\25B2";color:var(--gold);font-size:8px;letter-spacing:.14em;display:block;line-height:1;margin-bottom:10px}
+
+.eyebrow{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin:0}
+h1{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:clamp(42px,7.6vw,76px);line-height:1.02;letter-spacing:-.015em;margin:16px 0 10px}
+h2{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:clamp(29px,4.6vw,46px);line-height:1.1;letter-spacing:-.01em;margin:0 0 8px}
+h3{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:clamp(21px,2.7vw,27px);line-height:1.22;margin:34px 0 10px}
+.kick{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:700;color:var(--gold);font-size:clamp(23px,3.9vw,38px);line-height:1.16;margin:0 0 26px}
+h2+.kick,h2+p.kick{font-size:clamp(20px,3vw,30px);margin-top:-2px}
+
+.meta{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.09em;color:var(--mid);line-height:1.95;text-transform:uppercase}
+header.masthead{padding:86px 0 38px;border-bottom:.5px solid var(--border)}
+section{padding:52px 0;border-bottom:.5px solid var(--border)}
+section:last-of-type{border-bottom:none}
+.snum{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mid);display:block;margin-bottom:20px}
+p{margin:0 0 18px;color:var(--brown)}
+p.lede{font-size:19px;line-height:1.62;color:var(--ink)}
+section p:first-of-type{color:var(--ink)}
+strong,b{font-weight:600;color:var(--ink)}
+em,i{font-style:italic}
+ul{margin:0 0 18px;padding-left:20px;color:var(--brown)}
+li{margin-bottom:9px}
+
+/* Gap-based grid: background is the border colour, cells are cream. The gap IS the border. */
+.statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);margin:34px 0 12px}
+.stat{background:var(--cream);padding:22px 19px}
+.stat .n{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:34px;line-height:1;margin-bottom:11px;color:var(--ink)}
+.stat .l{font-size:12.5px;color:var(--mid);line-height:1.45}
+.fn{font-size:12.5px;color:var(--mid);line-height:1.55;margin:12px 0 0}
+
+.cards{display:grid;gap:1px;background:var(--border);border:1px solid var(--border);margin:30px 0 0}
+.card{background:var(--cream);padding:28px 26px;display:block;border:none}
+.card:hover{background:var(--cardwhite)}
+.card .pn{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.2em;color:var(--gold);text-transform:uppercase}
+.card h3{margin:12px 0 8px;font-size:25px}
+.card h3::before{content:none}
+.card p{font-size:15px;color:var(--mid);margin:0}
+
+.tw{overflow-x:auto;margin:28px 0;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;min-width:530px;font-size:14.5px}
+th{text-align:left;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:400;padding:0 15px 10px 0;border-bottom:1px solid var(--ink);vertical-align:bottom}
+td{padding:13px 15px 13px 0;border-bottom:.5px solid var(--border);vertical-align:top;line-height:1.55;color:var(--brown)}
+td:last-child,th:last-child{padding-right:0}
+.mono{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12.5px}
+
+.pull{border-left:1.5px solid var(--gold);padding:2px 0 2px 24px;margin:36px 0}
+.pull .h{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:12px}
+.pull p{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:500;font-size:24px;line-height:1.34;margin:0;color:var(--ink)}
+
+.note{background:var(--cardwhite);border:1px solid var(--border);border-left:1.5px solid var(--gold);padding:26px 26px;margin:30px 0}
+.note .h{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:13px}
+.note p:last-child{margin-bottom:0}
+
+.fig{margin:34px 0}
+.fig svg{width:100%;height:auto;display:block;border:1px solid var(--border)}
+.cap{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.07em;color:var(--mid);margin-top:12px;line-height:1.7;text-transform:uppercase}
+
+.conf{display:grid;gap:1px;background:var(--border);border:1px solid var(--border);margin:24px 0}
+.conf>div{background:var(--cardwhite);padding:24px 26px}
+.conf h4{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin:0 0 11px;font-weight:400}
+.conf p{font-size:14.5px;margin:0;color:var(--brown)}
+
+.pagenav{display:flex;justify-content:space-between;gap:20px;padding:40px 0;border-top:.5px solid var(--border);flex-wrap:wrap}
+.pagenav a{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;border:none;color:var(--mid)}
+.pagenav a:hover{color:var(--gold)}
+footer{padding:44px 0 66px;border-top:.5px solid var(--border);color:var(--mid);font-size:13.5px;line-height:1.7}
+footer .chev{margin-bottom:18px;font-size:8px}
+footer p{color:var(--mid)}
+.bio{font-size:14px;color:var(--mid);line-height:1.65}
+
+ol.diag{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:1px;background:var(--border);border:1px solid var(--border);counter-reset:d}
+ol.diag li{counter-increment:d;background:var(--cream);padding:26px 26px}
+ol.diag li::before{content:counter(d,decimal-leading-zero);font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.2em;color:var(--gold);display:block;margin-bottom:11px}
+ol.diag li p{margin:0;font-size:15px;color:var(--mid)}
+ol.diag li b{color:var(--ink);font-weight:600;display:block;margin-bottom:7px;font-size:17px;font-family:'Playfair Display',Georgia,serif;font-weight:700}
+@media(max-width:560px){body{font-size:15.5px}section{padding:40px 0}.pull p{font-size:20px}.stat .n{font-size:29px}}
+</style>
+</head>
+<body>
+<div class="toprule"></div>
+
+<header class="masthead">
+<div class="wrap">
+<span class="chev">&#9650;&#9650;&#9650;&#9650;</span>
+<p class="eyebrow" style="margin-top:20px"><a href="index.html" style="border:none;color:var(--mid)">The Mobilization Trap</a> &middot; Part II of Three</p>
+<h1>The Signal Is Not the Cause</h1>
+<p class="kick">Product produces sentiment. Sentiment produces conversion. The reverse is weaker than anyone budgets for.</p>
+<p class="meta">ROUGHLY 10 MINUTES &middot; RECOGNIZING PATTERNS &middot; LLAMA &amp; GRIFFIN</p>
+</div>
+</header>
+
+<section>
+<div class="wrap">
+<span class="snum">SECTION 01</span>
+<h2>The structural context</h2>
+<p>Three things changed since 2013, and none of them is audience sentiment about being marketed to.</p>
+
+<p><strong>Supply exploded.</strong> <a href="https://kotaku.com/pc-gaming-newzoo-balatro-helldivers-2-gdc-time-spent-1851771352">More than 18,000 games launched on Steam in 2024, up 5,000 on 2023</a>. The June 2026 Next Fest field grew <a href="https://newsletter.gamediscover.co/p/the-state-of-steam-wishlist-conversions">66% year over year</a> while the median result stayed near 200 wishlists.</p>
+
+<p><strong>Budgets outran the ceiling.</strong> AAA development moved from the $50-150M band to $200M-plus, with the CMA citing one franchise at $660M across development and marketing. Matthew Ball's version is sharpest: the <em>Spider-Man</em> production budget rose from <a href="https://www.gamedeveloper.com/business/five-takeaways-for-game-developers-from-matthew-ball-s-state-of-gaming-data">just over $100M to over $300M</a> while lifetime sales did not increase exponentially.</p>
+
+<p><strong>Attention became near zero-sum.</strong> <a href="https://kotaku.com/pc-gaming-newzoo-balatro-helldivers-2-gdc-time-spent-1851771352">Only 8% of 2024 PC gaming hours</a> went to games released in 2024. Sixty-seven percent went to games six years or older. Ball's 2023 figure is harsher: <a href="https://www.gamedeveloper.com/business/five-takeaways-for-game-developers-from-matthew-ball-s-state-of-gaming-data">6.5% of gametime went to new games, with four titles taking half of that</a>. On the demand side, <a href="https://www.technetbooks.com/2025/10/us-gamers-buy-new-games-infrequently.html">63% of US players buy at most two new titles a year</a> and 33% buy less than one.</p>
+
+<p>Push marketing did not stop working. It got more expensive to run inside a fixed attention pool, against incumbents holding 93.5% of the hours, while the number of competitors doubled.</p>
+
+<div class="pull">
+<span class="h">The reframe</span>
+<p>This is a unit-economics problem wearing a cultural-shift costume.</p>
+</div>
+
+<div class="note">
+<span class="h">Two guardrails</span>
+<p>The failures are continuous, not recent. <em>Tabula Rasa</em> carried a $25M budget and closed in 2009. <em>APB</em> burned $101M and put Realtime Worlds into administration six weeks after launch in 2010.</p>
+<p>And no source located in this research provides a per-era failure <em>rate</em> with a denominator, which means the claim that AAA failure is rising remains an impression. The circulating figure that 40% of 2024 AAA releases flopped traces only to social posts.</p>
+</div>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+<span class="snum">SECTION 02</span>
+<h2>The wishlist is not a leading indicator</h2>
+<p>GameDiscoverCo surveyed more than 75 Steam developers and found first-week sales at a <a href="https://www.gamesindustry.biz/do-steams-pre-launch-wishlists-and-post-launch-sales-line-up-meaningfully">median of 0.2 times launch wishlists, ranging from 1.5% to over 100%</a>. One game with 85,000 wishlists sold 3,000 copies. Their own summary is that you should not take your wishlists to the bank. The updated framing is blunter, with performance varying <a href="https://newsletter.gamediscover.co/p/the-state-of-steam-wishlist-conversions">by 10-20x, not 10-20%</a>, and medians of 0.17x above 10,000 wishlists.</p>
+
+<p>Video Game Insights measured the correlation directly across 1,500 games and found an <a href="https://gamedevreports.substack.com/p/video-game-insights-steam-wishlists">R&sup2; of 0.49, with only 9% of games outselling their wishlists</a>.</p>
+
+<div class="note">
+<span class="h">State that carefully, because the first draft overstated it</span>
+<p>Half the variance explained is a real relationship. Wishlists are not noise. They are an insufficient predictor being used as a sufficient one, and the residual half is where every studio's actual outcome lives. A signal that explains half the variance with 10-20x dispersion around it is a planning input, not a forecast.</p>
+</div>
+
+<p>Valve's position is the more damaging evidence, because Valve owns the instrument and says it does little: wishlists have <a href="https://www.techspot.com/news/109938-steam-wishlists-have-little-impact-game-success-new.html">little effect on a game's visibility and commercial sales</a>.</p>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+<span class="snum">SECTION 03</span>
+<h2>What actually moves conversion</h2>
+<p>Gamesight measured the causal chain and it runs the other way. Moving Steam reviews <a href="https://www.gamesindustry.biz/boosting-steam-reviews-post-release-leads-to-increased-conversion-rates-says-gamesight">from Mixed to Positive tripled conversion rates</a>, driven by game patches, bug fixes and the incorporation of player-requested features. In one 21-month campaign the inflection arrived in month ten, when the game reached Overwhelmingly Positive.</p>
+
+<p>Note the caveat that stops universal application: Gamesight found <a href="https://www.operationsports.com/a-new-report-shows-just-how-much-steam-reviews-matter-for-game-sales/">no measurable effect for free-to-play games</a>.</p>
+
+<p>Read that alongside Part I Section 04 and the same operating-model claim appears from a second direction. The thing that tripled conversion was months of patching. Cadence again.</p>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+<span class="snum">SECTION 04</span>
+<h2>The discourse is not the audience</h2>
+<p>The original thesis rests on players who live in YouTube comments and Discord servers. They exist, they matter, and they are a minority whose commercial influence is weaker than their volume suggests.</p>
+
+<p>Across <a href="https://gamedevreports.substack.com/p/newzoo-how-people-engage-with-games">73,000 respondents in 36 countries, 64% watch gaming content but only 35% engage in other ways</a>. Newzoo elsewhere classifies just <a href="https://newzoo.com/resources/blog/community-matters-how-why-people-engage-with-games-during-the-pandemic">10% of enthusiasts as Community Gamers</a>.</p>
+
+<p>Review bombing, per Steam Spy, generally has little effect on sales and may increase them through the resulting publicity. <em>Helldivers 2</em> absorbed <a href="https://www.pcgamer.com/games/helldivers-2-players-celebrate-victory-over-sony-as-the-review-bomb-cape-finally-appears-in-the-game-we-won-the-biggest-and-longest-running-major-order-in-the-game-to-date/">more than 200,000 negative Steam reviews</a> over the PSN requirement during the same window it sold 12M copies. The Sweet Baby Inc detected curator accumulated over 355,000 followers, and <a href="https://www.cbc.ca/radio/thecurrent/sweet-baby-inc-gamergate-1.7149888">the label does not affect tracked games' visibility on Steam</a>. Its highest-profile target sold 11 million copies.</p>
+
+<p>GamesIndustry.biz's read on <em>Shadows</em> is the operative one: when a fuss is made by <a href="https://www.gamesindustry.biz/assassins-creed-shadows-success-shows-that-the-threat-of-negative-campaigns-is-overblown-opinion">a relatively small group of extremely vocal people, it means little to a large majority</a> who will quietly enjoy the game.</p>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+<span class="snum">SECTION 05</span>
+<h2>What survives, precisely</h2>
+
+<p><strong>Weak demand is a reliable negative signal even though strong demand is a poor positive one.</strong> No game with <a href="https://www.gamesindustry.biz/do-steams-pre-launch-wishlists-and-post-launch-sales-line-up-meaningfully">under 10 organic daily wishlists exceeded 3,000 units in launch week</a>. Prediction becomes useful mainly <a href="https://gamedevreports.substack.com/p/video-game-insights-steam-wishlists">above 100,000 wishlists</a>. Use community metrics as a kill switch, never as a forecast.</p>
+
+<p><strong>Community-native discovery is real, cheap, and a design decision rather than a marketing one.</strong> Four cheap co-op titles reached Steam's 2025 top ten premium games by copies sold, priced between $5.50 and $9.99: <a href="https://appmagic.rocks/blog/friendslop-steam-games-2025"><em>R.E.P.O.</em> at an estimated 18.5M, <em>PEAK</em> 15.4M, <em>Schedule I</em> 9.1M, <em>RV There Yet?</em> 5.7M</a>. <em>PEAK</em> passed <a href="https://gaming.news/news/2025-08-20/peak-exceeds-10m-copies-sold/">10M copies by August 2025</a> off 36,797 wishlists, a conversion multiple GameDiscoverCo put at <a href="https://newsletter.gamediscover.co/p/the-state-of-steam-wishlist-conversions">266x</a>. Its designer described it as a vehicle to make your friends laugh.</p>
+
+<p><em>PEAK</em> resolves a tension rather than creating one. It is not evidence that marketing communities sell games. It is a participation case: the purchase is itself a social act, and one buyer recruits three more. That is a pre-production mechanic, decided before anyone writes a marketing brief.</p>
+
+<p><strong>The PC asymmetry is permanent.</strong> <a href="https://partner.steamgames.com/doc/marketing/tools">Valve does not sell marketing space at all</a>. Visibility cannot be bought, only earned, and the earning is Matthew-effect shaped: a game entering Next Fest with under 1,000 wishlists earns a <a href="https://howtomarketagame.com/2025/03/26/benchmarks-how-many-wishlists-can-i-get-from-steam-next-fest/">median 322 more, while one entering with 100,000-plus earns a median 12,882</a>. The festival multiplies an audience. It does not create one.</p>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+<span class="snum">SECTION 06</span>
+<h2>A correction to an earlier position</h2>
+
+<p>Part III of the Gen Alpha series, published on this site, argued that the participation layer is the retention moat. Part I of this report tests one component of that claim directly and it does not hold. The correction is bounded, so it is worth being precise about which part failed.</p>
+
+<div class="tw">
+<table>
+<thead><tr><th style="width:20%">Status</th><th>Claim</th></tr></thead>
+<tbody>
+<tr><td><strong>Wrong</strong></td><td>Player-authoring layers as the retention mechanism. The timing data kills it. Warframe's TennoGen arrived 2.6 years in, Deep Rock Galactic's mod support 3.5 years in, and Valheim, Path of Exile and Helldivers 2 never shipped one at all. Where it shipped early it did not prevent collapse: <em>Worlds Adrift</em> had a player-authored world before it had a game.</td></tr>
+<tr><td><strong>Survives</strong></td><td>Community self-governance and content cadence. Old School RuneScape's binding 70% poll system, which predates the servers by seven days, is the single cleanest at-launch case in the sample and the game retained for 12.5 years. Path of Exile's 13-week league cycle is episodic design built for player speculation. Both were named in the earlier report and both are corroborated here.</td></tr>
+<tr><td><strong>Untested</strong></td><td>Discord daily actives as a leading indicator. This report does not measure it and nothing here should be read as evidence either way.</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>The specific error was inference from survivors. Mods and player economies are conspicuous in long-lived games, and the earlier report read a correlation as a mechanism without checking when the layer shipped. What partly survives is narrower: authoring layers reduce the cost of the content cadence that does track survival. That makes them a margin improvement on the moat, not the moat.</p>
+
+<div class="pull">
+<span class="h">Close &middot; three questions worth asking at greenlight</span>
+<p>Does the product generate its own distribution when played. Is the organic wishlist rate above the floor. And who is funding the cadence in year three.</p>
+</div>
+</div>
+</section>
+
+<div class="wrap">
+<div class="pagenav">
+<a href="part-1.html">&larr; Part I &middot; The Acquisition Trap</a>
+<a href="part-3.html">Part III &middot; The Succession Problem &rarr;</a>
+</div>
+</div>
+<footer>
+<div class="wrap">
+<span class="chev">&#9650;&#9650;&#9650;&#9650;</span>
+<p style="margin:0 0 14px"><strong>The Mobilization Trap</strong> is part of <em>Recognizing Patterns</em>, the market intelligence practice of Llama &amp; Griffin Consultants.</p>
+<p class="bio">Abbas Saleem is Principal Consultant at Llama &amp; Griffin, advising game studios, publishers and investors across MENA, South Asia, Southeast Asia and Europe on go-to-market strategy, publisher relations and market entry. He writes <em>Recognizing Patterns</em>.</p>
+<p class="meta" style="margin-top:18px">PUBLISHED 23 AUGUST 2026 &middot; <a href="https://llamagriffin.com">LLAMAGRIFFIN.COM</a> &middot; <a href="https://recognizingpatterns.substack.com">RECOGNIZINGPATTERNS.SUBSTACK.COM</a></p>
+</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,700&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>Part I: The Acquisition Trap | The Mobilization Trap</title>
+<meta name="description" content="Forty-eight million players, four shutdowns, and the participation-infrastructure hypothesis that dies on contact with the launch dates.">
+<meta property="og:title" content="Part I: The Acquisition Trap | The Mobilization Trap">
+<meta property="og:description" content="Forty-eight million players, four shutdowns, and the participation-infrastructure hypothesis that dies on contact with the launch dates.">
+<meta property="og:type" content="article">
+<style>
+:root{--cream:#F7F4EE;--ink:#232323;--gold:#C3A55F;--brown:#37342F;--mid:#6B6660;--border:#D2CDC3;--surface:#EAE7E0;--cardwhite:#FDFCF9}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:'DM Sans',-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif;font-size:16px;line-height:1.68;-webkit-font-smoothing:antialiased}
+.toprule{position:fixed;top:0;left:0;right:0;height:3px;background:var(--ink);z-index:60}
+.wrap{max-width:800px;margin:0 auto;padding:0 26px}
+a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--border)}
+a:hover{border-bottom-color:var(--gold)}
+
+/* Chevrons: 4 gold triangles, never more, never fewer */
+.chev{color:var(--gold);font-size:12px;letter-spacing:.14em;display:block;line-height:1}
+h2::before{content:"\25B2\25B2\25B2\25B2";color:var(--gold);font-size:10px;letter-spacing:.14em;display:block;line-height:1;margin-bottom:13px}
+h3::before{content:"\25B2\25B2\25B2\25B2";color:var(--gold);font-size:8px;letter-spacing:.14em;display:block;line-height:1;margin-bottom:10px}
+
+.eyebrow{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin:0}
+h1{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:clamp(42px,7.6vw,76px);line-height:1.02;letter-spacing:-.015em;margin:16px 0 10px}
+h2{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:clamp(29px,4.6vw,46px);line-height:1.1;letter-spacing:-.01em;margin:0 0 8px}
+h3{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:clamp(21px,2.7vw,27px);line-height:1.22;margin:34px 0 10px}
+.kick{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:700;color:var(--gold);font-size:clamp(23px,3.9vw,38px);line-height:1.16;margin:0 0 26px}
+h2+.kick,h2+p.kick{font-size:clamp(20px,3vw,30px);margin-top:-2px}
+
+.meta{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.09em;color:var(--mid);line-height:1.95;text-transform:uppercase}
+header.masthead{padding:86px 0 38px;border-bottom:.5px solid var(--border)}
+section{padding:52px 0;border-bottom:.5px solid var(--border)}
+section:last-of-type{border-bottom:none}
+.snum{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mid);display:block;margin-bottom:20px}
+p{margin:0 0 18px;color:var(--brown)}
+p.lede{font-size:19px;line-height:1.62;color:var(--ink)}
+section p:first-of-type{color:var(--ink)}
+strong,b{font-weight:600;color:var(--ink)}
+em,i{font-style:italic}
+ul{margin:0 0 18px;padding-left:20px;color:var(--brown)}
+li{margin-bottom:9px}
+
+/* Gap-based grid: background is the border colour, cells are cream. The gap IS the border. */
+.statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);margin:34px 0 12px}
+.stat{background:var(--cream);padding:22px 19px}
+.stat .n{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:34px;line-height:1;margin-bottom:11px;color:var(--ink)}
+.stat .l{font-size:12.5px;color:var(--mid);line-height:1.45}
+.fn{font-size:12.5px;color:var(--mid);line-height:1.55;margin:12px 0 0}
+
+.cards{display:grid;gap:1px;background:var(--border);border:1px solid var(--border);margin:30px 0 0}
+.card{background:var(--cream);padding:28px 26px;display:block;border:none}
+.card:hover{background:var(--cardwhite)}
+.card .pn{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.2em;color:var(--gold);text-transform:uppercase}
+.card h3{margin:12px 0 8px;font-size:25px}
+.card h3::before{content:none}
+.card p{font-size:15px;color:var(--mid);margin:0}
+
+.tw{overflow-x:auto;margin:28px 0;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;min-width:530px;font-size:14.5px}
+th{text-align:left;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:400;padding:0 15px 10px 0;border-bottom:1px solid var(--ink);vertical-align:bottom}
+td{padding:13px 15px 13px 0;border-bottom:.5px solid var(--border);vertical-align:top;line-height:1.55;color:var(--brown)}
+td:last-child,th:last-child{padding-right:0}
+.mono{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12.5px}
+
+.pull{border-left:1.5px solid var(--gold);padding:2px 0 2px 24px;margin:36px 0}
+.pull .h{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:12px}
+.pull p{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:500;font-size:24px;line-height:1.34;margin:0;color:var(--ink)}
+
+.note{background:var(--cardwhite);border:1px solid var(--border);border-left:1.5px solid var(--gold);padding:26px 26px;margin:30px 0}
+.note .h{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:13px}
+.note p:last-child{margin-bottom:0}
+
+.fig{margin:34px 0}
+.fig svg{width:100%;height:auto;display:block;border:1px solid var(--border)}
+.cap{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.07em;color:var(--mid);margin-top:12px;line-height:1.7;text-transform:uppercase}
+
+.conf{display:grid;gap:1px;background:var(--border);border:1px solid var(--border);margin:24px 0}
+.conf>div{background:var(--cardwhite);padding:24px 26px}
+.conf h4{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin:0 0 11px;font-weight:400}
+.conf p{font-size:14.5px;margin:0;color:var(--brown)}
+
+.pagenav{display:flex;justify-content:space-between;gap:20px;padding:40px 0;border-top:.5px solid var(--border);flex-wrap:wrap}
+.pagenav a{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;border:none;color:var(--mid)}
+.pagenav a:hover{color:var(--gold)}
+footer{padding:44px 0 66px;border-top:.5px solid var(--border);color:var(--mid);font-size:13.5px;line-height:1.7}
+footer .chev{margin-bottom:18px;font-size:8px}
+footer p{color:var(--mid)}
+.bio{font-size:14px;color:var(--mid);line-height:1.65}
+
+ol.diag{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:1px;background:var(--border);border:1px solid var(--border);counter-reset:d}
+ol.diag li{counter-increment:d;background:var(--cream);padding:26px 26px}
+ol.diag li::before{content:counter(d,decimal-leading-zero);font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.2em;color:var(--gold);display:block;margin-bottom:11px}
+ol.diag li p{margin:0;font-size:15px;color:var(--mid)}
+ol.diag li b{color:var(--ink);font-weight:600;display:block;margin-bottom:7px;font-size:17px;font-family:'Playfair Display',Georgia,serif;font-weight:700}
+@media(max-width:560px){body{font-size:15.5px}section{padding:40px 0}.pull p{font-size:20px}.stat .n{font-size:29px}}
+</style>
+</head>
+<body>
+<div class="toprule"></div>
+
+<header class="masthead">
+<div class="wrap">
+<span class="chev">&#9650;&#9650;&#9650;&#9650;</span>
+<p class="eyebrow" style="margin-top:20px"><a href="index.html" style="border:none;color:var(--mid)">The Mobilization Trap</a> &middot; Part I of Three</p>
+<h1>The Acquisition Trap</h1>
+<p class="kick">They all acquired. None of them held.</p>
+<p class="meta">ROUGHLY 12 MINUTES &middot; RECOGNIZING PATTERNS &middot; LLAMA &amp; GRIFFIN</p>
+</div>
+</header>
+
+<section>
+<div class="wrap">
+<span class="snum">SECTION 01</span>
+<h2>Forty-eight million players, four shutdowns</h2>
+<p>Start with the cases that cannot be explained by failed marketing, because the marketing worked.</p>
+
+<div class="tw">
+<table>
+<thead><tr><th style="width:24%">Title</th><th style="width:34%">Acquired</th><th>Outcome</th></tr></thead>
+<tbody>
+<tr><td><em>XDefiant</em></td><td><a href="https://www.theverge.com/2024/12/3/24312584/ubisoft-xdefiant-shutting-down-refunds">11M players</a>, 1M in a 2023 closed beta</td><td>Shut within twelve months, 277 jobs across three studios</td></tr>
+<tr><td><em>MultiVersus</em></td><td>20M players, <a href="https://steamdb.info/app/1818750/charts/">153,433 Steam peak</a></td><td>686 concurrents at the end, <a href="https://www.gamesindustry.biz/multiversus-will-shutdown-on-may-30-after-disappointing-performance">$100M-plus impairment</a>, shut May 2025</td></tr>
+<tr><td><em>Knockout City</em></td><td><a href="https://www.gamedeveloper.com/business/knockout-city-is-shutting-down-after-struggling-to-retain-players">12M lifetime players</a>, critically well received</td><td>Shut June 2023; the studio called live games immensely challenging</td></tr>
+<tr><td><em>Spellbreak</em></td><td><a href="https://www.gamedeveloper.com/business/proletariat-is-shutting-down-i-spellbreak-i-its-mage-themed-battle-royale">5M players in three weeks</a></td><td>Averaged 166 concurrents before closure</td></tr>
+</tbody>
+</table>
+</div>
+
+<p class="fn">These four figures use four definitions and are not additively comparable. They are presented together because the scale of the gap survives any reasonable reconciliation, not because the sum is a unique-user count.</p>
+
+<p>Not one of these is a discovery failure, an awareness failure or a community failure. Every one of them is a retention failure, and retention was never the thing being funded.</p>
+
+<p>Ubisoft's language on closing <em>XDefiant</em> is the tell. Games-as-a-service <a href="https://news.ubisoft.com/en-us/article/1EywTnGrZdDqCoxKs2zNhZ/ubisoft-discontinues-development-on-xdefiant">remains a pillar of our strategy</a>, announced in the same breath as the shutdown.</p>
+
+<div class="pull">
+<span class="h">The consulting tell</span>
+<p>When a company loses 11 million players and reaffirms the model, it has diagnosed the failure as execution. The pattern across four studios says otherwise. Acquisition is a solved problem that the industry keeps re-solving, because it is the part it knows how to buy.</p>
+</div>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+<span class="snum">SECTION 02</span>
+<h2>The pre-launch version of the same failure</h2>
+<p>The same shape appears before launch, where community assets sit at maximum and the product never arrives.</p>
+
+<div class="tw">
+<table>
+<thead><tr><th style="width:22%">Case</th><th style="width:36%">Community asset</th><th>Outcome</th></tr></thead>
+<tbody>
+<tr><td><em>The Day Before</em></td><td>Most-wishlisted game on Steam by May 2022, 494,330 Twitch peak</td><td><a href="https://steamdb.info/app/1372880/charts/">Zero players, 15.7% positive across 23,186 reviews</a>; studio closed within a fortnight; follow-up Kickstarter raised $2,348 of $15,539</td></tr>
+<tr><td><em>Deadlock</em></td><td>Valve's <a href="https://steamdb.info/app/1422450/charts/">number one wishlisted title, 422,699 followers, 171,490 peak</a></td><td>Lost roughly <a href="https://esports-news.co.uk/2025/06/05/deadlock-player-count-drops-90-percent/">90% of players</a></td></tr>
+<tr><td><em>Stormgate</em></td><td><a href="https://steamdb.info/app/2012510/charts/">76,809 followers, 56,136 Twitch peak</a>, just under $40M raised</td><td>4,854 all-time peak; <a href="https://www.gamedeveloper.com/business/frost-giant-ceo-tim-morten-says-layoffs-are-possible-after-stormgate-underperforms">20% of what was seen in early access</a>; online support ended April 2026</td></tr>
+<tr><td><em>Ashes of Creation</em></td><td><a href="https://www.gamedeveloper.com/business/report-ashes-of-creation-developer-intrepid-studios-shuts-down">$3.2M from almost 20,000 backers</a></td><td>31,882 peak down to 4 players; unpaid-fees suit filed late 2025</td></tr>
+<tr><td><em>Hytale</em></td><td>Grew out of a Minecraft server with a large existing playerbase</td><td>Cancelled by Riot in 2025, bought back, relaunched into early access January 2026, then collapsed (Section 03)</td></tr>
+<tr><td><em>KSP2</em></td><td>One of PC gaming's most engaged simulation communities</td><td><a href="https://steamdb.info/app/954850/charts/">61 players, 25.7% positive</a>; Intercept Games closed by Take-Two</td></tr>
+</tbody>
+</table>
+</div>
+
+<p><em>Star Citizen</em> is often filed here. It should not be. <a href="https://www.engadget.com/2180552/star-citizen-has-raised-1-billion-remains-in-early-access-after-nine-years/">Over $1B raised from 6.5M people</a> and still in early access after nine years is a governance and scope failure, not a retention failure. It is retaining its cohort fine. That is the problem.</p>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+<span class="snum">SECTION 03</span>
+<h2>The toolset hypothesis, and why it fails</h2>
+<p>The natural next move is to say the survivors shipped something players could author into: mods, deep systems, build space, player-run economies. It is a clean story and the launch dates destroy it.</p>
+
+<h3>Among the long-tail games, the participation layer usually arrived years after the audience did</h3>
+
+<div class="tw">
+<table>
+<thead><tr><th style="width:27%">Game</th><th style="width:40%">Participation layer</th><th>When it shipped</th></tr></thead>
+<tbody>
+<tr><td>Warframe</td><td>TennoGen cosmetics only, <a href="https://wiki.warframe.com/w/Warframe_TennoGen">never gameplay mod support</a></td><td class="mono">23 Oct 2015, +2.6 years</td></tr>
+<tr><td>Deep Rock Galactic</td><td>Official mod.io support</td><td class="mono"><a href="https://www.pcgamer.com/deep-rock-galactic-digs-up-official-mod-support/">14 Sep 2021</a>, +3.5 years</td></tr>
+<tr><td>Factorio</td><td>Mod Portal with 0.13</td><td class="mono"><a href="https://alt-f4.blog/ALTF4-21/">June 2016</a>, +4 months</td></tr>
+<tr><td>Valheim</td><td><strong>None.</strong> Iron Gate: <a href="https://www.valheimgame.com/news/regarding-mods/">no official mod support</a></td><td class="mono">Never</td></tr>
+<tr><td>Path of Exile</td><td><strong>None.</strong> Barter economy and 13-week leagues, no mod tools</td><td class="mono">Never</td></tr>
+<tr><td>Helldivers 2</td><td><strong>None.</strong> A GM-run Galactic War that players can lose, no authoring</td><td class="mono">Never</td></tr>
+<tr><td>RimWorld</td><td>Steam Workshop</td><td class="mono"><a href="https://ludeon.com/blog/2016/06/steam-release-on-july-15/">Day one of early access</a></td></tr>
+<tr><td>Old School RuneScape</td><td>Binding player polls at a <a href="https://oldschool.runescape.com/poll-charter">70% threshold</a></td><td class="mono">Seven days before launch</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Two of eight shipped it at launch. Three never shipped it at all.</p>
+
+<h3>Among the failures, several shipped it early and comprehensively</h3>
+
+<p><em>Worlds Adrift</em> is the cleanest refutation available. The Workshop-backed Island Creator shipped <a href="https://store.steampowered.com/app/271920/Worlds_Adrift_Island_Creator/">28 April 2016, more than a year before the game</a>, and every island in the world was player-made. It never exceeded <a href="https://steamdb.info/app/322780/charts/">2,057 concurrents</a> and shut in July 2019 as no longer commercially viable.</p>
+
+<p><em>Hytale</em> is the live case and the most instructive. Riot cancelled it and began closing Hypixel Studios in June 2025; co-founder Simon Collins-Laflamme <a href="https://www.gamesradar.com/games/survival/hytale-is-saved-riot-sells-hytale-back-to-hypixel-founders-who-promise-10-years-of-support-an-early-access-date-soon-and-a-return-to-the-original-vision/">bought it back</a> and shipped a four-year-old legacy-engine build. Server-side modding, community servers, live editors, no-code trigger volumes and monetisable mods all shipped at early access launch on 13 January 2026. Modding uptake was real: <a href="https://hytalecharts.com/news/hytale-early-access-q1-2026-recap">20 million CurseForge mod downloads and more than 2,000 creators within weeks</a>.</p>
+
+<div class="note">
+<span class="h">A measurement caution on Hytale</span>
+<p>Hytale is not on Steam, so no concurrent series exists. The launch figure of roughly 2.8 million concurrent is a co-founder statement reported by one outlet, not an independently verified number. The only current figure available is a third-party tracker reporting <a href="https://hytaletop100.com/hytale-player-count">9 players online across 150 live community servers</a>, which counts listed multiplayer servers only and excludes singleplayer entirely.</p>
+<p>Those two numbers measure different populations and should not be presented as a single decline curve. What can be said with confidence is narrower: the authoring layer shipped in full at launch, uptake was genuine, and concurrency fell from its January highs regardless.</p>
+</div>
+
+<p><em>Crowfall</em> inverts the thesis completely. The player-facing campaign system was the stated cause of death: <a href="https://www.pcgamer.com/pvp-mmo-crowfall-is-being-shut-down-indefinitely-to-save-it/">the sheer amount of development effort required to build new campaigns and keep the game running daily</a>. Offline November 2022, about sixteen months after launch.</p>
+
+<p>And the list runs on. <em>Landmark</em>, where the game itself was the creation toolkit, dead in eight months. <em>Dual Universe</em>, with an NPC-free player economy and Lua scripting at launch, <a href="https://steamdb.info/app/2000270/charts/">peak 792</a>. <em>Atlas</em>, with the full ARK-style DevKit, Workshop and private-server stack, down 99.5% from a <a href="https://steamdb.info/app/834910/charts/">58,939 peak</a>. <em>WildStar</em>, with a currency economy, deep housing and player-built War Plots, <a href="https://www.gamespot.com/articles/pc-mmo-wildstar-closing-for-good-in-november-refun/1100-6462085/">closed November 2018</a>. Budget does not rescue it either: <em>Battlefield 2042</em> shipped Portal on day one and fell from <a href="https://steamdb.info/app/1517290/charts/">105,400 concurrents to about 19,000 in six weeks</a>.</p>
+
+<div class="pull">
+<span class="h">The finding that survives</span>
+<p>Participation infrastructure is neither necessary nor sufficient for retention. Three of the longest-lived games in the sample never shipped one. Eleven of the twelve counter-cases did. Any deck claiming otherwise is selecting on the outcome.</p>
+</div>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+<span class="snum">SECTION 04</span>
+<h2>What actually separates them</h2>
+<p>Plot the two things that are supposed to be related. On one axis, how long after launch the all-time concurrent peak arrived. On the other, how much of that peak the game still holds today.</p>
+
+<div class="fig">
+<svg viewBox="0 0 1120 740" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Scatter chart plotting years from launch to all-time concurrent peak against current concurrency as a share of that peak, for 21 games">
+  <title>Peak shape does not cleanly predict retention</title>
+
+  <rect x="0" y="0" width="1120" height="740" fill="#F7F4EE"/>
+  <rect x="0" y="0" width="1120" height="3" fill="#232323"/>
+
+  <!-- Header -->
+  <text x="60" y="54" font-family="'Playfair Display',Georgia,serif" font-size="28" fill="#232323">Peak shape does not cleanly predict retention</text>
+  <text x="60" y="80" font-family="'Playfair Display',Georgia,serif" font-size="16" font-style="italic" fill="#C3A55F">Four quadrants, and every one of them is occupied</text>
+  <text x="1060" y="54" font-family="'DM Sans',Helvetica,Arial,sans-serif" font-size="15" letter-spacing="6" fill="#C3A55F" text-anchor="end">▲▲▲▲</text>
+
+  <!-- Axis frame -->
+  <line x1="130" y1="130" x2="130" y2="580" stroke="#232323" stroke-width="1.4"/>
+  <line x1="130" y1="580" x2="1070" y2="580" stroke="#232323" stroke-width="1.4"/>
+
+  <!-- Gridlines -->
+  <g stroke="#D2CDC3" stroke-width="1" stroke-dasharray="2 4">
+    <line x1="130" y1="452.4" x2="1070" y2="452.4"/>
+    <line x1="130" y1="324.9" x2="1070" y2="324.9"/>
+    <line x1="130" y1="197.3" x2="1070" y2="197.3"/>
+  </g>
+  <g font-family="'IBM Plex Mono',monospace" font-size="11" fill="#6B6660" text-anchor="end">
+    <text x="118" y="584">0%</text>
+    <text x="118" y="456">10%</text>
+    <text x="118" y="329">20%</text>
+    <text x="118" y="201">30%</text>
+  </g>
+
+  <!-- X ticks -->
+  <g font-family="'IBM Plex Mono',monospace" font-size="11" fill="#6B6660" text-anchor="middle">
+    <text x="130" y="601">0</text>
+    <text x="287" y="601">2</text>
+    <text x="443" y="601">4</text>
+    <text x="600" y="601">6</text>
+    <text x="757" y="601">8</text>
+    <text x="913" y="601">10</text>
+    <text x="1070" y="601">12</text>
+  </g>
+  <g stroke="#BAB9B4" stroke-width="1">
+    <line x1="287" y1="580" x2="287" y2="586"/>
+    <line x1="443" y1="580" x2="443" y2="586"/>
+    <line x1="600" y1="580" x2="600" y2="586"/>
+    <line x1="757" y1="580" x2="757" y2="586"/>
+    <line x1="913" y1="580" x2="913" y2="586"/>
+  </g>
+
+  <text x="600" y="626" font-family="'DM Sans',Helvetica,Arial,sans-serif" font-size="12.5" fill="#232323" text-anchor="middle">Years from launch to all-time concurrent peak</text>
+  <text x="38" y="355" font-family="'DM Sans',Helvetica,Arial,sans-serif" font-size="12.5" fill="#232323" text-anchor="middle" transform="rotate(-90 38 355)">Current concurrency as a share of all-time peak</text>
+
+  <!-- 10% retention reference -->
+  <line x1="130" y1="452.4" x2="1070" y2="452.4" stroke="#C3A55F" stroke-width="1.2" stroke-dasharray="6 5"/>
+  <text x="140" y="446" font-family="'IBM Plex Mono',monospace" font-size="10" fill="#C3A55F">10% OF PEAK RETAINED</text>
+
+  <!-- Counter-case cluster -->
+  <ellipse cx="147" cy="571" rx="34" ry="15" fill="none" stroke="#BAB9B4" stroke-width="1" stroke-dasharray="3 3"/>
+  <g fill="none" stroke="#6B6660" stroke-width="1.1" opacity="0.9">
+    <circle cx="132" cy="577" r="4"/>
+    <circle cx="141" cy="579" r="4"/>
+    <circle cx="170" cy="579" r="4"/>
+    <circle cx="150" cy="576" r="4"/>
+    <circle cx="134" cy="570" r="4"/>
+    <circle cx="143" cy="566" r="4"/>
+    <circle cx="158" cy="571" r="4"/>
+    <circle cx="151" cy="566" r="4"/>
+    <circle cx="164" cy="575" r="4"/>
+    <circle cx="136" cy="564" r="4"/>
+    <circle cx="147" cy="573" r="4"/>
+    <circle cx="159" cy="565" r="4"/>
+  </g>
+
+  <!-- Counter-case annotation, lifted into clear space -->
+  <line x1="326" y1="514" x2="183" y2="560" stroke="#BAB9B4" stroke-width="1"/>
+  <text x="334" y="486" font-family="'DM Sans',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="500" fill="#232323">Twelve counter-cases, all in one corner</text>
+  <text x="334" y="504" font-family="'DM Sans',Helvetica,Arial,sans-serif" font-size="11" fill="#6B6660">Worlds Adrift, Dual Universe, Atlas, Stormgate, Nightingale, KSP2,</text>
+  <text x="334" y="519" font-family="'DM Sans',Helvetica,Arial,sans-serif" font-size="11" fill="#6B6660">Spellbreak, Starbase, Ashes, Life is Feudal, Rend, Last Oasis.</text>
+  <text x="334" y="537" font-family="'IBM Plex Mono',monospace" font-size="10" fill="#6B6660">EVERY ONE BELOW 0.5% OF PEAK. ELEVEN SHIPPED AN AUTHORING LAYER.</text>
+
+  <!-- Survivors: late peak -->
+  <g fill="#C3A55F">
+    <circle cx="820" cy="215" r="7.5"/>
+    <circle cx="866" cy="127" r="7.5"/>
+    <circle cx="836" cy="304" r="7.5"/>
+    <circle cx="1002" cy="406" r="7.5"/>
+    <circle cx="627" cy="475" r="7.5"/>
+  </g>
+  <g font-family="'DM Sans',Helvetica,Arial,sans-serif" font-size="12.5" fill="#232323">
+    <text x="834" y="212">Warframe</text>
+    <text x="880" y="124">RimWorld</text>
+    <text x="850" y="301">Factorio</text>
+    <text x="988" y="400" text-anchor="end">Path of Exile</text>
+    <text x="641" y="472">Deep Rock Galactic</text>
+  </g>
+  <g font-family="'IBM Plex Mono',monospace" font-size="10" fill="#6B6660">
+    <text x="834" y="226">+8.3y · 26% · 48,852</text>
+    <text x="880" y="138">+9.0y · 32% · 31,008</text>
+    <text x="850" y="315">+8.7y · 19% · 22,697</text>
+    <text x="988" y="414" text-anchor="end">+10.8y · 12%* · 26,480</text>
+    <text x="641" y="486">+6.3y · 6% · 3,393 players</text>
+  </g>
+
+  <!-- Launch-peak points -->
+  <g fill="#232323">
+    <circle cx="134" cy="306" r="7.5"/>
+    <circle cx="326" cy="224" r="7.5"/>
+    <circle cx="280" cy="566" r="7.5"/>
+    <circle cx="134" cy="512" r="7.5"/>
+  </g>
+  <g font-family="'DM Sans',Helvetica,Arial,sans-serif" font-size="12.5" fill="#232323">
+    <text x="148" y="303">Helldivers 2</text>
+    <text x="340" y="221">Overwatch 2</text>
+    <text x="294" y="563">Battlefield 2042</text>
+    <text x="148" y="509">Valheim</text>
+  </g>
+  <g font-family="'IBM Plex Mono',monospace" font-size="10" fill="#6B6660">
+    <text x="148" y="317">+16d · 19% · 87,862 players</text>
+    <text x="340" y="235">+2.5y · 25% · 41,594</text>
+    <text x="294" y="577">+1.9y · 1.1% · 1,225</text>
+    <text x="148" y="523">+19d · 3.7% · 18,440</text>
+  </g>
+
+  <!-- Callout 1: Helldivers 2 -->
+  <line x1="352" y1="272" x2="352" y2="292" stroke="#C3A55F" stroke-width="1"/>
+  <line x1="352" y1="292" x2="318" y2="292" stroke="#C3A55F" stroke-width="1"/>
+  <text x="360" y="268" font-family="'DM Sans',Helvetica,Arial,sans-serif" font-size="11.5" font-style="italic" fill="#C3A55F">Largest current playerbase in the whole sample.</text>
+  <text x="360" y="284" font-family="'DM Sans',Helvetica,Arial,sans-serif" font-size="11.5" font-style="italic" fill="#C3A55F">The report classifies it as a counter-case.</text>
+
+  <!-- Callout 2: Battlefield 2042 -->
+  <line x1="452" y1="566" x2="428" y2="566" stroke="#C3A55F" stroke-width="1"/>
+  <text x="460" y="554" font-family="'DM Sans',Helvetica,Arial,sans-serif" font-size="11.5" font-style="italic" fill="#C3A55F">Peak arrived two years late and it died anyway.</text>
+  <text x="460" y="570" font-family="'DM Sans',Helvetica,Arial,sans-serif" font-size="11.5" font-style="italic" fill="#C3A55F">Portal shipped day one. The rule has an exception.</text>
+
+  <!-- Legend -->
+  <g transform="translate(130,655)">
+    <circle cx="6" cy="-4" r="6" fill="#C3A55F"/>
+    <text x="22" y="0" font-family="'DM Sans',Helvetica,Arial,sans-serif" font-size="11.5" fill="#232323">Peak arrived years after launch</text>
+    <circle cx="262" cy="-4" r="6" fill="#232323"/>
+    <text x="278" y="0" font-family="'DM Sans',Helvetica,Arial,sans-serif" font-size="11.5" fill="#232323">Peak arrived at launch</text>
+    <circle cx="470" cy="-4" r="5" fill="none" stroke="#6B6660" stroke-width="1.1"/>
+    <text x="486" y="0" font-family="'DM Sans',Helvetica,Arial,sans-serif" font-size="11.5" fill="#232323">Counter-case</text>
+  </g>
+
+  <text x="130" y="681" font-family="'DM Sans',Helvetica,Arial,sans-serif" font-size="11" fill="#6B6660">*Path of Exile reads at a 13-week league trough. Its July 2026 monthly peak was 187,116.</text>
+
+  <!-- Source -->
+  <line x1="130" y1="697" x2="1070" y2="697" stroke="#D2CDC3" stroke-width="1"/>
+  <text x="130" y="714" font-family="'IBM Plex Mono',monospace" font-size="9.5" fill="#6B6660">SOURCE: STEAMDB CONCURRENT SERIES, READ 23 AUG 2026. STEAM-ONLY FIGURES.</text>
+  <text x="130" y="727" font-family="'IBM Plex Mono',monospace" font-size="9.5" fill="#6B6660">OSRS AND HYTALE EXCLUDED: PEAK AND CURRENT COME FROM DIFFERENT CLIENT POPULATIONS.</text>
+  <text x="1070" y="714" font-family="'IBM Plex Mono',monospace" font-size="9.5" fill="#C3A55F" text-anchor="end">LLAMA &amp; GRIFFIN</text>
+</svg>
+<p class="cap">FIGURE 1 &middot; TWENTY-ONE TITLES, STEAM CONCURRENT SERIES READ 23 AUGUST 2026. OLD SCHOOL RUNESCAPE AND HYTALE ARE EXCLUDED BECAUSE THEIR PEAK AND CURRENT FIGURES COME FROM DIFFERENT CLIENT POPULATIONS.</p>
+</div>
+
+<p>Every quadrant is occupied, and that is the result.</p>
+
+<p><strong>Late peak, high retention.</strong> RimWorld at 32% of peak, Warframe at 26%, Factorio at 19%, Path of Exile at 12% read at a league trough. This is the group the toolset story was built to explain, and it does contain the games with the deepest player-authored ecosystems.</p>
+
+<p><strong>Late peak, dead anyway.</strong> Battlefield 2042 reached its all-time Steam peak in October 2023, nearly two years after launch, and holds 1.1% of it. Deep Rock Galactic peaked six years in and is at 3,393 concurrent players. A late peak is not a guarantee of anything.</p>
+
+<p><strong>Launch peak, high retention.</strong> Helldivers 2 peaked sixteen days after release and currently holds 87,862 concurrent, the largest number in this entire sample. Overwatch 2 sits at 25% of its Steam peak. Peaking at launch is not a death sentence.</p>
+
+<p><strong>Launch peak, nothing retained.</strong> Twelve games, every one below 0.5% of peak, and eleven of the twelve shipped a genuine authoring layer.</p>
+
+<p>Only that last corner is clean, and it is the corner that carries the argument. Peak shape describes a regime. It does not predict retention, and the version of this claim in the first draft of this report, that every game with a late peak is still large, does not survive its own data.</p>
+
+<div class="note">
+<span class="h">What does track survival</span>
+<p>The one variable in this sample that appears in the long-tail group and never in the failures is <strong>sustained content cadence over years</strong>. Path of Exile's 13-week league cycle, forty releases in ten years. Old School RuneScape's poll-and-update loop. Warframe's update rhythm across a decade.</p>
+<p>This is unglamorous, expensive, continuous labour. Player authoring lowers the cost of that cadence. It does not substitute for it. <em>Crowfall</em> is the proof: it had the authoring layer and died of the cadence bill.</p>
+</div>
+
+<div class="pull">
+<span class="h">The pattern to price</span>
+<p>Retention is not a feature you ship. It is a cost you commit to for years, and almost nobody underwrites it at greenlight because the greenlight case is built on acquisition maths.</p>
+</div>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+<span class="snum">SECTION 05</span>
+<h2>IP is the third path</h2>
+<p>Push marketing has not stopped working. It works reliably when it has something to push.</p>
+
+<p><em>Hogwarts Legacy</em> launched into an organized boycott, which is to say the loudest community activity around it was hostile, and took <a href="https://variety.com/2023/gaming/news/hogwarts-legacy-sales-850-million-1235533614/">$850M with more than 12M units in two weeks</a> on a <a href="https://sensortower.com/blog/unlocking-aaa-game-success-marketing-strategies-that-made-hogwarts-legacy">YouTube-led paid campaign</a>. Circana named it the <a href="https://www.fastcompany.com/91013150/best-selling-video-game-year-2023-hogwarts-legacy">best-selling US game of 2023 at more than 22M copies</a>, ending a fourteen-year streak held by Call of Duty and Rockstar, on lukewarm initial reviews.</p>
+
+<p><em>Monster Hunter Wilds</em> took <a href="https://www.capcom.co.jp/ir/english/news/html/e250331.html">more than 10M in its first month</a>, a Capcom record. <em>Diablo IV</em> did <a href="https://investor.activision.com/news-releases/news-release-details/diablor-iv-crosses-666-million-sell-through-within-five-days">$666M of sell-through in five days</a>. <em>Pokemon Scarlet and Violet</em> did <a href="https://www.gamesradar.com/pokemon-scarlet-and-violet-had-the-biggest-launch-of-any-console-exclusive-game-ever/">10M in three days</a> on a three-out-of-five review citing performance problems. <em>Assassin's Creed Shadows</em> passed <a href="https://www.gamespot.com/articles/assassins-creed-shadows-hits-5-million-players-2-billion-stealth-kills/1100-6533351/">5M players</a> through a sustained negativity campaign. On mobile, <em>Monopoly Go</em> generated <a href="https://mobilegamer.biz/scopely-is-spending-big-on-monopoly-go-ua-as-much-as-1-5bn-to-date/">$2B on user-acquisition spend reported between $500M and $1.5bn</a>.</p>
+
+<p>Valve's own conversion data belongs here rather than in the wishlist teardown. <em>NBA 2K26</em> and <em>EA Sports FC 25</em> exceeded <a href="https://www.techspot.com/news/109938-steam-wishlists-have-little-impact-game-success-new.html">400% wishlist conversion, which Valve reads as most buyers never having wishlisted them</a>. That is not an argument against the wishlist instrument. It is an argument for IP substitution: recognition arrives through a channel the instrument cannot see.</p>
+
+<div class="pull">
+<span class="h">Close</span>
+<p>There are three ways to solve a cold start. Buy recognition, build participation, or borrow a community you did not make. All three get you a launch. Only sustained cadence gets you a year three, and IP buys the runway to afford one.</p>
+</div>
+</div>
+</section>
+
+<div class="wrap">
+<div class="pagenav">
+<a href="index.html">&larr; Index</a>
+<a href="part-2.html">Part II &middot; The Signal Is Not the Cause &rarr;</a>
+</div>
+</div>
+<footer>
+<div class="wrap">
+<span class="chev">&#9650;&#9650;&#9650;&#9650;</span>
+<p style="margin:0 0 14px"><strong>The Mobilization Trap</strong> is part of <em>Recognizing Patterns</em>, the market intelligence practice of Llama &amp; Griffin Consultants.</p>
+<p class="bio">Abbas Saleem is Principal Consultant at Llama &amp; Griffin, advising game studios, publishers and investors across MENA, South Asia, Southeast Asia and Europe on go-to-market strategy, publisher relations and market entry. He writes <em>Recognizing Patterns</em>.</p>
+<p class="meta" style="margin-top:18px">PUBLISHED 23 AUGUST 2026 &middot; <a href="https://llamagriffin.com">LLAMAGRIFFIN.COM</a> &middot; <a href="https://recognizingpatterns.substack.com">RECOGNIZINGPATTERNS.SUBSTACK.COM</a></p>
+</div>
+</footer>
+</body>
+</html>

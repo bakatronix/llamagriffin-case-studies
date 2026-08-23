@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,700&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>The Mobilization Trap | Recognizing Patterns | Llama & Griffin</title>
+<meta name="description" content="Community acquires. It does not hold. A three-part intelligence report on the gap between mobilization and retention, in games and in governments.">
+<meta property="og:title" content="The Mobilization Trap | Recognizing Patterns | Llama & Griffin">
+<meta property="og:description" content="Community acquires. It does not hold. A three-part intelligence report on the gap between mobilization and retention, in games and in governments.">
+<meta property="og:type" content="article">
+<style>
+:root{--cream:#F7F4EE;--ink:#232323;--gold:#C3A55F;--brown:#37342F;--mid:#6B6660;--border:#D2CDC3;--surface:#EAE7E0;--cardwhite:#FDFCF9}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:'DM Sans',-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif;font-size:16px;line-height:1.68;-webkit-font-smoothing:antialiased}
+.toprule{position:fixed;top:0;left:0;right:0;height:3px;background:var(--ink);z-index:60}
+.wrap{max-width:800px;margin:0 auto;padding:0 26px}
+a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--border)}
+a:hover{border-bottom-color:var(--gold)}
+
+/* Chevrons: 4 gold triangles, never more, never fewer */
+.chev{color:var(--gold);font-size:12px;letter-spacing:.14em;display:block;line-height:1}
+h2::before{content:"\25B2\25B2\25B2\25B2";color:var(--gold);font-size:10px;letter-spacing:.14em;display:block;line-height:1;margin-bottom:13px}
+h3::before{content:"\25B2\25B2\25B2\25B2";color:var(--gold);font-size:8px;letter-spacing:.14em;display:block;line-height:1;margin-bottom:10px}
+
+.eyebrow{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin:0}
+h1{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:clamp(42px,7.6vw,76px);line-height:1.02;letter-spacing:-.015em;margin:16px 0 10px}
+h2{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:clamp(29px,4.6vw,46px);line-height:1.1;letter-spacing:-.01em;margin:0 0 8px}
+h3{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:clamp(21px,2.7vw,27px);line-height:1.22;margin:34px 0 10px}
+.kick{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:700;color:var(--gold);font-size:clamp(23px,3.9vw,38px);line-height:1.16;margin:0 0 26px}
+h2+.kick,h2+p.kick{font-size:clamp(20px,3vw,30px);margin-top:-2px}
+
+.meta{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.09em;color:var(--mid);line-height:1.95;text-transform:uppercase}
+header.masthead{padding:86px 0 38px;border-bottom:.5px solid var(--border)}
+section{padding:52px 0;border-bottom:.5px solid var(--border)}
+section:last-of-type{border-bottom:none}
+.snum{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mid);display:block;margin-bottom:20px}
+p{margin:0 0 18px;color:var(--brown)}
+p.lede{font-size:19px;line-height:1.62;color:var(--ink)}
+section p:first-of-type{color:var(--ink)}
+strong,b{font-weight:600;color:var(--ink)}
+em,i{font-style:italic}
+ul{margin:0 0 18px;padding-left:20px;color:var(--brown)}
+li{margin-bottom:9px}
+
+/* Gap-based grid: background is the border colour, cells are cream. The gap IS the border. */
+.statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);margin:34px 0 12px}
+.stat{background:var(--cream);padding:22px 19px}
+.stat .n{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:34px;line-height:1;margin-bottom:11px;color:var(--ink)}
+.stat .l{font-size:12.5px;color:var(--mid);line-height:1.45}
+.fn{font-size:12.5px;color:var(--mid);line-height:1.55;margin:12px 0 0}
+
+.cards{display:grid;gap:1px;background:var(--border);border:1px solid var(--border);margin:30px 0 0}
+.card{background:var(--cream);padding:28px 26px;display:block;border:none}
+.card:hover{background:var(--cardwhite)}
+.card .pn{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.2em;color:var(--gold);text-transform:uppercase}
+.card h3{margin:12px 0 8px;font-size:25px}
+.card h3::before{content:none}
+.card p{font-size:15px;color:var(--mid);margin:0}
+
+.tw{overflow-x:auto;margin:28px 0;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;min-width:530px;font-size:14.5px}
+th{text-align:left;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:400;padding:0 15px 10px 0;border-bottom:1px solid var(--ink);vertical-align:bottom}
+td{padding:13px 15px 13px 0;border-bottom:.5px solid var(--border);vertical-align:top;line-height:1.55;color:var(--brown)}
+td:last-child,th:last-child{padding-right:0}
+.mono{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12.5px}
+
+.pull{border-left:1.5px solid var(--gold);padding:2px 0 2px 24px;margin:36px 0}
+.pull .h{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:12px}
+.pull p{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:500;font-size:24px;line-height:1.34;margin:0;color:var(--ink)}
+
+.note{background:var(--cardwhite);border:1px solid var(--border);border-left:1.5px solid var(--gold);padding:26px 26px;margin:30px 0}
+.note .h{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:13px}
+.note p:last-child{margin-bottom:0}
+
+.fig{margin:34px 0}
+.fig svg{width:100%;height:auto;display:block;border:1px solid var(--border)}
+.cap{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.07em;color:var(--mid);margin-top:12px;line-height:1.7;text-transform:uppercase}
+
+.conf{display:grid;gap:1px;background:var(--border);border:1px solid var(--border);margin:24px 0}
+.conf>div{background:var(--cardwhite);padding:24px 26px}
+.conf h4{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin:0 0 11px;font-weight:400}
+.conf p{font-size:14.5px;margin:0;color:var(--brown)}
+
+.pagenav{display:flex;justify-content:space-between;gap:20px;padding:40px 0;border-top:.5px solid var(--border);flex-wrap:wrap}
+.pagenav a{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;border:none;color:var(--mid)}
+.pagenav a:hover{color:var(--gold)}
+footer{padding:44px 0 66px;border-top:.5px solid var(--border);color:var(--mid);font-size:13.5px;line-height:1.7}
+footer .chev{margin-bottom:18px;font-size:8px}
+footer p{color:var(--mid)}
+.bio{font-size:14px;color:var(--mid);line-height:1.65}
+
+ol.diag{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:1px;background:var(--border);border:1px solid var(--border);counter-reset:d}
+ol.diag li{counter-increment:d;background:var(--cream);padding:26px 26px}
+ol.diag li::before{content:counter(d,decimal-leading-zero);font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.2em;color:var(--gold);display:block;margin-bottom:11px}
+ol.diag li p{margin:0;font-size:15px;color:var(--mid)}
+ol.diag li b{color:var(--ink);font-weight:600;display:block;margin-bottom:7px;font-size:17px;font-family:'Playfair Display',Georgia,serif;font-weight:700}
+@media(max-width:560px){body{font-size:15.5px}section{padding:40px 0}.pull p{font-size:20px}.stat .n{font-size:29px}}
+</style>
+</head>
+<body>
+<div class="toprule"></div>
+
+<header class="masthead">
+<div class="wrap">
+<span class="chev">&#9650;&#9650;&#9650;&#9650;</span>
+<p class="eyebrow" style="margin-top:20px">Recognizing Patterns &middot; Market Intelligence &middot; Three Parts</p>
+<h1>The Mobilization Trap</h1>
+<p class="kick">Community acquires. It does not hold. The gap is the same in games and in governments.</p>
+<p class="meta">
+ROUGHLY 35 MINUTES &middot; PUBLISHED 23 AUGUST 2026<br>
+SOURCES: STEAMDB, GAMEDISCOVERCO, VALVE, NEWZOO, CIRCANA, CAPCOM AND SQUARE ENIX IR,<br>
+HUMAN RIGHTS WATCH, OHCHR, AMNESTY INTERNATIONAL, REUTERS, JOURNAL OF DEMOCRACY, ICNC
+</p>
+</div>
+</header>
+
+<section>
+<div class="wrap">
+<span class="snum">THE ARGUMENT</span>
+<h2>Four live-service games acquired forty-eight million players between them and shut down.</h2>
+<p class="lede">Two governments fell inside a week and lost their countries within six months. The same gap does both, and it is not the gap the industry talks about.</p>
+
+<div class="statgrid">
+<div class="stat"><div class="n">48M<span style="font-size:18px;color:var(--gold)">*</span></div><div class="l">players acquired by four titles that shut down</div></div>
+<div class="stat"><div class="n">0.15x</div><div class="l">median Steam wishlist to week-one conversion</div></div>
+<div class="stat"><div class="n">65&rarr;34%</div><div class="l">nonviolent revolution success rate, 1990s to post-2010</div></div>
+<div class="stat"><div class="n">Year 3</div><div class="l">the horizon nobody underwrites</div></div>
+</div>
+<p class="fn">*Four publisher-stated figures on four different definitions: registered players, lifetime players, and one three-week total. The sum is illustrative of scale, not a unique-user count. The individual figures and their sources are in Part I.</p>
+
+<div class="note">
+<span class="h">The finding</span>
+<p>Mass coordination is now cheap and fast in both domains. The multi-year organizational labour that converts coordination into anything durable did not get cheaper at all. Whoever has already done that labour captures the moment, regardless of who generated it.</p>
+</div>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+<span class="snum">METHOD</span>
+<h2>The corrections are the report</h2>
+<p>This report was commissioned to test a thesis, and a team was tasked with destroying it. Six of eight component claims fell. The replacement claim then failed its own second review for selecting on the outcome, and a third pass falsified the replacement's central mechanism.</p>
+<p>All three corrections sit in the text rather than in a footnote, because the corrections are more useful than the original argument was. What is left is narrower, older and more actionable than what we started with.</p>
+<p>The instrument that would settle most of this argument is the one nobody publishes: what a launch cost to market, next to what it earned. No publisher in this report disclosed one. Until that exists, every thesis in this space is inference dressed as measurement, including this one.</p>
+
+<div class="tw">
+<table>
+<thead><tr><th style="width:44%">Claim tested</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td>Push marketing worked in the PS4 era</td><td><strong>Falsified.</strong> <em>Evolve</em>, <em>Battleborn</em>, <em>LawBreakers</em>, <em>Anthem</em> and <em>Marvel's Avengers</em> all died inside the window</td></tr>
+<tr><td>Push marketing stopped working</td><td><strong>Falsified.</strong> <em>Hogwarts Legacy</em> took $850M in two weeks against an organized boycott</td></tr>
+<tr><td>No community means death</td><td><strong>Falsified.</strong> <em>The Day Before</em> was Steam's most-wishlisted game</td></tr>
+<tr><td>Strong community means survival</td><td><strong>Falsified.</strong> <em>Deadlock</em>, <em>Hytale</em>, <em>Ashes of Creation</em>, <em>KSP2</em></td></tr>
+<tr><td>Community causes commercial success</td><td><strong>Direction reversed.</strong> Product quality drives sentiment drives conversion. Wishlist-to-sales R&sup2; is 0.49 and Valve says wishlists have little effect</td></tr>
+<tr><td>Online discourse represents the paying audience</td><td><strong>Falsified.</strong> Roughly 10% of players are community-engaged</td></tr>
+<tr><td>Participation infrastructure causes retention</td><td><strong>Neither necessary nor sufficient.</strong> <em>Worlds Adrift</em> shipped its editor a year early and peaked at 2,057; three survivors never shipped one at all</td></tr>
+<tr><td>Networked movements cannot institutionalize</td><td><strong>Falsified in review.</strong> Podemos took 20.7% in 4.6 years; M5S took 32.7% and governed</td></tr>
+<tr><td>Something real changed</td><td><strong>Confirmed, but not what was proposed.</strong> Attention went near zero-sum while supply exploded</td></tr>
+<tr><td>The games pattern and the political pattern are the same</td><td><strong>Confirmed, and stronger than the original framing</strong></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+<span class="snum">READING ORDER</span>
+<h2>Part I establishes the split. Parts II and III depend on it.</h2>
+<div class="cards">
+
+<a class="card" href="part-1.html">
+<span class="pn">Part I &middot; roughly 12 minutes</span>
+<h3>The Acquisition Trap</h3>
+<p>They all acquired. None of them held. Forty-eight million players, four shutdowns, and the toolset hypothesis that dies on contact with the launch dates.</p>
+</a>
+
+<a class="card" href="part-2.html">
+<span class="pn">Part II &middot; roughly 10 minutes</span>
+<h3>The Signal Is Not the Cause</h3>
+<p>Product produces sentiment. Sentiment produces conversion. What survives of the community signal, stated precisely, plus a correction to a position taken in an earlier report.</p>
+</a>
+
+<a class="card" href="part-3.html">
+<span class="pn">Part III &middot; roughly 13 minutes</span>
+<h3>The Succession Problem</h3>
+<p>The same gap measured across a century of political data, narrowed twice by the literature, and the year-three diagnostic that comes out of it.</p>
+</a>
+
+</div>
+</div>
+</section>
+<footer>
+<div class="wrap">
+<span class="chev">&#9650;&#9650;&#9650;&#9650;</span>
+<p style="margin:0 0 14px"><strong>The Mobilization Trap</strong> is part of <em>Recognizing Patterns</em>, the market intelligence practice of Llama &amp; Griffin Consultants.</p>
+<p class="bio">Abbas Saleem is Principal Consultant at Llama &amp; Griffin, advising game studios, publishers and investors across MENA, South Asia, Southeast Asia and Europe on go-to-market strategy, publisher relations and market entry. He writes <em>Recognizing Patterns</em>.</p>
+<p class="meta" style="margin-top:18px">PUBLISHED 23 AUGUST 2026 &middot; <a href="https://llamagriffin.com">LLAMAGRIFFIN.COM</a> &middot; <a href="https://recognizingpatterns.substack.com">RECOGNIZINGPATTERNS.SUBSTACK.COM</a></p>
+</div>
+</footer>
+</body>
+</html>
