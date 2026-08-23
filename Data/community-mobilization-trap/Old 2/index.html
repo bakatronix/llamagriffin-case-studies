@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Four live-service games acquired 48 million players and shut down. Two governments fell in a week and lost their countries in six months. A three-part intelligence suite on the gap between mobilization and retention.">
+<meta property="og:title" content="The Mobilization Trap: A Three-Part Intelligence Report">
+<meta property="og:description" content="Four live-service games acquired 48 million players and shut down. Two governments fell in a week and lost their countries in six months. A three-part intelligence suite on the gap between mobilization and retention.">
+<meta property="og:type" content="website">
+<title>The Mobilization Trap: Community Acquires, It Does Not Hold &middot; Llama &amp; Griffin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f7f4ee;--bg2:#fdfcf9;--bg3:#eae7e0;--bg4:#d2cdc3;
+  --border:#d2cdc3;--border-med:#c5bfb5;
+  --text:#232323;--text-muted:#37342f;--text-dim:#6b6660;
+  --gold:#c3a55f;--gold-light:#d4ba82;--gold-dim:rgba(195,165,95,0.12);
+  --teal:#2a8f76;--teal-light:#3daa8e;--teal-dim:rgba(42,143,118,0.10);
+  --purple:#6b64b3;--purple-light:#8f88cc;--purple-dim:rgba(107,100,179,0.10);
+  --coral:#b85a3a;--coral-light:#cb7055;--coral-dim:rgba(184,90,58,0.10);
+  --blue:#3d77c4;--blue-light:#6699d8;--blue-dim:rgba(61,119,196,0.10);
+  --font-display:'Playfair Display',serif;
+  --font-body:'DM Sans',sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:15px;line-height:1.7;min-height:100vh}
+a{color:var(--gold);text-decoration:none}a:hover{text-decoration:underline}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(247,244,238,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;height:52px;overflow-x:auto;gap:0}
+.nav-brand{font-family:var(--font-display);font-size:14px;font-weight:700;color:var(--text);margin-right:1.5rem;padding-right:1.5rem;border-right:1px solid var(--border);white-space:nowrap;text-transform:none;letter-spacing:normal;text-decoration:none}
+.nav-brand:hover{text-decoration:none;opacity:0.8}
+nav a.nav-link{color:var(--text-dim);font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.09em;text-transform:uppercase;padding:0 0.9rem;height:52px;display:flex;align-items:center;border-bottom:2px solid transparent;white-space:nowrap;transition:color 0.15s,border-color 0.15s;text-decoration:none}
+nav a.nav-link:hover{color:var(--gold);border-bottom-color:rgba(195,165,95,0.3);text-decoration:none}
+nav a.nav-link.active{color:var(--gold);border-bottom-color:var(--gold)}
+
+/* HERO */
+.hero{padding:5rem 2rem 0.5rem;max-width:960px;margin:0 auto;position:relative}
+.hero-eyebrow{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;display:flex;align-items:center;gap:10px}
+.hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold);display:inline-block}
+.hero h1{font-family:var(--font-display);font-size:clamp(2rem,5vw,3.4rem);font-weight:700;line-height:1.07;color:var(--text);margin-bottom:0.75rem}
+.hero h1 span{color:var(--gold);font-style:italic;display:block}
+.hero-sub{font-size:15px;color:var(--text-muted);max-width:620px;margin-bottom:2.5rem;line-height:1.65}
+.hero-meta{display:flex;gap:1.5rem;margin-bottom:2.5rem;flex-wrap:wrap}
+.hero-meta-item{font-family:var(--font-mono);font-size:10px;letter-spacing:0.09em;color:var(--text-dim);text-transform:uppercase}
+.hero-meta-item span{color:var(--text-muted);font-weight:500}
+
+/* STAT GRID */
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:0}
+.stat-cell{background:var(--bg2);padding:1.25rem 1.5rem}
+.stat-val{font-family:var(--font-display);font-size:1.6rem;font-weight:700;color:var(--gold);line-height:1;margin-bottom:5px}
+.stat-val.teal{color:var(--teal)}
+.stat-val.purple{color:var(--purple)}
+.stat-val.coral{color:var(--coral)}
+.stat-lbl{font-family:var(--font-mono);font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.07em}
+
+/* READ ORDER */
+.read-order{max-width:960px;margin:0 auto;padding:0 2rem 2.5rem;font-family:var(--font-mono);font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-dim)}
+.read-order-label{color:var(--gold);font-weight:500;margin-right:0.5rem}
+
+/* PARTS GRID */
+.parts{max-width:960px;margin:0 auto;padding:0 2rem 3rem}
+.parts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+@media(max-width:700px){.parts-grid{grid-template-columns:1fr}}
+.part-card{background:var(--bg2);border:1px solid var(--border-med);border-radius:3px;padding:1.75rem;display:flex;flex-direction:column;gap:0.5rem;transition:border-color 0.15s,box-shadow 0.15s;text-decoration:none;color:inherit}
+.part-card:hover{border-color:var(--gold);box-shadow:0 2px 12px rgba(195,165,95,0.12);text-decoration:none}
+.part-num{font-family:var(--font-display);font-size:1.4rem;font-weight:700;color:var(--gold);font-style:italic}
+.part-title{font-family:var(--font-display);font-size:1.05rem;font-weight:700;color:var(--text);line-height:1.25}
+.part-desc{font-size:13px;color:var(--text-muted);line-height:1.65;flex:1}
+.part-link{font-family:var(--font-mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);margin-top:0.5rem}
+
+p{color:var(--text-muted);margin-bottom:1rem;font-size:15px;max-width:72ch;line-height:1.7}
+p strong{color:var(--text);font-weight:600}
+p:last-child{margin-bottom:0}
+
+/* TABLES */
+.table-wrap{margin-bottom:1.5rem;border:1px solid var(--border);border-radius:4px;overflow:hidden;overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead th{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);padding:0.75rem 1rem;text-align:left;border-bottom:1px solid var(--border-med);background:var(--bg3);white-space:nowrap}
+tbody tr{border-bottom:1px solid var(--border);transition:background 0.1s}
+tbody tr:last-child{border-bottom:none}
+tbody tr:hover{background:var(--bg3)}
+tbody td{padding:0.65rem 1rem;color:var(--text-muted);vertical-align:middle}
+tbody td:first-child{color:var(--text)}
+
+/* TAGS */
+.tag{display:inline-block;font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;padding:2px 7px;border-radius:2px;white-space:nowrap}
+.tag-gold{background:var(--gold-dim);color:var(--gold)}
+.tag-teal{background:var(--teal-dim);color:var(--teal)}
+.tag-purple{background:var(--purple-dim);color:var(--purple)}
+.tag-coral{background:var(--coral-dim);color:var(--coral)}
+.tag-blue{background:var(--blue-dim);color:var(--blue)}
+.tag-dim{background:rgba(35,35,35,0.07);color:var(--text-dim)}
+.tag-high{background:var(--teal-dim);color:var(--teal)}
+.tag-directional{background:var(--coral-dim);color:var(--coral)}
+.tag-prov{background:rgba(35,35,35,0.07);color:var(--text-dim)}
+.tag-likely{background:var(--purple-dim);color:var(--purple)}
+
+/* INSIGHT CALLOUTS */
+.insight{border-left:2px solid var(--gold);background:var(--gold-dim);border-radius:0 4px 4px 0;padding:1.25rem 1.5rem;margin:1.5rem auto 2rem;font-size:14px;color:var(--text-muted);line-height:1.65;max-width:960px;box-sizing:border-box}
+.insight strong{color:var(--text);font-weight:600}
+.insight.teal{border-color:var(--teal);background:var(--teal-dim)}
+.insight.purple{border-color:var(--purple);background:var(--purple-dim)}
+.insight.coral{border-color:var(--coral);background:var(--coral-dim)}
+.insight.blue{border-color:var(--blue);background:var(--blue-dim)}
+.insight.finding{border-color:var(--gold);background:var(--gold-dim)}
+.insight.caveat{border-color:var(--purple);background:var(--purple-dim)}
+.insight.strategic{border-color:var(--teal);background:var(--teal-dim)}
+.insight.source{border-color:var(--blue);background:var(--blue-dim)}
+
+/* CLOSING */
+.closing{max-width:960px;margin:0 auto;padding:0.5rem 2rem 1.5rem;border-top:1px solid var(--border)}
+.closing p{font-family:var(--font-display);font-size:1.35rem;font-style:italic;color:var(--text-muted);max-width:680px;line-height:1.55;margin-top:1.25rem}
+.closing p span{color:var(--gold);font-style:italic}
+
+/* FOOTER */
+footer{max-width:960px;margin:0 auto;padding:1.25rem 2rem 2rem;border-top:1px solid var(--border);font-size:12px;color:var(--text-dim);display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;align-items:center}
+footer span{color:var(--gold)}
+footer .methodology{width:100%;font-size:11px;color:var(--text-dim);line-height:1.6;margin-top:0.75rem;border-top:1px solid var(--border);padding-top:0.75rem;max-width:none}
+
+/* STORE NAV (quick reference) */
+.store-nav{max-width:960px;margin:0 auto;padding:0 2rem 2rem}
+.store-nav-title{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);margin-bottom:0.75rem}
+.store-nav-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:0.75rem}
+.store-nav-grid a{background:var(--bg2);border:1px solid var(--border-med);border-radius:3px;padding:1rem 1.25rem;display:flex;flex-direction:column;gap:0.15rem;transition:border-color 0.15s;text-decoration:none}
+.store-nav-grid a:hover{border-color:var(--gold);text-decoration:none}
+.store-nav-grid .store-icon{width:28px;height:28px;flex-shrink:0;margin-bottom:0.15rem;object-fit:contain}
+.store-nav-grid .store-name{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--text)}
+.store-nav-grid .store-tag{font-family:var(--font-mono);font-size:9px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim)}
+
+@media(max-width:600px){
+  .parts-grid{grid-template-columns:1fr}
+  .store-nav-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+
+<nav>
+  <a href="https://www.llamagriffin.com" class="nav-brand">Llama &amp; Griffin Consultants</a>
+  <a href="index.html" class="nav-link active">Overview</a>
+  <a href="part-1.html" class="nav-link">Part I &middot; The Acquisition Trap</a>
+  <a href="part-2.html" class="nav-link">Part II &middot; The Signal</a>
+  <a href="part-3.html" class="nav-link">Part III &middot; Succession</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-eyebrow">Recognizing Patterns &middot; Intelligence Suite</div>
+  <h1>The Mobilization Trap<span>Community acquires. It does not hold.</span></h1>
+  <p class="hero-sub">Four live-service games acquired forty-eight million players between them and shut down. Two governments fell inside a week and lost their countries within six months. This suite argues that the same structural gap does both: mass coordination became cheap and fast, and the multi-year organizational labour that converts coordination into durability did not get cheaper at all.</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item">Publication <span>Recognizing Patterns</span></div>
+    <div class="hero-meta-item">Published <span>August 2026</span></div>
+    <div class="hero-meta-item">Reading <span>~35 min total</span></div>
+  </div>
+  <div class="stat-grid">
+    <div class="stat-cell"><div class="stat-val">48M</div><div class="stat-lbl">Players acquired by four titles that shut down</div></div>
+    <div class="stat-cell"><div class="stat-val teal">0.15x</div><div class="stat-lbl">Median Steam wishlist to week-one conversion</div></div>
+    <div class="stat-cell"><div class="stat-val coral">11 of 12</div><div class="stat-lbl">Failed cases that shipped a player-authoring layer</div></div>
+    <div class="stat-cell"><div class="stat-val purple">Year 3</div><div class="stat-lbl">The horizon nobody underwrites</div></div>
+  </div>
+</div>
+
+<div class="read-order">
+  <span class="read-order-label">Reading order</span> Part I establishes the acquisition-retention split. Parts II and III depend on it. Read in order.
+</div>
+
+<div class="parts">
+  <div class="parts-grid">
+    <a href="part-1.html" class="part-card">
+      <div class="part-num">I</div>
+      <div class="part-title">The Acquisition Trap</div>
+      <div class="part-desc">Forty-eight million players, four shutdowns, and the participation-infrastructure hypothesis that dies on contact with the launch dates. Plus what actually separates the games that lasted.</div>
+      <div class="part-link">Open Part I &rarr;</div>
+    </a>
+    <a href="part-2.html" class="part-card">
+      <div class="part-num">II</div>
+      <div class="part-title">The Signal Is Not the Cause</div>
+      <div class="part-desc">Product produces sentiment; sentiment produces conversion. Wishlist dispersion, Valve's own position, the discourse-versus-audience gap, and a correction to a position taken in an earlier report.</div>
+      <div class="part-link">Open Part II &rarr;</div>
+    </a>
+    <a href="part-3.html" class="part-card">
+      <div class="part-num">III</div>
+      <div class="part-title">The Succession Problem</div>
+      <div class="part-desc">Nepal and Madagascar from primary sources, a century of campaign data, the literature that contradicts this report, and the year-three diagnostic that comes out of it.</div>
+      <div class="part-link">Open Part III &rarr;</div>
+    </a>
+  </div>
+</div>
+
+<div class="store-nav">
+  <div class="store-nav-title">Quick Reference: Jump to a case</div>
+  <div class="store-nav-grid">
+    <a href="part-1.html#s1">
+      <div class="store-name">XDefiant &amp; MultiVersus</div><div class="store-tag">Acquired 31M &middot; Both shut down</div>
+    </a>
+    <a href="part-1.html#s3">
+      <div class="store-name">Worlds Adrift</div><div class="store-tag">Editor shipped a year early &middot; Peak 2,057</div>
+    </a>
+    <a href="part-1.html#s4">
+      <div class="store-name">Helldivers 2</div><div class="store-tag">Launch peak &middot; Largest playerbase in sample</div>
+    </a>
+    <a href="part-2.html#s2">
+      <div class="store-name">The Wishlist</div><div class="store-tag">R&sup2; 0.49 &middot; 10-20x dispersion</div>
+    </a>
+    <a href="part-3.html#s1">
+      <div class="store-name">Nepal</div><div class="store-tag">Four days &middot; Then eighteen months</div>
+    </a>
+    <a href="part-3.html#s3">
+      <div class="store-name">Madagascar</div><div class="store-tag">Six days &middot; Movement not consulted</div>
+    </a>
+  </div>
+</div>
+
+<div class="insight finding">
+  <strong>Participation infrastructure is neither necessary nor sufficient for retention.</strong> Eleven of the twelve failed cases in this report shipped a genuine player-authoring layer, and <em>Worlds Adrift</em> shipped its island editor more than a year before the game itself, peaking at 2,057 concurrent. Meanwhile three of the longest-lived games in the sample, <em>Valheim</em>, <em>Path of Exile</em> and <em>Helldivers 2</em>, never shipped one at all. What separates them is sustained content cadence over years, which is unglamorous, expensive, and almost never funded at greenlight.
+</div>
+
+<div class="insight caveat">
+  <strong>This report was commissioned to test a thesis and a team was tasked with destroying it.</strong> Six of eight component claims fell. The replacement claim then failed its own second review for selecting on the outcome, and a third pass falsified the replacement's central mechanism. All three corrections are in the text rather than in a footnote, because the corrections are more useful than the original argument was.
+</div>
+
+<div class="closing">
+  <p>The instrument that would settle most of this argument is the one nobody publishes: <span>what a launch cost to market, next to what it earned.</span> Until that number exists, every thesis in this space is inference dressed as measurement, including this one.</p>
+</div>
+
+
+
+<footer>
+  <div>The Mobilization Trap &middot; <span>Llama &amp; Griffin Consultants</span></div>
+  <div><span>recognizingpatterns.substack.com</span> &middot; llamagriffin.com</div>
+</footer>
+
+</body>
+</html>

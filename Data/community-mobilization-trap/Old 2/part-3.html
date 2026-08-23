@@ -96,23 +96,6 @@ td.store-cell,th.store-cell{white-space:nowrap}
 td.store-cell{display:flex;align-items:center;gap:9px}
 th.store-cell{gap:7px}
 th.store-cell span{display:inline-flex;align-items:center;gap:7px}
-/* BARS */
-.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
-.bar-label{font-size:12px;color:var(--text-muted);min-width:180px;flex-shrink:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.bar-bg{flex:1;height:5px;background:var(--bg4);border-radius:3px;overflow:hidden}
-.bar-fill{height:100%;border-radius:3px}
-.bar-val{font-family:var(--font-mono);font-size:12px;font-weight:500;color:var(--text);min-width:80px;text-align:right;flex-shrink:0;white-space:nowrap}
-
-/* TIMELINE */
-.timeline{position:relative;padding-left:1.5rem}
-.timeline::before{content:'';position:absolute;left:0;top:6px;bottom:6px;width:1px;background:var(--border-med)}
-.timeline-item{position:relative;padding:0 0 1.5rem 1.5rem}
-.timeline-item::before{content:'';position:absolute;left:-4px;top:6px;width:8px;height:8px;border-radius:50%;background:var(--bg3);border:1px solid var(--border-med)}
-.timeline-item.key::before{background:var(--gold);border-color:var(--gold)}
-.timeline-date{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.09em;text-transform:uppercase;color:var(--gold);margin-bottom:2px}
-.timeline-event{font-size:14px;color:var(--text);font-weight:500}
-.timeline-note{font-size:12px;color:var(--text-muted);margin-top:4px;line-height:1.55}
-
 .table-wrap{margin-bottom:1.5rem;border:1px solid var(--border);border-radius:4px;overflow:hidden;overflow-x:auto}
 table{width:100%;border-collapse:collapse;font-size:13px}
 thead th{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);padding:0.75rem 1rem;text-align:left;border-bottom:1px solid var(--border-med);background:var(--bg3);white-space:nowrap}
@@ -150,6 +133,7 @@ table.compare tr:last-child td{border-bottom:none}
 .tag-directional{background:var(--coral-dim);color:var(--coral)}
 .tag-prov{background:rgba(35,35,35,0.07);color:var(--text-dim)}
 .tag-likely{background:var(--purple-dim);color:var(--purple)}
+.tag-coral{background:var(--coral-dim);color:var(--coral)}
 
 /* INLINE CONFIDENCE */
 .conf-certain,.conf-likely{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;margin-left:4px}
@@ -157,6 +141,11 @@ table.compare tr:last-child td{border-bottom:none}
 .conf-likely{color:var(--purple)}
 
 /* TOC */
+
+/* CLOSING */
+.closing{max-width:960px;margin:0 auto;padding:0.5rem 2rem 1.5rem;border-top:1px solid var(--border)}
+.closing p{font-family:var(--font-display);font-size:1.35rem;font-style:italic;color:var(--text-muted);max-width:680px;line-height:1.55;margin-top:1.25rem}
+.closing p span{color:var(--gold);font-style:italic}
 
 /* SERIES NAV */
 .series-nav{max-width:960px;margin:0 auto;padding:2.5rem 2rem;border-top:1px solid var(--border);display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
@@ -248,17 +237,6 @@ footer .methodology{width:100%;font-size:11px;color:var(--text-dim);line-height:
   <span class="h2-kicker">The movement did not produce the party that governs.</span>
   <p class="section-intro">Nepal voted on <a href="https://kathmandupost.com/national/2026/03/12/voter-turnout-revised-to-60-percent-lowest-since-1991">5 March 2026, on a revised turnout of 59.84%, the lowest since 1991</a>.</p>
 
-  <div class="timeline">
-    <div class="timeline-item"><div class="timeline-date">4 Sep 2025</div><div class="timeline-event">26 social platforms ordered blocked</div></div>
-    <div class="timeline-item key"><div class="timeline-date">8 Sep 2025</div><div class="timeline-event">Security forces fire on protesters at Naya Baneshwor Chowk</div><div class="timeline-note">HRW: disproportionate, indiscriminate force over about three hours.</div></div>
-    <div class="timeline-item key"><div class="timeline-date">9 Sep 2025</div><div class="timeline-event">Oli resigns; platform ban lifted</div></div>
-    <div class="timeline-item key"><div class="timeline-date">12 Sep 2025</div><div class="timeline-event">Sushila Karki sworn in as interim PM</div><div class="timeline-note">Nepal's first woman to lead the country, after talks between the president, army chief and protest representatives.</div></div>
-    <div class="timeline-item"><div class="timeline-date">5 Mar 2026</div><div class="timeline-event">Election, 59.84% turnout</div><div class="timeline-note">Lowest since 1991.</div></div>
-    <div class="timeline-item key"><div class="timeline-date">12 Mar 2026</div><div class="timeline-event">Rastriya Swatantra Party wins 182 of 275 seats</div><div class="timeline-note">RSP was founded in 2022 &mdash; three years before the protests it is credited with capitalizing on.</div></div>
-    <div class="timeline-item key"><div class="timeline-date">27 Mar 2026</div><div class="timeline-event">Balendra Shah sworn in as PM</div><div class="timeline-note">Nepal's youngest prime minister.</div></div>
-  </div>
-  <p class="chart-note">Four days from platform ban to resignation. Eighteen months from resignation to a party founded three years before the protests began.</p>
-
   <p>The Rastriya Swatantra Party took <a href="https://www.aljazeera.com/news/2026/3/12/ex-rapper-balendra-shah-sweeps-to-power-in-nepal-landslide-election-victory">182 of 275 seats</a>, against 38 for the Nepali Congress and 25 for Oli's party. Balendra Shah was <a href="https://www.aljazeera.com/news/2026/3/27/nepals-youngest-premier-sworn-in-after-releasing-new-rap-song-about-unity">sworn in on 27 March 2026</a> as Nepal's youngest prime minister. <span class="tag tag-high">Certain</span> <span class="tag tag-prov">Primary &middot; Election Commission via Kathmandu Post</span></p>
 
   <p>The RSP was founded in 2022, four years before the vote and three years before the protests. Hold that detail. It is the whole of Section 06.</p>
@@ -289,17 +267,6 @@ footer .methodology{width:100%;font-size:11px;color:var(--text-dim);line-height:
       </tbody>
     </table>
   </div>
-
-  <div class="timeline">
-    <div class="timeline-item"><div class="timeline-date">25 Sep 2025</div><div class="timeline-event">Protests begin in Antananarivo</div><div class="timeline-note">Over water and electricity failures.</div></div>
-    <div class="timeline-item"><div class="timeline-date">29 Sep 2025</div><div class="timeline-event">UN reports at least 22 killed, 100+ injured</div></div>
-    <div class="timeline-item key"><div class="timeline-date">11 Oct 2025</div><div class="timeline-event">CAPSAT unit refuses orders to fire</div></div>
-    <div class="timeline-item"><div class="timeline-date">12 Oct 2025</div><div class="timeline-event">CAPSAT takes command; new army chief installed</div></div>
-    <div class="timeline-item key"><div class="timeline-date">14 Oct 2025</div><div class="timeline-event">Military takes charge; Rajoelina impeached 130&ndash;1; constitution suspended</div></div>
-    <div class="timeline-item key"><div class="timeline-date">17 Oct 2025</div><div class="timeline-event">Randrianirina sworn in as president</div><div class="timeline-note">A transition of at most two years promised.</div></div>
-    <div class="timeline-item key"><div class="timeline-date">Mar 2026</div><div class="timeline-event">~600 appointments made</div><div class="timeline-note">Amnesty: the Gen Z movement was &ldquo;neither involved nor consulted.&rdquo;</div></div>
-  </div>
-  <p class="chart-note">Six days from mutiny to sworn-in president. The movement controlled none of the intervening steps.</p>
 
   <p>Reuters reports the single non-affirmative ballot as an abstention or blank ballot, not a vote against. On the timeline, Reuters, Anadolu and Amnesty all report a maximum of two years; Al Jazeera alone reported the promise as 18 to 24 months. <span class="tag tag-likely">Likely</span> <span class="tag tag-prov">Wire disagreement flagged</span></p>
 
@@ -368,15 +335,6 @@ footer .methodology{width:100%;font-size:11px;color:var(--text-dim);line-height:
       </tbody>
     </table>
   </div>
-
-  <div class="chart-wrap" style="margin:0 0 1.5rem">
-    <div class="bar-row"><span class="bar-label">Estallido social &rarr; Boric</span><div class="bar-bg"><div class="bar-fill" style="width:25.3%;background:var(--gold)"></div></div><span class="bar-val">2.2 yrs</span></div>
-    <div class="bar-row"><span class="bar-label">15-M &rarr; Podemos</span><div class="bar-bg"><div class="bar-fill" style="width:52.9%;background:var(--gold)"></div></div><span class="bar-val">4.6 yrs</span></div>
-    <div class="bar-row"><span class="bar-label">Euromaidan &rarr; Servant of the People</span><div class="bar-bg"><div class="bar-fill" style="width:62.1%;background:var(--gold)"></div></div><span class="bar-val">5.4 yrs</span></div>
-    <div class="bar-row"><span class="bar-label">Pots and pans &rarr; Pirates</span><div class="bar-bg"><div class="bar-fill" style="width:89.7%;background:var(--gold)"></div></div><span class="bar-val">7.8 yrs</span></div>
-    <div class="bar-row"><span class="bar-label">Grillo's network &rarr; M5S</span><div class="bar-bg"><div class="bar-fill" style="width:100%;background:var(--gold)"></div></div><span class="bar-val">8.7 yrs</span></div>
-  </div>
-  <p class="chart-note">Years from movement peak to serious electoral power, five cases. None of the five vehicles were improvised from the protest itself.</p>
 
   <p>The claim that networked movements cannot institutionalize is false and this report retires it.</p>
 
