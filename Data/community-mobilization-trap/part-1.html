@@ -96,6 +96,23 @@ td.store-cell,th.store-cell{white-space:nowrap}
 td.store-cell{display:flex;align-items:center;gap:9px}
 th.store-cell{gap:7px}
 th.store-cell span{display:inline-flex;align-items:center;gap:7px}
+/* BARS */
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.bar-label{font-size:12px;color:var(--text-muted);min-width:180px;flex-shrink:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar-bg{flex:1;height:5px;background:var(--bg4);border-radius:3px;overflow:hidden}
+.bar-fill{height:100%;border-radius:3px}
+.bar-val{font-family:var(--font-mono);font-size:12px;font-weight:500;color:var(--text);min-width:80px;text-align:right;flex-shrink:0;white-space:nowrap}
+
+/* TIMELINE */
+.timeline{position:relative;padding-left:1.5rem}
+.timeline::before{content:'';position:absolute;left:0;top:6px;bottom:6px;width:1px;background:var(--border-med)}
+.timeline-item{position:relative;padding:0 0 1.5rem 1.5rem}
+.timeline-item::before{content:'';position:absolute;left:-4px;top:6px;width:8px;height:8px;border-radius:50%;background:var(--bg3);border:1px solid var(--border-med)}
+.timeline-item.key::before{background:var(--gold);border-color:var(--gold)}
+.timeline-date{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.09em;text-transform:uppercase;color:var(--gold);margin-bottom:2px}
+.timeline-event{font-size:14px;color:var(--text);font-weight:500}
+.timeline-note{font-size:12px;color:var(--text-muted);margin-top:4px;line-height:1.55}
+
 .table-wrap{margin-bottom:1.5rem;border:1px solid var(--border);border-radius:4px;overflow:hidden;overflow-x:auto}
 table{width:100%;border-collapse:collapse;font-size:13px}
 thead th{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);padding:0.75rem 1rem;text-align:left;border-bottom:1px solid var(--border-med);background:var(--bg3);white-space:nowrap}
@@ -224,6 +241,14 @@ footer .methodology{width:100%;font-size:11px;color:var(--text-dim);line-height:
     </table>
   </div>
 
+  <div class="chart-wrap" style="margin:0 0 1.5rem">
+    <div class="bar-row"><span class="bar-label">MultiVersus</span><div class="bar-bg"><div class="bar-fill" style="width:100%;background:var(--coral)"></div></div><span class="bar-val">20M</span></div>
+    <div class="bar-row"><span class="bar-label">Knockout City</span><div class="bar-bg"><div class="bar-fill" style="width:60%;background:var(--coral)"></div></div><span class="bar-val">12M</span></div>
+    <div class="bar-row"><span class="bar-label">XDefiant</span><div class="bar-bg"><div class="bar-fill" style="width:55%;background:var(--coral)"></div></div><span class="bar-val">11M</span></div>
+    <div class="bar-row"><span class="bar-label">Spellbreak</span><div class="bar-bg"><div class="bar-fill" style="width:25%;background:var(--coral)"></div></div><span class="bar-val">5M</span></div>
+  </div>
+  <p class="chart-note">Players acquired before shutdown, by title. Bar length is illustrative of scale, not a unified metric &mdash; see the definitions caveat below.</p>
+
   <p>Those four figures use four different definitions and are not additively comparable: registered players, lifetime players, and one three-week total. They are shown together because the scale of the gap survives any reasonable reconciliation, not because the sum is a unique-user count. <span class="tag tag-high">Certain</span> <span class="tag tag-prov">Publisher-stated</span></p>
 
   <p>Not one of these is a discovery failure. Every one is a retention failure, and retention was never the thing being funded. Ubisoft's language on closing <em>XDefiant</em> is the tell: games-as-a-service <a href="https://news.ubisoft.com/en-us/article/1EywTnGrZdDqCoxKs2zNhZ/ubisoft-discontinues-development-on-xdefiant">remains a pillar of our strategy</a>, announced in the same breath as the shutdown.</p>
@@ -283,6 +308,16 @@ footer .methodology{width:100%;font-size:11px;color:var(--text-dim);line-height:
   </div>
 
   <p>Two of eight shipped it at launch. Three never shipped it at all. <span class="tag tag-high">Certain</span> <span class="tag tag-prov">Developer-stated</span></p>
+
+  <div class="timeline">
+    <div class="timeline-item key"><div class="timeline-date">&minus;7 days &middot; Old School RuneScape</div><div class="timeline-event">Binding player polls, 70% threshold</div><div class="timeline-note">Shipped before the servers went live.</div></div>
+    <div class="timeline-item key"><div class="timeline-date">Day one &middot; RimWorld</div><div class="timeline-event">Steam Workshop mods and scenarios</div><div class="timeline-note">Live from the first day of early access.</div></div>
+    <div class="timeline-item"><div class="timeline-date">+4 months &middot; Factorio</div><div class="timeline-event">Mod Portal shipped with 0.13</div></div>
+    <div class="timeline-item"><div class="timeline-date">+2.6 years &middot; Warframe</div><div class="timeline-event">TennoGen cosmetics only</div><div class="timeline-note">Never gameplay mods.</div></div>
+    <div class="timeline-item"><div class="timeline-date">+3.5 years &middot; Deep Rock Galactic</div><div class="timeline-event">Official mod.io support</div></div>
+    <div class="timeline-item"><div class="timeline-date">Never &middot; Valheim, Path of Exile, Helldivers 2</div><div class="timeline-event">No official authoring layer, ever</div><div class="timeline-note">Three of the longest-lived games in the sample.</div></div>
+  </div>
+  <p class="chart-note">Time from launch to the participation layer shipping, eight games from the table above.</p>
 
   <h3>Among the failures, several shipped it early and comprehensively</h3>
 

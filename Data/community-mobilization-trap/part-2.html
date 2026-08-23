@@ -96,6 +96,13 @@ td.store-cell,th.store-cell{white-space:nowrap}
 td.store-cell{display:flex;align-items:center;gap:9px}
 th.store-cell{gap:7px}
 th.store-cell span{display:inline-flex;align-items:center;gap:7px}
+/* BARS */
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.bar-label{font-size:12px;color:var(--text-muted);min-width:180px;flex-shrink:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar-bg{flex:1;height:5px;background:var(--bg4);border-radius:3px;overflow:hidden}
+.bar-fill{height:100%;border-radius:3px}
+.bar-val{font-family:var(--font-mono);font-size:12px;font-weight:500;color:var(--text);min-width:80px;text-align:right;flex-shrink:0;white-space:nowrap}
+
 .table-wrap{margin-bottom:1.5rem;border:1px solid var(--border);border-radius:4px;overflow:hidden;overflow-x:auto}
 table{width:100%;border-collapse:collapse;font-size:13px}
 thead th{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);padding:0.75rem 1rem;text-align:left;border-bottom:1px solid var(--border-med);background:var(--bg3);white-space:nowrap}
@@ -271,6 +278,13 @@ footer .methodology{width:100%;font-size:11px;color:var(--text-dim);line-height:
 
   <p>Across <a href="https://gamedevreports.substack.com/p/newzoo-how-people-engage-with-games">73,000 respondents in 36 countries, 64% watch gaming content but only 35% engage in other ways</a>. Newzoo elsewhere classifies just <a href="https://newzoo.com/resources/blog/community-matters-how-why-people-engage-with-games-during-the-pandemic">10% of enthusiasts as Community Gamers</a>. <span class="tag tag-likely">Likely</span> <span class="tag tag-prov">Third-party survey</span></p>
 
+  <div class="chart-wrap" style="margin:0 0 1.5rem">
+    <div class="bar-row"><span class="bar-label">Watch gaming content</span><div class="bar-bg"><div class="bar-fill" style="width:100%;background:var(--blue)"></div></div><span class="bar-val">64%</span></div>
+    <div class="bar-row"><span class="bar-label">Engage in other ways</span><div class="bar-bg"><div class="bar-fill" style="width:54.7%;background:var(--purple)"></div></div><span class="bar-val">35%</span></div>
+    <div class="bar-row"><span class="bar-label">Classified Community Gamers</span><div class="bar-bg"><div class="bar-fill" style="width:15.6%;background:var(--coral)"></div></div><span class="bar-val">10%</span></div>
+  </div>
+  <p class="chart-note">Newzoo, 73,000 respondents across 36 countries. The three figures come from different cuts of the same research, not a single funnel.</p>
+
   <p>Review bombing, per Steam Spy, generally has little effect on sales and may increase them through the resulting publicity. <em>Helldivers 2</em> absorbed <a href="https://www.pcgamer.com/games/helldivers-2-players-celebrate-victory-over-sony-as-the-review-bomb-cape-finally-appears-in-the-game-we-won-the-biggest-and-longest-running-major-order-in-the-game-to-date/">more than 200,000 negative Steam reviews</a> over the PSN requirement during the same window it sold 12M copies. The Sweet Baby Inc detected curator accumulated over 355,000 followers, and <a href="https://www.cbc.ca/radio/thecurrent/sweet-baby-inc-gamergate-1.7149888">the label does not affect tracked games' visibility on Steam</a>. Its highest-profile target sold 11 million copies.</p>
 
   <p>GamesIndustry.biz's read on <em>Shadows</em> is the operative one: when a fuss is made by <a href="https://www.gamesindustry.biz/assassins-creed-shadows-success-shows-that-the-threat-of-negative-campaigns-is-overblown-opinion">a relatively small group of extremely vocal people, it means little to a large majority</a> who will quietly enjoy the game.</p>
@@ -288,6 +302,14 @@ footer .methodology{width:100%;font-size:11px;color:var(--text-dim);line-height:
 
   <h3>Community-native discovery is real, cheap, and decided in pre-production</h3>
   <p>Four cheap co-op titles reached Steam's 2025 top ten premium games by copies sold, priced between $5.50 and $9.99: <a href="https://appmagic.rocks/blog/friendslop-steam-games-2025"><em>R.E.P.O.</em> at an estimated 18.5M, <em>PEAK</em> 15.4M, <em>Schedule I</em> 9.1M, <em>RV There Yet?</em> 5.7M</a>. <em>PEAK</em> passed <a href="https://gaming.news/news/2025-08-20/peak-exceeds-10m-copies-sold/">10M copies by August 2025</a> off 36,797 wishlists, a conversion multiple GameDiscoverCo put at 266x. <span class="tag tag-likely">Likely</span> <span class="tag tag-prov">Third-party estimate</span></p>
+
+  <div class="chart-wrap" style="margin:0 0 1.5rem">
+    <div class="bar-row"><span class="bar-label">R.E.P.O.</span><div class="bar-bg"><div class="bar-fill" style="width:100%;background:var(--teal)"></div></div><span class="bar-val">~18.5M</span></div>
+    <div class="bar-row"><span class="bar-label">PEAK</span><div class="bar-bg"><div class="bar-fill" style="width:83.2%;background:var(--teal)"></div></div><span class="bar-val">15.4M</span></div>
+    <div class="bar-row"><span class="bar-label">Schedule I</span><div class="bar-bg"><div class="bar-fill" style="width:49.2%;background:var(--teal)"></div></div><span class="bar-val">9.1M</span></div>
+    <div class="bar-row"><span class="bar-label">RV There Yet?</span><div class="bar-bg"><div class="bar-fill" style="width:30.8%;background:var(--teal)"></div></div><span class="bar-val">5.7M</span></div>
+  </div>
+  <p class="chart-note">Estimated copies sold, 2025 top ten premium games by units. All four priced $5.50&ndash;$9.99. Source: AppMagic via GameDiscoverCo.</p>
 
   <p><em>PEAK</em> resolves a tension rather than creating one. It is not evidence that marketing communities sell games. It is a participation case: the purchase is itself a social act, and one buyer recruits three more. That is a pre-production mechanic, decided before anyone writes a marketing brief, and it cannot be added later.</p>
 
