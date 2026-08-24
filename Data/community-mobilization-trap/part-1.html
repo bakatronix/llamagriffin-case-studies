@@ -350,35 +350,57 @@ footer .methodology{width:100%;font-size:11px;color:var(--text-dim);line-height:
   <p class="section-intro">Plot the two variables that are supposed to be related. On one axis, how long after launch the all-time concurrent peak arrived. On the other, how much of that peak the game still holds today.</p>
 
   <div class="chart-legend">
-    <span><span class="swatch" style="background:#2a8f76"></span>Peak arrived years after launch</span>
-    <span><span class="swatch" style="background:#b85a3a"></span>Peak arrived at launch</span>
-    <span><span class="swatch" style="background:transparent;border:1px solid #6b6660"></span>Counter-case</span>
+    <span><span class="swatch" style="background:#2a8f76"></span>Still running</span>
+    <span><span class="swatch" style="background:#b85a3a"></span>Shut down / collapsed</span>
+    <span><span class="swatch" style="background:transparent;border:1px solid #6b6660"></span>Counter-case cluster (12)</span>
   </div>
   <div class="chart-wrap">
-<svg viewBox="0 105 1120 535" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Scatter chart plotting years from launch to all-time concurrent peak against current concurrency as a share of that peak, for 21 games">
-  <title>Peak shape does not cleanly predict retention</title>
+<svg viewBox="0 0 1120 690" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Log-scale scatter chart plotting years from launch to all-time concurrent peak against the percentage of that peak still retained, for 21 games">
+  <title>Peak shape vs. retention, 21 titles</title>
 
-  
-  
-  <!-- axis -->
+  <!-- quadrant shading -->
+  <rect x="130" y="130" width="313" height="104" fill="#2a8f76" opacity="0.05"/>
+  <rect x="443" y="130" width="627" height="104" fill="#2a8f76" opacity="0.07"/>
+  <rect x="130" y="234" width="313" height="346" fill="#b85a3a" opacity="0.04"/>
+  <rect x="443" y="234" width="627" height="346" fill="#b85a3a" opacity="0.06"/>
 
+  <!-- quadrant labels (faint) -->
+  <g font-family="'IBM Plex Mono',monospace" font-size="10" letter-spacing="1" fill="#6b6660" opacity="0.5">
+    <text x="150" y="160">LAUNCH PEAK · HIGH RETENTION</text>
+    <text x="1050" y="160" text-anchor="end">LATE PEAK · HIGH RETENTION</text>
+    <text x="150" y="445">LAUNCH PEAK · NOTHING RETAINED</text>
+    <text x="1050" y="565" text-anchor="end">LATE PEAK · DEAD ANYWAY</text>
+  </g>
+
+  <!-- axes -->
   <line x1="130" y1="130" x2="130" y2="580" stroke="#232323" stroke-width="1.4"/>
   <line x1="130" y1="580" x2="1070" y2="580" stroke="#232323" stroke-width="1.4"/>
 
-  <!-- Gridlines -->
+  <!-- gridlines (log scale) -->
   <g stroke="#d2cdc3" stroke-width="1" stroke-dasharray="2 4">
-    <line x1="130" y1="452.4" x2="1070" y2="452.4"/>
-    <line x1="130" y1="324.9" x2="1070" y2="324.9"/>
-    <line x1="130" y1="197.3" x2="1070" y2="197.3"/>
-  </g>
-  <g font-family="'IBM Plex Mono',monospace" font-size="11" fill="#6b6660" text-anchor="end">
-    <text x="118" y="584">0%</text>
-    <text x="118" y="456">10%</text>
-    <text x="118" y="329">20%</text>
-    <text x="118" y="201">30%</text>
+    <line x1="130" y1="182" x2="1070" y2="182"/>
+    <line x1="130" y1="286" x2="1070" y2="286"/>
+    <line x1="130" y1="407" x2="1070" y2="407"/>
+    <line x1="130" y1="459" x2="1070" y2="459"/>
   </g>
 
-  <!-- X ticks -->
+  <!-- 10% retention split -->
+  <line x1="130" y1="234" x2="1070" y2="234" stroke="#c3a55f" stroke-width="1.2" stroke-dasharray="6 5"/>
+  <text x="140" y="228" font-family="'IBM Plex Mono',monospace" font-size="10" fill="#c3a55f">10% OF PEAK RETAINED</text>
+
+  <!-- ~4-year median split -->
+  <line x1="443" y1="130" x2="443" y2="580" stroke="#c3a55f" stroke-width="1" stroke-dasharray="4 5"/>
+  <text x="447" y="146" font-family="'IBM Plex Mono',monospace" font-size="10" fill="#c3a55f">~4 YEARS TO PEAK</text>
+
+  <!-- y labels (log) -->
+  <g font-family="'IBM Plex Mono',monospace" font-size="11" fill="#6b6660" text-anchor="end">
+    <text x="118" y="134">40%</text>
+    <text x="118" y="238">10%</text>
+    <text x="118" y="411">1%</text>
+    <text x="118" y="584">0.1%</text>
+  </g>
+
+  <!-- x ticks -->
   <g font-family="'IBM Plex Mono',monospace" font-size="11" fill="#6b6660" text-anchor="middle">
     <text x="130" y="601">0</text>
     <text x="287" y="601">2</text>
@@ -394,97 +416,82 @@ footer .methodology{width:100%;font-size:11px;color:var(--text-dim);line-height:
     <line x1="600" y1="580" x2="600" y2="586"/>
     <line x1="757" y1="580" x2="757" y2="586"/>
     <line x1="913" y1="580" x2="913" y2="586"/>
+    <line x1="1070" y1="580" x2="1070" y2="586"/>
   </g>
 
+  <!-- axis titles -->
   <text x="600" y="626" font-family="'DM Sans',Helvetica,Arial,sans-serif" font-size="12.5" fill="#232323" text-anchor="middle">Years from launch to all-time concurrent peak</text>
-  <text x="38" y="355" font-family="'DM Sans',Helvetica,Arial,sans-serif" font-size="12.5" fill="#232323" text-anchor="middle" transform="rotate(-90 38 355)">Current concurrency as a share of all-time peak</text>
+  <text x="38" y="355" font-family="'DM Sans',Helvetica,Arial,sans-serif" font-size="12.5" fill="#232323" text-anchor="middle" transform="rotate(-90 38 355)">Current concurrency as a share of all-time peak (log)</text>
 
-  <!-- 10% retention reference -->
-  <line x1="130" y1="452.4" x2="1070" y2="452.4" stroke="#c3a55f" stroke-width="1.2" stroke-dasharray="6 5"/>
-  <text x="140" y="446" font-family="'IBM Plex Mono',monospace" font-size="10" fill="#c3a55f">10% OF PEAK RETAINED</text>
-
-  <!-- Counter-case cluster -->
-  <ellipse cx="147" cy="571" rx="34" ry="15" fill="none" stroke="#c5bfb5" stroke-width="1" stroke-dasharray="3 3"/>
+  <!-- counter-case cluster -->
+  <ellipse cx="165" cy="565" rx="45" ry="22" fill="none" stroke="#c5bfb5" stroke-width="1" stroke-dasharray="3 3"/>
   <g fill="none" stroke="#6b6660" stroke-width="1.1" opacity="0.9">
-    <circle cx="132" cy="577" r="4"/>
-    <circle cx="141" cy="579" r="4"/>
-    <circle cx="170" cy="579" r="4"/>
-    <circle cx="150" cy="576" r="4"/>
-    <circle cx="134" cy="570" r="4"/>
-    <circle cx="143" cy="566" r="4"/>
-    <circle cx="158" cy="571" r="4"/>
-    <circle cx="151" cy="566" r="4"/>
-    <circle cx="164" cy="575" r="4"/>
-    <circle cx="136" cy="564" r="4"/>
-    <circle cx="147" cy="573" r="4"/>
-    <circle cx="159" cy="565" r="4"/>
+    <circle cx="132" cy="578" r="4"/>
+    <circle cx="142" cy="572" r="4"/>
+    <circle cx="152" cy="576" r="4"/>
+    <circle cx="162" cy="568" r="4"/>
+    <circle cx="172" cy="574" r="4"/>
+    <circle cx="182" cy="565" r="4"/>
+    <circle cx="138" cy="560" r="4"/>
+    <circle cx="148" cy="556" r="4"/>
+    <circle cx="158" cy="562" r="4"/>
+    <circle cx="168" cy="553" r="4"/>
+    <circle cx="178" cy="558" r="4"/>
+    <circle cx="188" cy="549" r="4"/>
   </g>
 
-  <!-- Counter-case annotation, lifted into clear space -->
-  <line x1="326" y1="514" x2="183" y2="560" stroke="#c5bfb5" stroke-width="1"/>
-  <text x="334" y="486" font-family="'DM Sans',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="500" fill="#232323">Twelve counter-cases, all in one corner</text>
-  <text x="334" y="504" font-family="'DM Sans',Helvetica,Arial,sans-serif" font-size="11" fill="#6b6660">Worlds Adrift, Dual Universe, Atlas, Stormgate, Nightingale, KSP2,</text>
-  <text x="334" y="519" font-family="'DM Sans',Helvetica,Arial,sans-serif" font-size="11" fill="#6b6660">Spellbreak, Starbase, Ashes, Life is Feudal, Rend, Last Oasis.</text>
-  <text x="334" y="537" font-family="'IBM Plex Mono',monospace" font-size="10" fill="#6b6660">EVERY ONE BELOW 0.5% OF PEAK. ELEVEN SHIPPED AN AUTHORING LAYER.</text>
+  <!-- counter-case callout -->
+  <line x1="320" y1="500" x2="205" y2="548" stroke="#c5bfb5" stroke-width="1"/>
+  <text x="330" y="488" font-family="'DM Sans',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="500" fill="#232323">Twelve counter-cases, all in one corner</text>
+  <text x="330" y="506" font-family="'DM Sans',Helvetica,Arial,sans-serif" font-size="11" fill="#6b6660">Worlds Adrift, Dual Universe, Atlas, Stormgate, Nightingale, KSP2,</text>
+  <text x="330" y="521" font-family="'DM Sans',Helvetica,Arial,sans-serif" font-size="11" fill="#6b6660">Spellbreak, Starbase, Ashes, Life is Feudal, Rend, Last Oasis.</text>
+  <text x="330" y="539" font-family="'IBM Plex Mono',monospace" font-size="10" fill="#6b6660">EVERY ONE BELOW 0.5% OF PEAK. ELEVEN SHIPPED AN AUTHORING LAYER.</text>
 
-  <!-- Survivors: late peak -->
+  <!-- survivors (teal) -->
   <g fill="#2a8f76">
-    <circle cx="820" cy="215" r="7.5"/>
-    <circle cx="866" cy="127" r="7.5"/>
-    <circle cx="836" cy="304" r="7.5"/>
-    <circle cx="1002" cy="406" r="7.5"/>
-    <circle cx="627" cy="475" r="7.5"/>
+    <circle cx="133" cy="185" r="7"/>
+    <circle cx="326" cy="165" r="7"/>
+    <circle cx="134" cy="309" r="7"/>
+    <circle cx="623" cy="269" r="7"/>
+    <circle cx="780" cy="162" r="7"/>
+    <circle cx="811" cy="186" r="7"/>
+    <circle cx="835" cy="147" r="7"/>
+    <circle cx="976" cy="220" r="7"/>
   </g>
   <g font-family="'DM Sans',Helvetica,Arial,sans-serif" font-size="12.5" fill="#232323">
-    <text x="834" y="212">Warframe</text>
-    <text x="880" y="124">RimWorld</text>
-    <text x="850" y="301">Factorio</text>
-    <text x="988" y="400" text-anchor="end">Path of Exile</text>
-    <text x="641" y="472">Deep Rock Galactic</text>
+    <text x="147" y="182">Helldivers 2</text>
+    <text x="340" y="162">Overwatch 2</text>
+    <text x="148" y="306">Valheim</text>
+    <text x="637" y="266">Deep Rock Galactic</text>
+    <text x="794" y="159">Warframe</text>
+    <text x="825" y="183">Factorio</text>
+    <text x="849" y="144">RimWorld</text>
+    <text x="962" y="217" text-anchor="end">Path of Exile</text>
   </g>
   <g font-family="'IBM Plex Mono',monospace" font-size="10" fill="#6b6660">
-    <text x="834" y="226">+8.3y · 26% · 48,852</text>
-    <text x="880" y="138">+9.0y · 32% · 31,008</text>
-    <text x="850" y="315">+8.7y · 19% · 22,697</text>
-    <text x="988" y="414" text-anchor="end">+10.8y · 12%* · 26,480</text>
-    <text x="641" y="486">+6.3y · 6% · 3,393 players</text>
+    <text x="147" y="196">+16d · 19% · 87,862</text>
+    <text x="340" y="176">+2.5y · 25% · 41,594</text>
+    <text x="148" y="320">+19d · 3.7% · 18,440</text>
+    <text x="637" y="280">+6.3y · 6% · 3,393</text>
+    <text x="794" y="173">+8.3y · 26% · 48,852</text>
+    <text x="825" y="197">+8.7y · 19% · 22,697</text>
+    <text x="849" y="158">+9.0y · 32% · 31,008</text>
+    <text x="962" y="231" text-anchor="end">+10.8y · 12%* · 26,480</text>
   </g>
 
-  <!-- Launch-peak points -->
-  <g fill="#b85a3a">
-    <circle cx="134" cy="306" r="7.5"/>
-    <circle cx="326" cy="224" r="7.5"/>
-    <circle cx="280" cy="566" r="7.5"/>
-    <circle cx="134" cy="512" r="7.5"/>
-  </g>
-  <g font-family="'DM Sans',Helvetica,Arial,sans-serif" font-size="12.5" fill="#232323">
-    <text x="148" y="303">Helldivers 2</text>
-    <text x="340" y="221">Overwatch 2</text>
-    <text x="294" y="563">Battlefield 2042</text>
-    <text x="148" y="509">Valheim</text>
-  </g>
-  <g font-family="'IBM Plex Mono',monospace" font-size="10" fill="#6b6660">
-    <text x="148" y="317">+16d · 19% · 87,862 players</text>
-    <text x="340" y="235">+2.5y · 25% · 41,594</text>
-    <text x="294" y="577">+1.9y · 1.1% · 1,225</text>
-    <text x="148" y="523">+19d · 3.7% · 18,440</text>
-  </g>
+  <!-- failures (coral) -->
+  <circle cx="279" cy="400" r="7" fill="#b85a3a"/>
+  <text x="293" y="397" font-family="'DM Sans',Helvetica,Arial,sans-serif" font-size="12.5" fill="#232323">Battlefield 2042</text>
+  <text x="293" y="411" font-family="'IBM Plex Mono',monospace" font-size="10" fill="#6b6660">+1.9y · 1.1% · 1,225</text>
 
-  <!-- Callout 1: Helldivers 2 -->
-  <line x1="352" y1="272" x2="352" y2="292" stroke="#c3a55f" stroke-width="1"/>
-  <line x1="352" y1="292" x2="318" y2="292" stroke="#c3a55f" stroke-width="1"/>
-  <text x="360" y="268" font-family="'DM Sans',Helvetica,Arial,sans-serif" font-size="11.5" font-style="italic" fill="#c3a55f">Largest current playerbase in the whole sample.</text>
-  <text x="360" y="284" font-family="'DM Sans',Helvetica,Arial,sans-serif" font-size="11.5" font-style="italic" fill="#c3a55f">The report classifies it as a counter-case.</text>
+  <!-- circularity note -->
+  <text x="600" y="652" font-family="'DM Sans',Helvetica,Arial,sans-serif" font-size="11.5" font-style="italic" fill="#c3a55f" text-anchor="middle">Peak shape is a regime detector, not a forecast — a still-growing game has by definition not yet peaked.</text>
 
-  <!-- Callout 2: Battlefield 2042 -->
-  <line x1="452" y1="566" x2="428" y2="566" stroke="#c3a55f" stroke-width="1"/>
-  <text x="460" y="554" font-family="'DM Sans',Helvetica,Arial,sans-serif" font-size="11.5" font-style="italic" fill="#c3a55f">Peak arrived two years late and it died anyway.</text>
-  <text x="460" y="570" font-family="'DM Sans',Helvetica,Arial,sans-serif" font-size="11.5" font-style="italic" fill="#c3a55f">Portal shipped day one. The rule has an exception.</text>
-
-  <text x="130" y="681" font-family="'DM Sans',Helvetica,Arial,sans-serif" font-size="11" fill="#6b6660">*Path of Exile reads at a 13-week league trough. Its July 2026 monthly peak was 187,116.</text>
+  <!-- footnote -->
+  <text x="130" y="676" font-family="'DM Sans',Helvetica,Arial,sans-serif" font-size="11" fill="#6b6660">*Path of Exile reads at a 13-week league trough. Its July 2026 monthly peak was 187,116.</text>
 </svg>
   </div>
-  <p class="chart-note">Twenty-one titles. Steam concurrent series read from <a href="https://steamdb.info">SteamDB</a> on 23 August 2026. Old School RuneScape and Hytale are excluded because their peak and current figures come from different client populations. Path of Exile reads at a 13-week league trough; its July 2026 monthly peak was 187,116.</p>
+    <p class="chart-note">Twenty-one titles. Steam concurrent series read from <a href="https://steamdb.info">SteamDB</a> on 23 August 2026. Old School RuneScape and Hytale are excluded because their peak and current figures come from different client populations. Path of Exile reads at a 13-week league trough; its July 2026 monthly peak was 187,116. The y-axis is logarithmic so the failure cluster stays readable instead of crushing against zero.</p>
 
   <p><strong>Late peak, high retention.</strong> RimWorld at 32% of peak, Warframe at 26%, Factorio at 19%, Path of Exile at 12%. This is the group the toolset story was built to explain, and it does contain the deepest player-authored ecosystems.</p>
 
