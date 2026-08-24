@@ -103,6 +103,17 @@ th.store-cell span{display:inline-flex;align-items:center;gap:7px}
 .bar-fill{height:100%;border-radius:3px}
 .bar-val{font-family:var(--font-mono);font-size:12px;font-weight:500;color:var(--text);min-width:80px;text-align:right;flex-shrink:0;white-space:nowrap}
 
+/* QUADRANT GRID */
+.quad-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border-med);border:1px solid var(--border-med);border-radius:6px;overflow:hidden;margin:1.5rem 0}
+.quad-cell{background:var(--bg2);padding:1.25rem 1.5rem;display:flex;flex-direction:column;gap:0.9rem}
+.quad-head{font-family:var(--font-mono);font-size:9.5px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid var(--border);padding-bottom:0.6rem}
+.quad-item{display:flex;flex-direction:column;gap:1px}
+.quad-name{font-family:var(--font-display);font-size:14px;font-weight:700;color:var(--text)}
+.quad-stat{font-family:var(--font-mono);font-size:11px;color:var(--text-dim)}
+.quad-note{font-size:12.5px;font-style:italic;color:var(--gold);margin-top:1px;line-height:1.5}
+.quad-more{font-size:12px;color:var(--text-dim);line-height:1.6;padding-top:0.3rem;border-top:1px dashed var(--border)}
+@media(max-width:600px){.quad-grid{grid-template-columns:1fr}}
+
 /* TIMELINE */
 .timeline{position:relative;padding-left:1.5rem}
 .timeline::before{content:'';position:absolute;left:0;top:6px;bottom:6px;width:1px;background:var(--border-med)}
@@ -343,133 +354,31 @@ footer .methodology{width:100%;font-size:11px;color:var(--text-dim);line-height:
   <span class="h2-kicker">Four quadrants, and every one of them is occupied.</span>
   <p class="section-intro">Plot the two variables that are supposed to be related. On one axis, how long after launch the all-time concurrent peak arrived. On the other, how much of that peak the game still holds today.</p>
 
-  <div class="chart-legend">
-    <span><span class="swatch" style="background:#2a8f76"></span>Peak arrived years after launch</span>
-    <span><span class="swatch" style="background:#b85a3a"></span>Peak arrived at launch</span>
-    <span><span class="swatch" style="background:transparent;border:1.5px solid #6b64b3"></span>Counter-case &mdash; 12 titles, all under 0.5% of peak</span>
+  <div class="quad-grid">
+    <div class="quad-cell">
+      <div class="quad-head">Peak within ~3 years &middot; 10%+ retained</div>
+      <div class="quad-item"><span class="quad-name">Helldivers 2</span><span class="quad-stat">+16d &middot; 19% &middot; 87,862 players</span><span class="quad-note">Largest current playerbase in the whole sample &mdash; and still a counter-case by the toolset thesis in &sect;3.</span></div>
+      <div class="quad-item"><span class="quad-name">Overwatch 2</span><span class="quad-stat">+2.5y &middot; 25% &middot; 41,594</span></div>
+    </div>
+    <div class="quad-cell">
+      <div class="quad-head">Peak 6+ years late &middot; 10%+ retained</div>
+      <div class="quad-item"><span class="quad-name">RimWorld</span><span class="quad-stat">+9.0y &middot; 32% &middot; 31,008</span></div>
+      <div class="quad-item"><span class="quad-name">Warframe</span><span class="quad-stat">+8.3y &middot; 26% &middot; 48,852</span></div>
+      <div class="quad-item"><span class="quad-name">Factorio</span><span class="quad-stat">+8.7y &middot; 19% &middot; 22,697</span></div>
+      <div class="quad-item"><span class="quad-name">Path of Exile</span><span class="quad-stat">+10.8y &middot; 12%* &middot; 26,480</span></div>
+    </div>
+    <div class="quad-cell">
+      <div class="quad-head">Peak within ~3 years &middot; under 10% retained</div>
+      <div class="quad-item"><span class="quad-name">Valheim</span><span class="quad-stat">+19d &middot; 3.7% &middot; 18,440</span></div>
+      <div class="quad-item"><span class="quad-name">Battlefield 2042</span><span class="quad-stat">+1.9y &middot; 1.1% &middot; 1,225</span><span class="quad-note">Peak arrived nearly two years late and it died anyway. Portal shipped day one &mdash; the toolset rule has an exception either way.</span></div>
+      <div class="quad-more">+ 12 counter-cases, all under 0.5% of peak, peaks all within months of launch: Worlds Adrift, Dual Universe, Atlas, Stormgate, Nightingale, KSP2, Spellbreak, Starbase, Ashes, Life is Feudal, Rend, Last Oasis.</div>
+    </div>
+    <div class="quad-cell">
+      <div class="quad-head">Peak 6+ years late &middot; under 10% retained</div>
+      <div class="quad-item"><span class="quad-name">Deep Rock Galactic</span><span class="quad-stat">+6.3y &middot; 6% &middot; 3,393 players</span></div>
+    </div>
   </div>
-  <div class="chart-wrap">
-<svg viewBox="0 105 1120 535" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Scatter chart plotting years from launch to all-time concurrent peak against current concurrency as a share of that peak, for 21 games">
-  <title>Peak shape does not cleanly predict retention</title>
-
-  
-  
-  <!-- axis -->
-
-  <line x1="130" y1="130" x2="130" y2="580" stroke="#232323" stroke-width="1.4"/>
-  <line x1="130" y1="580" x2="1070" y2="580" stroke="#232323" stroke-width="1.4"/>
-
-  <!-- Gridlines -->
-  <g stroke="#d2cdc3" stroke-width="1" stroke-dasharray="2 4">
-    <line x1="130" y1="452.4" x2="1070" y2="452.4"/>
-    <line x1="130" y1="324.9" x2="1070" y2="324.9"/>
-    <line x1="130" y1="197.3" x2="1070" y2="197.3"/>
-  </g>
-  <g font-family="'IBM Plex Mono',monospace" font-size="11" fill="#6b6660" text-anchor="end">
-    <text x="118" y="584">0%</text>
-    <text x="118" y="456">10%</text>
-    <text x="118" y="329">20%</text>
-    <text x="118" y="201">30%</text>
-  </g>
-
-  <!-- X ticks -->
-  <g font-family="'IBM Plex Mono',monospace" font-size="11" fill="#6b6660" text-anchor="middle">
-    <text x="130" y="601">0</text>
-    <text x="287" y="601">2</text>
-    <text x="443" y="601">4</text>
-    <text x="600" y="601">6</text>
-    <text x="757" y="601">8</text>
-    <text x="913" y="601">10</text>
-    <text x="1070" y="601">12</text>
-  </g>
-  <g stroke="#c5bfb5" stroke-width="1">
-    <line x1="287" y1="580" x2="287" y2="586"/>
-    <line x1="443" y1="580" x2="443" y2="586"/>
-    <line x1="600" y1="580" x2="600" y2="586"/>
-    <line x1="757" y1="580" x2="757" y2="586"/>
-    <line x1="913" y1="580" x2="913" y2="586"/>
-  </g>
-
-  <text x="600" y="626" font-family="'DM Sans',Helvetica,Arial,sans-serif" font-size="12.5" fill="#232323" text-anchor="middle">Years from launch to all-time concurrent peak</text>
-  <text x="38" y="355" font-family="'DM Sans',Helvetica,Arial,sans-serif" font-size="12.5" fill="#232323" text-anchor="middle" transform="rotate(-90 38 355)">Current concurrency as a share of all-time peak</text>
-
-  <!-- 10% retention reference -->
-  <line x1="130" y1="452.4" x2="1070" y2="452.4" stroke="#c3a55f" stroke-width="1.2" stroke-dasharray="6 5"/>
-  <text x="140" y="446" font-family="'IBM Plex Mono',monospace" font-size="10" fill="#c3a55f">10% OF PEAK RETAINED</text>
-
-  <!-- Counter-case cluster -->
-  <ellipse cx="147" cy="571" rx="34" ry="15" fill="none" stroke="#c5bfb5" stroke-width="1" stroke-dasharray="3 3"/>
-  <g fill="none" stroke="#6b64b3" stroke-width="1.1" opacity="0.9">
-    <circle cx="132" cy="577" r="4"/>
-    <circle cx="141" cy="579" r="4"/>
-    <circle cx="170" cy="579" r="4"/>
-    <circle cx="150" cy="576" r="4"/>
-    <circle cx="134" cy="570" r="4"/>
-    <circle cx="143" cy="566" r="4"/>
-    <circle cx="158" cy="571" r="4"/>
-    <circle cx="151" cy="566" r="4"/>
-    <circle cx="164" cy="575" r="4"/>
-    <circle cx="136" cy="564" r="4"/>
-    <circle cx="147" cy="573" r="4"/>
-    <circle cx="159" cy="565" r="4"/>
-  </g>
-
-  <!-- Survivors: late peak -->
-  <g fill="#2a8f76">
-    <circle cx="820" cy="215" r="7.5"/>
-    <circle cx="866" cy="127" r="7.5"/>
-    <circle cx="836" cy="304" r="7.5"/>
-    <circle cx="1002" cy="406" r="7.5"/>
-    <circle cx="627" cy="475" r="7.5"/>
-  </g>
-  <g font-family="'DM Sans',Helvetica,Arial,sans-serif" font-size="12.5" fill="#232323">
-    <text x="834" y="212">Warframe</text>
-    <text x="880" y="124">RimWorld</text>
-    <text x="850" y="301">Factorio</text>
-    <text x="988" y="400" text-anchor="end">Path of Exile</text>
-    <text x="641" y="472">Deep Rock Galactic</text>
-  </g>
-  <g font-family="'IBM Plex Mono',monospace" font-size="10" fill="#6b6660">
-    <text x="834" y="226">+8.3y · 26% · 48,852</text>
-    <text x="880" y="138">+9.0y · 32% · 31,008</text>
-    <text x="850" y="315">+8.7y · 19% · 22,697</text>
-    <text x="988" y="414" text-anchor="end">+10.8y · 12%* · 26,480</text>
-    <text x="641" y="486">+6.3y · 6% · 3,393 players</text>
-  </g>
-
-  <!-- Launch-peak points -->
-  <g fill="#b85a3a">
-    <circle cx="134" cy="306" r="7.5"/>
-    <circle cx="326" cy="224" r="7.5"/>
-    <circle cx="280" cy="566" r="7.5"/>
-    <circle cx="134" cy="512" r="7.5"/>
-  </g>
-  <g font-family="'DM Sans',Helvetica,Arial,sans-serif" font-size="12.5" fill="#232323">
-    <text x="148" y="303">Helldivers 2</text>
-    <text x="340" y="221">Overwatch 2</text>
-    <text x="294" y="563">Battlefield 2042</text>
-    <text x="148" y="509">Valheim</text>
-  </g>
-  <g font-family="'IBM Plex Mono',monospace" font-size="10" fill="#6b6660">
-    <text x="148" y="317">+16d · 19% · 87,862 players</text>
-    <text x="340" y="235">+2.5y · 25% · 41,594</text>
-    <text x="294" y="577">+1.9y · 1.1% · 1,225</text>
-    <text x="148" y="523">+19d · 3.7% · 18,440</text>
-  </g>
-
-  <!-- Callout 1: Helldivers 2 -->
-  <text x="148" y="333" font-family="'DM Sans',Helvetica,Arial,sans-serif" font-size="11.5" font-style="italic" fill="#c3a55f">Largest current playerbase in the whole sample.</text>
-  <text x="148" y="347" font-family="'DM Sans',Helvetica,Arial,sans-serif" font-size="11.5" font-style="italic" fill="#c3a55f">The report classifies it as a counter-case.</text>
-
-  <!-- Callout 2: Battlefield 2042 -->
-  <text x="294" y="528" font-family="'DM Sans',Helvetica,Arial,sans-serif" font-size="11.5" font-style="italic" fill="#c3a55f">Peak arrived two years late and it died anyway.</text>
-  <text x="294" y="543" font-family="'DM Sans',Helvetica,Arial,sans-serif" font-size="11.5" font-style="italic" fill="#c3a55f">Portal shipped day one. The rule has an exception.</text>
-  <line x1="294" y1="548" x2="294" y2="558" stroke="#c3a55f" stroke-width="1"/>
-
-  <text x="130" y="681" font-family="'DM Sans',Helvetica,Arial,sans-serif" font-size="11" fill="#6b6660">*Path of Exile reads at a 13-week league trough. Its July 2026 monthly peak was 187,116.</text>
-</svg>
-  </div>
-  <p class="chart-note">Twenty-one titles. Steam concurrent series read from <a href="https://steamdb.info">SteamDB</a> on 23 August 2026. Old School RuneScape and Hytale are excluded because their peak and current figures come from different client populations. Path of Exile reads at a 13-week league trough; its July 2026 monthly peak was 187,116. The twelve counter-cases: Worlds Adrift, Dual Universe, Atlas, Stormgate, Nightingale, KSP2, Spellbreak, Starbase, Ashes, Life is Feudal, Rend, Last Oasis.</p>
+  <p class="chart-note">Twenty-one titles, sorted into the four quadrants named in the kicker above. Steam concurrent series read from <a href="https://steamdb.info">SteamDB</a> on 23 August 2026. Old School RuneScape and Hytale are excluded because their peak and current figures come from different client populations. *Path of Exile reads at a 13-week league trough; its July 2026 monthly peak was 187,116. The "within ~3 years" / "6+ years late" split reflects an actual gap in this sample &mdash; nothing peaked between 2.5 and 6.3 years out.</p>
 
   <p><strong>Late peak, high retention.</strong> RimWorld at 32% of peak, Warframe at 26%, Factorio at 19%, Path of Exile at 12%. This is the group the toolset story was built to explain, and it does contain the deepest player-authored ecosystems.</p>
 
