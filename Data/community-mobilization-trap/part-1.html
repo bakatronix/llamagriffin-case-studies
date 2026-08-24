@@ -97,10 +97,11 @@ td.store-cell{display:flex;align-items:center;gap:9px}
 th.store-cell{gap:7px}
 th.store-cell span{display:inline-flex;align-items:center;gap:7px}
 /* BARS */
-.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
-.bar-label{font-size:12px;color:var(--text-muted);min-width:180px;flex-shrink:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.bar-bg{flex:1;height:5px;background:var(--bg4);border-radius:3px;overflow:hidden}
-.bar-fill{height:100%;border-radius:3px}
+.bar-row{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.bar-icon{width:24px;height:24px;object-fit:contain;flex-shrink:0}
+.bar-label{font-size:13px;color:var(--text-muted);min-width:140px;flex-shrink:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar-bg{flex:1;height:22px;background:var(--bg4);border-radius:4px;overflow:hidden}
+.bar-fill{height:100%;border-radius:4px}
 .bar-val{font-family:var(--font-mono);font-size:12px;font-weight:500;color:var(--text);min-width:80px;text-align:right;flex-shrink:0;white-space:nowrap}
 
 /* TIMELINE */
@@ -248,10 +249,10 @@ footer .methodology{width:100%;font-size:11px;color:var(--text-dim);line-height:
   </div>
 
   <div class="chart-wrap" style="margin:0 0 1.5rem">
-    <div class="bar-row"><span class="bar-label">MultiVersus</span><div class="bar-bg"><div class="bar-fill" style="width:100%;background:var(--coral)"></div></div><span class="bar-val">20M</span></div>
-    <div class="bar-row"><span class="bar-label">Knockout City</span><div class="bar-bg"><div class="bar-fill" style="width:60%;background:var(--coral)"></div></div><span class="bar-val">12M</span></div>
-    <div class="bar-row"><span class="bar-label">XDefiant</span><div class="bar-bg"><div class="bar-fill" style="width:55%;background:var(--coral)"></div></div><span class="bar-val">11M</span></div>
-    <div class="bar-row"><span class="bar-label">Spellbreak</span><div class="bar-bg"><div class="bar-fill" style="width:25%;background:var(--coral)"></div></div><span class="bar-val">5M</span></div>
+    <div class="bar-row"><img class="bar-icon" src="logo/multiversus.png" alt=""><span class="bar-label">MultiVersus</span><div class="bar-bg"><div class="bar-fill" style="width:100%;background:var(--coral)"></div></div><span class="bar-val">20M</span></div>
+    <div class="bar-row"><img class="bar-icon" src="logo/knockoutcity.png" alt=""><span class="bar-label">Knockout City</span><div class="bar-bg"><div class="bar-fill" style="width:60%;background:var(--coral)"></div></div><span class="bar-val">12M</span></div>
+    <div class="bar-row"><img class="bar-icon" src="logo/xdefiantlogo.png" alt=""><span class="bar-label">XDefiant</span><div class="bar-bg"><div class="bar-fill" style="width:55%;background:var(--coral)"></div></div><span class="bar-val">11M</span></div>
+    <div class="bar-row"><img class="bar-icon" src="logo/ispellbreak.svg" alt=""><span class="bar-label">Spellbreak</span><div class="bar-bg"><div class="bar-fill" style="width:25%;background:var(--coral)"></div></div><span class="bar-val">5M</span></div>
   </div>
   <p class="chart-note">Players acquired before shutdown, by title. Bar length is illustrative of scale, not a unified metric &mdash; see the definitions caveat below.</p>
 
