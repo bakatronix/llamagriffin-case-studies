@@ -164,11 +164,14 @@ table.compare tr:last-child td{border-bottom:none}
 .bridge{max-width:960px;margin:0 auto;padding:0 2rem 1.5rem}
 .bridge p{color:var(--text-muted);font-size:15px;line-height:1.7;max-width:72ch}
 
-/* READINGS */
-.readings{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:0 0 1.5rem}
-.reading{background:var(--bg2);padding:1.25rem 1.5rem}
-.reading-label{font-family:var(--font-display);font-size:0.95rem;font-weight:700;color:var(--text);margin-bottom:0.4rem}
-.reading p{font-size:14px;color:var(--text-muted);margin:0;line-height:1.65}
+/* COMPARE BAND */
+.compare-band{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:0 0 1.5rem}
+.compare-col{background:var(--bg2);display:flex;flex-direction:column}
+.compare-header{background:var(--bg3);padding:0.9rem 1.2rem}
+.compare-header .ed-name{font-family:var(--font-display);font-size:13px;font-weight:700}
+.compare-kv{padding:0.85rem 1.2rem;border-top:1px solid var(--border)}
+.compare-kv .kk{font-family:var(--font-mono);font-size:9px;text-transform:uppercase;letter-spacing:0.09em;color:var(--text-dim);margin-bottom:2px}
+.compare-kv .vv{font-size:13px;color:var(--text);font-weight:500}
 
 /* CLOSING */
 .closing{max-width:960px;margin:0 auto;padding:0.5rem 2rem 1.5rem;border-top:1px solid var(--border)}
@@ -384,14 +387,18 @@ footer .methodology{width:100%;font-size:11px;color:var(--text-dim);line-height:
   <p>Peak shape describes a regime. It does not predict retention, and it is partly circular in any case, since a game that is still growing has by definition not yet peaked. Treat it as a regime detector, never as a forecast on an unlaunched title.</p>
 
   <h3>Two readings</h3>
-  <div class="readings">
-    <div class="reading">
-      <div class="reading-label">The adjustment reading</div>
-      <p>Better greenlight discipline fixes this. If studios fund a Year 3 cadence budget at the same rigor as Year 1 marketing spend, the retention failures in this sample stop repeating.</p>
+  <div class="compare-band">
+    <div class="compare-col">
+      <div class="compare-header"><div class="ed-name">The adjustment reading</div></div>
+      <div class="compare-kv"><div class="kk">Claim</div><div class="vv">Better greenlight discipline fixes this.</div></div>
+      <div class="compare-kv"><div class="kk">Signal</div><div class="vv">Studios that fund Year 3 cadence budgets at launch, at the same rigor as Year 1 marketing spend, do not appear in this report's failure sample.</div></div>
+      <div class="compare-kv"><div class="kk">Strategy</div><div class="vv">Require a cadence budget line item before greenlight, not after.</div></div>
     </div>
-    <div class="reading">
-      <div class="reading-label">The structural reading</div>
-      <p>The economics make Year 3 funding structurally unlikely regardless of intent, because the greenlight case is built and approved on acquisition math before cadence costs are ever modeled.</p>
+    <div class="compare-col">
+      <div class="compare-header"><div class="ed-name">The structural reading</div></div>
+      <div class="compare-kv"><div class="kk">Claim</div><div class="vv">Year 3 funding is structurally unlikely regardless of intent.</div></div>
+      <div class="compare-kv"><div class="kk">Signal</div><div class="vv">Every failure in this sample was greenlit on acquisition math; cadence costs were never modeled at approval stage.</div></div>
+      <div class="compare-kv"><div class="kk">Strategy</div><div class="vv">Treat retention cost as a pre-greenlight gate, not a post-launch roadmap line.</div></div>
     </div>
   </div>
 </section>
@@ -415,7 +422,7 @@ footer .methodology{width:100%;font-size:11px;color:var(--text-dim);line-height:
 </main>
 
 <div class="bridge">
-  <p>Part II tests whether the community signal any of this depends on can actually predict anything.</p>
+  <p><strong>Where this goes.</strong> Part II tests whether the community signal any of this depends on can actually predict anything.</p>
 </div>
 
 <div class="closing">
@@ -440,7 +447,7 @@ footer .methodology{width:100%;font-size:11px;color:var(--text-dim);line-height:
   </a>
 </div>
 <div class="bio">
-  <p>Abbas Saleem is Principal Consultant at <a href="https://www.llamagriffin.com/" target="_blank" rel="noopener noreferrer">Llama &amp; Griffin</a>, advising game studios, publishers, and investors across MENA, South Asia, Southeast Asia, and Europe. He writes Recognizing Patterns: gaming industry intelligence 12 to 24 months before it becomes consensus. <a href="https://www.linkedin.com/in/abbassaleemkhan/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+  <p>Abbas Saleem is a Principal Consultant at <a href="https://www.llamagriffin.com/" target="_blank" rel="noopener noreferrer">Llama &amp; Griffin</a>, advising game studios, publishers, and investors across MENA, South Asia, Southeast Asia, and Europe. He writes The Pattern Recognition: gaming industry intelligence 12 to 24 months before it becomes consensus. <a href="https://www.linkedin.com/in/abbassaleemkhan/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
 </div>
 <footer>
   <div>The Mobilization Trap &middot; <span>Llama &amp; Griffin Consultants</span></div>

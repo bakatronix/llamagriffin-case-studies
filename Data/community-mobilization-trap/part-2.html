@@ -149,11 +149,14 @@ table.compare tr:last-child td{border-bottom:none}
 .bridge{max-width:960px;margin:0 auto;padding:0 2rem 1.5rem}
 .bridge p{color:var(--text-muted);font-size:15px;line-height:1.7;max-width:72ch}
 
-/* READINGS */
-.readings{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:0 0 1.5rem}
-.reading{background:var(--bg2);padding:1.25rem 1.5rem}
-.reading-label{font-family:var(--font-display);font-size:0.95rem;font-weight:700;color:var(--text);margin-bottom:0.4rem}
-.reading p{font-size:14px;color:var(--text-muted);margin:0;line-height:1.65}
+/* COMPARE BAND */
+.compare-band{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:0 0 1.5rem}
+.compare-col{background:var(--bg2);display:flex;flex-direction:column}
+.compare-header{background:var(--bg3);padding:0.9rem 1.2rem}
+.compare-header .ed-name{font-family:var(--font-display);font-size:13px;font-weight:700}
+.compare-kv{padding:0.85rem 1.2rem;border-top:1px solid var(--border)}
+.compare-kv .kk{font-family:var(--font-mono);font-size:9px;text-transform:uppercase;letter-spacing:0.09em;color:var(--text-dim);margin-bottom:2px}
+.compare-kv .vv{font-size:13px;color:var(--text);font-weight:500}
 
 /* CLOSING */
 .closing{max-width:960px;margin:0 auto;padding:0.5rem 2rem 1.5rem;border-top:1px solid var(--border)}
@@ -263,14 +266,18 @@ footer .methodology{width:100%;font-size:11px;color:var(--text-dim);line-height:
   <p>Valve's position is the more damaging evidence, because Valve owns the instrument and says it does little: wishlists have <a href="https://www.techspot.com/news/109938-steam-wishlists-have-little-impact-game-success-new.html">little effect on a game's visibility and commercial sales</a>. <span class="tag tag-high">Certain</span> <span class="tag tag-prov">Platform-stated</span></p>
 
   <h3>Two readings</h3>
-  <div class="readings">
-    <div class="reading">
-      <div class="reading-label">The instrument reading</div>
-      <p>Better measurement closes the gap. A signal that explains half the variance today can explain more with a better-designed instrument.</p>
+  <div class="compare-band">
+    <div class="compare-col">
+      <div class="compare-header"><div class="ed-name">The instrument reading</div></div>
+      <div class="compare-kv"><div class="kk">Claim</div><div class="vv">Better measurement closes the gap.</div></div>
+      <div class="compare-kv"><div class="kk">Signal</div><div class="vv">R&sup2; of 0.49 is a mediocre instrument, not a mediocre relationship.</div></div>
+      <div class="compare-kv"><div class="kk">Strategy</div><div class="vv">Invest in better pre-launch signal design rather than discarding wishlists as a category.</div></div>
     </div>
-    <div class="reading">
-      <div class="reading-label">The ceiling reading</div>
-      <p>A 50%-variance signal is structurally the ceiling for any pre-launch metric, because the missing half is determined by post-launch execution no wishlist can measure in advance.</p>
+    <div class="compare-col">
+      <div class="compare-header"><div class="ed-name">The ceiling reading</div></div>
+      <div class="compare-kv"><div class="kk">Claim</div><div class="vv">A 50%-variance signal is structurally the ceiling for any pre-launch metric.</div></div>
+      <div class="compare-kv"><div class="kk">Signal</div><div class="vv">Valve, which owns the instrument, states wishlists have &ldquo;little effect&rdquo; on visibility or sales.</div></div>
+      <div class="compare-kv"><div class="kk">Strategy</div><div class="vv">Use wishlists only as a kill switch, never as a forecast, because the missing half is determined by post-launch execution no pre-launch signal can measure.</div></div>
     </div>
   </div>
 </section>
@@ -359,7 +366,7 @@ footer .methodology{width:100%;font-size:11px;color:var(--text-dim);line-height:
 </main>
 
 <div class="bridge">
-  <p>Part III measures the same acquisition-versus-institutionalization gap over a century of political data.</p>
+  <p><strong>Where this goes.</strong> Part III measures the same acquisition-versus-institutionalization gap over a century of political data.</p>
 </div>
 
 <div class="closing">
@@ -384,7 +391,7 @@ footer .methodology{width:100%;font-size:11px;color:var(--text-dim);line-height:
   </a>
 </div>
 <div class="bio">
-  <p>Abbas Saleem is Principal Consultant at <a href="https://www.llamagriffin.com/" target="_blank" rel="noopener noreferrer">Llama &amp; Griffin</a>, advising game studios, publishers, and investors across MENA, South Asia, Southeast Asia, and Europe. He writes Recognizing Patterns: gaming industry intelligence 12 to 24 months before it becomes consensus. <a href="https://www.linkedin.com/in/abbassaleemkhan/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+  <p>Abbas Saleem is a Principal Consultant at <a href="https://www.llamagriffin.com/" target="_blank" rel="noopener noreferrer">Llama &amp; Griffin</a>, advising game studios, publishers, and investors across MENA, South Asia, Southeast Asia, and Europe. He writes The Pattern Recognition: gaming industry intelligence 12 to 24 months before it becomes consensus. <a href="https://www.linkedin.com/in/abbassaleemkhan/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
 </div>
 <footer>
   <div>The Mobilization Trap &middot; <span>Llama &amp; Griffin Consultants</span></div>
