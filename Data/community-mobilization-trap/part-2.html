@@ -145,6 +145,16 @@ table.compare tr:last-child td{border-bottom:none}
 
 /* TOC */
 
+/* BRIDGE */
+.bridge{max-width:960px;margin:0 auto;padding:0 2rem 1.5rem}
+.bridge p{color:var(--text-muted);font-size:15px;line-height:1.7;max-width:72ch}
+
+/* READINGS */
+.readings{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:0 0 1.5rem}
+.reading{background:var(--bg2);padding:1.25rem 1.5rem}
+.reading-label{font-family:var(--font-display);font-size:0.95rem;font-weight:700;color:var(--text);margin-bottom:0.4rem}
+.reading p{font-size:14px;color:var(--text-muted);margin:0;line-height:1.65}
+
 /* CLOSING */
 .closing{max-width:960px;margin:0 auto;padding:0.5rem 2rem 1.5rem;border-top:1px solid var(--border)}
 .closing p{font-family:var(--font-display);font-size:1.35rem;font-style:italic;color:var(--text-muted);max-width:680px;line-height:1.55;margin-top:1.25rem}
@@ -247,10 +257,22 @@ footer .methodology{width:100%;font-size:11px;color:var(--text-dim);line-height:
   <p>Video Game Insights measured the correlation directly across 1,500 games and found an <a href="https://gamedevreports.substack.com/p/video-game-insights-steam-wishlists">R&sup2; of 0.49, with only 9% of games outselling their wishlists</a>.</p>
 
   <div class="insight caveat">
-    <strong>State that carefully, because the first draft of this report overstated it.</strong> Half the variance explained is a real relationship. Wishlists are not noise. They are an insufficient predictor being used as a sufficient one, and the residual half is where every studio's actual outcome lives. A signal that explains half the variance with 10-20x dispersion around it is a planning input, not a forecast.
+    <strong>The forecast trap.</strong> State that carefully, because the first draft of this report overstated it. Half the variance explained is a real relationship. Wishlists are not noise. They are an insufficient predictor being used as a sufficient one, and the residual half is where every studio's actual outcome lives. A signal that explains half the variance with 10-20x dispersion around it is a planning input, not a forecast.
   </div>
 
   <p>Valve's position is the more damaging evidence, because Valve owns the instrument and says it does little: wishlists have <a href="https://www.techspot.com/news/109938-steam-wishlists-have-little-impact-game-success-new.html">little effect on a game's visibility and commercial sales</a>. <span class="tag tag-high">Certain</span> <span class="tag tag-prov">Platform-stated</span></p>
+
+  <h3>Two readings</h3>
+  <div class="readings">
+    <div class="reading">
+      <div class="reading-label">The instrument reading</div>
+      <p>Better measurement closes the gap. A signal that explains half the variance today can explain more with a better-designed instrument.</p>
+    </div>
+    <div class="reading">
+      <div class="reading-label">The ceiling reading</div>
+      <p>A 50%-variance signal is structurally the ceiling for any pre-launch metric, because the missing half is determined by post-launch execution no wishlist can measure in advance.</p>
+    </div>
+  </div>
 </section>
 
 <section id="s3">
@@ -335,6 +357,10 @@ footer .methodology{width:100%;font-size:11px;color:var(--text-dim);line-height:
 </section>
 
 </main>
+
+<div class="bridge">
+  <p>Part III measures the same acquisition-versus-institutionalization gap over a century of political data.</p>
+</div>
 
 <div class="closing">
   <p>Three questions worth asking at greenlight. Does the product generate its own distribution when played. Is the organic wishlist rate above the floor. And <span>who is funding the cadence in year three.</span></p>

@@ -160,6 +160,16 @@ table.compare tr:last-child td{border-bottom:none}
 
 /* TOC */
 
+/* BRIDGE */
+.bridge{max-width:960px;margin:0 auto;padding:0 2rem 1.5rem}
+.bridge p{color:var(--text-muted);font-size:15px;line-height:1.7;max-width:72ch}
+
+/* READINGS */
+.readings{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:0 0 1.5rem}
+.reading{background:var(--bg2);padding:1.25rem 1.5rem}
+.reading-label{font-family:var(--font-display);font-size:0.95rem;font-weight:700;color:var(--text);margin-bottom:0.4rem}
+.reading p{font-size:14px;color:var(--text-muted);margin:0;line-height:1.65}
+
 /* CLOSING */
 .closing{max-width:960px;margin:0 auto;padding:0.5rem 2rem 1.5rem;border-top:1px solid var(--border)}
 .closing p{font-family:var(--font-display);font-size:1.35rem;font-style:italic;color:var(--text-muted);max-width:680px;line-height:1.55;margin-top:1.25rem}
@@ -339,7 +349,7 @@ footer .methodology{width:100%;font-size:11px;color:var(--text-dim);line-height:
   <p><em>Crowfall</em> inverts the thesis completely. The player-facing campaign system was the stated cause of death: <a href="https://www.pcgamer.com/pvp-mmo-crowfall-is-being-shut-down-indefinitely-to-save-it/">the sheer amount of development effort required to build new campaigns and keep the game running daily</a>. And the list runs on. <em>Landmark</em>, where the game itself was the creation toolkit, dead in eight months. <em>Dual Universe</em>, with an NPC-free player economy and Lua scripting at launch, <a href="https://steamdb.info/app/2000270/charts/">peak 792</a>. <em>Atlas</em>, with the full DevKit, Workshop and private-server stack, down 99.5% from a <a href="https://steamdb.info/app/834910/charts/">58,939 peak</a>. <em>WildStar</em>, with a player-set currency economy, deep housing and player-built War Plots, <a href="https://www.gamespot.com/articles/pc-mmo-wildstar-closing-for-good-in-november-refun/1100-6462085/">closed and its studio shut</a>.</p>
 
   <div class="insight finding">
-    <strong>Participation infrastructure is neither necessary nor sufficient for retention.</strong> Three of the longest-lived games in the sample never shipped one. Eleven of the twelve counter-cases did. Any deck claiming otherwise is selecting on the outcome, and so was the first draft of this report.
+    <strong>The toolset fallacy.</strong> Participation infrastructure is neither necessary nor sufficient for retention. Three of the longest-lived games in the sample never shipped one. Eleven of the twelve counter-cases did. Any deck claiming otherwise is selecting on the outcome, and so was the first draft of this report.
   </div>
 </section>
 
@@ -368,10 +378,22 @@ footer .methodology{width:100%;font-size:11px;color:var(--text-dim);line-height:
   <p><strong>Launch peak, nothing retained.</strong> Twelve games, every one below 0.5% of peak, and eleven of the twelve shipped a genuine authoring layer.</p>
 
   <div class="insight strategic">
-    <strong>The one variable that appears in the long-tail group and never in the failures is sustained content cadence over years.</strong> Path of Exile's 13-week league cycle, forty releases in ten years. Old School RuneScape's poll-and-update loop. Warframe's update rhythm across a decade. Player authoring lowers the cost of that cadence; it does not substitute for it. <em>Crowfall</em> is the proof, because it had the authoring layer and died of the cadence bill.
+    <strong>The cadence tax.</strong> The one variable that appears in the long-tail group and never in the failures is sustained content cadence over years. Path of Exile's 13-week league cycle, forty releases in ten years. Old School RuneScape's poll-and-update loop. Warframe's update rhythm across a decade. Player authoring lowers the cost of that cadence; it does not substitute for it. <em>Crowfall</em> is the proof, because it had the authoring layer and died of the cadence bill.
   </div>
 
   <p>Peak shape describes a regime. It does not predict retention, and it is partly circular in any case, since a game that is still growing has by definition not yet peaked. Treat it as a regime detector, never as a forecast on an unlaunched title.</p>
+
+  <h3>Two readings</h3>
+  <div class="readings">
+    <div class="reading">
+      <div class="reading-label">The adjustment reading</div>
+      <p>Better greenlight discipline fixes this. If studios fund a Year 3 cadence budget at the same rigor as Year 1 marketing spend, the retention failures in this sample stop repeating.</p>
+    </div>
+    <div class="reading">
+      <div class="reading-label">The structural reading</div>
+      <p>The economics make Year 3 funding structurally unlikely regardless of intent, because the greenlight case is built and approved on acquisition math before cadence costs are ever modeled.</p>
+    </div>
+  </div>
 </section>
 
 <section id="s5">
@@ -391,6 +413,10 @@ footer .methodology{width:100%;font-size:11px;color:var(--text-dim);line-height:
 </section>
 
 </main>
+
+<div class="bridge">
+  <p>Part II tests whether the community signal any of this depends on can actually predict anything.</p>
+</div>
 
 <div class="closing">
   <p>There are three ways to solve a cold start. Buy recognition, build participation, or borrow a community you did not make. All three get you a launch. <span>Only sustained cadence gets you a year three,</span> and IP mostly buys the runway to afford one.</p>
