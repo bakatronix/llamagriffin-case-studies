@@ -308,7 +308,7 @@ footer .methodology{width:100%;font-size:11px;color:var(--text-dim);line-height:
       </g>
     </svg>
   </div>
-  <p class="chart-note">Players acquired before shutdown, by title. Values shown are illustrative of scale, not a unified metric &mdash; see the definitions caveat below.</p>
+  <p class="chart-note">Players acquired before shutdown, by title. Values shown are illustrative of scale, not a unified metric; see the definitions caveat below.</p>
 
   <p>Those four figures use four different definitions and are not additively comparable: registered players, lifetime players, and one three-week total. They are shown together because the scale of the gap survives any reasonable reconciliation, not because the sum is a unique-user count. <span class="tag tag-high">Certain</span> <span class="tag tag-prov">Publisher-stated</span></p>
 
@@ -407,13 +407,14 @@ footer .methodology{width:100%;font-size:11px;color:var(--text-dim);line-height:
   <p class="section-intro">Plot the two variables that are supposed to be related. On one axis, how long after launch the all-time concurrent peak arrived. On the other, how much of that peak the game still holds today.</p>
 
   <div class="chart-legend">
-    <span><span class="swatch" style="background:#2a8f76"></span>Still running</span>
-    <span><span class="swatch" style="background:#b85a3a"></span>Shut down / collapsed</span>
+    <span><span class="swatch" style="background:#163a53"></span>High retention</span>
+    <span><span class="swatch" style="background:#dac09d"></span>Low retention / collapsed</span>
     <span><span class="swatch" style="background:transparent;border:1px solid #6b6660"></span>Counter-case cluster (12)</span>
   </div>
   <div class="chart-wrap" style="margin:1.5rem 0 1rem">
 <img src="peak_shape_retention_icons.svg" alt="Peak shape vs. retention, 21 titles" style="width:100%;height:auto;display:block">
   </div>
+  <p class="chart-note">Twenty-one titles. Steam concurrent series read from <a href="https://steamdb.info">SteamDB</a> on 23 August 2026. Old School RuneScape and Hytale are excluded because their peak and current figures come from different client populations. Path of Exile reads at a 13-week league trough; its July 2026 monthly peak was 187,116. The y-axis is logarithmic so the failure cluster stays readable instead of crushing against zero.</p>
 
   <p><strong>Late peak, high retention.</strong> RimWorld at 32% of peak, Warframe at 26%, Factorio at 19%, Path of Exile at 12%. This is the group the toolset story was built to explain, and it does contain the deepest player-authored ecosystems.</p>
 
@@ -434,13 +435,13 @@ footer .methodology{width:100%;font-size:11px;color:var(--text-dim);line-height:
     <div class="compare-col">
       <div class="compare-header"><div class="ed-name">The adjustment reading</div></div>
       <div class="compare-kv"><div class="kk">Claim</div><div class="vv">Better greenlight discipline fixes this.</div></div>
-      <div class="compare-kv"><div class="kk">Signal</div><div class="vv">Studios that fund Year 3 cadence budgets at launch, at the same rigor as Year 1 marketing spend, do not appear in this report's failure sample.</div></div>
+      <div class="compare-kv"><div class="kk">Signal</div><div class="vv">One reading is that studios funding Year 3 cadence budgets at launch, at the same rigor as Year 1 marketing spend, simply do not appear in this report's failure sample. The sample is defined by failure, so absence here does not prove the causal link. <span class="tag tag-directional">Reading &middot; Unverifiable</span></div></div>
       <div class="compare-kv"><div class="kk">Strategy</div><div class="vv">Require a cadence budget line item before greenlight, not after.</div></div>
     </div>
     <div class="compare-col">
       <div class="compare-header"><div class="ed-name">The structural reading</div></div>
       <div class="compare-kv"><div class="kk">Claim</div><div class="vv">Year 3 funding is structurally unlikely regardless of intent.</div></div>
-      <div class="compare-kv"><div class="kk">Signal</div><div class="vv">Every failure in this sample was greenlit on acquisition math; cadence costs were never modeled at approval stage.</div></div>
+      <div class="compare-kv"><div class="kk">Signal</div><div class="vv">The structural reading holds that these were greenlit on acquisition math, with cadence costs never modeled at approval. The report cannot verify this, because no publisher discloses greenlight criteria for XDefiant, MultiVersus, Knockout City, or Spellbreak. <span class="tag tag-directional">Reading &middot; Unverifiable</span></div></div>
       <div class="compare-kv"><div class="kk">Strategy</div><div class="vv">Treat retention cost as a pre-greenlight gate, not a post-launch roadmap line.</div></div>
     </div>
   </div>
