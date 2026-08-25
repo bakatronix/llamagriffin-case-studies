@@ -102,6 +102,12 @@ th.store-cell span{display:inline-flex;align-items:center;gap:7px}
 .bar-bg{flex:1;height:5px;background:var(--bg4);border-radius:3px;overflow:hidden}
 .bar-fill{height:100%;border-radius:3px}
 .bar-val{font-family:var(--font-mono);font-size:12px;font-weight:500;color:var(--text);min-width:80px;text-align:right;flex-shrink:0;white-space:nowrap}
+.chart-wrap.thick .bar-row{gap:12px;margin-bottom:16px}
+.chart-wrap.thick .bar-label{font-size:13px}
+.chart-wrap.thick .bar-bg{height:22px;border-radius:4px}
+.chart-wrap.thick .bar-fill{border-radius:4px}
+.chart-wrap.thick .bar-val{font-size:13px}
+.chart-card{border:1px solid var(--border);border-radius:4px;background:var(--bg2);padding:1.25rem 1.5rem}
 
 /* TIMELINE */
 .timeline{position:relative;padding-left:1.5rem}
@@ -375,7 +381,7 @@ footer .methodology{width:100%;font-size:11px;color:var(--text-dim);line-height:
     </table>
   </div>
 
-  <div class="chart-wrap" style="margin:0 0 1.5rem">
+  <div class="chart-wrap thick chart-card" style="margin:1.5rem 0 0.75rem">
     <div class="bar-row"><span class="bar-label">Estallido social &rarr; Boric</span><div class="bar-bg"><div class="bar-fill" style="width:25.3%;background:var(--gold)"></div></div><span class="bar-val">2.2 yrs</span></div>
     <div class="bar-row"><span class="bar-label">15-M &rarr; Podemos</span><div class="bar-bg"><div class="bar-fill" style="width:52.9%;background:var(--gold)"></div></div><span class="bar-val">4.6 yrs</span></div>
     <div class="bar-row"><span class="bar-label">Euromaidan &rarr; Servant of the People</span><div class="bar-bg"><div class="bar-fill" style="width:62.1%;background:var(--gold)"></div></div><span class="bar-val">5.4 yrs</span></div>
