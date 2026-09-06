@@ -232,6 +232,10 @@ th.store-cell span{display:inline-flex;align-items:center;gap:7px}
 .insight .diagnostic-list{margin:0.85rem 0 0}
 .insight .diagnostic-list li{font-size:14px;margin-bottom:7px}
 .diagnostic-list li::before{content:counter(diag,decimal-leading-zero);font-family:var(--font-mono);font-size:10px;font-weight:500;color:var(--gold);position:absolute;left:0;top:0}
+.diagnostic-list.stepped{margin:1.75rem 0 2rem;border-top:1px solid var(--border)}
+.diagnostic-list.stepped li{margin-bottom:0;padding:0.95rem 0 0.95rem 4rem;border-bottom:1px solid var(--border);font-size:14px;line-height:1.6}
+.diagnostic-list.stepped li::before{font-family:var(--font-display);font-size:1.9rem;font-style:italic;font-weight:700;color:var(--gold-light);left:0;top:0.62rem;line-height:1}
+.diagnostic-list.stepped li:last-child::before{color:var(--gold)}
 
 /* BRIDGE + CLOSING */
 .bridge{max-width:960px;margin:0 auto;padding:0 2rem 1.5rem}
@@ -360,7 +364,7 @@ footer .methodology{width:100%;font-size:11px;color:var(--text-dim);line-height:
     </div>
   </div>
 
-  <ol class="diagnostic-list">
+  <ol class="diagnostic-list stepped">
     <li>The AI buildout bids up memory, competing for the same supply consoles are built from. <span class="tag tag-high">High</span></li>
     <li>Console prices rise across all three platforms inside five months. <span class="tag tag-high">High</span></li>
     <li>The exit is priced. Streaming is metered from November &mdash; before, not after, anyone arrives on it in volume. <span class="tag tag-high">High</span></li>
