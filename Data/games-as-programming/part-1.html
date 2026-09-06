@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://www.llamagriffin.com/Data/games-as-programming/part-1.html">
+<meta name="description" content="Netflix exited five game studios in five years and every one of them built games as products. The GTA VI reveal was announced by the department that commissions documentaries, not the games team.">
+<meta property="og:title" content="The Ledger Nobody Added Up: Five Closures, One Filter">
+<meta property="og:description" content="Netflix exited five game studios in five years and every one of them built games as products. The GTA VI reveal was announced by the department that commissions documentaries, not the games team.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.llamagriffin.com/Data/games-as-programming/part-1.html">
+<title>The Ledger Nobody Added Up &middot; Part I &middot; Games as Programming</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f7f4ee;--bg2:#fdfcf9;--bg3:#eae7e0;--bg4:#d2cdc3;
+  --border:#d2cdc3;--border-med:#c5bfb5;
+  --text:#232323;--text-muted:#37342f;--text-dim:#6b6660;
+  --gold:#c3a55f;--gold-light:#d4ba82;--gold-dim:rgba(195,165,95,0.12);
+  --teal:#2a8f76;--teal-light:#3daa8e;--teal-dim:rgba(42,143,118,0.10);
+  --purple:#6b64b3;--purple-light:#8f88cc;--purple-dim:rgba(107,100,179,0.10);
+  --coral:#b85a3a;--coral-light:#cb7055;--coral-dim:rgba(184,90,58,0.10);
+  --blue:#3d77c4;--blue-light:#6699d8;--blue-dim:rgba(61,119,196,0.10);
+  --font-display:'Playfair Display',serif;
+  --font-body:'DM Sans',sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:15px;line-height:1.7;min-height:100vh}
+a{color:var(--gold);text-decoration:none}a:hover{text-decoration:underline}
+
+/* SUITE NAV */
+#suite-nav{background:#f5f1e8;border-bottom:1px solid rgba(30,25,20,0.12);padding:0 2rem;display:flex;align-items:center;height:36px;font-family:var(--font-mono);font-size:9px;letter-spacing:0.09em;text-transform:uppercase;gap:0;overflow-x:auto;position:sticky;top:0;z-index:200}
+.suite-brand{color:var(--gold);margin-right:1.5rem;padding-right:1.5rem;border-right:1px solid rgba(30,25,20,0.12);white-space:nowrap;font-weight:500}
+.suite-link{color:var(--text-dim);padding:0 0.85rem;height:36px;display:inline-flex;align-items:center;border-bottom:2px solid transparent;white-space:nowrap;text-decoration:none;transition:color 0.15s}
+.suite-link:hover{color:var(--gold);border-bottom-color:rgba(195,165,95,0.3)}
+.suite-link.active{color:var(--gold);border-bottom-color:var(--gold)}
+
+/* MAIN NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(247,244,238,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;height:52px;overflow-x:auto;gap:0}
+.nav-brand{font-family:var(--font-display);font-size:14px;font-weight:700;color:var(--text);margin-right:1.5rem;padding-right:1.5rem;border-right:1px solid var(--border);white-space:nowrap;text-transform:none;letter-spacing:normal;text-decoration:none}
+.nav-brand:hover{text-decoration:none;opacity:0.8}
+nav a.nav-link{color:var(--text-dim);font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.09em;text-transform:uppercase;padding:0 0.9rem;height:52px;display:flex;align-items:center;border-bottom:2px solid transparent;white-space:nowrap;transition:color 0.15s,border-color 0.15s;text-decoration:none}
+nav a.nav-link:hover{color:var(--gold);border-bottom-color:rgba(195,165,95,0.3);text-decoration:none}
+nav a.nav-link.active{color:var(--gold);border-bottom-color:var(--gold)}
+#suite-nav + nav{top:36px}
+section[id],.hero[id]{scroll-margin-top:96px}
+
+/* HERO */
+/* HERO */
+.hero{padding:5rem 2rem 1.5rem;max-width:960px;margin:0 auto;position:relative}
+.hero-eyebrow{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1.75rem;display:flex;align-items:center;gap:10px}
+.hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold);display:inline-block}
+.hero h1{font-family:var(--font-display);font-size:clamp(2.4rem,6vw,4rem);font-weight:700;line-height:1.04;color:var(--text);margin-bottom:1.5rem}
+.hero h1 span{color:var(--gold);font-style:italic;display:block}
+.hero-sub{font-size:16px;color:var(--text-muted);max-width:none;margin-bottom:1.25rem;line-height:1.7}
+.hero-sub:last-of-type{margin-bottom:2.5rem}
+.hero-sub strong{color:var(--text);font-weight:600}
+.meta-row{display:flex;gap:2.5rem;flex-wrap:wrap;padding:1.5rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:1.5rem}
+.meta-item{font-family:var(--font-mono);font-size:10px;letter-spacing:0.09em;color:var(--text-dim);text-transform:uppercase}
+.meta-item span{color:var(--text);font-weight:500}
+.hero .hero-note,.hero-note{font-family:var(--font-mono);font-size:10px;color:var(--text-dim);line-height:1.6;margin:0.75rem 0 0;max-width:none}
+
+/* STAT GRID */
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:0}
+.stat-cell{background:var(--bg2);padding:1.5rem}
+.stat-val{font-family:var(--font-display);font-size:1.9rem;font-weight:700;color:var(--gold);line-height:1;margin-bottom:8px}
+.stat-val.teal{color:var(--teal)}.stat-val.purple{color:var(--purple)}.stat-val.coral{color:var(--coral)}.stat-val.blue{color:var(--blue)}
+.stat-lbl{font-family:var(--font-mono);font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.07em;line-height:1.5}
+
+/* READ ORDER */
+.read-order{max-width:960px;margin:0 auto;padding:0 2rem 2.5rem;font-family:var(--font-mono);font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-dim)}
+.read-order-label{color:var(--gold);font-weight:500;margin-right:0.5rem}
+
+/* PARTS GRID */
+.parts{max-width:960px;margin:0 auto;padding:1rem 2rem 3rem}
+.parts-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}
+.part-card{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:2rem 1.75rem;display:flex;flex-direction:column;transition:border-color 0.15s,transform 0.15s,box-shadow 0.15s;text-decoration:none;color:inherit}
+.part-card:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 8px 24px rgba(35,35,35,0.06);text-decoration:none}
+.part-num{font-family:var(--font-display);font-size:1.5rem;font-weight:700;font-style:italic;color:var(--gold);margin-bottom:1.5rem;line-height:1}
+.part-title{font-family:var(--font-display);font-size:1.35rem;font-weight:700;color:var(--text);margin-bottom:0.4rem;line-height:1.15}
+.part-kicker{font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);margin-bottom:0.9rem}
+.part-card.ii .part-kicker{color:var(--purple)}
+.part-card.iii .part-kicker{color:var(--coral)}
+.part-desc{font-size:13.5px;color:var(--text-muted);line-height:1.6;margin-bottom:1.5rem;flex:1}
+.part-link{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:6px}
+.part-card:hover .part-link{gap:10px}
+.part-link::after{content:'\2192';transition:transform 0.15s}
+
+/* STORE NAV (quick reference) */
+.store-nav{max-width:960px;margin:0 auto;padding:0 2rem 2rem}
+.store-nav-title{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);margin-bottom:0.75rem}
+.store-nav-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:0.75rem}
+.store-nav-grid a{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:1.15rem 1.35rem;display:flex;flex-direction:column;gap:0.15rem;transition:border-color 0.15s,transform 0.15s,box-shadow 0.15s;text-decoration:none}
+.store-nav-grid a:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 8px 24px rgba(35,35,35,0.06);text-decoration:none}
+.store-nav-grid .store-icon{width:28px;height:28px;flex-shrink:0;margin-bottom:0.15rem;object-fit:contain}
+.store-nav-grid .store-name{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--text)}
+.store-nav-grid .store-tag{font-family:var(--font-mono);font-size:9px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim)}
+
+/* CHEVRONS + SECTIONS */
+.chevrons{display:flex;gap:5px;margin-bottom:0.5rem}
+.chevrons::before{content:'▲▲▲▲';font-size:8px;color:var(--gold);letter-spacing:3px}
+section{max-width:960px;margin:0 auto;padding:2.5rem 2rem;border-top:1px solid var(--border)}
+main > section:first-of-type{border-top:none;padding-top:1.5rem}
+.section-label{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.3rem}
+h2{font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--text);margin-bottom:0.25rem;line-height:1.15}
+.h2-kicker{font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--gold);font-style:italic;display:block;margin-bottom:1.5rem}
+.section-intro{font-size:15px;color:var(--text-muted);max-width:none;margin-bottom:2rem;line-height:1.7}
+h3{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--text);margin:2.5rem 0 1rem}
+h3:first-of-type{margin-top:0}
+p{color:var(--text-muted);margin-bottom:1rem;font-size:15px;max-width:none;line-height:1.7}
+p strong{color:var(--text);font-weight:600}
+p:last-child{margin-bottom:0}
+
+/* TABLES */
+.table-wrap{margin-bottom:1.5rem;border:1px solid var(--border);border-radius:4px;overflow:hidden;overflow-x:auto;background:var(--bg2)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead th{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);padding:0.75rem 1rem;text-align:left;border-bottom:1px solid var(--border-med);background:var(--bg3);white-space:nowrap}
+tbody tr{border-bottom:1px solid var(--border);transition:background 0.1s}
+tbody tr:last-child{border-bottom:none}
+tbody tr:hover{background:var(--bg3)}
+tbody td{padding:0.65rem 1rem;color:var(--text-muted);vertical-align:middle}
+tbody td:first-child{color:var(--text)}
+.store-mark{width:18px;height:18px;object-fit:contain;flex-shrink:0}
+td.store-cell,th.store-cell{white-space:nowrap}
+td.store-cell{display:flex;align-items:center;gap:9px}
+th.store-cell span{display:inline-flex;align-items:center;gap:7px}
+
+/* TAGS + CONFIDENCE */
+.tag{display:inline-block;font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;padding:2px 7px;border-radius:2px;white-space:nowrap}
+.tag-gold{background:var(--gold-dim);color:var(--gold)}
+.tag-teal{background:var(--teal-dim);color:var(--teal)}
+.tag-purple{background:var(--purple-dim);color:var(--purple)}
+.tag-coral{background:var(--coral-dim);color:var(--coral)}
+.tag-blue{background:var(--blue-dim);color:var(--blue)}
+.tag-dim{background:rgba(35,35,35,0.07);color:var(--text-dim)}
+.tag-high{background:var(--teal-dim);color:var(--teal)}
+.tag-likely{background:var(--purple-dim);color:var(--purple)}
+.tag-directional{background:var(--coral-dim);color:var(--coral)}
+.tag-prov{background:rgba(35,35,35,0.07);color:var(--text-dim)}
+.conf-certain,.conf-likely{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;margin-left:4px}
+.conf-certain{color:var(--teal)}
+.conf-likely{color:var(--purple)}
+
+/* INSIGHT CALLOUTS */
+.insight{border-left:3px solid var(--gold);background:var(--gold-dim);border-radius:0 6px 6px 0;padding:1.75rem 2rem;margin:1.5rem auto 2rem;font-size:15px;color:var(--text-muted);line-height:1.75;max-width:960px;box-sizing:border-box}
+.insight strong{color:var(--text);font-weight:600}
+.insight.teal{border-color:var(--teal);background:var(--teal-dim)}
+.insight.purple{border-color:var(--purple);background:var(--purple-dim)}
+.insight.coral{border-color:var(--coral);background:var(--coral-dim)}
+.insight.blue{border-color:var(--blue);background:var(--blue-dim)}
+.insight.finding{border-color:var(--gold);background:var(--gold-dim)}
+.insight.caveat{border-color:var(--purple);background:var(--purple-dim)}
+.insight.strategic{border-color:var(--teal);background:var(--teal-dim)}
+.insight.source{border-color:var(--blue);background:var(--blue-dim)}
+
+/* CHARTS */
+.chart-wrap{position:relative;width:100%;margin:1.5rem 0 2.5rem}
+.chart-legend{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:12px;font-size:12px;color:var(--text-muted)}
+.chart-legend span{display:flex;align-items:center;gap:6px}
+.swatch{width:10px;height:10px;border-radius:2px;flex-shrink:0}
+.chart-note{font-family:var(--font-mono);font-size:10px;color:var(--text-dim);margin:0 0 2.5rem;line-height:1.65;width:100%;max-width:none}
+.chart-note a{color:var(--gold);text-decoration:none}
+.chart-note a:hover{text-decoration:underline}
+.chart-card{border:1px solid var(--border);border-radius:4px;background:var(--bg2);padding:1.25rem 1.5rem}
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.bar-icon{width:18px;height:18px;object-fit:contain;flex-shrink:0}
+.bar-label{font-size:12px;color:var(--text-muted);min-width:140px;flex-shrink:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar-bg{flex:1;height:5px;background:var(--bg4);border-radius:3px;overflow:hidden}
+.bar-fill{height:100%;border-radius:3px}
+.bar-val{font-family:var(--font-mono);font-size:12px;font-weight:500;color:var(--text);min-width:80px;text-align:right;flex-shrink:0;white-space:nowrap}
+.chart-wrap.thick .bar-row{gap:12px;margin-bottom:16px}
+.chart-wrap.thick .bar-label{font-size:13px}
+.chart-wrap.thick .bar-bg{height:22px;border-radius:4px}
+.chart-wrap.thick .bar-fill{border-radius:4px}
+.chart-wrap.thick .bar-val{font-size:13px}
+
+/* TIMELINE */
+.timeline{position:relative;padding-left:1.5rem}
+.timeline::before{content:'';position:absolute;left:0;top:6px;bottom:6px;width:1px;background:var(--border-med)}
+.timeline-item{position:relative;padding:0 0 1.5rem 1.5rem}
+.timeline-item::before{content:'';position:absolute;left:-4px;top:6px;width:8px;height:8px;border-radius:50%;background:var(--bg3);border:1px solid var(--border-med)}
+.timeline-item.key::before{background:var(--gold);border-color:var(--gold)}
+.timeline-date{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.09em;text-transform:uppercase;color:var(--gold);margin-bottom:2px}
+.timeline-event{font-size:14px;color:var(--text);font-weight:500}
+.timeline-note{font-size:12px;color:var(--text-muted);margin-top:4px;line-height:1.55}
+
+/* COMPARE BAND */
+.compare-band{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:0 0 1.5rem}
+.compare-col{background:var(--bg2);display:flex;flex-direction:column}
+.compare-header{background:var(--bg3);padding:0.9rem 1.2rem}
+.compare-header .ed-name{font-family:var(--font-display);font-size:13px;font-weight:700}
+.compare-kv{padding:0.85rem 1.2rem;border-top:1px solid var(--border)}
+.compare-kv .kk{font-family:var(--font-mono);font-size:9px;text-transform:uppercase;letter-spacing:0.09em;color:var(--text-dim);margin-bottom:2px}
+.compare-kv .vv{font-size:13px;color:var(--text);font-weight:500}
+
+/* STEP FLOW */
+.step-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:0 0 1.75rem;border:1px solid var(--border-med);border-radius:3px;overflow:hidden;background:var(--bg2)}
+.step{position:relative;padding:1.35rem 1.4rem;display:flex;flex-direction:column;gap:0.4rem;border-right:1px solid var(--border)}
+.step:last-child{border-right:none}
+.step-n{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim)}
+.step-t{font-family:var(--font-display);font-size:1.15rem;font-weight:700;color:var(--text);line-height:1.15}
+.step-d{font-size:12.5px;color:var(--text-muted);line-height:1.5}
+.step::after{content:'';position:absolute;top:50%;right:-5px;width:9px;height:9px;margin-top:-4.5px;border-top:1px solid var(--gold);border-right:1px solid var(--gold);transform:rotate(45deg);background:var(--bg2);z-index:2}
+.step:last-child::after{display:none}
+.step.dest{background:var(--gold-dim)}
+.step.dest .step-t{color:var(--gold)}
+@media(max-width:860px){
+  .step-flow{grid-template-columns:repeat(2,1fr)}
+  .step:nth-child(2n){border-right:none}
+  .step:nth-child(-n+2){border-bottom:1px solid var(--border)}
+  .step:nth-child(2)::after{display:none}
+}
+@media(max-width:520px){
+  .step-flow{grid-template-columns:1fr}
+  .step{border-right:none;border-bottom:1px solid var(--border)}
+  .step:last-child{border-bottom:none}
+  .step::after{display:none}
+}
+
+/* DIAGNOSTIC LIST */
+.diagnostic-list{counter-reset:diag;list-style:none;padding:0;margin:1.5rem 0}
+.diagnostic-list li{counter-increment:diag;margin-bottom:10px;padding-left:2rem;position:relative;font-size:14px;color:var(--text-muted);line-height:1.65}
+.insight.caveat .diagnostic-list li::before{color:var(--purple)}
+.insight .diagnostic-list{margin:0.85rem 0 0}
+.insight .diagnostic-list li{font-size:14px;margin-bottom:7px}
+.diagnostic-list li::before{content:counter(diag,decimal-leading-zero);font-family:var(--font-mono);font-size:10px;font-weight:500;color:var(--gold);position:absolute;left:0;top:0}
+
+/* BRIDGE + CLOSING */
+.bridge{max-width:960px;margin:0 auto;padding:0 2rem 1.5rem}
+.bridge p{color:var(--text-muted);font-size:15px;line-height:1.7;max-width:none}
+.closing{max-width:960px;margin:0 auto;padding:0.5rem 2rem 1.5rem;border-top:1px solid var(--border)}
+.closing p{font-family:var(--font-display);font-size:1.25rem;font-style:italic;color:var(--text-muted);max-width:640px;line-height:1.5;margin-top:2.5rem}
+.closing p span{color:var(--gold);font-style:italic}
+
+/* SERIES NAV */
+.series-nav{max-width:960px;margin:0 auto;padding:2.5rem 2rem;border-top:1px solid var(--border);display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.series-nav a{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:1.75rem;display:flex;flex-direction:column;gap:0.5rem;transition:border-color 0.15s,transform 0.15s,box-shadow 0.15s;text-decoration:none;color:inherit}
+.series-nav a:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 8px 24px rgba(35,35,35,0.06);text-decoration:none}
+.series-nav a.active{border-color:var(--gold);background:var(--gold-dim)}
+.series-nav .roman{font-family:var(--font-display);font-size:1.4rem;font-weight:700;font-style:italic;color:var(--gold)}
+.series-nav .part-name{font-family:var(--font-display);font-size:1.05rem;font-weight:700;color:var(--text);line-height:1.25}
+.series-nav .part-desc{font-size:13px;color:var(--text-muted);line-height:1.65;flex:1}
+
+/* BIO + FOOTER */
+.bio{max-width:960px;margin:0 auto;padding:1.5rem 2rem 1rem}
+.bio p{font-size:13px;color:var(--text-muted);max-width:72ch}
+footer{max-width:960px;margin:0 auto;padding:1.25rem 2rem 2rem;border-top:1px solid var(--border);font-size:12px;color:var(--text-dim);display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;align-items:center}
+footer span{color:var(--gold)}
+footer .methodology{width:100%;font-size:11px;color:var(--text-dim);line-height:1.6;margin-top:0.75rem;border-top:1px solid var(--border);padding-top:0.75rem;max-width:none}
+
+@media(max-width:700px){.series-nav{grid-template-columns:1fr}}
+@media(max-width:600px){.meta-row{gap:1.25rem}}
+@media(max-width:600px){
+  .store-nav-grid{grid-template-columns:1fr}
+  #suite-nav{padding:0 1.25rem}
+  nav{padding:0 1.25rem}
+  .hero{padding:3.5rem 1.25rem 0.5rem}
+  section{padding:2rem 1.25rem}
+  .parts,.store-nav,.read-order,.bridge,.closing,.bio,footer,.series-nav{padding-left:1.25rem;padding-right:1.25rem}
+  .bar-label{min-width:96px}
+}
+</style>
+</head>
+<body>
+
+<div id="suite-nav">
+  <span class="suite-brand">Games as Programming &middot; Recognizing Patterns</span>
+  <a href="index.html" class="suite-link">Overview</a>
+  <a href="part-1.html" class="suite-link active">Part I &middot; The Ledger</a>
+  <a href="part-2.html" class="suite-link">Part II &middot; The Frame</a>
+  <a href="part-3.html" class="suite-link">Part III &middot; The Meter</a>
+</div>
+<nav>
+  <a href="https://www.llamagriffin.com" class="nav-brand">Llama &amp; Griffin Consultants</a>
+  <a href="#s1" class="nav-link">The Reveal</a>
+  <a href="#s2" class="nav-link">The Ledger</a>
+  <a href="#s3" class="nav-link">Four Steps</a>
+  <a href="#s4" class="nav-link">Night School</a>
+</nav>
+
+<div class="hero" id="top">
+  <div class="hero-eyebrow">Part I &middot; The Ledger</div>
+  <h1>The Ledger Nobody Added Up<span>Every studio it closed made a product.</span></h1>
+  <p class="hero-sub">Read individually, five years of Netflix game closures look like a company failing to find its footing in a hard business. Read as a pattern, they are a filter, applied consistently, against a single question: does this behave like an episode?</p>
+  <div class="meta-row">
+    <div class="meta-item">Series <span>Games as Programming</span></div>
+    <div class="meta-item">Published <span>September 2026</span></div>
+    <div class="meta-item">Sources <span>Netflix Tudum &middot; Variety &middot; GDC &middot; Hollywood Reporter</span></div>
+  </div>
+  <div class="stat-grid">
+    <div class="stat-cell"><div class="stat-val">26min</div><div class="stat-lbl">Length of the GTA VI reveal, held exclusively for six hours</div></div>
+    <div class="stat-cell"><div class="stat-val coral">5</div><div class="stat-lbl">Studios closed or sold since 2021</div></div>
+    <div class="stat-cell"><div class="stat-val purple">6wks</div><div class="stat-lbl">Between Peters calling Unhinged top tier and closing its studio</div></div>
+    <div class="stat-cell"><div class="stat-val teal">87/93</div><div class="stat-lbl">Countries where the reveal topped Netflix's own Top 10</div></div>
+  </div>
+</div>
+
+<main>
+
+<section id="s1">
+  <div class="section-label">Section 01</div>
+  <div class="chevrons"></div>
+  <h2>A Trailer, Acquired Like a Special</h2>
+  <span class="h2-kicker">The department that spoke for it tells you what it was.</span>
+  <p class="section-intro">One insight is worth stating before this goes further: Netflix spent five years and a fortune failing to become a game maker, and the GTA VI premiere reveals a company that has worked out it is better at selling games than making them. The distinction that matters is sharper than selling, because Netflix has no store, no price, and no basket for games. Games are included, kept there to retain subscribers rather than to earn anything directly. Netflix is not becoming a better distributor of games. It is becoming a platform, and platforms do not merely carry what gets made. They decide it.</p>
+
+  <div class="chart-card" style="margin:1.5rem 0 0.75rem">
+  <div class="timeline">
+    <div class="timeline-item key">
+      <div class="timeline-date">27 August 2026</div>
+      <div class="timeline-event">Netflix premieres <em>Grand Theft Auto VI: An Extended Look</em></div>
+      <div class="timeline-note">Twenty-six minutes of footage captured from the game running on a PS5. Netflix held it exclusively for six hours, after which it went free on Rockstar's YouTube channel, where it would have gone anyway. <span class="tag tag-high">High</span></div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">The quote</div>
+      <div class="timeline-event">Brandon Riegg, Vice President of Nonfiction Series</div>
+      <div class="timeline-note">The department that buys and schedules documentaries and unscripted shows &mdash; the part of Netflix that makes television with no actors in it. The reveal was not announced through a games team. <span class="tag tag-high">High</span></div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">First four days</div>
+      <div class="timeline-event">31.1 million views, first in 87 of 93 countries</div>
+      <div class="timeline-note">A Netflix view is total hours watched divided by runtime, not a headcount of people. It made a trailer for an unreleased game the most-watched thing on the service that week, ahead of every film and series. Outage trackers logged thousands of reports in the minutes before it started. <span class="tag tag-high">High</span></div>
+    </div>
+  </div>
+  </div>
+
+  <div class="insight caveat">
+    <strong>A necessary caveat.</strong> A vice president fronting a press quote does not prove the games division had no hand in the deal, and there is no visibility into how it was negotiated internally. What is visible is which department Netflix chose to speak for it, and companies are rarely careless about that. <span class="tag tag-likely">Likely</span>
+  </div>
+
+  <p>Riegg's line was that Grand Theft Auto reveals have become cultural moments in their own right. Restated plainly: an advertisement for something nobody could buy for another twelve weeks was good enough television that Netflix scheduled it, promoted it, and put it behind a subscription for an afternoon. It worked.</p>
+</section>
+
+<section id="s2">
+  <div class="section-label">Section 02</div>
+  <div class="chevrons"></div>
+  <h2>The Ledger Nobody Has Added Up</h2>
+  <span class="h2-kicker">Every studio it kept plays like an episode.</span>
+  <p class="section-intro">Netflix entered games in 2021, buying studios and hiring well. Here is where that stands as of three weeks before this was written.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Date</th><th>Studio</th><th>What it built</th><th>Shape</th></tr></thead>
+      <tbody>
+        <tr><td>2024</td><td class="store-cell"><img class="store-mark" src="logo/teamblue%201.svg" alt="">Team Blue</td><td>Internal studio, big-budget action game of the kind that ships on consoles</td><td><span class="tag tag-coral">Product</span></td></tr>
+        <tr><td>October 2025</td><td class="store-cell"><img class="store-mark" src="logo/bossfight.svg" alt="">Boss Fight Entertainment</td><td>Acquired 2022, closed after shipping Squid Game: Unleashed</td><td><span class="tag tag-coral">Product</span></td></tr>
+        <tr><td>December 2025</td><td class="store-cell"><img class="store-mark" src="logo/spryfox.svg" alt="">Spry Fox</td><td>Sold back to its founders. The studio behind Cozy Grove</td><td><span class="tag tag-coral">Product</span></td></tr>
+        <tr><td>13 August 2026</td><td class="store-cell"><img class="store-mark" src="logo/moonloot.svg" alt="">Night School &amp; Moonloot</td><td>Fifth studio exit since 2021, with an unspecified number of other roles</td><td><span class="tag tag-coral">Product</span></td></tr>
+        <tr><td>Retained</td><td class="store-cell"><img class="store-mark" src="logo/next%20games.svg" alt="">Next Games, external partners</td><td>Party games, daily trivia, children's titles, cloud games on the TV app</td><td><span class="tag tag-teal">Episode</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Read as a list of individual decisions, that is five years of a company failing to find its footing &mdash; a reasonable reading, and the one most coverage settled on. Read as a pattern, it is something else: every studio Netflix exited built games as products. Every category Netflix kept is a game that arrives inside an app you were already in.</p>
+
+  <div class="insight finding">
+    <strong>Nothing was cancelled at random.</strong> A filter was applied, and the filter was never about genre or quality. It was about whether the game behaves like a product you seek out, or an episode that arrives. <span class="tag tag-likely">Likely</span>
+  </div>
+</section>
+
+<section id="s3">
+  <div class="section-label">Section 03</div>
+  <div class="chevrons"></div>
+  <h2>The Four Steps Nobody Got Wrong</h2>
+  <span class="h2-kicker">Four defensible decisions. One destination.</span>
+  <p class="section-intro">You are a video company with a few hundred million subscribers and an app engineered to put something on a screen that a person can start watching in four seconds without deciding anything.</p>
+
+  <div class="step-flow">
+    <div class="step">
+      <div class="step-n">Step 01</div>
+      <div class="step-t">Enter games</div>
+      <div class="step-d">Attention is attention, and games hold a great deal of it. Defensible on the day it was made.</div>
+    </div>
+    <div class="step">
+      <div class="step-n">Step 02</div>
+      <div class="step-t">Buy studios</div>
+      <div class="step-d">Studios make games. What a game also requires is finding, installing, learning and returning &mdash; the exact friction the app was built to remove.</div>
+    </div>
+    <div class="step">
+      <div class="step-n">Step 03</div>
+      <div class="step-t">Close the studios</div>
+      <div class="step-d">Keep only what behaves like an episode. Five exits, one filter, applied consistently and never about genre or quality.</div>
+    </div>
+    <div class="step dest">
+      <div class="step-n">Step 04 &middot; Destination</div>
+      <div class="step-t">Pressing play</div>
+      <div class="step-d">A games division whose output is, to the viewer, indistinguishable from starting a show. Stated publicly at GDC 2025 and again that November.</div>
+    </div>
+  </div>
+
+  <p>Alain Tascan said this out loud repeatedly. At a November 2025 Netflix Games event he framed the ambition in one sentence: "Can we simplify gaming to the level of streaming a movie on a Friday, utilizing the same inventive approach that transformed Netflix from a DVD rental service to a platform for streaming movies, shows, and now games?" He was explicit that it is not a console play: "Let me clarify, we are not aiming to compete with consoles. We are crafting an entirely new method of gaming." VP Jeet Shroff described the use case at the same event &mdash; keep the app open on the TV after dinner, scan a QR code to turn a phone into a controller, and go from watching a film to playing a party game without leaving the app.</p>
+
+  <p>On Team Blue specifically, Tascan said the project belonged to the console or PC world and was not adapted to the platform they work in. He told everyone. The industry heard "Netflix is retreating from games" because that is the sentence the industry was expecting.</p>
+</section>
+
+<section id="s4">
+  <div class="section-label">Section 04</div>
+  <div class="chevrons"></div>
+  <h2>The Part Where the Jokes Stop</h2>
+  <span class="h2-kicker">A studio is not shut six weeks after being called top tier because it underperformed.</span>
+  <p class="section-intro">Night School Studio made Oxenfree, one of the better story-driven games of the last decade and the reason many people took Netflix's games ambitions seriously in the first place. Its final release, Unhinged, shipped 30 June this year: thirty minutes, first-person horror, running in a browser or on a TV with a phone as the controller, with Zo&euml; Kravitz, Sadie Sink, and Troy Baker in the cast. It is exactly the product the strategy asks for.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Date</th><th>Event</th><th>Confidence</th></tr></thead>
+      <tbody>
+        <tr><td>16 July 2026</td><td>Greg Peters, on the Q2 earnings call, names Unhinged and FIFA World Cup as Netflix's two most successful cloud game debuts. "Really solid numbers. Top tier of game performance."</td><td><span class="tag tag-high">High</span></td></tr>
+        <tr><td>13 August 2026</td><td>Netflix closes Night School Studio and Moonloot Games.</td><td><span class="tag tag-high">High</span></td></tr>
+        <tr><td>Inference</td><td>The closure was not about performance. Netflix concluded it does not need to own the capability.</td><td><span class="tag tag-directional">Directional</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Six weeks separate the first two. A studio does not get shut down six weeks after the co-CEO calls its game a top-tier performer because the game underperformed. Netflix can commission that game from anyone. What it cannot commission is the app, the subscriber base, and the television it is already on.</p>
+
+  <div class="insight coral">
+    <strong>The uncomfortable version.</strong> The talent was not the asset. It never was.
+  </div>
+</section>
+
+</main>
+
+<div class="bridge">
+  <p>That is one company, and one company applying a filter consistently is a strategy rather than a category shift. Part II is where it stops being a Netflix story: on 23 July, Amazon and Microsoft made the same move on the same afternoon, without coordinating.</p>
+</div>
+
+<div class="series-nav">
+  <a href="index.html"><div class="roman">&mdash;</div><div class="part-name">Series Home</div><div class="part-desc">Games as Programming: the reading order, the quick reference, and the three claims this report removed in review.</div></a>
+  <a href="part-1.html" class="active"><div class="roman">I</div><div class="part-name">The Ledger Nobody Added Up</div><div class="part-desc">You are here.</div></a>
+  <a href="part-2.html"><div class="roman">II</div><div class="part-name">What Programming Actually Means Here</div><div class="part-desc">Amazon and Microsoft on the same afternoon, nine firms disagreeing by nearly six times, and the round replacing the session.</div></a>
+</div>
+
+<div class="bio">
+  <p>Abbas Saleem is a Principal Consultant at <a href="https://www.llamagriffin.com/" target="_blank" rel="noopener noreferrer">Llama &amp; Griffin</a>, advising game studios, publishers, and investors across MENA, South Asia, Southeast Asia, and Europe. He writes Recognizing Patterns: gaming industry intelligence 12 to 24 months before it becomes consensus. <a href="https://www.linkedin.com/in/abbassaleemkhan/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+</div>
+
+<footer>
+  <div>Games as Programming &middot; <span>Llama &amp; Griffin Consultants</span></div>
+  <div><span>recognizingpatterns.substack.com</span> &middot; llamagriffin.com</div>
+</footer>
+
+<script>
+(function(){
+  var sects=document.querySelectorAll('section[id]');
+  var links=document.querySelectorAll('nav a.nav-link');
+  if(!sects.length) return;
+  var obs=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting) return;
+      links.forEach(function(l){l.classList.remove('active');});
+      var a=document.querySelector('nav a.nav-link[href="#'+e.target.id+'"]');
+      if(a) a.classList.add('active');
+    });
+  },{rootMargin:'-20% 0px -70% 0px'});
+  sects.forEach(function(s){obs.observe(s);});
+})();
+</script>
+</body>
+</html>

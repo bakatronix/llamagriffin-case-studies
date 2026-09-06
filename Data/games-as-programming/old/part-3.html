@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://www.llamagriffin.com/Data/games-as-programming/part-3.html">
+<meta name="description" content="Microsoft capped Xbox Cloud Gaming seven days after Netflix's biggest premiere ever, and console prices are climbing on the same shortage. Plus five dated conditions that would falsify this report.">
+<meta property="og:title" content="The Meter on the Alternative">
+<meta property="og:description" content="Microsoft capped Xbox Cloud Gaming seven days after Netflix's biggest premiere ever, and console prices are climbing on the same shortage. Plus five dated conditions that would falsify this report.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.llamagriffin.com/Data/games-as-programming/part-3.html">
+<title>The Meter on the Alternative &middot; Part III &middot; Games as Programming</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f7f4ee;--bg2:#fdfcf9;--bg3:#eae7e0;--bg4:#d2cdc3;
+  --border:#d2cdc3;--border-med:#c5bfb5;
+  --text:#232323;--text-muted:#37342f;--text-dim:#6b6660;
+  --gold:#c3a55f;--gold-light:#d4ba82;--gold-dim:rgba(195,165,95,0.12);
+  --teal:#2a8f76;--teal-light:#3daa8e;--teal-dim:rgba(42,143,118,0.10);
+  --purple:#6b64b3;--purple-light:#8f88cc;--purple-dim:rgba(107,100,179,0.10);
+  --coral:#b85a3a;--coral-light:#cb7055;--coral-dim:rgba(184,90,58,0.10);
+  --blue:#3d77c4;--blue-light:#6699d8;--blue-dim:rgba(61,119,196,0.10);
+  --font-display:'Playfair Display',serif;
+  --font-body:'DM Sans',sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:15px;line-height:1.7;min-height:100vh}
+a{color:var(--gold);text-decoration:none}a:hover{text-decoration:underline}
+
+/* SUITE NAV */
+#suite-nav{background:#f5f1e8;border-bottom:1px solid rgba(30,25,20,0.12);padding:0 2rem;display:flex;align-items:center;height:36px;font-family:var(--font-mono);font-size:9px;letter-spacing:0.09em;text-transform:uppercase;gap:0;overflow-x:auto;position:sticky;top:0;z-index:200}
+.suite-brand{color:var(--gold);margin-right:1.5rem;padding-right:1.5rem;border-right:1px solid rgba(30,25,20,0.12);white-space:nowrap;font-weight:500}
+.suite-link{color:var(--text-dim);padding:0 0.85rem;height:36px;display:inline-flex;align-items:center;border-bottom:2px solid transparent;white-space:nowrap;text-decoration:none;transition:color 0.15s}
+.suite-link:hover{color:var(--gold);border-bottom-color:rgba(195,165,95,0.3)}
+.suite-link.active{color:var(--gold);border-bottom-color:var(--gold)}
+
+/* MAIN NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(247,244,238,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;height:52px;overflow-x:auto;gap:0}
+.nav-brand{font-family:var(--font-display);font-size:14px;font-weight:700;color:var(--text);margin-right:1.5rem;padding-right:1.5rem;border-right:1px solid var(--border);white-space:nowrap;text-transform:none;letter-spacing:normal;text-decoration:none}
+.nav-brand:hover{text-decoration:none;opacity:0.8}
+nav a.nav-link{color:var(--text-dim);font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.09em;text-transform:uppercase;padding:0 0.9rem;height:52px;display:flex;align-items:center;border-bottom:2px solid transparent;white-space:nowrap;transition:color 0.15s,border-color 0.15s;text-decoration:none}
+nav a.nav-link:hover{color:var(--gold);border-bottom-color:rgba(195,165,95,0.3);text-decoration:none}
+nav a.nav-link.active{color:var(--gold);border-bottom-color:var(--gold)}
+#suite-nav + nav{top:36px}
+section[id],.hero[id]{scroll-margin-top:96px}
+
+/* HERO */
+.hero{padding:5rem 2rem 0.5rem;max-width:960px;margin:0 auto;position:relative}
+.hero-eyebrow{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;display:flex;align-items:center;gap:10px}
+.hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold);display:inline-block}
+.hero h1{font-family:var(--font-display);font-size:clamp(2rem,5vw,3.4rem);font-weight:700;line-height:1.07;color:var(--text);margin-bottom:0.75rem}
+.hero h1 span{color:var(--gold);font-style:italic;display:block}
+.hero-sub{font-size:15px;color:var(--text-muted);max-width:none;margin-bottom:2.5rem;line-height:1.65}
+.hero-meta{display:flex;gap:1.5rem;margin-bottom:2.5rem;flex-wrap:wrap}
+.hero-meta-item{font-family:var(--font-mono);font-size:10px;letter-spacing:0.09em;color:var(--text-dim);text-transform:uppercase}
+.hero-meta-item span{color:var(--text-muted);font-weight:500}
+.hero-note{font-family:var(--font-mono);font-size:10px;color:var(--text-dim);line-height:1.6;margin:0.75rem 0 0;max-width:none}
+
+/* STAT GRID */
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:0}
+.stat-cell{background:var(--bg2);padding:1.25rem 1.5rem}
+.stat-val{font-family:var(--font-display);font-size:1.6rem;font-weight:700;color:var(--gold);line-height:1;margin-bottom:5px}
+.stat-val.teal{color:var(--teal)}.stat-val.purple{color:var(--purple)}.stat-val.coral{color:var(--coral)}.stat-val.blue{color:var(--blue)}
+.stat-lbl{font-family:var(--font-mono);font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.07em}
+
+/* READ ORDER */
+.read-order{max-width:960px;margin:0 auto;padding:0 2rem 2.5rem;font-family:var(--font-mono);font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-dim)}
+.read-order-label{color:var(--gold);font-weight:500;margin-right:0.5rem}
+
+/* PARTS GRID */
+.parts{max-width:960px;margin:0 auto;padding:0 2rem 3rem}
+.parts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.part-card{background:var(--bg2);border:1px solid var(--border-med);border-radius:3px;padding:1.75rem;display:flex;flex-direction:column;gap:0.5rem;transition:border-color 0.15s,box-shadow 0.15s;text-decoration:none;color:inherit}
+.part-card:hover{border-color:var(--gold);box-shadow:0 2px 12px rgba(195,165,95,0.12);text-decoration:none}
+.part-num{font-family:var(--font-display);font-size:1.4rem;font-weight:700;color:var(--gold);font-style:italic}
+.part-title{font-family:var(--font-display);font-size:1.05rem;font-weight:700;color:var(--text);line-height:1.25}
+.part-desc{font-size:13px;color:var(--text-muted);line-height:1.65;flex:1}
+.part-link{font-family:var(--font-mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);margin-top:0.5rem}
+
+/* STORE NAV (quick reference) */
+.store-nav{max-width:960px;margin:0 auto;padding:0 2rem 2rem}
+.store-nav-title{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);margin-bottom:0.75rem}
+.store-nav-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:0.75rem}
+.store-nav-grid a{background:var(--bg2);border:1px solid var(--border-med);border-radius:3px;padding:1rem 1.25rem;display:flex;flex-direction:column;gap:0.15rem;transition:border-color 0.15s;text-decoration:none}
+.store-nav-grid a:hover{border-color:var(--gold);text-decoration:none}
+.store-nav-grid .store-icon{width:28px;height:28px;flex-shrink:0;margin-bottom:0.15rem;object-fit:contain}
+.store-nav-grid .store-name{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--text)}
+.store-nav-grid .store-tag{font-family:var(--font-mono);font-size:9px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim)}
+
+/* CHEVRONS + SECTIONS */
+.chevrons{display:flex;gap:5px;margin-bottom:0.5rem}
+.chevrons::before{content:'▲▲▲▲';font-size:8px;color:var(--gold);letter-spacing:3px}
+section{max-width:960px;margin:0 auto;padding:2.5rem 2rem;border-top:1px solid var(--border)}
+main > section:first-of-type{border-top:none;padding-top:1.5rem}
+.section-label{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.3rem}
+h2{font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--text);margin-bottom:0.25rem;line-height:1.15}
+.h2-kicker{font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--gold);font-style:italic;display:block;margin-bottom:1.5rem}
+.section-intro{font-size:15px;color:var(--text-muted);max-width:none;margin-bottom:2rem;line-height:1.7}
+h3{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--text);margin:2.5rem 0 1rem}
+h3:first-of-type{margin-top:0}
+p{color:var(--text-muted);margin-bottom:1rem;font-size:15px;max-width:72ch;line-height:1.7}
+p strong{color:var(--text);font-weight:600}
+p:last-child{margin-bottom:0}
+
+/* TABLES */
+.table-wrap{margin-bottom:1.5rem;border:1px solid var(--border);border-radius:4px;overflow:hidden;overflow-x:auto;background:var(--bg2)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead th{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);padding:0.75rem 1rem;text-align:left;border-bottom:1px solid var(--border-med);background:var(--bg3);white-space:nowrap}
+tbody tr{border-bottom:1px solid var(--border);transition:background 0.1s}
+tbody tr:last-child{border-bottom:none}
+tbody tr:hover{background:var(--bg3)}
+tbody td{padding:0.65rem 1rem;color:var(--text-muted);vertical-align:middle}
+tbody td:first-child{color:var(--text)}
+.store-mark{width:18px;height:18px;object-fit:contain;flex-shrink:0}
+td.store-cell,th.store-cell{white-space:nowrap}
+td.store-cell{display:flex;align-items:center;gap:9px}
+th.store-cell span{display:inline-flex;align-items:center;gap:7px}
+
+/* TAGS + CONFIDENCE */
+.tag{display:inline-block;font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;padding:2px 7px;border-radius:2px;white-space:nowrap}
+.tag-gold{background:var(--gold-dim);color:var(--gold)}
+.tag-teal{background:var(--teal-dim);color:var(--teal)}
+.tag-purple{background:var(--purple-dim);color:var(--purple)}
+.tag-coral{background:var(--coral-dim);color:var(--coral)}
+.tag-blue{background:var(--blue-dim);color:var(--blue)}
+.tag-dim{background:rgba(35,35,35,0.07);color:var(--text-dim)}
+.tag-high{background:var(--teal-dim);color:var(--teal)}
+.tag-likely{background:var(--purple-dim);color:var(--purple)}
+.tag-directional{background:var(--coral-dim);color:var(--coral)}
+.tag-prov{background:rgba(35,35,35,0.07);color:var(--text-dim)}
+.conf-certain,.conf-likely{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;margin-left:4px}
+.conf-certain{color:var(--teal)}
+.conf-likely{color:var(--purple)}
+
+/* INSIGHT CALLOUTS */
+.insight{border-left:2px solid var(--gold);background:var(--gold-dim);border-radius:0 4px 4px 0;padding:1.25rem 1.5rem;margin:1.5rem auto 2rem;font-size:14px;color:var(--text-muted);line-height:1.65;max-width:960px;box-sizing:border-box}
+.insight strong{color:var(--text);font-weight:600}
+.insight.teal{border-color:var(--teal);background:var(--teal-dim)}
+.insight.purple{border-color:var(--purple);background:var(--purple-dim)}
+.insight.coral{border-color:var(--coral);background:var(--coral-dim)}
+.insight.blue{border-color:var(--blue);background:var(--blue-dim)}
+.insight.finding{border-color:var(--gold);background:var(--gold-dim)}
+.insight.caveat{border-color:var(--purple);background:var(--purple-dim)}
+.insight.strategic{border-color:var(--teal);background:var(--teal-dim)}
+.insight.source{border-color:var(--blue);background:var(--blue-dim)}
+
+/* CHARTS */
+.chart-wrap{position:relative;width:100%;margin:1.5rem 0 2.5rem}
+.chart-legend{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:12px;font-size:12px;color:var(--text-muted)}
+.chart-legend span{display:flex;align-items:center;gap:6px}
+.swatch{width:10px;height:10px;border-radius:2px;flex-shrink:0}
+.chart-note{font-family:var(--font-mono);font-size:10px;color:var(--text-dim);margin:0 0 2.5rem;line-height:1.65;width:100%;max-width:none}
+.chart-note a{color:var(--gold);text-decoration:none}
+.chart-note a:hover{text-decoration:underline}
+.chart-card{border:1px solid var(--border);border-radius:4px;background:var(--bg2);padding:1.25rem 1.5rem}
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.bar-icon{width:18px;height:18px;object-fit:contain;flex-shrink:0}
+.bar-label{font-size:12px;color:var(--text-muted);min-width:140px;flex-shrink:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar-bg{flex:1;height:5px;background:var(--bg4);border-radius:3px;overflow:hidden}
+.bar-fill{height:100%;border-radius:3px}
+.bar-val{font-family:var(--font-mono);font-size:12px;font-weight:500;color:var(--text);min-width:80px;text-align:right;flex-shrink:0;white-space:nowrap}
+.chart-wrap.thick .bar-row{gap:12px;margin-bottom:16px}
+.chart-wrap.thick .bar-label{font-size:13px}
+.chart-wrap.thick .bar-bg{height:22px;border-radius:4px}
+.chart-wrap.thick .bar-fill{border-radius:4px}
+.chart-wrap.thick .bar-val{font-size:13px}
+
+/* TIMELINE */
+.timeline{position:relative;padding-left:1.5rem}
+.timeline::before{content:'';position:absolute;left:0;top:6px;bottom:6px;width:1px;background:var(--border-med)}
+.timeline-item{position:relative;padding:0 0 1.5rem 1.5rem}
+.timeline-item::before{content:'';position:absolute;left:-4px;top:6px;width:8px;height:8px;border-radius:50%;background:var(--bg3);border:1px solid var(--border-med)}
+.timeline-item.key::before{background:var(--gold);border-color:var(--gold)}
+.timeline-date{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.09em;text-transform:uppercase;color:var(--gold);margin-bottom:2px}
+.timeline-event{font-size:14px;color:var(--text);font-weight:500}
+.timeline-note{font-size:12px;color:var(--text-muted);margin-top:4px;line-height:1.55}
+
+/* COMPARE BAND */
+.compare-band{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:0 0 1.5rem}
+.compare-col{background:var(--bg2);display:flex;flex-direction:column}
+.compare-header{background:var(--bg3);padding:0.9rem 1.2rem}
+.compare-header .ed-name{font-family:var(--font-display);font-size:13px;font-weight:700}
+.compare-kv{padding:0.85rem 1.2rem;border-top:1px solid var(--border)}
+.compare-kv .kk{font-family:var(--font-mono);font-size:9px;text-transform:uppercase;letter-spacing:0.09em;color:var(--text-dim);margin-bottom:2px}
+.compare-kv .vv{font-size:13px;color:var(--text);font-weight:500}
+
+/* DIAGNOSTIC LIST */
+.diagnostic-list{counter-reset:diag;list-style:none;padding:0;margin:1.5rem 0}
+.diagnostic-list li{counter-increment:diag;margin-bottom:10px;padding-left:2rem;position:relative;font-size:14px;color:var(--text-muted);line-height:1.65}
+.diagnostic-list li::before{content:counter(diag,decimal-leading-zero);font-family:var(--font-mono);font-size:10px;font-weight:500;color:var(--gold);position:absolute;left:0;top:0}
+
+/* BRIDGE + CLOSING */
+.bridge{max-width:960px;margin:0 auto;padding:0 2rem 1.5rem}
+.bridge p{color:var(--text-muted);font-size:15px;line-height:1.7;max-width:72ch}
+.closing{max-width:960px;margin:0 auto;padding:0.5rem 2rem 1.5rem;border-top:1px solid var(--border)}
+.closing p{font-family:var(--font-display);font-size:1.35rem;font-style:italic;color:var(--text-muted);max-width:680px;line-height:1.55;margin-top:1.25rem}
+.closing p span{color:var(--gold);font-style:italic}
+
+/* SERIES NAV */
+.series-nav{max-width:960px;margin:0 auto;padding:2.5rem 2rem;border-top:1px solid var(--border);display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.series-nav a{background:var(--bg2);border:1px solid var(--border-med);border-radius:3px;padding:1.5rem;display:flex;flex-direction:column;gap:0.5rem;transition:border-color 0.15s,box-shadow 0.15s;text-decoration:none;color:inherit}
+.series-nav a:hover{border-color:var(--gold);box-shadow:0 2px 12px rgba(195,165,95,0.12);text-decoration:none}
+.series-nav a.active{border-color:var(--gold);background:var(--gold-dim)}
+.series-nav .roman{font-family:var(--font-display);font-size:1.4rem;font-weight:700;font-style:italic;color:var(--gold)}
+.series-nav .part-name{font-family:var(--font-display);font-size:1.05rem;font-weight:700;color:var(--text);line-height:1.25}
+.series-nav .part-desc{font-size:13px;color:var(--text-muted);line-height:1.65;flex:1}
+
+/* BIO + FOOTER */
+.bio{max-width:960px;margin:0 auto;padding:1.5rem 2rem 1rem}
+.bio p{font-size:13px;color:var(--text-muted);max-width:72ch}
+footer{max-width:960px;margin:0 auto;padding:1.25rem 2rem 2rem;border-top:1px solid var(--border);font-size:12px;color:var(--text-dim);display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;align-items:center}
+footer span{color:var(--gold)}
+footer .methodology{width:100%;font-size:11px;color:var(--text-dim);line-height:1.6;margin-top:0.75rem;border-top:1px solid var(--border);padding-top:0.75rem;max-width:none}
+
+@media(max-width:700px){.parts-grid{grid-template-columns:1fr}.series-nav{grid-template-columns:1fr}}
+@media(max-width:600px){
+  .store-nav-grid{grid-template-columns:1fr}
+  #suite-nav{padding:0 1.25rem}
+  nav{padding:0 1.25rem}
+  .hero{padding:3.5rem 1.25rem 0.5rem}
+  section{padding:2rem 1.25rem}
+  .parts,.store-nav,.read-order,.bridge,.closing,.bio,footer,.series-nav{padding-left:1.25rem;padding-right:1.25rem}
+  .bar-label{min-width:96px}
+}
+</style>
+</head>
+<body>
+
+<div id="suite-nav">
+  <span class="suite-brand">Games as Programming &middot; Recognizing Patterns</span>
+  <a href="index.html" class="suite-link">Overview</a>
+  <a href="part-1.html" class="suite-link">Part I &middot; The Ledger</a>
+  <a href="part-2.html" class="suite-link">Part II &middot; The Frame</a>
+  <a href="part-3.html" class="suite-link active">Part III &middot; The Meter</a>
+</div>
+<nav>
+  <a href="https://www.llamagriffin.com" class="nav-brand">Llama &amp; Griffin Consultants</a>
+  <a href="#s1" class="nav-link">The Cap</a>
+  <a href="#s2" class="nav-link">The Clock</a>
+  <a href="#s3" class="nav-link">Where I Differ</a>
+  <a href="#s4" class="nav-link">The Reframe</a>
+  <a href="#s5" class="nav-link">What Would Break This</a>
+</nav>
+
+<div class="hero" id="top">
+  <div class="hero-eyebrow">Part III &middot; The Meter</div>
+  <h1>The Meter on the Alternative<span>The escape route was priced before anyone took it.</span></h1>
+  <p class="hero-sub">Seven days after Netflix served its biggest premiere ever, Microsoft put a meter on the thing that was supposed to be the escape from console prices. This is the part of the report that is most exposed, and the part where its own failed drafts are documented rather than quietly dropped.</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item">Series <span>Games as Programming</span></div>
+    <div class="hero-meta-item">Published <span>September 2026</span></div>
+    <div class="hero-meta-item">Sources <span>CNBC &middot; Xbox Wire &middot; Rockstar &middot; Take-Two &middot; Nintendo &middot; Sony</span></div>
+  </div>
+  <div class="stat-grid">
+    <div class="stat-cell"><div class="stat-val">15hrs</div><div class="stat-lbl">Monthly cloud cap, Game Pass Ultimate, from November 2026</div></div>
+    <div class="stat-cell"><div class="stat-val coral">$799.99</div><div class="stat-lbl">Xbox Series X price since 1 August 2026</div></div>
+    <div class="stat-cell"><div class="stat-val purple">4%</div><div class="stat-lbl">Share of subscribers Microsoft says the cap affects</div></div>
+    <div class="stat-cell"><div class="stat-val blue">11wks</div><div class="stat-lbl">Until GTA 6, console-only, 19 November</div></div>
+  </div>
+  <p class="hero-note">The 4% is the only disclosure in this report that constrains the argument rather than supporting it, and an earlier draft of this part was rewritten around it. It is also Microsoft's own unaudited characterisation of its own subscriber base, released alongside a price change &mdash; a company announcing a cap has an obvious interest in the number affected sounding small.</p>
+</div>
+
+<main>
+
+<section id="s1">
+  <div class="section-label">Section 01</div>
+  <div class="chevrons"></div>
+  <h2>3 September</h2>
+  <span class="h2-kicker">A meter, seven days after the record.</span>
+  <p class="section-intro">Netflix logged 31.1 million views of the Extended Look in its first four days, making a trailer for an unreleased game the most-watched thing on the service that week in 87 of 93 countries. Seven days later, Microsoft put a meter on the alternative.</p>
+
+  <div class="chart-wrap thick chart-card">
+    <div class="chart-legend">
+      <span><i class="swatch" style="background:#b85a3a"></i>Xbox Cloud Gaming, from November 2026</span>
+      <span><i class="swatch" style="background:#2a8f76"></i>Competing service</span>
+    </div>
+    <div class="bar-row"><img class="bar-icon" src="logo/xbox.svg" alt="" onerror="this.style.display='none'"><div class="bar-label">Game Pass Essential</div><div class="bar-bg"><div class="bar-fill" style="width:5%;background:#b85a3a"></div></div><div class="bar-val">5 hrs</div></div>
+    <div class="bar-row"><img class="bar-icon" src="logo/xbox.svg" alt="" onerror="this.style.display='none'"><div class="bar-label">Game Pass Premium</div><div class="bar-bg"><div class="bar-fill" style="width:10%;background:#b85a3a"></div></div><div class="bar-val">10 hrs</div></div>
+    <div class="bar-row"><img class="bar-icon" src="logo/xbox.svg" alt="" onerror="this.style.display='none'"><div class="bar-label">Game Pass Ultimate</div><div class="bar-bg"><div class="bar-fill" style="width:15%;background:#b85a3a"></div></div><div class="bar-val">15 hrs</div></div>
+    <div class="bar-row"><img class="bar-icon" src="logo/geforcenow.svg" alt="" onerror="this.style.display='none'"><div class="bar-label">NVIDIA GeForce NOW</div><div class="bar-bg"><div class="bar-fill" style="width:100%;background:#2a8f76"></div></div><div class="bar-val">100 hrs</div></div>
+  </div>
+  <p class="chart-note">Included cloud hours per month. Ultimate runs $22.99. Past the included hours, players buy time from the Xbox Store; cloud streaming also becomes available with no Game Pass subscription at all, sold by the hour. <span class="tag tag-high">High</span></p>
+
+  <p>Microsoft's own explanation was plain: the cost of providing cloud gaming grows as more people use it and play for longer, and moving to monthly limits is what lets the company keep offering it. For some players, the practical result is a higher cost.</p>
+
+  <div class="insight source">
+    <strong>Reported, not inferred.</strong> CNBC placed that sentence in its proper context. Microsoft has been moving to usage-based pricing across its product organisations to reflect rising costs, the same pattern already applied to GitHub Copilot and Microsoft 365 Copilot, because demand is climbing against a finite amount of computing power. <span class="tag tag-high">High</span>
+  </div>
+
+  <p>Set the GeForce NOW bar against the Xbox bars and the disagreement is not about technology, because both companies are streaming games off comparable silicon to comparable televisions. It is about what the service is <em>for</em>. A hundred hours a month is a console replacement. Fifteen hours a month is a tab.</p>
+</section>
+
+<section id="s2">
+  <div class="section-label">Section 02</div>
+  <div class="chevrons"></div>
+  <h2>The Escape Route, Metered Before It Was Taken</h2>
+  <span class="h2-kicker">Nobody at Microsoft has connected the caps to the memory shortage. This connection is mine.</span>
+  <p class="section-intro">The two pressures are not officially the same pressure, but they run on the same clock. Here is the sequence, and nobody in it made a mistake.</p>
+
+  <div class="compare-band">
+    <div class="compare-col">
+      <div class="compare-header"><div class="ed-name">Xbox Series X</div></div>
+      <div class="compare-kv"><div class="kk">Price</div><div class="vv">$799.99</div></div>
+      <div class="compare-kv"><div class="kk">Since</div><div class="vv">1 August 2026</div></div>
+    </div>
+    <div class="compare-col">
+      <div class="compare-header"><div class="ed-name">PlayStation 5</div></div>
+      <div class="compare-kv"><div class="kk">Price</div><div class="vv">$649.99</div></div>
+      <div class="compare-kv"><div class="kk">Since</div><div class="vv">April 2026</div></div>
+    </div>
+    <div class="compare-col">
+      <div class="compare-header"><div class="ed-name">Switch 2</div></div>
+      <div class="compare-kv"><div class="kk">Price</div><div class="vv">$499.99</div></div>
+      <div class="compare-kv"><div class="kk">Since</div><div class="vv">1 September 2026</div></div>
+    </div>
+  </div>
+
+  <ol class="diagnostic-list">
+    <li>The AI buildout bids up memory, competing for the same supply consoles are built from. <span class="tag tag-high">High</span></li>
+    <li>Console prices rise across all three platforms inside five months. <span class="tag tag-high">High</span></li>
+    <li>The exit is priced. Streaming is metered from November &mdash; before, not after, anyone arrives on it in volume. <span class="tag tag-high">High</span></li>
+    <li>Both the box and the stream are rationed by the same buildout, so there is no cheap side to move to. <span class="tag tag-directional">Directional</span></li>
+  </ol>
+
+  <p>The earlier version of this section made a stronger claim, and it does not survive. It held that players priced out of the console were moving to streaming instead. Microsoft's own number refuses it: the cap affects roughly 4% of subscribers, which means 96% of Game Pass members already play fewer than fifteen cloud hours a month. That is light, incidental, tab-shaped usage. Substitution is not happening at any scale worth the word.</p>
+
+  <div class="insight finding">
+    <strong>Which is the finding, not the problem.</strong> The 4% is fatal to the argument that cloud is about to replace the console, and that argument was never this report's. It is direct evidence for the argument this report is making: cloud gaming is already being used the way an episode is used, in short incidental sittings, by nearly everyone who touches it. Microsoft has now priced it accordingly &mdash; not as a console replacement running out of headroom, but as a tab with a meter on it. Six weeks after Amazon and Microsoft agreed that games should be a tab, Microsoft started charging by the hour to keep the tab open.
+  </div>
+
+  <div class="insight caveat">
+    <strong>What the chain does not establish.</strong> Causation between the memory shortage and the caps. Microsoft named rising compute cost, not memory, and compute cost has its own well-documented driver. The claim worth defending is narrower: the console and the stream are being rationed by the same buildout at the same time, which removes the assumption underneath a decade of industry planning &mdash; that when hardware gets expensive, the audience has somewhere cheaper to go. <span class="tag tag-directional">Directional</span>
+  </div>
+</section>
+
+<section id="s3">
+  <div class="section-label">Section 03</div>
+  <div class="chevrons"></div>
+  <h2>Where I Part Company With Joost</h2>
+  <span class="h2-kicker">Five years of a company declining to buy things is data.</span>
+  <p class="section-intro">Joost van Dreunen's reading, stated in his piece, is that Netflix &mdash; having walked away from the $82.7 billion Warner Bros Discovery offer &mdash; may be poised to acquire a game publisher to cement its position, naming Take-Two and CD Projekt. He gets the underlying insight first and he is right about the direction. The disagreement is about what Netflix buys next, and it is a narrow one.</p>
+
+  <p>The argument against him is not scarcity. An earlier draft of this section ran the line that acquiring a publisher buys no GPU hours, and that line is wrong in a way worth stating plainly: compute is rentable and intellectual property is not, so if compute is the binding constraint, that is a reason to buy the thing you cannot rent. Scarcity, argued properly, favours his position rather than mine.</p>
+
+  <p>The argument that does hold is behavioural. Netflix has spent five years and a great deal of money demonstrating, repeatedly and expensively, that it does not want to own production. It bought four studios and exited all four. It sold Spry Fox back to its founders. It closed Night School six weeks after its co-CEO named that studio's game one of the two most successful cloud debuts on the service. Peters described the entire games investment as very small relative to overall content spend on the same July call. A company that has just closed a well-regarded studio for making the wrong <em>shape</em> of game does not then spend a meaningful multiple of its annual content budget acquiring a company whose entire output is that shape.</p>
+
+  <div class="insight caveat">
+    <strong>The version of van Dreunen's argument that would beat mine.</strong> If the constraint is licensing rather than production &mdash; if the tab needs a steady supply of recognisable titles and rights-holders start refusing to license into an ad-supported streaming surface &mdash; then buying a publisher is not vertical integration, it is buying a supply guarantee. That is a coherent path to the same conclusion by a different mechanism, and nothing in the current disclosures rules it out. Watch licensing renewals, not acquisitions. <span class="tag tag-likely">Likely</span>
+  </div>
+</section>
+
+<section id="s4">
+  <div class="section-label">Section 04</div>
+  <div class="chevrons"></div>
+  <h2>The Reframe</h2>
+  <span class="h2-kicker">A distribution company discovering what its distribution is good at.</span>
+  <p class="section-intro">The mistake in the coverage was treating Netflix's closures as a verdict on its competence at making games. It was never a games company failing to become one. Every studio it shut made things people had to go and get. Every category it kept makes things that arrive.</p>
+
+  <div class="timeline">
+    <div class="timeline-item"><div class="timeline-date">Original window</div><div class="timeline-event">Fall 2025</div><div class="timeline-note">Announced with the first trailer in December 2023, with no exact day attached.</div></div>
+    <div class="timeline-item"><div class="timeline-date">First firm date</div><div class="timeline-event">26 May 2026, set in May 2025</div><div class="timeline-note">Moved on a Take-Two earnings call later that year, with Rockstar pointing to extra polish time.</div></div>
+    <div class="timeline-item"><div class="timeline-date">27 August 2026</div><div class="timeline-event">The Extended Look premieres on Netflix</div><div class="timeline-note">Rockstar reaffirmed the November date at the same time. No new delay was announced.</div></div>
+    <div class="timeline-item key"><div class="timeline-date">19 November 2026</div><div class="timeline-event">GTA 6 launches, PS5 and Xbox Series X/S only</div><div class="timeline-note">No PC version announced. Digital preloading from 12 November. Single-player at launch, with no announced date for the online component. <span class="tag tag-high">High</span></div></div>
+  </div>
+
+  <p>The biggest release in the industry's history ships as a product, on a box, for people who can afford the box. Its most-watched piece of marketing already premiered as a Netflix special.</p>
+
+  <div class="insight finding">
+    <strong>The detail almost nobody has priced.</strong> The most valuable live-service property in the industry is shipping the product first and withholding the service. That is the product-and-programming split becoming explicit inside a single title rather than across two companies, and it makes the online launch, not the game launch, the moment that carries information. <span class="tag tag-likely">Likely</span>
+  </div>
+
+  <p>The question for the next decade is not whether streaming wins. It is whether the audience that watched on Netflix and will not be buying anything in November ever gets a version of this game at all, or only a version of the tab it would have sat in.</p>
+</section>
+
+<section id="s5">
+  <div class="section-label">Section 05</div>
+  <div class="chevrons"></div>
+  <h2>What Would Break This</h2>
+  <span class="h2-kicker">Five dated conditions, and three widely expected events that prove nothing.</span>
+  <p class="section-intro">Calling the 19 November launch "the test" was the weakest sentence in the first draft of this report. A console-exclusive megahit selling extraordinarily well is compatible with this thesis and with its exact opposite, so it discriminates between nothing. These do.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Resolves by</th><th>Condition</th><th>What it would mean</th></tr></thead>
+      <tbody>
+        <tr><td>30 Jun 2027</td><td>Microsoft raises the included cloud hours materially, or drops metering</td><td>The claim that compute is a durable constraint rather than a temporary provisioning problem weakens badly. Tightening, or metering on a second platform, supports it</td></tr>
+        <tr><td>31 Dec 2027</td><td>Netflix ships or commissions a title needing more than about two hours of committed play to reach its payoff</td><td>The round-not-session claim in Part II is the most falsifiable thing here. One deliberately long-form Netflix original would do real damage to it</td></tr>
+        <tr><td>31 Dec 2027</td><td>Netflix acquires a game publisher above $1B</td><td>Van Dreunen right and this report wrong, on the record, at a price anyone can look up</td></tr>
+        <tr><td>GTA Online launch</td><td>Where the online layer lands</td><td>Inside a subscription surface, or streaming before it sells, and the split argued in Section 04 is real. Console-first and paid, on 2013's terms, and a decade of reclassification failed to reach the product that could most afford to test it</td></tr>
+        <tr><td>Any quarter</td><td>Xbox Series X falls below $699 while the caps hold</td><td>The single-clock claim in Section 02 breaks outright. The two constraints would have come apart, and the chain would need withdrawing rather than adjusting</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="insight blue">
+    <strong>Three things that would not count.</strong> GTA 6 selling enormously in November proves nothing either way. A sixth Netflix studio closure proves nothing the first five did not already establish. And a large upward revision to somebody's cloud gaming market forecast proves least of all, given that nine firms currently disagree by nearly six times about the same year &mdash; the number you pick decides the answer before you have looked at a single fact.
+  </div>
+</section>
+
+</main>
+
+<div class="closing">
+  <p>One instrument would settle most of this and nobody publishes it: <span>cloud session length, and Netflix game hours per subscriber.</span> Peters was asked for the second in July and declined. Until those exist, the tab arriving sooner than the industry plans for is a forecast rather than a finding &mdash; and the dates above are where it can be checked.</p>
+</div>
+
+<div class="series-nav">
+  <a href="part-1.html"><div class="roman">I</div><div class="part-name">The Ledger Nobody Added Up</div><div class="part-desc">Five studio exits, one filter, and a reveal announced by the department that buys documentaries.</div></a>
+  <a href="part-2.html"><div class="roman">II</div><div class="part-name">What Programming Actually Means Here</div><div class="part-desc">Amazon and Microsoft on the same afternoon, nine firms disagreeing by nearly six times, and the round replacing the session.</div></a>
+  <a href="part-3.html" class="active"><div class="roman">III</div><div class="part-name">The Meter on the Alternative</div><div class="part-desc">You are here.</div></a>
+</div>
+
+<div class="bio">
+  <p>Abbas Saleem is a Principal Consultant at <a href="https://www.llamagriffin.com/" target="_blank" rel="noopener noreferrer">Llama &amp; Griffin</a>, advising game studios, publishers, and investors across MENA, South Asia, Southeast Asia, and Europe. He writes Recognizing Patterns: gaming industry intelligence 12 to 24 months before it becomes consensus. <a href="https://www.linkedin.com/in/abbassaleemkhan/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+</div>
+
+<footer>
+  <div>Games as Programming &middot; <span>Llama &amp; Griffin Consultants</span></div>
+  <div><span>recognizingpatterns.substack.com</span> &middot; llamagriffin.com</div>
+  <div class="methodology">Confidence tags used throughout: <span class="tag tag-high">High</span> reported by a primary source; <span class="tag tag-likely">Likely</span> strong inference from disclosed facts; <span class="tag tag-directional">Directional</span> the author's own causal claim, not sourced to any company; <span class="tag tag-prov">Provisional</span> single-sourced or unverified. Prices and dates checked to 5 September 2026.</div>
+</footer>
+
+<script>
+(function(){
+  var sects=document.querySelectorAll('section[id]');
+  var links=document.querySelectorAll('nav a.nav-link');
+  if(!sects.length) return;
+  var obs=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting) return;
+      links.forEach(function(l){l.classList.remove('active');});
+      var a=document.querySelector('nav a.nav-link[href="#'+e.target.id+'"]');
+      if(a) a.classList.add('active');
+    });
+  },{rootMargin:'-20% 0px -70% 0px'});
+  sects.forEach(function(s){obs.observe(s);});
+})();
+</script>
+</body>
+</html>

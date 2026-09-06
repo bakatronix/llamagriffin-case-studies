@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://www.llamagriffin.com/Data/games-as-programming/index.html">
+<meta name="description" content="Netflix closed every studio that made games as products and kept every category that behaves like an episode. Amazon and Microsoft made the same call within a day of each other. A three-part intelligence report on games being reclassified from products into programming, including the claims that failed review.">
+<meta property="og:title" content="Games as Programming: When Games Stopped Being Products">
+<meta property="og:description" content="Netflix closed every studio that made games as products and kept every category that behaves like an episode. Amazon and Microsoft made the same call within a day of each other. A three-part intelligence report on games being reclassified from products into programming, including the claims that failed review.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.llamagriffin.com/Data/games-as-programming/index.html">
+<title>Games as Programming: When Games Stopped Being Products &middot; Recognizing Patterns &middot; Llama &amp; Griffin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f7f4ee;--bg2:#fdfcf9;--bg3:#eae7e0;--bg4:#d2cdc3;
+  --border:#d2cdc3;--border-med:#c5bfb5;
+  --text:#232323;--text-muted:#37342f;--text-dim:#6b6660;
+  --gold:#c3a55f;--gold-light:#d4ba82;--gold-dim:rgba(195,165,95,0.12);
+  --teal:#2a8f76;--teal-light:#3daa8e;--teal-dim:rgba(42,143,118,0.10);
+  --purple:#6b64b3;--purple-light:#8f88cc;--purple-dim:rgba(107,100,179,0.10);
+  --coral:#b85a3a;--coral-light:#cb7055;--coral-dim:rgba(184,90,58,0.10);
+  --blue:#3d77c4;--blue-light:#6699d8;--blue-dim:rgba(61,119,196,0.10);
+  --font-display:'Playfair Display',serif;
+  --font-body:'DM Sans',sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:15px;line-height:1.7;min-height:100vh}
+a{color:var(--gold);text-decoration:none}a:hover{text-decoration:underline}
+
+/* SUITE NAV */
+#suite-nav{background:#f5f1e8;border-bottom:1px solid rgba(30,25,20,0.12);padding:0 2rem;display:flex;align-items:center;height:36px;font-family:var(--font-mono);font-size:9px;letter-spacing:0.09em;text-transform:uppercase;gap:0;overflow-x:auto;position:sticky;top:0;z-index:200}
+.suite-brand{color:var(--gold);margin-right:1.5rem;padding-right:1.5rem;border-right:1px solid rgba(30,25,20,0.12);white-space:nowrap;font-weight:500}
+.suite-link{color:var(--text-dim);padding:0 0.85rem;height:36px;display:inline-flex;align-items:center;border-bottom:2px solid transparent;white-space:nowrap;text-decoration:none;transition:color 0.15s}
+.suite-link:hover{color:var(--gold);border-bottom-color:rgba(195,165,95,0.3)}
+.suite-link.active{color:var(--gold);border-bottom-color:var(--gold)}
+
+/* MAIN NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(247,244,238,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;height:52px;overflow-x:auto;gap:0}
+.nav-brand{font-family:var(--font-display);font-size:14px;font-weight:700;color:var(--text);margin-right:1.5rem;padding-right:1.5rem;border-right:1px solid var(--border);white-space:nowrap;text-transform:none;letter-spacing:normal;text-decoration:none}
+.nav-brand:hover{text-decoration:none;opacity:0.8}
+nav a.nav-link{color:var(--text-dim);font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.09em;text-transform:uppercase;padding:0 0.9rem;height:52px;display:flex;align-items:center;border-bottom:2px solid transparent;white-space:nowrap;transition:color 0.15s,border-color 0.15s;text-decoration:none}
+nav a.nav-link:hover{color:var(--gold);border-bottom-color:rgba(195,165,95,0.3);text-decoration:none}
+nav a.nav-link.active{color:var(--gold);border-bottom-color:var(--gold)}
+#suite-nav + nav{top:36px}
+section[id],.hero[id]{scroll-margin-top:96px}
+
+/* HERO */
+/* HERO */
+.hero{padding:5rem 2rem 1.5rem;max-width:960px;margin:0 auto;position:relative}
+.hero-eyebrow{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1.75rem;display:flex;align-items:center;gap:10px}
+.hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold);display:inline-block}
+.hero h1{font-family:var(--font-display);font-size:clamp(2.4rem,6vw,4rem);font-weight:700;line-height:1.04;color:var(--text);margin-bottom:1.5rem}
+.hero h1 span{color:var(--gold);font-style:italic;display:block}
+.hero-sub{font-size:16px;color:var(--text-muted);max-width:none;margin-bottom:1.25rem;line-height:1.7}
+.hero-sub:last-of-type{margin-bottom:2.5rem}
+.hero-sub strong{color:var(--text);font-weight:600}
+.meta-row{display:flex;gap:2.5rem;flex-wrap:wrap;padding:1.5rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:1.5rem}
+.meta-item{font-family:var(--font-mono);font-size:10px;letter-spacing:0.09em;color:var(--text-dim);text-transform:uppercase}
+.meta-item span{color:var(--text);font-weight:500}
+.hero .hero-note,.hero-note{font-family:var(--font-mono);font-size:10px;color:var(--text-dim);line-height:1.6;margin:0.75rem 0 0;max-width:none}
+
+/* STAT GRID */
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:0}
+.stat-cell{background:var(--bg2);padding:1.5rem}
+.stat-val{font-family:var(--font-display);font-size:1.9rem;font-weight:700;color:var(--gold);line-height:1;margin-bottom:8px}
+.stat-val.teal{color:var(--teal)}.stat-val.purple{color:var(--purple)}.stat-val.coral{color:var(--coral)}.stat-val.blue{color:var(--blue)}
+.stat-lbl{font-family:var(--font-mono);font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.07em;line-height:1.5}
+
+/* READ ORDER */
+.read-order{max-width:960px;margin:0 auto;padding:0 2rem 2.5rem;font-family:var(--font-mono);font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-dim)}
+.read-order-label{color:var(--gold);font-weight:500;margin-right:0.5rem}
+
+/* PARTS GRID */
+.parts{max-width:960px;margin:0 auto;padding:1rem 2rem 3rem}
+.parts-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}
+.part-card{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:2rem 1.75rem;display:flex;flex-direction:column;transition:border-color 0.15s,transform 0.15s,box-shadow 0.15s;text-decoration:none;color:inherit}
+.part-card:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 8px 24px rgba(35,35,35,0.06);text-decoration:none}
+.part-num{font-family:var(--font-display);font-size:1.5rem;font-weight:700;font-style:italic;color:var(--gold);margin-bottom:1.5rem;line-height:1}
+.part-title{font-family:var(--font-display);font-size:1.35rem;font-weight:700;color:var(--text);margin-bottom:0.4rem;line-height:1.15}
+.part-kicker{font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);margin-bottom:0.9rem}
+.part-card.ii .part-kicker{color:var(--purple)}
+.part-card.iii .part-kicker{color:var(--coral)}
+.part-desc{font-size:13.5px;color:var(--text-muted);line-height:1.6;margin-bottom:1.5rem;flex:1}
+.part-link{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:6px}
+.part-card:hover .part-link{gap:10px}
+.part-link::after{content:'\2192';transition:transform 0.15s}
+
+/* STORE NAV (quick reference) */
+.store-nav{max-width:960px;margin:0 auto;padding:0 2rem 2rem}
+.store-nav-title{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);margin-bottom:0.75rem}
+.store-nav-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:0.75rem}
+.store-nav-grid a{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:1.15rem 1.35rem;display:flex;flex-direction:column;gap:0.15rem;transition:border-color 0.15s,transform 0.15s,box-shadow 0.15s;text-decoration:none}
+.store-nav-grid a:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 8px 24px rgba(35,35,35,0.06);text-decoration:none}
+.store-nav-grid .store-icon{width:28px;height:28px;flex-shrink:0;margin-bottom:0.15rem;object-fit:contain}
+.store-nav-grid .store-name{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--text)}
+.store-nav-grid .store-tag{font-family:var(--font-mono);font-size:9px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim)}
+
+/* CHEVRONS + SECTIONS */
+.chevrons{display:flex;gap:5px;margin-bottom:0.5rem}
+.chevrons::before{content:'▲▲▲▲';font-size:8px;color:var(--gold);letter-spacing:3px}
+section{max-width:960px;margin:0 auto;padding:2.5rem 2rem;border-top:1px solid var(--border)}
+main > section:first-of-type{border-top:none;padding-top:1.5rem}
+.section-label{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.3rem}
+h2{font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--text);margin-bottom:0.25rem;line-height:1.15}
+.h2-kicker{font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--gold);font-style:italic;display:block;margin-bottom:1.5rem}
+.section-intro{font-size:15px;color:var(--text-muted);max-width:none;margin-bottom:2rem;line-height:1.7}
+h3{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--text);margin:2.5rem 0 1rem}
+h3:first-of-type{margin-top:0}
+p{color:var(--text-muted);margin-bottom:1rem;font-size:15px;max-width:none;line-height:1.7}
+p strong{color:var(--text);font-weight:600}
+p:last-child{margin-bottom:0}
+
+/* TABLES */
+.table-wrap{margin-bottom:1.5rem;border:1px solid var(--border);border-radius:4px;overflow:hidden;overflow-x:auto;background:var(--bg2)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead th{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);padding:0.75rem 1rem;text-align:left;border-bottom:1px solid var(--border-med);background:var(--bg3);white-space:nowrap}
+tbody tr{border-bottom:1px solid var(--border);transition:background 0.1s}
+tbody tr:last-child{border-bottom:none}
+tbody tr:hover{background:var(--bg3)}
+tbody td{padding:0.65rem 1rem;color:var(--text-muted);vertical-align:middle}
+tbody td:first-child{color:var(--text)}
+.store-mark{width:18px;height:18px;object-fit:contain;flex-shrink:0}
+td.store-cell,th.store-cell{white-space:nowrap}
+td.store-cell{display:flex;align-items:center;gap:9px}
+th.store-cell span{display:inline-flex;align-items:center;gap:7px}
+
+/* TAGS + CONFIDENCE */
+.tag{display:inline-block;font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;padding:2px 7px;border-radius:2px;white-space:nowrap}
+.tag-gold{background:var(--gold-dim);color:var(--gold)}
+.tag-teal{background:var(--teal-dim);color:var(--teal)}
+.tag-purple{background:var(--purple-dim);color:var(--purple)}
+.tag-coral{background:var(--coral-dim);color:var(--coral)}
+.tag-blue{background:var(--blue-dim);color:var(--blue)}
+.tag-dim{background:rgba(35,35,35,0.07);color:var(--text-dim)}
+.tag-high{background:var(--teal-dim);color:var(--teal)}
+.tag-likely{background:var(--purple-dim);color:var(--purple)}
+.tag-directional{background:var(--coral-dim);color:var(--coral)}
+.tag-prov{background:rgba(35,35,35,0.07);color:var(--text-dim)}
+.conf-certain,.conf-likely{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;margin-left:4px}
+.conf-certain{color:var(--teal)}
+.conf-likely{color:var(--purple)}
+
+/* INSIGHT CALLOUTS */
+.insight{border-left:3px solid var(--gold);background:var(--gold-dim);border-radius:0 6px 6px 0;padding:1.75rem 2rem;margin:1.5rem auto 2rem;font-size:15px;color:var(--text-muted);line-height:1.75;max-width:960px;box-sizing:border-box}
+.insight strong{color:var(--text);font-weight:600}
+.insight.teal{border-color:var(--teal);background:var(--teal-dim)}
+.insight.purple{border-color:var(--purple);background:var(--purple-dim)}
+.insight.coral{border-color:var(--coral);background:var(--coral-dim)}
+.insight.blue{border-color:var(--blue);background:var(--blue-dim)}
+.insight.finding{border-color:var(--gold);background:var(--gold-dim)}
+.insight.caveat{border-color:var(--purple);background:var(--purple-dim)}
+.insight.strategic{border-color:var(--teal);background:var(--teal-dim)}
+.insight.source{border-color:var(--blue);background:var(--blue-dim)}
+
+/* CHARTS */
+.chart-wrap{position:relative;width:100%;margin:1.5rem 0 2.5rem}
+.chart-legend{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:12px;font-size:12px;color:var(--text-muted)}
+.chart-legend span{display:flex;align-items:center;gap:6px}
+.swatch{width:10px;height:10px;border-radius:2px;flex-shrink:0}
+.chart-note{font-family:var(--font-mono);font-size:10px;color:var(--text-dim);margin:0 0 2.5rem;line-height:1.65;width:100%;max-width:none}
+.chart-note a{color:var(--gold);text-decoration:none}
+.chart-note a:hover{text-decoration:underline}
+.chart-card{border:1px solid var(--border);border-radius:4px;background:var(--bg2);padding:1.25rem 1.5rem}
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.bar-icon{width:18px;height:18px;object-fit:contain;flex-shrink:0}
+.bar-label{font-size:12px;color:var(--text-muted);min-width:140px;flex-shrink:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar-bg{flex:1;height:5px;background:var(--bg4);border-radius:3px;overflow:hidden}
+.bar-fill{height:100%;border-radius:3px}
+.bar-val{font-family:var(--font-mono);font-size:12px;font-weight:500;color:var(--text);min-width:80px;text-align:right;flex-shrink:0;white-space:nowrap}
+.chart-wrap.thick .bar-row{gap:12px;margin-bottom:16px}
+.chart-wrap.thick .bar-label{font-size:13px}
+.chart-wrap.thick .bar-bg{height:22px;border-radius:4px}
+.chart-wrap.thick .bar-fill{border-radius:4px}
+.chart-wrap.thick .bar-val{font-size:13px}
+
+/* TIMELINE */
+.timeline{position:relative;padding-left:1.5rem}
+.timeline::before{content:'';position:absolute;left:0;top:6px;bottom:6px;width:1px;background:var(--border-med)}
+.timeline-item{position:relative;padding:0 0 1.5rem 1.5rem}
+.timeline-item::before{content:'';position:absolute;left:-4px;top:6px;width:8px;height:8px;border-radius:50%;background:var(--bg3);border:1px solid var(--border-med)}
+.timeline-item.key::before{background:var(--gold);border-color:var(--gold)}
+.timeline-date{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.09em;text-transform:uppercase;color:var(--gold);margin-bottom:2px}
+.timeline-event{font-size:14px;color:var(--text);font-weight:500}
+.timeline-note{font-size:12px;color:var(--text-muted);margin-top:4px;line-height:1.55}
+
+/* COMPARE BAND */
+.compare-band{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:0 0 1.5rem}
+.compare-col{background:var(--bg2);display:flex;flex-direction:column}
+.compare-header{background:var(--bg3);padding:0.9rem 1.2rem}
+.compare-header .ed-name{font-family:var(--font-display);font-size:13px;font-weight:700}
+.compare-kv{padding:0.85rem 1.2rem;border-top:1px solid var(--border)}
+.compare-kv .kk{font-family:var(--font-mono);font-size:9px;text-transform:uppercase;letter-spacing:0.09em;color:var(--text-dim);margin-bottom:2px}
+.compare-kv .vv{font-size:13px;color:var(--text);font-weight:500}
+
+/* STEP FLOW */
+.step-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:0 0 1.75rem;border:1px solid var(--border-med);border-radius:3px;overflow:hidden;background:var(--bg2)}
+.step{position:relative;padding:1.35rem 1.4rem;display:flex;flex-direction:column;gap:0.4rem;border-right:1px solid var(--border)}
+.step:last-child{border-right:none}
+.step-n{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim)}
+.step-t{font-family:var(--font-display);font-size:1.15rem;font-weight:700;color:var(--text);line-height:1.15}
+.step-d{font-size:12.5px;color:var(--text-muted);line-height:1.5}
+.step::after{content:'';position:absolute;top:50%;right:-5px;width:9px;height:9px;margin-top:-4.5px;border-top:1px solid var(--gold);border-right:1px solid var(--gold);transform:rotate(45deg);background:var(--bg2);z-index:2}
+.step:last-child::after{display:none}
+.step.dest{background:var(--gold-dim)}
+.step.dest .step-t{color:var(--gold)}
+@media(max-width:860px){
+  .step-flow{grid-template-columns:repeat(2,1fr)}
+  .step:nth-child(2n){border-right:none}
+  .step:nth-child(-n+2){border-bottom:1px solid var(--border)}
+  .step:nth-child(2)::after{display:none}
+}
+@media(max-width:520px){
+  .step-flow{grid-template-columns:1fr}
+  .step{border-right:none;border-bottom:1px solid var(--border)}
+  .step:last-child{border-bottom:none}
+  .step::after{display:none}
+}
+
+/* DIAGNOSTIC LIST */
+.diagnostic-list{counter-reset:diag;list-style:none;padding:0;margin:1.5rem 0}
+.diagnostic-list li{counter-increment:diag;margin-bottom:10px;padding-left:2rem;position:relative;font-size:14px;color:var(--text-muted);line-height:1.65}
+.insight.caveat .diagnostic-list li::before{color:var(--purple)}
+.insight .diagnostic-list{margin:0.85rem 0 0}
+.insight .diagnostic-list li{font-size:14px;margin-bottom:7px}
+.diagnostic-list li::before{content:counter(diag,decimal-leading-zero);font-family:var(--font-mono);font-size:10px;font-weight:500;color:var(--gold);position:absolute;left:0;top:0}
+
+/* BRIDGE + CLOSING */
+.bridge{max-width:960px;margin:0 auto;padding:0 2rem 1.5rem}
+.bridge p{color:var(--text-muted);font-size:15px;line-height:1.7;max-width:none}
+.closing{max-width:960px;margin:0 auto;padding:0.5rem 2rem 1.5rem;border-top:1px solid var(--border)}
+.closing p{font-family:var(--font-display);font-size:1.25rem;font-style:italic;color:var(--text-muted);max-width:640px;line-height:1.5;margin-top:2.5rem}
+.closing p span{color:var(--gold);font-style:italic}
+
+/* SERIES NAV */
+.series-nav{max-width:960px;margin:0 auto;padding:2.5rem 2rem;border-top:1px solid var(--border);display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.series-nav a{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:1.75rem;display:flex;flex-direction:column;gap:0.5rem;transition:border-color 0.15s,transform 0.15s,box-shadow 0.15s;text-decoration:none;color:inherit}
+.series-nav a:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 8px 24px rgba(35,35,35,0.06);text-decoration:none}
+.series-nav a.active{border-color:var(--gold);background:var(--gold-dim)}
+.series-nav .roman{font-family:var(--font-display);font-size:1.4rem;font-weight:700;font-style:italic;color:var(--gold)}
+.series-nav .part-name{font-family:var(--font-display);font-size:1.05rem;font-weight:700;color:var(--text);line-height:1.25}
+.series-nav .part-desc{font-size:13px;color:var(--text-muted);line-height:1.65;flex:1}
+
+/* BIO + FOOTER */
+.bio{max-width:960px;margin:0 auto;padding:1.5rem 2rem 1rem}
+.bio p{font-size:13px;color:var(--text-muted);max-width:72ch}
+footer{max-width:960px;margin:0 auto;padding:1.25rem 2rem 2rem;border-top:1px solid var(--border);font-size:12px;color:var(--text-dim);display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;align-items:center}
+footer span{color:var(--gold)}
+footer .methodology{width:100%;font-size:11px;color:var(--text-dim);line-height:1.6;margin-top:0.75rem;border-top:1px solid var(--border);padding-top:0.75rem;max-width:none}
+
+@media(max-width:700px){.series-nav{grid-template-columns:1fr}}
+@media(max-width:600px){.meta-row{gap:1.25rem}}
+@media(max-width:600px){
+  .store-nav-grid{grid-template-columns:1fr}
+  #suite-nav{padding:0 1.25rem}
+  nav{padding:0 1.25rem}
+  .hero{padding:3.5rem 1.25rem 0.5rem}
+  section{padding:2rem 1.25rem}
+  .parts,.store-nav,.read-order,.bridge,.closing,.bio,footer,.series-nav{padding-left:1.25rem;padding-right:1.25rem}
+  .bar-label{min-width:96px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://www.llamagriffin.com" class="nav-brand">Llama &amp; Griffin Consultants</a>
+  <a href="index.html" class="nav-link active">Overview</a>
+  <a href="part-1.html" class="nav-link">Part I &middot; The Ledger</a>
+  <a href="part-2.html" class="nav-link">Part II &middot; The Frame</a>
+  <a href="part-3.html" class="nav-link">Part III &middot; The Meter</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-eyebrow">Recognizing Patterns &middot; Intelligence Suite</div>
+  <h1>Games as Programming<span>When games stopped being products.</span></h1>
+  <p class="hero-sub" style="margin-bottom:1rem">Netflix closed five game studios in five years and kept every category that behaves like an episode. Then it premiered the GTA VI reveal through its documentaries department, and a trailer for an unreleased game became the most-watched thing on the service that week in 87 of 93 countries.</p>
+  <p class="hero-sub" style="margin-bottom:1rem">This report tests one hypothesis across three companies: games are being reclassified from products you seek out into programming that arrives, and the filter being applied is not genre or quality but whether a thing behaves like an episode. Amazon and Microsoft reached the same conclusion on the same afternoon in July, independently. Six weeks later Microsoft put a meter on it.</p>
+  <p class="hero-sub">Part I tests it against what Netflix shut and kept. Part II tests it against Amazon, Microsoft, and market data that disagrees with itself by nearly six times. Part III tests it against the compute the whole model runs on &mdash; and against this report's own failed drafts.</p>
+  <div class="meta-row">
+    <div class="meta-item">Publication <span>Recognizing Patterns</span></div>
+    <div class="meta-item">Published <span>September 2026</span></div>
+    <div class="meta-item">Reading <span>~25 min total</span></div>
+  </div>
+  <div class="stat-grid">
+    <div class="stat-cell"><div class="stat-val">31.1M</div><div class="stat-lbl">Views of the GTA VI reveal in four days</div></div>
+    <div class="stat-cell"><div class="stat-val coral">5</div><div class="stat-lbl">Netflix game studios closed or sold since 2021</div></div>
+    <div class="stat-cell"><div class="stat-val teal">11x</div><div class="stat-lbl">Growth in monthly cloud game players since Oct 2025</div></div>
+    <div class="stat-cell"><div class="stat-val purple">4%</div><div class="stat-lbl">Game Pass subscribers the new cloud cap affects</div></div>
+  </div>
+  <p class="hero-note">None of these four numbers is what it looks like. A Netflix view is hours watched divided by runtime, not a headcount; the 11x is growth off a base never published; the 4% is Microsoft's own unaudited figure. Each is handled where it is used.</p>
+</div>
+
+<div class="read-order">
+  <span class="read-order-label">Reading order</span> Part I establishes the filter. Parts II and III depend on it. Part III is where the report is most exposed. Read in order.
+</div>
+
+<div class="parts">
+  <div class="parts-grid">
+    <a href="part-1.html" class="part-card i">
+      <div class="part-num">I</div>
+      <div class="part-kicker">The Ledger</div>
+      <div class="part-title">The Ledger Nobody Added Up</div>
+      <div class="part-desc">Five years of Netflix studio closures, read as a pattern instead of a list. The reveal was commissioned by the department that buys documentaries, and the studio shut six weeks after its co-CEO called its game top tier.</div>
+      <div class="part-link">Open Part I</div>
+    </a>
+    <a href="part-2.html" class="part-card ii">
+      <div class="part-num">II</div>
+      <div class="part-kicker">The Frame</div>
+      <div class="part-title">What Programming Actually Means Here</div>
+      <div class="part-desc">Amazon and Microsoft made Netflix's move on the same afternoon. Nine research firms disagree about this market by nearly six times. The unit of design stops being the session and becomes the round.</div>
+      <div class="part-link">Open Part II</div>
+    </a>
+    <a href="part-3.html" class="part-card iii">
+      <div class="part-num">III</div>
+      <div class="part-kicker">The Meter</div>
+      <div class="part-title">The Meter on the Alternative</div>
+      <div class="part-desc">Microsoft capped cloud gaming seven days after Netflix's biggest premiere ever. The single-clock argument, the disagreement with van Dreunen, and five dated conditions that would falsify this report.</div>
+      <div class="part-link">Open Part III</div>
+    </a>
+  </div>
+</div>
+
+<div class="store-nav">
+  <div class="store-nav-title">Quick Reference: Jump to a case</div>
+  <div class="store-nav-grid">
+    <a href="part-1.html#s1">
+      <img class="store-icon" src="logo/netflix.svg" alt="">
+      <div class="store-name">The Reveal</div><div class="store-tag">26 minutes &middot; 6-hour exclusive</div>
+    </a>
+    <a href="part-1.html#s2">
+      <svg class="store-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ledger"><path d="M4 3h13l3 3v15H4V3zm2 2v14h12V7h-3V5H6zm2 4h8v2H8V9zm0 4h8v2H8v-2z" fill="#b85a3a"/></svg>
+      <div class="store-name">The Ledger</div><div class="store-tag">5 studios &middot; one filter &middot; 2021&ndash;2026</div>
+    </a>
+    <a href="part-2.html#s1">
+      <img class="store-icon" src="logo/amazon-luna.svg" alt="">
+      <div class="store-name">23 July</div><div class="store-tag">Two companies &middot; one afternoon</div>
+    </a>
+    <a href="part-2.html#s3">
+      <svg class="store-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Market size"><path d="M3 19h18v2H3v-2zM5 9h3v8H5V9zm5-6h3v14h-3V3zm5 9h3v5h-3v-5z" fill="#6b64b3"/></svg>
+      <div class="store-name">Nobody Agrees on the Market</div><div class="store-tag">9 firms &middot; $4.81B to $28.29B</div>
+    </a>
+    <a href="part-3.html#s1">
+      <img class="store-icon" src="logo/xbox.svg" alt="">
+      <div class="store-name">The Meter</div><div class="store-tag">15 hours &middot; November &middot; 4% affected</div>
+    </a>
+    <a href="part-3.html#s5">
+      <svg class="store-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Falsification"><path d="M12 2l9 5v6c0 5-3.8 8.4-9 9-5.2-.6-9-4-9-9V7l9-5zm3.5 6.1L11 12.6 8.5 10.1 7 11.6l4 4 6-6-1.5-1.5z" fill="#2a8f76"/></svg>
+      <div class="store-name">What Would Break This</div><div class="store-tag">5 dated conditions &middot; 3 that prove nothing</div>
+    </a>
+  </div>
+</div>
+
+<div class="insight finding">
+  <strong>The filter was never about genre or quality.</strong> Every studio Netflix exited built games as products &mdash; things a person has to go and get, install, learn, and return to. Every category it kept makes something that arrives inside an app the household was already in. The industry heard a retreat from games because that was the sentence it was expecting.
+</div>
+
+<div class="insight caveat">
+  <strong>Three claims were removed in review.</strong> They are recorded in the text rather than in a footnote, and Part III carries all three.
+  <ol class="diagnostic-list">
+    <li><strong>Substitution.</strong> A chain in which players priced out of a $799.99 console move to streaming instead &mdash; killed by Microsoft's own disclosure that the cap affects 4% of subscribers.</li>
+    <li><strong>Compute scarcity.</strong> The rebuttal to van Dreunen &mdash; killed because compute is rentable and intellectual property is not, which makes scarcity an argument for his position.</li>
+    <li><strong>The GTA 6 test.</strong> A console-exclusive megahit fits this thesis and its exact opposite equally well, so it discriminates between nothing.</li>
+  </ol>
+</div>
+
+<div class="closing">
+  <p>The instrument that would settle most of this argument is the one nobody publishes: <span>cloud session length, and Netflix game hours per subscriber.</span> Peters was asked for the second in July and declined. Until those numbers exist, every thesis in this space is inference dressed as measurement, including this one.</p>
+</div>
+
+<div class="bio">
+  <p>Abbas Saleem is a Principal Consultant at <a href="https://www.llamagriffin.com/" target="_blank" rel="noopener noreferrer">Llama &amp; Griffin</a>, advising game studios, publishers, and investors across MENA, South Asia, Southeast Asia, and Europe. He writes Recognizing Patterns: gaming industry intelligence 12 to 24 months before it becomes consensus. <a href="https://www.linkedin.com/in/abbassaleemkhan/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+</div>
+
+<footer>
+  <div>Games as Programming &middot; <span>Llama &amp; Griffin Consultants</span></div>
+  <div><span>recognizingpatterns.substack.com</span> &middot; llamagriffin.com</div>
+  <div class="methodology">Sources: Netflix Q2 2026 shareholder letter and earnings call, Netflix Tudum, Xbox Wire, CNBC, Variety, Rockstar Newswire and Take-Two investor relations, Statista, and nine named market-research firms. Prices and dates verified to 5 September 2026. Confidence tags appear inline: <span class="tag tag-high">High</span> reported by a primary source, <span class="tag tag-likely">Likely</span> strong inference, <span class="tag tag-directional">Directional</span> the author's own causal claim, <span class="tag tag-prov">Provisional</span> unverified or single-sourced.</div>
+</footer>
+
+
+</body>
+</html>
