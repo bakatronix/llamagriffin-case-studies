@@ -271,6 +271,13 @@ footer .methodology{width:100%;font-size:11px;color:var(--text-dim);line-height:
   .parts,.store-nav,.read-order,.bridge,.closing,.bio,footer,.series-nav{padding-left:1.25rem;padding-right:1.25rem}
   .bar-label{min-width:96px}
 }
+.condition-list{border:1px solid var(--border-med);border-radius:4px;overflow:hidden;background:var(--bg2);margin:0 0 1.5rem}
+.condition{padding:1rem 1.25rem;border-bottom:1px solid var(--border)}
+.condition:last-child{border-bottom:none}
+.condition-when{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.09em;text-transform:uppercase;color:var(--gold);margin-bottom:7px;display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.condition-what{font-size:14.5px;color:var(--text);font-weight:600;line-height:1.4;margin-bottom:5px}
+.condition-mean{font-size:13.5px;color:var(--text-muted);line-height:1.6;max-width:none}
+.condition.milestone{background:var(--gold-dim);border-left:3px solid var(--gold);padding-left:calc(1.25rem - 3px)}
 </style>
 </head>
 <body>
@@ -441,23 +448,39 @@ footer .methodology{width:100%;font-size:11px;color:var(--text-dim);line-height:
   <span class="h2-kicker">Five dated conditions, and three widely expected events that prove nothing.</span>
   <p class="section-intro">Calling the 19 November launch "the test" was the weakest sentence in the first draft of this report. A console-exclusive megahit selling extraordinarily well is compatible with this thesis and with its exact opposite, so it discriminates between nothing. These do.</p>
 
-  <div class="table-wrap">
-    <table style="table-layout:fixed">
-      <colgroup>
-        <col style="width:16%">
-        <col style="width:34%">
-        <col style="width:50%">
-      </colgroup>
-      <thead><tr><th>Resolves by</th><th>Condition</th><th>What it would mean</th></tr></thead>
-      <tbody>
-        <tr><td>30 Jun 2027</td><td class="store-cell wrap"><div class="markrow"><img class="store-mark" src="logo/xbox.svg" alt="" onerror="this.style.display='none'"><span>Microsoft raises the included cloud hours materially, or drops metering</span></div></td><td>The claim that compute is a durable constraint rather than a temporary provisioning problem weakens badly. Tightening, or metering on a second platform, supports it</td></tr>
-        <tr><td>31 Dec 2027</td><td class="store-cell wrap"><div class="markrow"><img class="store-mark" src="logo/netflix.svg" alt="" onerror="this.style.display='none'"><span>Netflix ships or commissions a title needing more than about two hours of committed play to reach its payoff</span></div></td><td>The round-not-session claim in Part II is the most falsifiable thing here. One deliberately long-form Netflix original would do real damage to it</td></tr>
-        <tr><td>31 Dec 2027</td><td class="store-cell wrap"><div class="markrow"><img class="store-mark" src="logo/netflix.svg" alt="" onerror="this.style.display='none'"><span>Netflix acquires a game publisher above $1B</span></div></td><td>Van Dreunen right and this report wrong, on the record, at a price anyone can look up</td></tr>
-        <tr><td>GTA Online launch</td><td class="store-cell wrap"><div class="markrow"><img class="store-mark" src="logo/GTA%20VI.svg" alt="" onerror="this.style.display='none'"><span>Where the online layer lands</span></div></td><td>Inside a subscription surface, or streaming before it sells, and the split argued in Section 04 is real. Console-first and paid, on 2013's terms, and a decade of reclassification failed to reach the product that could most afford to test it</td></tr>
-        <tr><td>Any quarter</td><td class="store-cell wrap"><div class="markrow"><img class="store-mark" src="logo/xbox.svg" alt="" onerror="this.style.display='none'"><span>Xbox Series X falls below $699 while the caps hold</span></div></td><td>The single-clock claim in Section 02 breaks outright. The two constraints would have come apart, and the chain would need withdrawing rather than adjusting</td></tr>
-      </tbody>
-    </table>
+<div class="condition-list">
+
+  <div class="condition">
+    <div class="condition-when">Resolves by 30 June 2027</div>
+    <div class="condition-what">Microsoft raises the included cloud hours materially, or drops metering</div>
+    <div class="condition-mean">The claim that compute is a durable constraint rather than a temporary provisioning problem weakens badly. Tightening, or metering extended to a second platform, supports it.</div>
   </div>
+
+  <div class="condition">
+    <div class="condition-when">Resolves by 31 December 2027</div>
+    <div class="condition-what">Netflix ships or commissions a title needing more than about two hours of committed play to reach its payoff</div>
+    <div class="condition-mean">The round-not-session claim in Part II is the most falsifiable thing in this report. One deliberately long-form Netflix original would do real damage to it.</div>
+  </div>
+
+  <div class="condition">
+    <div class="condition-when">Resolves by 31 December 2027</div>
+    <div class="condition-what">Netflix acquires a game publisher above $1B</div>
+    <div class="condition-mean">Van Dreunen right and this report wrong, on the record, at a price anyone can look up.</div>
+  </div>
+
+  <div class="condition milestone">
+    <div class="condition-when">Resolves at the GTA Online launch <span class="tag tag-gold">Date TBA</span></div>
+    <div class="condition-what">Where the online layer lands</div>
+    <div class="condition-mean">Inside a subscription surface, or streaming before it sells, and the split argued in Section 04 is real. Console-first and paid, on the same terms as 2013, and a decade of reclassification failed to reach the product that could most afford to test it.</div>
+  </div>
+
+  <div class="condition">
+    <div class="condition-when">Resolves any quarter</div>
+    <div class="condition-what">Xbox Series X falls below $699 while the caps hold</div>
+    <div class="condition-mean">The single-clock claim in Section 02 breaks outright. The two constraints would have come apart, and the chain would need withdrawing rather than adjusting.</div>
+  </div>
+
+</div>
 
   <div class="insight blue">
     <strong>Three things that would not count.</strong> GTA 6 selling enormously in November proves nothing either way. A sixth Netflix studio closure proves nothing the first five did not already establish. And a large upward revision to somebody's cloud gaming market forecast proves least of all, given that nine firms currently disagree by nearly six times about the same year &mdash; the number you pick decides the answer before you have looked at a single fact.
