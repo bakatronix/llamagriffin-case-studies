@@ -278,6 +278,13 @@ footer .methodology{width:100%;font-size:11px;color:var(--text-dim);line-height:
 .condition-what{font-size:14.5px;color:var(--text);font-weight:600;line-height:1.4;margin-bottom:5px}
 .condition-mean{font-size:13.5px;color:var(--text-muted);line-height:1.6;max-width:none}
 .condition.milestone{background:var(--gold-dim);border-left:3px solid var(--gold);padding-left:calc(1.25rem - 3px)}
+.gap-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:1.5rem 0 2rem}
+.gap{background:var(--bg2);padding:1.15rem 1.35rem}
+.gap-label{font-family:var(--font-mono);font-size:9.5px;font-weight:500;letter-spacing:0.09em;text-transform:uppercase;color:var(--text-dim);margin-bottom:6px}
+.gap.inference .gap-label{color:var(--coral)}
+.gap-what{font-size:13.5px;font-weight:600;color:var(--text);line-height:1.35;margin-bottom:4px}
+.gap-note{font-size:13px;color:var(--text-muted);line-height:1.55}
+@media(max-width:600px){.gap-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -494,12 +501,33 @@ footer .methodology{width:100%;font-size:11px;color:var(--text-dim);line-height:
   <span class="h2-kicker">Genuine gaps, stated as gaps.</span>
   <p class="section-intro">Four specific claims remain open in the source record. They are listed here so they read as unresolved rather than settled.</p>
 
-  <ol class="diagnostic-list">
-    <li><strong>Which department negotiated the GTA VI premiere.</strong> Only the public-facing spokesperson is known &mdash; Brandon Riegg, VP of Nonfiction Series, fronted the announcement. There is no visibility into whether the games division had any hand in the deal internally.</li>
-    <li><strong>Netflix's actual cloud-gaming cost structure.</strong> No disclosed figure exists beyond Peters' qualitative "very small relative to overall content spend." The unit economics behind the elevenfold growth claim cannot be checked against anything.</li>
-    <li><strong>Whether the caps and the console price rises share one cause.</strong> This report's single-clock chain in Section 02 is an inference. Microsoft named rising compute cost, not memory, and no company statement confirms a shared cost driver with the console price increases.</li>
-    <li><strong>The timing and form of any GTA Online launch.</strong> Unannounced as of publication, which is why it appears as a dated falsifier rather than a settled fact.</li>
-  </ol>
+  <div class="gap-grid">
+
+    <div class="gap">
+      <div class="gap-label">Not disclosed</div>
+      <div class="gap-what">Which department negotiated the premiere</div>
+      <div class="gap-note">Only the public-facing spokesperson is known. The internal negotiation is invisible.</div>
+    </div>
+
+    <div class="gap">
+      <div class="gap-label">No figure published</div>
+      <div class="gap-what">Netflix's cloud-gaming cost structure</div>
+      <div class="gap-note">Nothing exists beyond Peters' qualitative characterisation. The unit economics behind the elevenfold claim cannot be checked.</div>
+    </div>
+
+    <div class="gap inference">
+      <div class="gap-label">Author's inference</div>
+      <div class="gap-what">Whether the caps and console prices share one cause</div>
+      <div class="gap-note">The single-clock chain in Section 02 is mine. No company statement confirms a shared cost driver.</div>
+    </div>
+
+    <div class="gap">
+      <div class="gap-label">Unannounced</div>
+      <div class="gap-what">Timing and form of any GTA Online launch</div>
+      <div class="gap-note">Which is why Section 05 carries it as a dated falsifier rather than a settled fact.</div>
+    </div>
+
+  </div>
 </section>
 
 </main>
