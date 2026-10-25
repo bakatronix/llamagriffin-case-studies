@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Steam Next Fest October 2026 · A Case Study · Llama &amp; Griffin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f5f1e8;--bg2:#ece8dc;--bg3:#e4e0d4;
+  --text:#1a1914;--text-muted:#5a5650;--text-dim:#9490A0;
+  --gold:#C9A84C;--gold-light:#dfc278;--gold-dim:rgba(201,168,76,0.12);
+  --teal:#1D9E75;--purple:#534AB7;--coral:#D85A30;--blue:#3A7BD5;
+  --border:rgba(30,25,20,0.10);--border-med:rgba(30,25,20,0.16);
+  --font-display:'Playfair Display',serif;
+  --font-body:'DM Sans',sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:15px;line-height:1.7;min-height:100vh}
+a{color:var(--gold);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(245,241,232,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;height:52px;gap:0;overflow-x:auto}
+.nav-brand{font-family:var(--font-display);font-size:14px;font-weight:700;color:var(--text);margin-right:1.5rem;padding-right:1.5rem;border-right:1px solid var(--border-med);white-space:nowrap;text-decoration:none;text-transform:none;letter-spacing:normal}
+.nav-brand:hover{text-decoration:none;opacity:0.8}
+nav a.nav-link{color:var(--text-dim);font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.09em;text-transform:uppercase;padding:0 0.9rem;height:52px;display:flex;align-items:center;border-bottom:2px solid transparent;white-space:nowrap;transition:color 0.15s,border-color 0.15s;text-decoration:none}
+nav a.nav-link:hover{color:var(--gold);border-bottom-color:rgba(201,168,76,0.3);text-decoration:none}
+nav a.nav-link.active{color:var(--gold);border-bottom-color:var(--gold)}
+nav a.nav-link.dash{border:1px solid var(--border-med);border-radius:3px;height:26px;margin-left:0.5rem;padding:0 0.7rem}
+
+/* HERO */
+.hero{max-width:960px;margin:0 auto;padding:5rem 2rem 1.5rem}
+.hero-eyebrow{font-family:var(--font-mono);font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:10px}
+.hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold);display:inline-block}
+.hero h1{font-family:var(--font-display);font-size:clamp(2.2rem,5vw,3.2rem);font-weight:700;line-height:1.06;color:var(--text);margin-bottom:0.1rem}
+.hero h1 .kicker{display:block;font-style:italic;color:var(--gold)}
+.hero-sub{font-size:15px;color:var(--text-muted);max-width:660px;margin:1.5rem 0 2rem;line-height:1.7}.hero-sub p{margin-bottom:0.85rem}.hero-sub p:last-child{margin-bottom:0}
+
+/* META ROW */
+.hero-meta{display:flex;gap:2rem;margin-bottom:2.5rem;flex-wrap:wrap;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:0.75rem 0}
+.hero-meta-item{font-family:var(--font-mono);font-size:10px;letter-spacing:0.09em;text-transform:uppercase;color:var(--text-dim)}
+.hero-meta-item span{color:var(--text-muted);font-weight:500}
+
+/* STAT GRID */
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--border-med);border:1px solid var(--border-med);border-radius:3px;overflow:hidden;margin-bottom:1rem}
+.stat-cell{background:var(--bg2);padding:1.1rem 1.4rem}
+.stat-val{font-family:var(--font-display);font-size:1.5rem;font-weight:700;line-height:1;margin-bottom:4px}
+.stat-val.gold{color:var(--gold)}
+.stat-val.teal{color:var(--teal)}
+.stat-val.purple{color:var(--purple)}
+.stat-val.coral{color:var(--coral)}
+.stat-lbl{font-family:var(--font-mono);font-size:9px;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-dim)}
+
+/* INSIGHT */
+.insight{border-left:3px solid var(--gold);background:var(--gold-dim);border-radius:0 3px 3px 0;padding:1.1rem 1.4rem;margin-bottom:3rem;font-size:14px;color:var(--text-muted);line-height:1.7;max-width:960px;margin-left:auto;margin-right:auto}
+.insight strong{color:var(--text)}
+
+/* PARTS GRID */
+.parts{max-width:960px;margin:0 auto;padding:0 2rem 1.5rem}
+.parts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+@media(max-width:700px){.parts-grid{grid-template-columns:1fr}}
+.part-card{background:var(--bg2);border:1px solid var(--border-med);border-radius:3px;padding:1.75rem;display:flex;flex-direction:column;gap:0.5rem;transition:border-color 0.15s,box-shadow 0.15s;text-decoration:none;color:inherit}
+.part-card:hover{border-color:var(--gold);box-shadow:0 2px 12px rgba(201,168,76,0.12);text-decoration:none}
+.part-num{font-family:var(--font-display);font-size:1.4rem;font-weight:700;color:var(--gold);font-style:italic}
+.part-title{font-family:var(--font-display);font-size:1.05rem;font-weight:700;color:var(--text);line-height:1.25}
+.part-desc{font-size:13px;color:var(--text-muted);line-height:1.65;flex:1}
+.part-link{font-family:var(--font-mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);margin-top:0.5rem}
+
+/* DASHBOARD LINK */
+.dash-band{max-width:960px;margin:0 auto;padding:0 2rem 2rem}
+.dash-card{background:var(--bg2);border:1px dashed var(--border-med);border-radius:3px;padding:1.5rem 1.75rem;display:flex;justify-content:space-between;align-items:center;gap:1.5rem;flex-wrap:wrap}
+.dash-card .t{font-family:var(--font-display);font-size:1.1rem;font-weight:700}
+.dash-card .d{font-size:13px;color:var(--text-muted);max-width:520px;line-height:1.6}
+.dash-card a{font-family:var(--font-mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;white-space:nowrap}
+
+/* FOOTER */
+.closing{max-width:960px;margin:0 auto;padding:0.5rem 2rem 1.5rem;border-top:1px solid var(--border)}.closing p{font-family:var(--font-display);font-size:1.35rem;font-style:italic;color:var(--text-muted);max-width:680px;line-height:1.55;margin-top:1.25rem}.closing p span{color:var(--gold);font-style:italic}
+footer{max-width:960px;margin:0 auto;padding:1.5rem 2rem 3rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem}
+footer div{font-family:var(--font-mono);font-size:11px;color:var(--text-dim)}
+footer span{color:var(--gold)}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://www.llamagriffin.com" class="nav-brand">Llama &amp; Griffin Consultants</a>
+  <a href="index.html" class="nav-link active">Overview</a>
+  <a href="part-1.html" class="nav-link">Part I · Scale</a>
+  <a href="part-2.html" class="nav-link">Part II · Who Got Seen</a>
+  <a href="part-3.html" class="nav-link">Part III · The Decider</a>
+  <a href="dashboard.html" class="nav-link dash">Live Dashboard</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-eyebrow">Steam Next Fest Performance Suite</div>
+  <h1>Steam Next Fest October 2026<span class="kicker">The Crowdedest Edition On Record.</span></h1>
+
+  <div class="hero-sub">
+    <p>The October 2026 edition ran 19–26 October with <strong>7,323 games</strong> in its lineup — the largest Steam Next Fest in the program's history, up 65% on June's 4,382 eligible entries and roughly eight times the 887 of June 2023.</p>
+    <p>The real story is what scale did to the field: the festival stopped creating breakouts and started amplifying the ones that arrived with an audience already built. The deciding variable wasn't the week of the event — it was the follower count a developer held <em>the day before it began</em>.</p>
+    <p>This case study tells that story in three parts: the record-breaking scale, who actually got seen, and the single metric that decided it.</p>
+  </div>
+
+  <div class="hero-meta">
+    <div class="hero-meta-item">WINDOW <span>19–26 OCT 2026</span></div>
+    <div class="hero-meta-item">STATUS <span>FINAL WEEKEND · DAY 6</span></div>
+    <div class="hero-meta-item">BASIS <span>VALVE · HTMAG · GDCO · PLAYRECON</span></div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-cell">
+      <div class="stat-val gold">7,323</div>
+      <div class="stat-lbl">Games in the lineup</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-val teal">+65.2%</div>
+      <div class="stat-lbl">Participation vs June 2026</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-val purple">~51.7%</div>
+      <div class="stat-lbl">Of 2026 Steam releases entering</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-val coral">5,519</div>
+      <div class="stat-lbl">Median followers of the top 25 (vs 15 for the rest)</div>
+    </div>
+  </div>
+</div>
+
+<div class="parts">
+  <div class="parts-grid">
+    <a href="part-1.html" class="part-card">
+      <div class="part-num">I</div>
+      <div class="part-title">The Biggest Edition Yet</div>
+      <div class="part-desc">How Next Fest got to 7,323 games. The three-year participation arc, why the growth accelerated in 2026, and what an eighth-of-the-field turning into a sliver of front-page attention does to discovery.</div>
+      <div class="part-link">Open Part I →</div>
+    </a>
+    <a href="part-2.html" class="part-card">
+      <div class="part-num">II</div>
+      <div class="part-title">Who Got Seen</div>
+      <div class="part-desc">Valve's official most-played list and the live leaderboard. Friendslop's dominance, the surprise idle-game vein, and which genres convert — and which ones the crowd never finds.</div>
+      <div class="part-link">Open Part II →</div>
+    </a>
+    <a href="part-3.html" class="part-card">
+      <div class="part-num">III</div>
+      <div class="part-title">The Followers Decider</div>
+      <div class="part-desc">The single metric that predicted success: pre-festival followers. The correlation numbers, the AI-disclosure split, and the February playbook that falls out of it.</div>
+      <div class="part-link">Open Part III →</div>
+    </a>
+  </div>
+</div>
+
+<div class="dash-band">
+  <div class="dash-card">
+    <div>
+      <div class="t">Live Intelligence Dashboard</div>
+      <div class="d">The full single-page view — live telemetry, top-demo cross-reference, genre weights, follower tiers, AI tags, timeline and methodology — updated to 25 October.</div>
+    </div>
+    <a href="dashboard.html">Open the Dashboard →</a>
+  </div>
+</div>
+
+<div class="closing"><p>The festival didn't break the pattern — it revealed it. The games that won arrived with audiences. The ones that didn't, didn't. <span>Read in order.</span></p></div>
+
+<footer>
+  <div>Steam Next Fest October 2026 Case Study · <span>Llama &amp; Griffin Consultants</span></div>
+  <div><span>llamagriffin.com</span> · Case Studies</div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Steam Next Fest October 2026 · Live Intelligence Dashboard · Llama &amp; Griffin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f5f1e8;--bg2:#ece8dc;--bg3:#e4e0d4;--bg4:#d6d1c4;
+  --text:#1a1914;--text-muted:#5a5650;--text-dim:#9490A0;
+  --gold:#C9A84C;--gold-light:#dfc278;--gold-dim:rgba(201,168,76,0.12);
+  --teal:#1D9E75;--teal-dim:rgba(29,158,117,0.10);
+  --purple:#534AB7;--purple-dim:rgba(83,74,183,0.10);
+  --coral:#D85A30;--coral-dim:rgba(216,90,48,0.10);
+  --blue:#3A7BD5;--blue-dim:rgba(58,123,213,0.10);
+  --border:rgba(30,25,20,0.10);--border-med:rgba(30,25,20,0.16);
+  --font-display:'Playfair Display',serif;
+  --font-body:'DM Sans',sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:15px;line-height:1.7;min-height:100vh}
+a{color:var(--gold);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(245,241,232,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;height:52px;gap:0;overflow-x:auto}
+.nav-brand{font-family:var(--font-display);font-size:14px;font-weight:700;color:var(--text);margin-right:1.5rem;padding-right:1.5rem;border-right:1px solid var(--border-med);white-space:nowrap;text-decoration:none}
+.nav-brand:hover{text-decoration:none;opacity:0.8}
+nav a.nav-link{color:var(--text-dim);font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.09em;text-transform:uppercase;padding:0 0.85rem;height:52px;display:flex;align-items:center;border-bottom:2px solid transparent;white-space:nowrap;transition:color 0.15s,border-color 0.15s;text-decoration:none}
+nav a.nav-link:hover{color:var(--gold);border-bottom-color:rgba(201,168,76,0.3);text-decoration:none}
+nav a.nav-link.active{color:var(--gold);border-bottom-color:var(--gold)}
+
+/* LIVE STRIP */
+.live-strip{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;gap:1.5rem;height:34px;font-family:var(--font-mono);font-size:10px;letter-spacing:0.06em;color:var(--text-dim);overflow-x:auto;white-space:nowrap}
+.live-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--teal);margin-right:6px;box-shadow:0 0 0 3px var(--teal-dim);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.45}}
+.live-strip b{color:var(--text);font-weight:500}
+.live-strip .sep{color:var(--bg4)}
+
+/* HERO */
+.hero{max-width:1040px;margin:0 auto;padding:4rem 2rem 1rem}
+.hero-eyebrow{font-family:var(--font-mono);font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:10px}
+.hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold);display:inline-block}
+.hero h1{font-family:var(--font-display);font-size:clamp(2.2rem,5vw,3.2rem);font-weight:700;line-height:1.06;color:var(--text);margin-bottom:0.1rem}
+.hero h1 .kicker{display:block;font-style:italic;color:var(--gold)}
+.hero-sub{font-size:15px;color:var(--text-muted);max-width:720px;margin:1.25rem 0 1.75rem;line-height:1.7}
+.hero-sub p{margin-bottom:0.75rem}.hero-sub p:last-child{margin-bottom:0}
+.hero-sub strong{color:var(--text)}
+.hero-meta{display:flex;gap:2rem;margin-bottom:1.75rem;flex-wrap:wrap;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:0.75rem 0}
+.hero-meta-item{font-family:var(--font-mono);font-size:10px;letter-spacing:0.09em;text-transform:uppercase;color:var(--text-dim)}
+.hero-meta-item span{color:var(--text-muted);font-weight:500}
+
+/* STAT GRID */
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--border-med);border:1px solid var(--border-med);border-radius:3px;overflow:hidden;margin-bottom:0.75rem}
+.stat-cell{background:var(--bg2);padding:1.1rem 1.4rem}
+.stat-val{font-family:var(--font-display);font-size:1.5rem;font-weight:700;line-height:1;margin-bottom:4px}
+.stat-val.gold{color:var(--gold)}.stat-val.teal{color:var(--teal)}.stat-val.purple{color:var(--purple)}.stat-val.coral{color:var(--coral)}.stat-val.blue{color:var(--blue)}
+.stat-lbl{font-family:var(--font-mono);font-size:9px;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-dim);line-height:1.4}
+.stat-sub{font-size:11px;color:var(--text-dim);margin-top:3px}
+
+/* INSIGHT */
+.insight{border-left:3px solid var(--gold);background:var(--gold-dim);border-radius:0 3px 3px 0;padding:1rem 1.4rem;margin:1.5rem 0;font-size:14px;color:var(--text-muted);line-height:1.7}
+.insight strong{color:var(--text)}
+.insight.teal{border-color:var(--teal);background:var(--teal-dim)}.insight.teal strong{color:var(--teal)}
+.insight.purple{border-color:var(--purple);background:var(--purple-dim)}.insight.purple strong{color:var(--purple)}
+.insight.coral{border-color:var(--coral);background:var(--coral-dim)}.insight.coral strong{color:var(--coral)}
+.insight.blue{border-color:var(--blue);background:var(--blue-dim)}.insight.blue strong{color:var(--blue)}
+
+/* SECTIONS */
+section{max-width:1040px;margin:0 auto;padding:3rem 2rem;border-top:1px solid var(--border)}
+.section-label{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.4rem}
+.section-head{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+h2{font-family:var(--font-display);font-size:1.55rem;font-weight:700;color:var(--text);line-height:1.15}
+.h2-kicker{font-family:var(--font-display);font-size:1.05rem;font-weight:700;color:var(--gold);font-style:italic;display:block;margin:0.15rem 0 1.25rem}
+.section-intro{font-size:15px;color:var(--text-muted);max-width:760px;margin-bottom:1.75rem;line-height:1.7}
+.section-intro strong{color:var(--text)}
+h3{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);margin:2.25rem 0 0.9rem}
+h3:first-of-type{margin-top:0}
+p{color:var(--text-muted);margin-bottom:1rem;font-size:15px;max-width:78ch;line-height:1.7}
+p strong{color:var(--text);font-weight:600}
+p:last-child{margin-bottom:0}
+.note{font-size:12px;color:var(--text-dim);line-height:1.6;margin-top:0.6rem}
+
+/* TABLES */
+.table-wrap{overflow-x:auto;margin-bottom:1.25rem;border:1px solid var(--border);border-radius:3px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead th{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim);padding:0.7rem 0.9rem;text-align:left;border-bottom:1px solid var(--border-med);background:var(--bg3);white-space:nowrap}
+th.num,td.num{text-align:right;font-family:var(--font-mono);font-size:12px}
+tbody tr{border-bottom:1px solid var(--border);transition:background 0.1s}
+tbody tr:last-child{border-bottom:none}
+tbody tr:hover{background:var(--bg3)}
+tbody td{padding:0.6rem 0.9rem;color:var(--text-muted);vertical-align:middle}
+tbody td:first-child{color:var(--text)}
+tbody td strong{color:var(--text);font-weight:600}
+
+/* TAGS */
+.tag{display:inline-block;font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;padding:2px 7px;border-radius:2px;white-space:nowrap}
+.tag-gold{background:var(--gold-dim);color:var(--gold)}
+.tag-teal{background:var(--teal-dim);color:var(--teal)}
+.tag-purple{background:var(--purple-dim);color:var(--purple)}
+.tag-coral{background:var(--coral-dim);color:var(--coral)}
+.tag-blue{background:var(--blue-dim);color:var(--blue)}
+.tag-dim{background:rgba(30,25,20,0.07);color:var(--text-dim)}
+
+.rank-badge{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:3px;font-family:var(--font-mono);font-size:10px;font-weight:500;background:var(--bg3);color:var(--text-dim);margin-right:6px;flex-shrink:0}
+.rank-badge.top3{background:var(--gold-dim);color:var(--gold)}
+.rank-badge.top10{background:var(--teal-dim);color:var(--teal)}
+
+/* CARDS */
+.card-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:3px;overflow:hidden;margin-bottom:1.5rem}
+.card{background:var(--bg2);padding:1.15rem 1.35rem}
+.card .clabel{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);margin-bottom:6px}
+.card .cval{font-family:var(--font-display);font-size:1.35rem;font-weight:700;color:var(--text);line-height:1.1;margin-bottom:3px}
+.card .csub{font-size:12px;color:var(--text-muted);line-height:1.45}
+.card.gold .cval{color:var(--gold)}.card.teal .cval{color:var(--teal)}.card.purple .cval{color:var(--purple)}.card.coral .cval{color:var(--coral)}.card.blue .cval{color:var(--blue)}
+
+/* BARS */
+.bar-row{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.bar-label{font-size:12.5px;color:var(--text-muted);min-width:200px;flex-shrink:0}
+.bar-label b{color:var(--text);font-weight:500}
+.bar-bg{flex:1;height:8px;background:var(--bg3);border-radius:4px;overflow:hidden;min-width:60px}
+.bar-fill{height:100%;border-radius:4px}
+.bar-val{font-family:var(--font-mono);font-size:12px;font-weight:500;color:var(--text);min-width:70px;text-align:right;flex-shrink:0}
+
+/* TABS */
+.tabs{display:flex;gap:2px;margin-bottom:1.25rem;border-bottom:1px solid var(--border);flex-wrap:wrap}
+.tab-btn{font-family:var(--font-mono);font-size:10px;font-weight:500;background:none;border:none;color:var(--text-dim);padding:0.55rem 0.9rem;cursor:pointer;border-bottom:2px solid transparent;transition:color 0.15s,border-color 0.15s;margin-bottom:-1px;letter-spacing:0.06em;text-transform:uppercase}
+.tab-btn:hover{color:var(--text-muted)}
+.tab-btn.active{color:var(--gold);border-bottom-color:var(--gold)}
+.tab-panel{display:none}.tab-panel.active{display:block}
+
+/* TIMELINE */
+.timeline{position:relative;padding-left:1.5rem}
+.timeline::before{content:'';position:absolute;left:0;top:6px;bottom:6px;width:1px;background:var(--border-med)}
+.timeline-item{position:relative;padding:0 0 1.4rem 1.5rem}
+.timeline-item::before{content:'';position:absolute;left:-4px;top:6px;width:8px;height:8px;border-radius:50%;background:var(--bg3);border:1px solid var(--border-med)}
+.timeline-item.key::before{background:var(--gold);border-color:var(--gold)}
+.timeline-date{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.09em;text-transform:uppercase;color:var(--gold);margin-bottom:2px}
+.timeline-event{font-size:14px;color:var(--text);font-weight:500}
+.timeline-note{font-size:12px;color:var(--text-muted);margin-top:4px;line-height:1.55}
+
+/* CALLOUT GRID */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+@media(max-width:760px){.grid2{grid-template-columns:1fr}}
+.panel{border:1px solid var(--border);border-radius:3px;background:var(--bg2);padding:1.25rem 1.4rem}
+.panel h4{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem}
+.panel ul{list-style:none}
+.panel li{font-size:13.5px;color:var(--text-muted);padding:0.35rem 0;border-bottom:1px solid var(--border);line-height:1.55}
+.panel li:last-child{border-bottom:none}
+.panel li b{color:var(--text);font-weight:600}
+
+/* FOOTER */
+.closing{max-width:1040px;margin:0 auto;padding:1rem 2rem 1.5rem}
+.closing p{font-family:var(--font-display);font-size:1.3rem;font-style:italic;color:var(--text-muted);max-width:760px;line-height:1.55}
+.closing p span{color:var(--gold);font-style:italic}
+footer{max-width:1040px;margin:0 auto;padding:1.5rem 2rem 3rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem}
+footer div{font-family:var(--font-mono);font-size:11px;color:var(--text-dim)}
+footer span{color:var(--gold)}
+
+@media(max-width:600px){
+  .bar-label{min-width:120px;font-size:11px}
+  h2{font-size:1.3rem}
+  section{padding:2.25rem 1.25rem}
+  .hero{padding:2.5rem 1.25rem 0.5rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">Llama &amp; Griffin Consultants</a>
+  <a href="index.html" class="nav-link">Case Study</a>
+  <a href="#scale" class="nav-link active">Scale</a>
+  <a href="#topdemos" class="nav-link">Top Demos</a>
+  <a href="#genres" class="nav-link">Genres</a>
+  <a href="#followers" class="nav-link">Followers</a>
+  <a href="#ai" class="nav-link">AI Disclosure</a>
+  <a href="#history" class="nav-link">History</a>
+  <a href="#timeline" class="nav-link">Timeline</a>
+  <a href="#playbook" class="nav-link">Playbook</a>
+  <a href="#method" class="nav-link">Method</a>
+</nav>
+
+<div class="live-strip">
+  <span><span class="live-dot"></span>LIVE · DAY 6 OF 7</span>
+  <span class="sep">|</span>
+  <span><b>7,323</b> games in lineup</span>
+  <span class="sep">|</span>
+  <span><b>5,146</b> demos with players (24h)</span>
+  <span class="sep">|</span>
+  <span><b>126,161</b> playing demos now</span>
+  <span class="sep">|</span>
+  <span>Peak <b>194,256</b> concurrent</span>
+  <span class="sep">|</span>
+  <span>Closes Mon 26 Oct, 17:00 UTC</span>
+</div>
+
+<div class="hero">
+  <div class="hero-eyebrow">Steam Next Fest Performance Dashboard</div>
+  <h1>Steam Next Fest October 2026<span class="kicker">The Biggest, Crowdedest Edition Yet.</span></h1>
+
+  <div class="hero-sub">
+    <p>October 2026's Steam Next Fest is the largest in Steam's history: <strong>7,323 games</strong> in the lineup, more than <strong>7,200</strong> tracked by analysts, and a <strong>65% jump</strong> on June 2026's 4,382 eligible entries. The festival runs 19–26 October and is now in its final weekend.</p>
+    <p>This dashboard consolidates everything known so far — Valve's official most-played list, live player telemetry, pre-festival follower analysis, AI-disclosure tiers, and genre conversion — into one place. The single dominant signal: <strong>who you are is decided before the fest begins.</strong></p>
+  </div>
+
+  <div class="hero-meta">
+    <div class="hero-meta-item">WINDOW <span>19–26 OCTOBER 2026</span></div>
+    <div class="hero-meta-item">STATUS <span>DAY 6 · CLOSES MON 17:00 UTC</span></div>
+    <div class="hero-meta-item">BASIS <span>VALVE · HTMAG · GDCO · PLAYSECON · OUTPUT LAG</span></div>
+    <div class="hero-meta-item">UPDATED <span>25 OCT 2026</span></div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-cell">
+      <div class="stat-val gold">7,323</div>
+      <div class="stat-lbl">Games in Lineup</div>
+      <div class="stat-sub">Record · 6,660 have demos</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-val teal">+65%</div>
+      <div class="stat-lbl">Participation vs June 2026</div>
+      <div class="stat-sub">From 4,382 eligible</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-val purple">~51.7%</div>
+      <div class="stat-lbl">Of 2026 Steam Releases Entering</div>
+      <div class="stat-sub">Up from 38.2% in 2025</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-val coral">7.6%</div>
+      <div class="stat-lbl">Demos Reaching 10+ Concurrent</div>
+      <div class="stat-sub">92.4% never reach double digits</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-val blue">419–20,505</div>
+      <div class="stat-lbl">Top-25 Peak CCU Range</div>
+      <div class="stat-sub">Median entrants: ~0 players</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-val gold">35%</div>
+      <div class="stat-lbl">Disclosed Generative AI</div>
+      <div class="stat-sub">~2,502 games (self-reported)</div>
+    </div>
+  </div>
+
+  <div class="insight">
+    <strong>The one-line read:</strong> Scale has become the story. Every eligible demo gets a guaranteed slice of randomised front-page exposure, but with 7,323 games sharing it that slice is thinner than at any prior edition. The demos that win arrive with thousands of followers already banked — the festival amplifies existing momentum rather than manufacturing new breakouts.
+  </div>
+</div>
+
+<!-- ================= SCALE ================= -->
+<section id="scale">
+  <div class="section-head">
+    <div>
+      <div class="section-label">Section 01</div>
+      <h2>Scale &amp; Participation</h2>
+    </div>
+  </div>
+  <span class="h2-kicker">A record that changes the math for everyone.</span>
+  <p class="section-intro">Participation has grown every edition and accelerated in 2026. Chris Zukowski (How To Market A Game) scraped the live festival pages on 21 October and counted <strong>7,240 games</strong> taking part — the highest on record. Live trackers put the final lineup at <strong>7,323</strong>, with a press preview having pushed toward 8,000 before some titles withdrew.</p>
+
+  <div class="card-row">
+    <div class="card gold"><div class="clabel">Oct 2026 lineup</div><div class="cval">7,323</div><div class="csub">Games in the festival lineup; 6,660 ship a playable demo</div></div>
+    <div class="card teal"><div class="clabel">June 2026 eligible</div><div class="cval">4,382</div><div class="csub">GameDiscoverCo-tracked eligible entries</div></div>
+    <div class="card purple"><div class="clabel">June 2023</div><div class="cval">887</div><div class="csub">The baseline ~8× smaller than today</div></div>
+    <div class="card coral"><div class="clabel">YoY growth</div><div class="cval">+65.2%</div><div class="csub">Oct 2026 over the previous edition</div></div>
+  </div>
+
+  <h3>Participation trajectory — Next Fest editions</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Edition</th><th class="num">Games / Entries</th><th>Notes</th><th class="num">Growth</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><span class="tag tag-dim">Jun 2023</span></td><td class="num">887</td><td>Early-era baseline</td><td class="num">—</td></tr>
+        <tr><td><span class="tag tag-dim">2023–2025 avg</span></td><td class="num">~900 → ~4,900</td><td>Steady climb as festival awareness spread</td><td class="num">~5.4×</td></tr>
+        <tr><td><span class="tag tag-blue">Feb 2026</span></td><td class="num">—</td><td>Survey median wishlists ~806; heavy co-op premium</td><td class="num">—</td></tr>
+        <tr><td><span class="tag tag-blue">Jun 2026</span></td><td class="num">8,682 total / 4,382 eligible</td><td>Largest prior edition; GDCO-tracked figure 4,382</td><td class="num">—</td></tr>
+        <tr><td><span class="tag tag-gold">Oct 2026</span></td><td class="num">7,323</td><td><strong>Record participation; 5,146 demos active in last 24h</strong></td><td class="num">+65.2%</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">Zukowski's count (7,240) and live-tracker counts (7,317–7,323) differ slightly due to scrape timing and 18+ hidden entries.</p>
+
+  <div class="insight purple">
+    <strong>Why it grew:</strong> More developers now know the festival exists and more enter every year. Using a projected ~29,300 Steam releases for 2026, about <strong>51.7%</strong> of the year's releases are entering a Next Fest — up from 38.2% in 2025 and 33.6% in 2024. That projection rests on an estimate, so treat it as a direction rather than a fact. If releases hit 40,000 as some project, the ratio shifts again.
+  </div>
+
+  <h3>Live festival telemetry (25 Oct, ~05:00–09:20 UTC)</h3>
+  <div class="stat-grid">
+    <div class="stat-cell"><div class="stat-val teal">126,161</div><div class="stat-lbl">Playing Demos Now</div><div class="stat-sub">Output Lag hourly check</div></div>
+    <div class="stat-cell"><div class="stat-val gold">194,256</div><div class="stat-lbl">Peak Hourly Concurrent</div><div class="stat-sub">Reached 24 Oct, 14:00–15:00 UTC</div></div>
+    <div class="stat-cell"><div class="stat-val purple">5,146</div><div class="stat-lbl">Demos With Players (24h)</div><div class="stat-sub">Of 6,660 demos / 7,323 lineup</div></div>
+    <div class="stat-cell"><div class="stat-val coral">~35</div><div class="stat-lbl">Peak Players = Top 10% Threshold</div><div class="stat-sub">Most entrants peak under 10</div></div>
+  </div>
+</section>
+
+<!-- ================= TOP DEMOS ================= -->
+<section id="topdemos">
+  <div class="section-head">
+    <div>
+      <div class="section-label">Section 02</div>
+      <h2>The Most-Played Demos</h2>
+    </div>
+  </div>
+  <span class="h2-kicker">Friendslop, shopkeepers, and idle games.</span>
+  <p class="section-intro">Valve released the official 20 most-played demos to Polygon, and live trackers rank the full field by peak concurrent players over the last 24 hours. Multiplayer is the overwhelming signal: at least <strong>14 of 20</strong> let you play with friends — party games, co-op horror, physical-comedy chaos, and cozy shared life sims. A separate "desk-companion / idle" vein also cracked the top 10.</p>
+
+  <div class="card-row">
+    <div class="card gold"><div class="clabel">#1 by players</div><div class="cval">Probably Stolen</div><div class="csub">~39,811 fest peak · ~683K wishlists · launches 28 Oct</div></div>
+    <div class="card teal"><div class="clabel">Biggest single-title hit</div><div class="cval">Worst Class Ever</div><div class="csub">300K+ demo players; 27,832 peak; entered Top 3,000 wishlists</div></div>
+    <div class="card purple"><div class="clabel">Quietest giant</div><div class="cval">Character House</div><div class="csub">#3 by players; ~163K wishlists from a desktop companion</div></div>
+    <div class="card coral"><div class="clabel">Co-op share of top 20</div><div class="cval">14 / 20</div><div class="csub">Friendslop remains the dominant discovery engine</div></div>
+  </div>
+
+  <h3>Official most-played Top 20 (Valve list, via Polygon) — with live cross-reference</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>#</th><th>Game</th><th>What it is</th><th class="num">Fest peak</th><th>Tags</th><th>Release</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><span class="rank-badge top3">1</span></td><td><strong>Probably Stolen – Cyberpunk Shopkeeper Sim</strong></td><td>Smuggle questionable goods, juggle factions, pay the rent</td><td class="num">39,811</td><td><span class="tag tag-gold">Shop sim</span></td><td>28 Oct 2026</td></tr>
+        <tr><td><span class="rank-badge top3">3</span></td><td><strong>Worst Class Ever</strong></td><td>1v5 asymmetric: one teacher hunts five hidden troublemakers</td><td class="num">27,832</td><td><span class="tag tag-blue">Co-op</span><span class="tag tag-dim">Party</span></td><td>Q4 2026</td></tr>
+        <tr><td><span class="rank-badge top3">4</span></td><td><strong>Find The Needle</strong></td><td>Incremental: dig a six-million-strand haystack by hand</td><td class="num">9,625</td><td><span class="tag tag-teal">Idle</span></td><td>Q4 2026</td></tr>
+        <tr><td><span class="rank-badge top10">6</span></td><td><strong>Fart Together</strong></td><td>2–4 player physics raft steered by flatulence</td><td class="num">4,463</td><td><span class="tag tag-blue">Co-op</span><span class="tag tag-dim">Physics</span></td><td>29 Oct 2026</td></tr>
+        <tr><td><span class="rank-badge top10">7</span></td><td><strong>Abyssal Lapidary</strong></td><td>Gothic Victorian gem-appraisal management sim</td><td class="num">4,805</td><td><span class="tag tag-coral">AI</span><span class="tag tag-dim">Sim</span></td><td>Coming soon</td></tr>
+        <tr><td><span class="rank-badge top10">9</span></td><td><strong>Loftia</strong></td><td>Cozy multiplayer life sim; sustainable future with friends</td><td class="num">7,557</td><td><span class="tag tag-teal">Cozy</span><span class="tag tag-blue">MMO</span></td><td>3 Nov 2026</td></tr>
+        <tr><td><span class="rank-badge top10">11</span></td><td><strong>Meltdown Crew</strong></td><td>Co-op reactor-chaos party/puzzle</td><td class="num">2,434</td><td><span class="tag tag-blue">Co-op</span><span class="tag tag-dim">Party</span></td><td>Dec 2026</td></tr>
+        <tr><td><span class="rank-badge top10">12</span></td><td><strong>ArcheAge Chronicles</strong></td><td>Action RPG in the ArcheAge universe (XLGAMES)</td><td class="num">20,507</td><td><span class="tag tag-purple">MMORPG</span></td><td>TBA</td></tr>
+        <tr><td><span class="rank-badge">13</span></td><td><strong>Among Shadows</strong></td><td>Third-person PvP party tactics</td><td class="num">3,063</td><td><span class="tag tag-dim">PvP</span></td><td>Q4 2026</td></tr>
+        <tr><td><span class="rank-badge">14</span></td><td><strong>Deadzone Rogue 2</strong></td><td>Roguelite FPS on a fallen Earth</td><td class="num">1,794</td><td><span class="tag tag-coral">Roguelike</span><span class="tag tag-blue">Co-op</span></td><td>Coming soon</td></tr>
+        <tr><td><span class="rank-badge">15</span></td><td><strong>No Body No Problem!</strong></td><td>Hide the body before the cop (who is a player) arrives</td><td class="num">1,761</td><td><span class="tag tag-blue">Co-op</span><span class="tag tag-dim">Party</span></td><td>Coming soon</td></tr>
+        <tr><td><span class="rank-badge">16</span></td><td><strong>Mortuus</strong></td><td>Round-based co-op zombie FPS, mystery box, brutalist maps</td><td class="num">1,578</td><td><span class="tag tag-blue">Co-op</span><span class="tag tag-dim">Zombies</span></td><td>Coming soon</td></tr>
+        <tr><td><span class="rank-badge">17</span></td><td><strong>Haunted Paws</strong></td><td>Two puppies rescue their owner from a haunted mansion</td><td class="num">1,548</td><td><span class="tag tag-teal">Cozy</span><span class="tag tag-blue">Co-op</span></td><td>TBA</td></tr>
+        <tr><td><span class="rank-badge">18</span></td><td><strong>HANDS OVER</strong></td><td>5-player bluff/sabotage test of nerve</td><td class="num">1,509</td><td><span class="tag tag-blue">Co-op</span><span class="tag tag-coral">Horror</span></td><td>30 Oct 2026</td></tr>
+        <tr><td><span class="rank-badge">19</span></td><td><strong>Dungeonbound</strong></td><td>Async multiplayer auto-battler</td><td class="num">1,439</td><td><span class="tag tag-purple">Auto battler</span></td><td>16 Nov 2026</td></tr>
+        <tr><td><span class="rank-badge">20</span></td><td><strong>Dumpster Gang</strong></td><td>Raccoon heist sandbox dodging an Exterminator</td><td class="num">1,459</td><td><span class="tag tag-blue">Co-op</span><span class="tag tag-dim">Sandbox</span></td><td>3 Dec 2026</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">Valve's official list also included Character House, just volleyball, Frostrail, Wyldheart, Grr Grr Gnomes, Emberville, and Never Be Alone (full 20 list); the table above cross-references live peak figures where available. Peak = most concurrent players in a 24h window, PlayRecon, 25 Oct 09:20 UTC.</p>
+
+  <div class="insight teal">
+    <strong>The shape of a winner:</strong> The top of the chart rewards <em>a mechanical hook legible in a 10-second trailer</em> — a teacher hunting students, a fart-powered raft, a haystack that's actually a clicker. Co-op isn't optional decoration; it's the primary discovery multiplier. And several top-10 titles (Character House, Find The Needle, Melvor Idle 2) are idle/desktop games that quietly outrank big-name strategy and RPG demos.
+  </div>
+</section>
+
+<!-- ================= GENRES ================= -->
+<section id="genres">
+  <div class="section-head">
+    <div>
+      <div class="section-label">Section 03</div>
+      <h2>Genres — Who Overperforms</h2>
+    </div>
+  </div>
+  <span class="h2-kicker">Co-op beats its weight; platformers don't.</span>
+  <p class="section-intro">Genre conversion separates the festival. Two lenses agree: a "weight" score (each genre's share of the Top 100 versus its share of all active demos — above ×1 means it over-indexes) and the share of demos that reach 10+ concurrent players.</p>
+
+  <h3>Genre weight — Top 100 share vs. festival share</h3>
+  <div class="bar-row"><div class="bar-label"><b>Massively Multiplayer</b></div><div class="bar-bg"><div class="bar-fill" style="width:100%;background:var(--gold)"></div></div><div class="bar-val">×6.7</div></div>
+  <div class="bar-row"><div class="bar-label"><b>Open World Survival Craft</b></div><div class="bar-bg"><div class="bar-fill" style="width:96%;background:var(--gold)"></div></div><div class="bar-val">×6.4</div></div>
+  <div class="bar-row"><div class="bar-label"><b>Co-op Campaign</b></div><div class="bar-bg"><div class="bar-fill" style="width:91%;background:var(--teal)"></div></div><div class="bar-val">×6.1</div></div>
+  <div class="bar-row"><div class="bar-label"><b>Party Game</b></div><div class="bar-bg"><div class="bar-fill" style="width:60%;background:var(--teal)"></div></div><div class="bar-val">×4.0</div></div>
+  <div class="bar-row"><div class="bar-label"><b>Online Co-Op</b></div><div class="bar-bg"><div class="bar-fill" style="width:54%;background:var(--teal)"></div></div><div class="bar-val">×3.6</div></div>
+  <div class="bar-row"><div class="bar-label"><b>Automobile Sim</b></div><div class="bar-bg"><div class="bar-fill" style="width:51%;background:var(--blue)"></div></div><div class="bar-val">×3.4</div></div>
+  <div class="bar-row"><div class="bar-label"><b>Action RPG</b></div><div class="bar-bg"><div class="bar-fill" style="width:43%;background:var(--blue)"></div></div><div class="bar-val">×2.9</div></div>
+  <div class="bar-row"><div class="bar-label"><b>Desktop Companion</b></div><div class="bar-bg"><div class="bar-fill" style="width:39%;background:var(--purple)"></div></div><div class="bar-val">×2.6</div></div>
+  <div class="bar-row"><div class="bar-label"><b>Team-Based</b></div><div class="bar-bg"><div class="bar-fill" style="width:37%;background:var(--purple)"></div></div><div class="bar-val">×2.5</div></div>
+  <div class="bar-row"><div class="bar-label"><b>Farming Sim</b></div><div class="bar-bg"><div class="bar-fill" style="width:30%;background:var(--purple)"></div></div><div class="bar-val">×2.0</div></div>
+  <p class="note">Source: PlayRecon genre weights, 25 Oct. "In Top 100" counts versus each genre's share of 5,146 demos with players.</p>
+
+  <h3>Conversion — share of demos reaching 10+ concurrent players (Zukowski)</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Genre / tag</th><th class="num">% reaching 10+ CCU</th><th>Read</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Action RPG</strong></td><td class="num">17–20%</td><td><span class="tag tag-gold">Best converter</span> strongest genre by hit-rate</td></tr>
+        <tr><td><strong>Crafting</strong></td><td class="num">16%</td><td><span class="tag tag-teal">Strong</span> building/survival loop translates</td></tr>
+        <tr><td><strong>Open World</strong></td><td class="num">14%</td><td><span class="tag tag-teal">Strong</span></td></tr>
+        <tr><td><strong>JRPG</strong></td><td class="num">13%</td><td><span class="tag tag-teal">Strong</span> anime/RPG cluster holds</td></tr>
+        <tr><td><strong>RTS</strong></td><td class="num">12%</td><td><span class="tag tag-teal">Strong</span> strategy overperforms expectations</td></tr>
+        <tr><td><strong>Walking sim</strong></td><td class="num">2.6%</td><td><span class="tag tag-coral">Weak</span></td></tr>
+        <tr><td><strong>2D platformer</strong></td><td class="num">1.9%</td><td><span class="tag tag-coral">Weak</span> needs pre-built audience</td></tr>
+        <tr><td><strong>Precision platformer</strong></td><td class="num">1.5%</td><td><span class="tag tag-coral">Weakest</span> crowd won't find it for you</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Median concurrent players by genre (festival-wide)</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Genre</th><th class="num">Demos</th><th class="num">Median players</th><th>Leader</th></tr></thead>
+      <tbody>
+        <tr><td>Massively Multiplayer</td><td class="num">54</td><td class="num">9</td><td>Loftia</td></tr>
+        <tr><td>Open World Survival Craft</td><td class="num">32</td><td class="num">12</td><td>Frostrail</td></tr>
+        <tr><td>Co-op Campaign</td><td class="num">42</td><td class="num">6</td><td>Haunted Paws</td></tr>
+        <tr><td>Online Co-Op</td><td class="num">513</td><td class="num">6</td><td>Worst Class Ever</td></tr>
+        <tr><td>Party Game</td><td class="num">268</td><td class="num">4</td><td>Worst Class Ever</td></tr>
+        <tr><td>Action RPG</td><td class="num">282</td><td class="num">3</td><td>ArcheAge Chronicles</td></tr>
+        <tr><td>Desktop Companion</td><td class="num">120</td><td class="num">4</td><td>Character House</td></tr>
+        <tr><td>Farming Sim</td><td class="num">127</td><td class="num">3</td><td>Find The Needle</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="insight coral">
+    <strong>Platformer reality check:</strong> A platformer can still succeed at Next Fest — but because only 1.5–1.9% of the category reaches even 10 concurrent players, it <em>must</em> arrive with a stronger-than-average follower base. The festival crowd will not discover it for you. That's the earliest actionable takeaway for the next edition.
+  </div>
+</section>
+
+<!-- ================= FOLLOWERS ================= -->
+<section id="followers">
+  <div class="section-head">
+    <div>
+      <div class="section-label">Section 04</div>
+      <h2>Followers — The Pre-Fest Decider</h2>
+    </div>
+  </div>
+  <span class="h2-kicker">You are who you were before the fest.</span>
+  <p class="section-intro">Zukowski grouped every game by peak concurrent demo players, then looked at Steam followers the day before the festival as a public proxy for wishlists. The result is stark: the winning demos arrived with an audience already banked, and last-minute growth barely moved the needle.</p>
+
+  <h3>Median followers the day before the festival — by tier</h3>
+  <div class="bar-row"><div class="bar-label"><b>Top 25</b> (419–20,505 CCU)</div><div class="bar-bg"><div class="bar-fill" style="width:100%;background:var(--gold)"></div></div><div class="bar-val">5,519</div></div>
+  <div class="bar-row"><div class="bar-label"><b>Ranks 26–50</b></div><div class="bar-bg"><div class="bar-fill" style="width:69%;background:var(--teal)"></div></div><div class="bar-val">3,834</div></div>
+  <div class="bar-row"><div class="bar-label"><b>Ranks 51–100</b></div><div class="bar-bg"><div class="bar-fill" style="width:29%;background:var(--purple)"></div></div><div class="bar-val">1,605</div></div>
+  <div class="bar-row"><div class="bar-label"><b>Everyone else</b> (6,942 games)</div><div class="bar-bg"><div class="bar-fill" style="width:1%;background:var(--coral)"></div></div><div class="bar-val">15</div></div>
+
+  <div class="card-row">
+    <div class="card teal"><div class="clabel">Followers before fest</div><div class="cval">ρ = 0.55</div><div class="csub">Correlation with peak demo CCU — the strongest single predictor</div></div>
+    <div class="card purple"><div class="clabel">Raw followers gained (final week)</div><div class="cval">ρ = 0.52</div><div class="csub">Close second — total catch matters too</div></div>
+    <div class="card coral"><div class="clabel">Percentage growth (final week)</div><div class="cval">ρ = −0.13</div><div class="csub">Slightly negative — last-minute % spikes do not help</div></div>
+    <div class="card gold"><div class="clabel">Demo live before fest</div><div class="cval">19 vs 37 days</div><div class="csub">Top 25 ran shorter demos; the rest ran longer, building nothing</div></div>
+  </div>
+
+  <div class="insight">
+    <strong>The percentage trap:</strong> The bottom group showed the highest percentage growth of any tier (~12.5%) — but from a median of just 15 followers, that's one extra person. A spike in the final week looks good on a chart and does almost nothing for your peak. <em>Track raw gains, not percentages.</em>
+  </div>
+
+  <h3>What this means in practice</h3>
+  <div class="grid2">
+    <div class="panel">
+      <h4>Do</h4>
+      <ul>
+        <li><b>Build the base for months.</b> Wishlist campaigns, festival slots and press in the months before a February demo beat a burst in late January.</li>
+        <li><b>Count absolute followers.</b> If you gained 40 last week, write down 40 — not "50%."</li>
+        <li><b>Check your genre's conversion table</b> and budget pre-fest marketing accordingly.</li>
+        <li><b>Disclose AI honestly.</b> Top-ranked games that disclosed still performed.</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h4>Avoid</h4>
+      <ul>
+        <li><b>Relying on the fest to create discovery.</b> With 7,323 games it amplifies, it doesn't launch.</li>
+        <li><b>Leaving a demo up for weeks without followers.</b> If it hasn't built an audience by fest time, it likely won't during it.</li>
+        <li><b>Reading percentage growth as momentum.</b> From a tiny base it's noise.</li>
+        <li><b>Assuming scale here equals sales later.</b> These are peak demo players, not wishlists.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= AI DISCLOSURE ================= -->
+<section id="ai">
+  <div class="section-head">
+    <div>
+      <div class="section-label">Section 05</div>
+      <h2>AI Disclosure — Concentrated at the Bottom</h2>
+    </div>
+  </div>
+  <span class="h2-kicker">Disclosure doesn't doom a game — but it clusters where attention is thinnest.</span>
+  <p class="section-intro">Steam asks developers to declare generative AI use on the store page. Zukowski counted <strong>2,502 games (~35%)</strong> with a disclosure in October 2026. These are self-reported, so the true figure could be higher or lower — but the split by performance tier is unambiguous.</p>
+
+  <h3>Disclosed generative AI — share by performance tier</h3>
+  <div class="bar-row"><div class="bar-label"><b>Everyone else</b> (6,942 games)</div><div class="bar-bg"><div class="bar-fill" style="width:100%;background:var(--coral)"></div></div><div class="bar-val">35%</div></div>
+  <div class="bar-row"><div class="bar-label"><b>Ranks 51–100</b></div><div class="bar-bg"><div class="bar-fill" style="width:74%;background:var(--coral)"></div></div><div class="bar-val">26%</div></div>
+  <div class="bar-row"><div class="bar-label"><b>Ranks 26–50</b></div><div class="bar-bg"><div class="bar-fill" style="width:34%;background:var(--purple)"></div></div><div class="bar-val">12%</div></div>
+  <div class="bar-row"><div class="bar-label"><b>Top 25</b></div><div class="bar-bg"><div class="bar-fill" style="width:23%;background:var(--teal)"></div></div><div class="bar-val">8%</div></div>
+
+  <div class="card-row">
+    <div class="card coral"><div class="clabel">Games disclosing AI</div><div class="cval">~2,502</div><div class="csub">≈35% of the festival · self-reported</div></div>
+    <div class="card gold"><div class="clabel">Most common disclosure</div><div class="cval">Art / visuals</div><div class="csub">Listed by ~3 in 4 of disclosing games</div></div>
+    <div class="card purple"><div class="clabel">Text / localisation</div><div class="cval">~38%</div><div class="csub">Audio / voice also ~38%</div></div>
+    <div class="card blue"><div class="clabel">Code tools</div><div class="cval">23%</div><div class="csub">Voluntary — Steam doesn't require it</div></div>
+  </div>
+
+  <h3>Disclosure rate by genre</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Genre</th><th class="num">Disclosure rate</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr><td>Strategy RPG</td><td class="num">50–55%</td><td><span class="tag tag-coral">Highest</span> top AI-disclosed strategy often from Chinese studios</td></tr>
+        <tr><td>Strategy / tactics</td><td class="num">Elevated</td><td>Consistently above festival average</td></tr>
+        <tr><td>Platformer (precision)</td><td class="num">15%</td><td><span class="tag tag-teal">Lowest</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="insight blue">
+    <strong>Correlation is not causation:</strong> There's no evidence that disclosing AI causes poor results — plenty of low-ranked games disclosed nothing, and AI-disclosed titles did reach the top 25. What the data shows is that the crowded bottom of the festival is <em>where most disclosed AI work sits</em>. If your game uses AI art, it's competing for attention inside that crowd, so positioning and a pre-built audience matter more, not less.
+  </div>
+
+  <h3>Live AI-tagged demos in the player-ranked Top 100 (PlayRecon)</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th class="num">Rank</th><th>Game</th><th class="num">Fest peak</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr><td class="num">7</td><td><strong>Abyssal Lapidary</strong></td><td class="num">4,805</td><td>AI-disclosed, still a top-10 demo</td></tr>
+        <tr><td class="num">33</td><td>BreathBound</td><td class="num">749</td><td>AI-tagged horror</td></tr>
+        <tr><td class="num">34</td><td>Path of the Yaoguai</td><td class="num">756</td><td>AI-tagged xianxia deckbuilder</td></tr>
+        <tr><td class="num">35</td><td>Crazy Life</td><td class="num">711</td><td>AI-tagged board/party</td></tr>
+        <tr><td class="num">36</td><td>Hellforged</td><td class="num">710</td><td>AI-tagged action roguelike</td></tr>
+        <tr><td class="num">41</td><td>Origins Trading Card Game</td><td class="num">610</td><td>AI-tagged card battler</td></tr>
+        <tr><td class="num">48</td><td>Never Wither</td><td class="num">755</td><td>AI-tagged creature collector</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">The share of AI-tagged games in the live Top 100 (~7%) is far below their ~35% festival share — the same bottom-concentration pattern seen in Zukowski's static analysis.</p>
+</section>
+
+<!-- ================= HISTORY ================= -->
+<section id="history">
+  <div class="section-head">
+    <div>
+      <div class="section-label">Section 06</div>
+      <h2>Historical Comparison</h2>
+    </div>
+  </div>
+  <span class="h2-kicker">The pattern holds across editions.</span>
+  <p class="section-intro">Next Fest has grown monotonically while per-game attention has thinned. Comparing October 2026 against the June 2026 and earlier editions makes the compression visible: more entrants, a flatter median, and a top tier that recovers each time.</p>
+
+  <h3>Edition at a glance</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Metric</th><th>Feb 2026</th><th>Jun 2026</th><th>Oct 2026</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Entries / demos</strong></td><td>—</td><td>4,382 eligible (8,682 total)</td><td><strong>7,323 lineup</strong></td></tr>
+        <tr><td><strong>Survey median wishlists</strong></td><td>806</td><td>~400–750 est.</td><td>Final survey pending</td></tr>
+        <tr><td><strong>Top-25 pre-fest followers</strong></td><td>—</td><td>—</td><td><strong>5,519 median</strong></td></tr>
+        <tr><td><strong>Disclosed AI share</strong></td><td>—</td><td>~26.5% (GDCO 4,382)</td><td><strong>~35%</strong></td></tr>
+        <tr><td><strong>#1 most-played demo</strong></td><td>—</td><td>—</td><td>Probably Stolen (~39.8K peak)</td></tr>
+        <tr><td><strong>Impressions per game</strong></td><td colspan="3">Falling steadily as entrant counts rise — roughly ~20× decline from the early era</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Share of annual Steam releases entering a Next Fest</h3>
+  <div class="bar-row"><div class="bar-label"><b>2024</b></div><div class="bar-bg"><div class="bar-fill" style="width:65%;background:var(--blue)"></div></div><div class="bar-val">33.6%</div></div>
+  <div class="bar-row"><div class="bar-label"><b>2025</b></div><div class="bar-bg"><div class="bar-fill" style="width:74%;background:var(--purple)"></div></div><div class="bar-val">38.2%</div></div>
+  <div class="bar-row"><div class="bar-label"><b>2026 (projected)</b></div><div class="bar-bg"><div class="bar-fill" style="width:100%;background:var(--gold)"></div></div><div class="bar-val">~51.7%</div></div>
+  <p class="note">2026 figure rests on a projected ~29,300 Steam releases; treat as directional.</p>
+
+  <div class="insight">
+    <strong>The algorithm context:</strong> Valve's "Days 1–2 randomised, Days 3+ engagement-ranked" system means early exposure is spread evenly, then rewarded by engagement. That structure still gives every entrant a floor — but with 7,323 games the floor is lower than ever, and the ceiling belongs to those who arrive with followers. The median and lower percentiles have stayed relatively flat across editions, meaning the algorithm has benefited top performers more than the average developer.
+  </div>
+</section>
+
+<!-- ================= TIMELINE ================= -->
+<section id="timeline">
+  <div class="section-head">
+    <div>
+      <div class="section-label">Section 07</div>
+      <h2>Edition Timeline</h2>
+    </div>
+  </div>
+  <span class="h2-kicker">How the week unfolded.</span>
+  <div class="timeline">
+    <div class="timeline-item key">
+      <div class="timeline-date">Mon 19 Oct · Day 1</div>
+      <div class="timeline-event">Next Fest opens · 7,000+ demos live</div>
+      <div class="timeline-note">Randomised front-page shelves begin. Coverage from DualShockers, Mobalytics, and event guides publishes "coolest demo" roundups.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">Tue 20 Oct</div>
+      <div class="timeline-event">Early genre signal forms</div>
+      <div class="timeline-note">howtovideogame and others rank demos from Steam's own charts; co-op chaos, cozy worlds, survival horror and castle sieges lead.</div>
+    </div>
+    <div class="timeline-item key">
+      <div class="timeline-date">Wed 21 Oct</div>
+      <div class="timeline-event">Zukowski's early analysis published</div>
+      <div class="timeline-note">Scrape counts 7,240 games (+65.2%). Follower tiers and AI-disclosure split published — the reference dataset for this dashboard.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">Thu 22 Oct</div>
+      <div class="timeline-event">Day 3 — shelves personalise</div>
+      <div class="timeline-note">Steam switches from randomised to engagement-ranked placement. Climbers start separating from the pack.</div>
+    </div>
+    <div class="timeline-item key">
+      <div class="timeline-date">Fri 23 Oct</div>
+      <div class="timeline-event">"20 most-played demos so far" surfaces</div>
+      <div class="timeline-note">Indie Tooling, TheBigBois and press report the leaderboard. Follower-correlation analysis enters the conversation.</div>
+    </div>
+    <div class="timeline-item key">
+      <div class="timeline-date">Sat 24 Oct</div>
+      <div class="timeline-event">Fest peak: 194,256 concurrent</div>
+      <div class="timeline-note">Valve confirms the 20 most-played list via Polygon. Worst Class Ever passes 300K demo players.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">Sun 25 Oct · Day 6</div>
+      <div class="timeline-event">Final weekend — 126,161 playing demos now</div>
+      <div class="timeline-note">5,146 of 7,323 demos had players in the last 24h. Biggest 24h climber: Ski Lines: Trail Map (+1,367 places).</div>
+    </div>
+    <div class="timeline-item key">
+      <div class="timeline-date">Mon 26 Oct · 17:00 UTC</div>
+      <div class="timeline-event">Next Fest closes</div>
+      <div class="timeline-note">Follow-up on total follower gains expected from HTMAG once the festival ends. Next edition expected February 2027.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PLAYBOOK ================= -->
+<section id="playbook">
+  <div class="section-head">
+    <div>
+      <div class="section-label">Section 08</div>
+      <h2>What to Do Before February</h2>
+    </div>
+  </div>
+  <span class="h2-kicker">The data points one direction: start earlier.</span>
+  <p class="section-intro">The next edition is expected in February. If you're planning to enter, October's data suggests a concrete sequence of actions — none of them last-minute.</p>
+
+  <div class="grid2">
+    <div class="panel">
+      <h4>Start now, not in January</h4>
+      <ul>
+        <li><b>Count followers every week.</b> The correlation favours a base built over months.</li>
+        <li><b>Schedule wishlist campaigns, festival slots and press for Nov–Dec.</b> That does more for a February demo than a burst of posts in late January.</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h4>Match your genre's math</h4>
+      <ul>
+        <li><b>If few demos in your genre reach 10 players</b> (platformers, walking sims), budget more pre-festival marketing — or delay to a later fest to build a bigger base.</li>
+        <li><b>If you're in co-op, party, survival-craft or desktop/idle,</b> lead with that hook in the first 10 seconds of the trailer.</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h4>Measure the right thing</h4>
+      <ul>
+        <li><b>Track raw follower gains, not percentages.</b> A 50% jump from 80 to 120 won't move your peak.</li>
+        <li><b>Have your demo live early</b> — the top 25 ran demos ~19 days before the fest; don't leave one up for weeks silently.</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h4>Use the tooling</h4>
+      <ul>
+        <li><b>Zukowski's free Next Fest tracker</b> lets you enter your traffic and wishlist numbers and compare them with the Feb and Jun 2026 editions — the quickest reality check against your follower count.</li>
+        <li><b>Watch for the post-fest follow-up</b> on total follower gains.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= METHOD ================= -->
+<section id="method">
+  <div class="section-head">
+    <div>
+      <div class="section-label">Section 09</div>
+      <h2>Method &amp; Caveats</h2>
+    </div>
+  </div>
+  <span class="h2-kicker">Know exactly what you're looking at.</span>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Source</th><th>What it provides</th><th>Basis</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Valve</strong></td><td>Official 20 most-played demos; festival mechanics</td><td>First-party; list shown to Polygon</td></tr>
+        <tr><td><strong>How To Market A Game (Zukowski)</strong></td><td>7,240-game scrape; follower tiers; AI disclosure; genre conversion</td><td>Live-page scrape, first 3 days, published 21 Oct</td></tr>
+        <tr><td><strong>GameDiscoverCo</strong></td><td>June 2026 eligible count (4,382); participation share</td><td>Analyst tracking + projections</td></tr>
+        <tr><td><strong>PlayRecon</strong></td><td>Full-field player ranking; wishlist ranks; genre weights; AI tags</td><td>Live hourly scrape, day 6, 09:20 UTC</td></tr>
+        <tr><td><strong>Output Lag</strong></td><td>Hourly "playing now" / peak; demo-with-players counts</td><td>Live hourly scrape, 05:00 UTC</td></tr>
+        <tr><td><strong>Press</strong></td><td>Handbook lists, context, release dates</td><td>Polygon, TheBigBois, DualShockers, Mobalytics, Indie Tooling</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Read these caveats before citing numbers</h3>
+  <p><strong>Peak demo players ≠ wishlists.</strong> Steam does not publish per-game wishlist data. Follower counts are a public stand-in; live "wishlists" columns on third-party trackers are estimates.</p>
+  <p><strong>Mid-festival snapshot.</strong> Counts are taken across days 3–6 and will change by the close. Zukowski's is a first-three-days scrape; live telemetry is 25 Oct.</p>
+  <p><strong>Self-reported AI disclosure.</strong> The ~35% figure counts only developers who chose to disclose; the true rate could be higher or lower.</p>
+  <p><strong>Lineup-number variance.</strong> 7,240 (scrape), 7,317–7,323 (live trackers), and 6,660 (demos only). Differences come from timing, 18+ hidden titles, and which entries ship demos.</p>
+  <p><strong>Projections are directional.</strong> The 51.7% participation share and any 2026 release-count figures rest on estimates.</p>
+  <p><strong>Correlation, not causation.</strong> Follower base predicts peak; it does not prove that followers alone <em>cause</em> it. Game quality, marketing and genre all interact.</p>
+</section>
+
+<div class="closing">
+  <p>Seven thousand games, one pattern. The festival got bigger; the way to win it did not. <span>Arrive with an audience — the fest only decides who gets seen.</span></p>
+</div>
+
+<footer>
+  <div>Llama &amp; Griffin Consultants — Case Studies</div>
+  <div>Steam Next Fest October 2026 · <span>Live Intelligence Dashboard</span> · Updated 25 Oct 2026</div>
+</footer>
+
+<script>
+(function(){
+  var navLinks = document.querySelectorAll('nav a.nav-link');
+  var sections = Array.prototype.map.call(navLinks, function(a){
+    var id = a.getAttribute('href').slice(1);
+    return document.getElementById(id);
+  });
+  function onScroll(){
+    var pos = window.scrollY + 140;
+    var current = 0;
+    sections.forEach(function(sec, i){ if(sec && sec.offsetTop <= pos) current = i; });
+    navLinks.forEach(function(a, i){ a.classList.toggle('active', i === current); });
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+})();
+</script>
+
+</body>
+</html>
