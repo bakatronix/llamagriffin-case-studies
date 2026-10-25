@@ -127,8 +127,39 @@ tbody td strong{color:var(--text);font-weight:600}
 .bar-fill{height:100%;border-radius:4px}
 .bar-val{font-family:var(--font-mono);font-size:12px;font-weight:500;color:var(--text);min-width:70px;text-align:right;flex-shrink:0}
 
+/* CHARTS — donut, stacked bars, sparklines */
+.chart-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:1.75rem}
+@media(max-width:760px){.chart-grid{grid-template-columns:1fr}}
+.chart-panel{border:1px solid var(--border);border-radius:4px;background:var(--bg2);padding:1.4rem 1.5rem}
+.chart-panel h4{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+.chart-panel .chart-note{font-size:11.5px;color:var(--text-dim);line-height:1.5;margin-top:0.9rem;border-top:1px solid var(--border);padding-top:0.7rem}
+
+/* Donut / pie */
+.donut-wrap{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap}
+.donut{width:150px;height:150px;border-radius:50%;flex-shrink:0;position:relative}
+.donut-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:var(--bg2);border-radius:50%;margin:34px}
+.donut-center .dv{font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--text);line-height:1}
+.donut-center .dl{font-family:var(--font-mono);font-size:8px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim);margin-top:4px}
+.donut-legend{display:flex;flex-direction:column;gap:6px;flex:1;min-width:180px}
+.leg-row{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--text-muted)}
+.leg-row b{color:var(--text);font-weight:600}
+.leg-swatch{width:11px;height:11px;border-radius:2px;flex-shrink:0}
+.leg-val{margin-left:auto;font-family:var(--font-mono);font-size:11.5px;color:var(--text);white-space:nowrap}
+
+/* Stacked horizontal bar */
+.sbar{display:flex;height:26px;border-radius:4px;overflow:hidden;border:1px solid var(--border);margin-bottom:4px}
+.sbar-seg{height:100%;display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:9px;font-weight:500;color:#fff;white-space:nowrap;overflow:hidden}
+.sbar-axis{display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:9px;color:var(--text-dim);margin-top:2px}
+
+/* Vertical bars (mini column chart) */
+.colchart{display:flex;align-items:flex-end;gap:8px;height:150px;padding:0 2px}
+.colchart .col{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:4px}
+.colchart .col .bar{width:100%;border-radius:3px 3px 0 0;min-width:6px}
+.colchart .col .v{font-family:var(--font-mono);font-size:9px;color:var(--text);font-weight:500}
+.colchart .col .l{font-family:var(--font-mono);font-size:8px;color:var(--text-dim);letter-spacing:0.04em;text-transform:uppercase}
+.colchart-gridline{position:relative}
+
 /* TABS */
-.tabs{display:flex;gap:2px;margin-bottom:1.25rem;border-bottom:1px solid var(--border);flex-wrap:wrap}
 .tab-btn{font-family:var(--font-mono);font-size:10px;font-weight:500;background:none;border:none;color:var(--text-dim);padding:0.55rem 0.9rem;cursor:pointer;border-bottom:2px solid transparent;transition:color 0.15s,border-color 0.15s;margin-bottom:-1px;letter-spacing:0.06em;text-transform:uppercase}
 .tab-btn:hover{color:var(--text-muted)}
 .tab-btn.active{color:var(--gold);border-bottom-color:var(--gold)}
@@ -296,6 +327,24 @@ footer span{color:var(--gold)}
   </div>
   <p class="note">June 2023–June 2026 from GameDiscoverCo; October 2026 from How To Market A Game.</p>
 
+  <div class="chart-panel">
+    <h4>Participation arc — eleven editions</h4>
+    <div class="colchart">
+      <div class="col"><div class="v">887</div><div class="bar" style="height:12.3%;background:var(--blue)"></div><div class="l">Jun 23</div></div>
+      <div class="col"><div class="v">972</div><div class="bar" style="height:13.4%;background:var(--blue)"></div><div class="l">Oct 23</div></div>
+      <div class="col"><div class="v">1.1k</div><div class="bar" style="height:15.5%;background:var(--blue)"></div><div class="l">Feb 24</div></div>
+      <div class="col"><div class="v">1.8k</div><div class="bar" style="height:24.9%;background:var(--purple)"></div><div class="l">Jun 24</div></div>
+      <div class="col"><div class="v">3.0k</div><div class="bar" style="height:41.5%;background:var(--purple)"></div><div class="l">Oct 24</div></div>
+      <div class="col"><div class="v">2.3k</div><div class="bar" style="height:32.3%;background:var(--coral)"></div><div class="l">Feb 25</div></div>
+      <div class="col"><div class="v">2.6k</div><div class="bar" style="height:36.5%;background:var(--purple)"></div><div class="l">Jun 25</div></div>
+      <div class="col"><div class="v">3.0k</div><div class="bar" style="height:40.9%;background:var(--purple)"></div><div class="l">Oct 25</div></div>
+      <div class="col"><div class="v">3.5k</div><div class="bar" style="height:48.8%;background:var(--teal)"></div><div class="l">Feb 26</div></div>
+      <div class="col"><div class="v">4.4k</div><div class="bar" style="height:60.5%;background:var(--teal)"></div><div class="l">Jun 26</div></div>
+      <div class="col"><div class="v">7.2k</div><div class="bar" style="height:100%;background:var(--gold)"></div><div class="l">Oct 26</div></div>
+    </div>
+    <div class="chart-note">Games participating per edition. Bar height scales to Oct 2026 (7,240 = 100%). The single coral bar is the Feb 2025 decline. Source: GameDiscoverCo (through Jun 2026) + How To Market A Game (Oct 2026).</div>
+  </div>
+
   <div class="insight purple">
     <strong>Why it grew:</strong> More developers now know the festival exists and more enter every year. Using a projected ~29,300 Steam releases for 2026, that year's Next Fest entries (15,158) equal <strong>~51.7%</strong> of releases — up from 38.2% in 2025 and 33.6% in 2024. It's a ratio of entries to releases (a game counts once per edition entered), and the 29,300 is projected, so treat it as direction rather than fact. Zukowski speculates the surge could reflect AI-assisted developers testing viability early.
   </div>
@@ -409,6 +458,17 @@ footer span{color:var(--gold)}
   </div>
   <p class="note">"Now ÷ peak" = playing-now as a share of peak-so-far, at one timestamp (25 Oct 7am GMT-0400, Output Lag). Climbing ≥ 65%, Holding 35–64%, Peaked &lt; 35%. It's a snapshot read, not a time series.</p>
 
+  <div class="chart-panel">
+    <h4>State of the visible field — 13 tracked leaders</h4>
+    <div class="sbar">
+      <div class="sbar-seg" style="width:38.5%;background:var(--teal)">5 climbing</div>
+      <div class="sbar-seg" style="width:23.1%;background:var(--gold)">3 holding</div>
+      <div class="sbar-seg" style="width:38.4%;background:var(--coral)">5 peaked</div>
+    </div>
+    <div class="sbar-axis"><span>idle / desktop long-session</span><span>press-spike decays</span></div>
+    <div class="chart-note">Count of the 13 top demos in the table above by momentum state. Idle/desktop titles dominate the "climbing" band; launch-day press darlings (Worst Class Ever, ArcheAge, Frostrail) dominate the "peaked" band.</div>
+  </div>
+
   <div class="insight purple">
     <strong>Read the flux like a trader, not a fan:</strong> by the final weekend the field has split into three groups. Idle/desktop games (<em>Melvor Idle 2</em>, <em>Find The Needle</em>, <em>Character House</em>) are still pressing new peaks — long-session retention, no single spike. The big launch-day press demos (<em>Worst Class Ever</em>, <em>ArcheAge Chronicles</em>, <em>Frostrail</em>, <em>just volleyball</em>) already hit their peak and are decaying to a holding floor. If a title's peak is already hours or days behind it by the weekend, its discovery window has effectively closed — the wishlists it's adding now are the long tail.
   </div>
@@ -456,6 +516,19 @@ footer span{color:var(--gold)}
         <tr><td><strong>Precision platformer</strong></td><td class="num">1.5%</td><td><span class="tag tag-coral">Weakest</span> crowd won't find it for you</td></tr>
       </tbody>
     </table>
+  </div>
+
+  <div class="chart-panel">
+    <h4>Hit-rate by genre — share reaching 10+ concurrent players</h4>
+    <div class="bar-row"><div class="bar-label"><b>Action RPG</b></div><div class="bar-bg"><div class="bar-fill" style="width:97%;background:var(--gold)"></div></div><div class="bar-val">17.3–19.5%</div></div>
+    <div class="bar-row"><div class="bar-label"><b>Crafting</b></div><div class="bar-bg"><div class="bar-fill" style="width:80%;background:var(--teal)"></div></div><div class="bar-val">16.0%</div></div>
+    <div class="bar-row"><div class="bar-label"><b>Open World</b></div><div class="bar-bg"><div class="bar-fill" style="width:69%;background:var(--teal)"></div></div><div class="bar-val">13.8%</div></div>
+    <div class="bar-row"><div class="bar-label"><b>JRPG</b></div><div class="bar-bg"><div class="bar-fill" style="width:65%;background:var(--teal)"></div></div><div class="bar-val">12.9%</div></div>
+    <div class="bar-row"><div class="bar-label"><b>RTS</b></div><div class="bar-bg"><div class="bar-fill" style="width:62%;background:var(--teal)"></div></div><div class="bar-val">12.3%</div></div>
+    <div class="bar-row"><div class="bar-label"><b>Walking sim</b></div><div class="bar-bg"><div class="bar-fill" style="width:13%;background:var(--coral)"></div></div><div class="bar-val">2.6%</div></div>
+    <div class="bar-row"><div class="bar-label"><b>2D platformer</b></div><div class="bar-bg"><div class="bar-fill" style="width:10%;background:var(--coral)"></div></div><div class="bar-val">1.9%</div></div>
+    <div class="bar-row"><div class="bar-label"><b>Precision platformer</b></div><div class="bar-bg"><div class="bar-fill" style="width:8%;background:var(--coral)"></div></div><div class="bar-val">1.5%</div></div>
+    <div class="chart-note">Bar width scales to 20% (the ARPG ceiling). The gap between the top and the platformers is 13× — the single clearest genre signal in the whole festival. Source: How To Market A Game, demo peak CCU 12–21 Oct.</div>
   </div>
 
   <div class="insight coral">
@@ -530,6 +603,40 @@ footer span{color:var(--gold)}
   <div class="bar-row"><div class="bar-label"><b>Ranks 51–100</b></div><div class="bar-bg"><div class="bar-fill" style="width:74%;background:var(--coral)"></div></div><div class="bar-val">26%</div></div>
   <div class="bar-row"><div class="bar-label"><b>Ranks 26–50</b></div><div class="bar-bg"><div class="bar-fill" style="width:34%;background:var(--purple)"></div></div><div class="bar-val">12%</div></div>
   <div class="bar-row"><div class="bar-label"><b>Top 25</b></div><div class="bar-bg"><div class="bar-fill" style="width:23%;background:var(--teal)"></div></div><div class="bar-val">8%</div></div>
+
+  <div class="chart-grid">
+    <div class="chart-panel">
+      <h4>What the AI-disclosing games use it for</h4>
+      <div class="donut-wrap">
+        <div class="donut" style="background:conic-gradient(var(--gold) 0 75.7%,var(--purple) 75.7% 81.4%,var(--teal) 81.4% 85.1%,var(--blue) 85.1% 88.1%,var(--coral) 88.1% 100%)">
+          <div class="donut-center"><div class="dv">75.7%</div><div class="dl">art lead</div></div>
+        </div>
+        <div class="donut-legend">
+          <div class="leg-row"><span class="leg-swatch" style="background:var(--gold)"></span><b>Art / visuals</b><span class="leg-val">75.7%</span></div>
+          <div class="leg-row"><span class="leg-swatch" style="background:var(--purple)"></span><b>Text / localisation</b><span class="leg-val">37.7%</span></div>
+          <div class="leg-row"><span class="leg-swatch" style="background:var(--teal)"></span><b>Audio / voice</b><span class="leg-val">37.6%</span></div>
+          <div class="leg-row"><span class="leg-swatch" style="background:var(--blue)"></span><b>Code / dev tools</b><span class="leg-val">23.1%</span></div>
+          <div class="leg-row"><span class="leg-swatch" style="background:var(--coral)"></span><b>Other / unspecified</b><span class="leg-val">~11%</span></div>
+        </div>
+      </div>
+      <div class="chart-note">Share of the 2,502 disclosing games, by use type. Games can list several, so segments sum above 100%; the ring is normalised to the top category. Source: How To Market A Game.</div>
+    </div>
+    <div class="chart-panel">
+      <h4>AI disclosure vs performance tier</h4>
+      <div class="donut-wrap">
+        <div class="donut" style="background:conic-gradient(var(--teal) 0 8%,var(--purple) 8% 12%,var(--blue) 12% 26%,var(--coral) 26% 100%)">
+          <div class="donut-center"><div class="dv">8%</div><div class="dl">top 25</div></div>
+        </div>
+        <div class="donut-legend">
+          <div class="leg-row"><span class="leg-swatch" style="background:var(--teal)"></span><b>Top 25</b><span class="leg-val">8%</span></div>
+          <div class="leg-row"><span class="leg-swatch" style="background:var(--purple)"></span><b>Ranks 26–50</b><span class="leg-val">12%</span></div>
+          <div class="leg-row"><span class="leg-swatch" style="background:var(--blue)"></span><b>Ranks 51–100</b><span class="leg-val">26%</span></div>
+          <div class="leg-row"><span class="leg-swatch" style="background:var(--coral)"></span><b>Everyone else</b><span class="leg-val">35%</span></div>
+        </div>
+      </div>
+      <div class="chart-note">Share of each tier that discloses AI. The slop concentrates at the bottom: only 2 of the top 25 disclosed (BORE, Path of the Yaoguai).</div>
+    </div>
+  </div>
 
   <div class="card-row">
     <div class="card coral"><div class="clabel">Games disclosing AI</div><div class="cval">~2,502</div><div class="csub">≈35% of the festival · self-reported</div></div>
