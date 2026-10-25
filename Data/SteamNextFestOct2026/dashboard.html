@@ -134,6 +134,9 @@ tbody td strong{color:var(--text);font-weight:600}
 .chart-panel h4{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
 .chart-panel .chart-note{font-size:11.5px;color:var(--text-dim);line-height:1.5;margin-top:0.9rem;border-top:1px solid var(--border);padding-top:0.7rem}
 .chart-panel.fig-top{margin-top:0.25rem}
+.chart-legend{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:10px;font-size:12px;color:var(--text-muted)}
+.chart-legend span{display:flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:10px;letter-spacing:0.04em;text-transform:uppercase}
+.chart-legend .swatch{display:inline-block;width:11px;height:11px;border-radius:2px;flex-shrink:0}
 
 /* Donut / pie */
 .donut-wrap{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap}
@@ -300,20 +303,27 @@ footer span{color:var(--gold)}
 
   <div class="chart-panel fig-top">
     <h4>Participation arc — eleven editions</h4>
+    <div class="chart-legend legend-inline">
+      <span><i class="swatch" style="background:var(--blue)"></i>2023</span>
+      <span><i class="swatch" style="background:var(--purple)"></i>2024</span>
+      <span><i class="swatch" style="background:var(--coral)"></i>2025</span>
+      <span><i class="swatch" style="background:var(--teal)"></i>2026</span>
+      <span><i class="swatch" style="background:var(--gold)"></i>Oct 2026 · record</span>
+    </div>
     <div class="colchart">
       <div class="col"><div class="v">887</div><div class="bar" style="height:12.3%;background:var(--blue)"></div><div class="l">Jun 23</div></div>
       <div class="col"><div class="v">972</div><div class="bar" style="height:13.4%;background:var(--blue)"></div><div class="l">Oct 23</div></div>
-      <div class="col"><div class="v">1.1k</div><div class="bar" style="height:15.5%;background:var(--blue)"></div><div class="l">Feb 24</div></div>
+      <div class="col"><div class="v">1.1k</div><div class="bar" style="height:15.5%;background:var(--purple)"></div><div class="l">Feb 24</div></div>
       <div class="col"><div class="v">1.8k</div><div class="bar" style="height:24.9%;background:var(--purple)"></div><div class="l">Jun 24</div></div>
       <div class="col"><div class="v">3.0k</div><div class="bar" style="height:41.5%;background:var(--purple)"></div><div class="l">Oct 24</div></div>
       <div class="col"><div class="v">2.3k</div><div class="bar" style="height:32.3%;background:var(--coral)"></div><div class="l">Feb 25</div></div>
-      <div class="col"><div class="v">2.6k</div><div class="bar" style="height:36.5%;background:var(--purple)"></div><div class="l">Jun 25</div></div>
-      <div class="col"><div class="v">3.0k</div><div class="bar" style="height:40.9%;background:var(--purple)"></div><div class="l">Oct 25</div></div>
+      <div class="col"><div class="v">2.6k</div><div class="bar" style="height:36.5%;background:var(--coral)"></div><div class="l">Jun 25</div></div>
+      <div class="col"><div class="v">3.0k</div><div class="bar" style="height:40.9%;background:var(--coral)"></div><div class="l">Oct 25</div></div>
       <div class="col"><div class="v">3.5k</div><div class="bar" style="height:48.8%;background:var(--teal)"></div><div class="l">Feb 26</div></div>
       <div class="col"><div class="v">4.4k</div><div class="bar" style="height:60.5%;background:var(--teal)"></div><div class="l">Jun 26</div></div>
       <div class="col"><div class="v">7.2k</div><div class="bar" style="height:100%;background:var(--gold)"></div><div class="l">Oct 26</div></div>
     </div>
-    <div class="chart-note">Games participating per edition. Bar height scales to Oct 2026 (7,240 = 100%). The single coral bar is the Feb 2025 decline. Source: GameDiscoverCo (through Jun 2026) + How To Market A Game (Oct 2026).</div>
+    <div class="chart-note">Games participating per edition, coloured by calendar year. Bar height scales to Oct 2026 (7,240 = 100%). The Feb 2025 drop (coral, far-left of the 2025 run) is the only decline on record. Source: GameDiscoverCo (through Jun 2026) + How To Market A Game (Oct 2026).</div>
   </div>
 
   <div class="card-row">
@@ -372,16 +382,22 @@ footer span{color:var(--gold)}
 
   <div class="chart-panel fig-top">
     <h4>Peak concurrent players — leading demos</h4>
+    <div class="chart-legend legend-inline">
+      <span><i class="swatch" style="background:var(--gold)"></i>Shop sim</span>
+      <span><i class="swatch" style="background:var(--teal)"></i>Co-op / multiplayer</span>
+      <span><i class="swatch" style="background:var(--purple)"></i>MMO / RPG</span>
+      <span><i class="swatch" style="background:var(--coral)"></i>Idle / cozy</span>
+    </div>
     <div class="bar-row"><div class="bar-label"><b>Probably Stolen</b></div><div class="bar-bg"><div class="bar-fill" style="width:100%;background:var(--gold)"></div></div><div class="bar-val">39,696</div></div>
     <div class="bar-row"><div class="bar-label"><b>Worst Class Ever</b></div><div class="bar-bg"><div class="bar-fill" style="width:70%;background:var(--teal)"></div></div><div class="bar-val">27,684</div></div>
     <div class="bar-row"><div class="bar-label"><b>ArcheAge Chronicles</b></div><div class="bar-bg"><div class="bar-fill" style="width:50%;background:var(--purple)"></div></div><div class="bar-val">19,855</div></div>
-    <div class="bar-row"><div class="bar-label"><b>Character House</b></div><div class="bar-bg"><div class="bar-fill" style="width:44%;background:var(--teal)"></div></div><div class="bar-val">17,489</div></div>
-    <div class="bar-row"><div class="bar-label"><b>Find The Needle</b></div><div class="bar-bg"><div class="bar-fill" style="width:24%;background:var(--teal)"></div></div><div class="bar-val">9,594</div></div>
+    <div class="bar-row"><div class="bar-label"><b>Character House</b></div><div class="bar-bg"><div class="bar-fill" style="width:44%;background:var(--coral)"></div></div><div class="bar-val">17,489</div></div>
+    <div class="bar-row"><div class="bar-label"><b>Find The Needle</b></div><div class="bar-bg"><div class="bar-fill" style="width:24%;background:var(--coral)"></div></div><div class="bar-val">9,594</div></div>
     <div class="bar-row"><div class="bar-label"><b>Frostrail</b></div><div class="bar-bg"><div class="bar-fill" style="width:22%;background:var(--teal)"></div></div><div class="bar-val">8,834</div></div>
     <div class="bar-row"><div class="bar-label"><b>just volleyball</b></div><div class="bar-bg"><div class="bar-fill" style="width:21%;background:var(--teal)"></div></div><div class="bar-val">8,179</div></div>
     <div class="bar-row"><div class="bar-label"><b>Loftia</b></div><div class="bar-bg"><div class="bar-fill" style="width:19%;background:var(--coral)"></div></div><div class="bar-val">7,427</div></div>
     <div class="bar-row"><div class="bar-label"><b>Melvor Idle 2</b></div><div class="bar-bg"><div class="bar-fill" style="width:18%;background:var(--coral)"></div></div><div class="bar-val">7,141</div></div>
-    <div class="chart-note">"Peak so far" as of 25 Oct 7am (Output Lag). Bar width scales to the leader (~39,700). The drop from #1 to #2 (−30%) and the long idle/survival tail are the real shape of the chart.</div>
+    <div class="chart-note">"Peak so far" as of 25 Oct 7am (Output Lag), coloured by category. Bar width scales to the leader (~39,700). The drop from #1 to #2 (−30%) and the long idle/cozy tail are the real shape of the chart.</div>
   </div>
 
   <div class="card-row">
@@ -744,6 +760,13 @@ footer span{color:var(--gold)}
   <span class="h2-kicker">How the week unfolded.</span>
   <div class="chart-panel fig-top">
     <h4>Festival-wide concurrent players, by day (indexed)</h4>
+    <div class="chart-legend legend-inline">
+      <span><i class="swatch" style="background:var(--blue)"></i>Baseline</span>
+      <span><i class="swatch" style="background:var(--purple)"></i>Climb</span>
+      <span><i class="swatch" style="background:var(--teal)"></i>Build</span>
+      <span><i class="swatch" style="background:var(--gold)"></i>Peak</span>
+      <span><i class="swatch" style="background:var(--coral)"></i>Decay</span>
+    </div>
     <div class="colchart" style="height:120px">
       <div class="col"><div class="v">open</div><div class="bar" style="height:34%;background:var(--blue)"></div><div class="l">Mon 19</div></div>
       <div class="col"><div class="v">↸</div><div class="bar" style="height:52%;background:var(--blue)"></div><div class="l">Tue 20</div></div>
