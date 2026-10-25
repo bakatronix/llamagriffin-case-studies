@@ -146,14 +146,14 @@ footer span{color:var(--gold)}
   <a href="index.html" class="suite-link">Overview</a>
   <a href="part-1.html" class="suite-link">Part I · Scale</a>
   <a href="part-2.html" class="suite-link">Part II · Who Got Seen</a>
-  <a href="part-3.html" class="suite-link active">Part III · The Decider</a>
+  <a href="part-3.html" class="suite-link active">Part III · What Predicted</a>
   <a href="dashboard.html" class="suite-link">Live Dashboard</a>
 </div>
 
 <nav>
   <a href="index.html" class="nav-brand">Llama &amp; Griffin Consultants</a>
   <a href="#overview" class="nav-link active">Overview</a>
-  <a href="#followers" class="nav-link">The Decider</a>
+  <a href="#followers" class="nav-link">The Follower Base</a>
   <a href="#correlation" class="nav-link">Correlations</a>
   <a href="#ai" class="nav-link">AI Disclosure</a>
   <a href="#playbook" class="nav-link">February Playbook</a>
@@ -161,27 +161,27 @@ footer span{color:var(--gold)}
 
 <!-- HERO -->
 <div class="hero" id="overview">
-  <div class="hero-eyebrow">Case Study · Part III · The Followers Decider</div>
-  <h1>Steam Next Fest October 2026<br><span>The Metric That Decided It.</span></h1>
-  <p class="hero-sub">Every October trend — the scale, the two-tier field, the genre conversion — collapses into a single variable: how many followers a developer held the day before the festival began. This part proves it, maps the AI-disclosure split alongside it, and turns it into a February playbook.</p>
+  <div class="hero-eyebrow">Case Study · Part III · What Predicted Success</div>
+  <h1>Steam Next Fest October 2026<br><span>What Predicted Early Success.</span></h1>
+  <p class="hero-sub">Looked at through early-festival data, every October trend — the scale, the two-tier field, the genre conversion — can be read by one question: how much audience did a developer already have? This part unpacks the correlation, maps the AI-disclosure split alongside it, and turns both into a February playbook. It is explicitly early data, measured on peak CCU.</p>
   <div class="hero-meta">
     <div class="hero-meta-item">Edition <span>19–26 Oct 2026</span></div>
     <div class="hero-meta-item">Method <span>HTMAG live-page scrape</span></div>
-    <div class="hero-meta-item">Proxy <span>Steam followers ≈ wishlists</span></div>
+    <div class="hero-meta-item">Caveat <span>Early data · peak CCU</span></div>
   </div>
   <div class="stat-grid">
     <div class="stat-cell"><div class="stat-val">5,519</div><div class="stat-lbl">median followers — top 25</div><div class="stat-sub">one day before the fest</div></div>
     <div class="stat-cell"><div class="stat-val teal">15</div><div class="stat-lbl">median followers — everyone else</div><div class="stat-sub">6,942 games</div></div>
-    <div class="stat-cell"><div class="stat-val purple">0.55</div><div class="stat-lbl">correlation, followers → peak</div><div class="stat-sub">the strongest single predictor</div></div>
-    <div class="stat-cell"><div class="stat-val coral">−0.13</div><div class="stat-lbl">correlation, % growth → peak</div><div class="stat-sub">last-minute spikes do nothing</div></div>
+    <div class="stat-cell"><div class="stat-val purple">0.55 vs 0.52</div><div class="stat-lbl">followers vs raw gain → peak</div><div class="stat-sub">about the same; base slightly ahead</div></div>
+    <div class="stat-cell"><div class="stat-val coral">−0.13</div><div class="stat-lbl">correlation, % growth → peak</div><div class="stat-sub">percentage growth doesn't predict</div></div>
   </div>
 </div>
 
 <!-- FOLLOWER DECIDER -->
 <section id="followers">
   <div class="section-label">Section 01</div>
-  <div class="chevrons"></div><h2>The Follower Decider</h2><span class="h2-kicker">You are who you were before the fest.</span>
-  <p class="section-intro">Zukowski grouped every October demo by peak concurrent players, then looked at their Steam follower count the day before the festival. Steam followers are a public stand-in for wishlists — which only the developer can see — and the gradient is stark: the winning demos arrived with an audience already banked.</p>
+  <div class="chevrons"></div><h2>The Follower Base</h2><span class="h2-kicker">You mostly are who you were before the fest.</span>
+  <p class="section-intro">Zukowski grouped every October demo by peak concurrent players, then looked at their Steam follower count the day before the festival. Steam followers are a public stand-in for wishlists — which only the developer can see — and the gradient is stark: the top of the field arrived with thousands of followers already banked.</p>
 
   <h3>Median followers the day before the festival</h3>
   <div class="bar-row"><div class="bar-label"><b>Top 25</b> · 419–20,505 CCU</div><div class="bar-bg"><div class="bar-fill" style="width:100%;background:var(--gold)"></div></div><div class="bar-val">5,519</div></div>
@@ -190,7 +190,7 @@ footer span{color:var(--gold)}
   <div class="bar-row"><div class="bar-label"><b>Everyone else</b> · 6,942 games</div><div class="bar-bg"><div class="bar-fill" style="width:1%;background:var(--coral)"></div></div><div class="bar-val">15</div></div>
 
   <div class="insight">
-    <strong>The 367× gap:</strong> the median top-25 demo entered with 5,519 followers; the other 6,942 games entered with a median of 15. That's a ~367× gap in starting audience between the visible tier and everyone else — decided <em>before</em> a single randomised shelf slot was served.
+    <strong>The ~368× gap:</strong> the median top-25 demo entered with 5,519 followers; the other 6,942 games entered with a median of 15. That's a ~368× difference in starting audience between the visible tier and everyone else — in place <em>before</em> a single randomised shelf slot was served. Note the tiers below the top 100 are a single "everyone else" bucket; they don't sum to the full 7,240 field.
   </div>
 
   <h3>Demo timing, another tell</h3>
@@ -206,20 +206,24 @@ footer span{color:var(--gold)}
 <!-- CORRELATIONS -->
 <section id="correlation">
   <div class="section-label">Section 02</div>
-  <div class="chevrons"></div><h2>What Actually Predicts Peak Players</h2><span class="h2-kicker">Momentum helps; a base is everything.</span>
-  <p class="section-intro">Zukowski tested which number best tracks a demo's eventual peak players. Total followers won; final-week catch came close; final-week percentage growth was slightly negative.</p>
+  <div class="chevrons"></div><h2>What Actually Predicts Peak Players</h2><span class="h2-kicker">Base and momentum, about equally — % growth doesn't.</span>
+  <p class="section-intro">Zukowski tested which number best tracks a demo's early peak players (peak CCU across 12–21 October — press preview plus the first couple of days). His conclusion: a pre-fest follower base and pre-fest momentum are <strong>about the same</strong>, with a slight edge to having followers already. The best situation is both.</p>
 
   <div class="card-row">
-    <div class="card teal"><div class="clabel">Followers the day before</div><div class="cval">0.55</div><div class="csub">strongest single predictor of peak CCU</div></div>
-    <div class="card purple"><div class="clabel">Raw followers gained (final week)</div><div class="cval">0.52</div><div class="csub">close second — total catch matters</div></div>
-    <div class="card coral"><div class="clabel">Percentage growth (final week)</div><div class="cval">−0.13</div><div class="csub">slightly negative — % spikes don't help</div></div>
+    <div class="card teal"><div class="clabel">Followers the day before</div><div class="cval">0.55</div><div class="csub">slightly the best predictor; correlates with peak</div></div>
+    <div class="card purple"><div class="clabel">Raw followers gained (7d→1d)</div><div class="cval">0.52</div><div class="csub">essentially equal — momentum also works</div></div>
+    <div class="card coral"><div class="clabel">Percentage growth (7d→1d)</div><div class="cval">−0.13</div><div class="csub">percentage growth doesn't predict peak</div></div>
   </div>
 
   <div class="insight purple">
-    <strong>The percentage trap:</strong> the bottom group showed the highest percentage growth of any tier (~12.5%) — but from a median of 15 followers, that's one extra person. A final-week spike looks good on a chart and does almost nothing for your peak. <em>Track raw gains, not percentages.</em>
+    <strong>The percentage trap:</strong> the bottom group showed the highest percentage growth of any tier (12.5%) — but from a median of 15 followers, that's one extra person. A final-week spike looks good on a chart and does almost nothing for your peak. <em>Track raw gains, not percentages.</em>
   </div>
 
-  <p>Read through the lens of Parts I and II, the implication is coherent: scale makes the base the whole game. The festival's engagement-ranked Day 3+ phase rewards the demos already converting — which are the ones that entered with followers. Momentum is a multiplier applied to a funnel that was either already full or already empty.</p>
+  <div class="insight">
+    <strong>This is early data, by design:</strong> Zukowski measured peak demo CCU from 12–21 October only, and explicitly flags that his follow-up on total follower gain comes after the festival closes. The correlation says base and momentum predict early interest about equally — not that base alone "decides" the outcome. Hold the conclusion a couple of degrees softer than the numbers, until the post-fest analysis lands.
+  </div>
+
+  <p>Read through the lens of Parts I and II, the implication stays coherent: the festival's engagement-ranked Day 3+ phase rewards the demos already converting — which tend to be the ones that entered with either a large base or genuine momentum, ideally both. Scale has made the starting funnel the whole game.</p>
 </section>
 
 <!-- AI DISCLOSURE -->
@@ -235,10 +239,10 @@ footer span{color:var(--gold)}
   <div class="bar-row"><div class="bar-label"><b>Top 25</b></div><div class="bar-bg"><div class="bar-fill" style="width:23%;background:var(--teal)"></div></div><div class="bar-val">8%</div></div>
 
   <div class="card-row">
-    <div class="card coral"><div class="clabel">Games disclosing AI</div><div class="cval">~2,502</div><div class="csub">≈35% of the festival</div></div>
-    <div class="card gold"><div class="clabel">Most common disclosure</div><div class="cval">Art / visuals</div><div class="csub">~3 in 4 of disclosing games</div></div>
-    <div class="card purple"><div class="clabel">Text / localisation</div><div class="cval">~38%</div><div class="csub">audio / voice also ~38%</div></div>
-    <div class="card blue"><div class="clabel">Code tools</div><div class="cval">23%</div><div class="csub">voluntary; Steam doesn't require it</div></div>
+    <div class="card coral"><div class="clabel">Games disclosing AI</div><div class="cval">~2,502</div><div class="csub">≈35% of the festival (34.6% all games)</div></div>
+    <div class="card gold"><div class="clabel">Most common disclosure</div><div class="cval">Art / visuals</div><div class="csub">75.7% of disclosing games</div></div>
+    <div class="card purple"><div class="clabel">Text / localisation</div><div class="cval">37.7%</div><div class="csub">audio / voice 37.6%</div></div>
+    <div class="card blue"><div class="clabel">Code / dev tools</div><div class="cval">23.1%</div><div class="csub">voluntary — Valve does not require it</div></div>
   </div>
 
   <h3>Disclosure rate by genre</h3>
@@ -246,15 +250,15 @@ footer span{color:var(--gold)}
     <table>
       <thead><tr><th>Genre</th><th class="num">Disclosure</th><th>Note</th></tr></thead>
       <tbody>
-        <tr><td>Strategy RPG</td><td class="num">50–55%</td><td><span class="tag tag-coral">Highest</span> top AI-disclosed strategy often from Chinese studios</td></tr>
-        <tr><td>Strategy / tactics</td><td class="num">Elevated</td><td>consistently above festival average</td></tr>
-        <tr><td>Platformer (precision)</td><td class="num">15%</td><td><span class="tag tag-teal">Lowest</span></td></tr>
+        <tr><td>Strategy RPG</td><td class="num">54.5%</td><td><span class="tag tag-coral">Highest</span> top AI-disclosed strategy RPGs are Chinese studios</td></tr>
+        <tr><td>Strategy / tactics</td><td class="num">~47–50%</td><td>RTS 50.4%, Turn-Based Strategy 47.5%, Real Time Tactics 47.4%</td></tr>
+        <tr><td>Platformer (precision)</td><td class="num">15.3%</td><td><span class="tag tag-teal">Lowest</span></td></tr>
       </tbody>
     </table>
   </div>
 
   <div class="insight blue">
-    <strong>Correlation is not causation.</strong> There's no evidence that disclosing AI causes weak results — plenty of low-ranked games disclosed nothing, and AI-disclosed titles did reach the top 25 (Abyssal Lapidary, on the most-played list, discloses AI). What the data shows is that most disclosed AI work sits in the crowded bottom of the festival. If your game uses AI art, it's competing inside that crowd — which is precisely why a pre-built audience matters more, not less.
+    <strong>Correlation is not causation.</strong> There's no evidence that disclosing AI causes weak results — plenty of low-ranked games disclosed nothing, and exactly two AI-disclosed titles made the top 25: <strong>BORE</strong> (built "with help from an AI assistant under human direction"; no live AI generation) and <strong>Path of the Yaoguai</strong> ("部分游戏图片由AI生成并修改" — some game images AI-generated and modified). What the data shows is that most disclosed AI work sits in the crowded bottom of the festival. If your game uses AI art, it's competing inside that crowd — which is precisely why a pre-built audience matters more, not less.
   </div>
 </section>
 
@@ -268,7 +272,7 @@ footer span{color:var(--gold)}
     <div class="panel">
       <h4>Start now, not in January</h4>
       <ul>
-        <li><b>Count followers every week.</b> The correlation favours a base built over months.</li>
+        <li><b>Count followers every week.</b> Base and momentum both predict early peak about equally; both need time to build.</li>
         <li><b>Schedule wishlist campaigns, festival slots and press for Nov–Dec.</b> That does more for a February demo than a late-January burst of posts.</li>
         <li><b>Ship the demo early.</b> The top 25 ran demos ~19 days before the fest — but only when an audience was already converting.</li>
       </ul>
@@ -298,7 +302,7 @@ footer span{color:var(--gold)}
   </div>
 
   <div class="insight">
-    <strong>The through-line of the whole case study:</strong> three years of growth, an 8× field, and a two-tier result — all resolved by a single, boring truth. The festival stopped deciding who wins sometime around 2024. Now it only reveals who already had. <em>Arrive with an audience.</em>
+    <strong>The through-line of the whole case study:</strong> three years of growth, an eightfold field, and a two-tier result. Early-festival data says pre-fest follower base and pre-fest momentum predict early peak players about equally — the worst position is a game that is neither known ahead of time nor catching on. Whatever you bring, bring it <em>before</em> the festival: arrive with an audience, or ride real momentum in. Just don't show up empty and hope for a last-week spike.
   </div>
 </section>
 
@@ -309,7 +313,7 @@ footer span{color:var(--gold)}
 </div>
 
 <footer>
-  <div>Steam Next Fest October 2026 · <span>Part III — The Followers Decider</span></div>
+  <div>Steam Next Fest October 2026 · <span>Part III — What Predicted Success</span></div>
   <div><span>Llama &amp; Griffin Consultants</span> · Case Studies</div>
 </footer>
 
