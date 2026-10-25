@@ -133,6 +133,7 @@ tbody td strong{color:var(--text);font-weight:600}
 .chart-panel{border:1px solid var(--border);border-radius:4px;background:var(--bg2);padding:1.4rem 1.5rem}
 .chart-panel h4{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
 .chart-panel .chart-note{font-size:11.5px;color:var(--text-dim);line-height:1.5;margin-top:0.9rem;border-top:1px solid var(--border);padding-top:0.7rem}
+.chart-panel.fig-top{margin-top:0.25rem}
 
 /* Donut / pie */
 .donut-wrap{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap}
@@ -297,6 +298,24 @@ footer span{color:var(--gold)}
   <span class="h2-kicker">A record that changes the math for everyone.</span>
   <p class="section-intro">Participation has grown across editions — with one dip (Oct 2024 → Feb 2025) — and accelerated in 2026. Chris Zukowski (How To Market A Game) scraped the live festival pages on 21 October and counted <strong>7,240 games</strong> taking part — the highest on record. Many outlets cite ~8,000; that reflects the 2-week-early press preview, not the final live count.</p>
 
+  <div class="chart-panel fig-top">
+    <h4>Participation arc — eleven editions</h4>
+    <div class="colchart">
+      <div class="col"><div class="v">887</div><div class="bar" style="height:12.3%;background:var(--blue)"></div><div class="l">Jun 23</div></div>
+      <div class="col"><div class="v">972</div><div class="bar" style="height:13.4%;background:var(--blue)"></div><div class="l">Oct 23</div></div>
+      <div class="col"><div class="v">1.1k</div><div class="bar" style="height:15.5%;background:var(--blue)"></div><div class="l">Feb 24</div></div>
+      <div class="col"><div class="v">1.8k</div><div class="bar" style="height:24.9%;background:var(--purple)"></div><div class="l">Jun 24</div></div>
+      <div class="col"><div class="v">3.0k</div><div class="bar" style="height:41.5%;background:var(--purple)"></div><div class="l">Oct 24</div></div>
+      <div class="col"><div class="v">2.3k</div><div class="bar" style="height:32.3%;background:var(--coral)"></div><div class="l">Feb 25</div></div>
+      <div class="col"><div class="v">2.6k</div><div class="bar" style="height:36.5%;background:var(--purple)"></div><div class="l">Jun 25</div></div>
+      <div class="col"><div class="v">3.0k</div><div class="bar" style="height:40.9%;background:var(--purple)"></div><div class="l">Oct 25</div></div>
+      <div class="col"><div class="v">3.5k</div><div class="bar" style="height:48.8%;background:var(--teal)"></div><div class="l">Feb 26</div></div>
+      <div class="col"><div class="v">4.4k</div><div class="bar" style="height:60.5%;background:var(--teal)"></div><div class="l">Jun 26</div></div>
+      <div class="col"><div class="v">7.2k</div><div class="bar" style="height:100%;background:var(--gold)"></div><div class="l">Oct 26</div></div>
+    </div>
+    <div class="chart-note">Games participating per edition. Bar height scales to Oct 2026 (7,240 = 100%). The single coral bar is the Feb 2025 decline. Source: GameDiscoverCo (through Jun 2026) + How To Market A Game (Oct 2026).</div>
+  </div>
+
   <div class="card-row">
     <div class="card gold"><div class="clabel">Oct 2026</div><div class="cval">7,240</div><div class="csub">HTMAG live-page scrape, 21 Oct</div></div>
     <div class="card teal"><div class="clabel">June 2026 eligible</div><div class="cval">4,382</div><div class="csub">GDCo-tracked (4,931 at June press preview)</div></div>
@@ -327,24 +346,6 @@ footer span{color:var(--gold)}
   </div>
   <p class="note">June 2023–June 2026 from GameDiscoverCo; October 2026 from How To Market A Game.</p>
 
-  <div class="chart-panel">
-    <h4>Participation arc — eleven editions</h4>
-    <div class="colchart">
-      <div class="col"><div class="v">887</div><div class="bar" style="height:12.3%;background:var(--blue)"></div><div class="l">Jun 23</div></div>
-      <div class="col"><div class="v">972</div><div class="bar" style="height:13.4%;background:var(--blue)"></div><div class="l">Oct 23</div></div>
-      <div class="col"><div class="v">1.1k</div><div class="bar" style="height:15.5%;background:var(--blue)"></div><div class="l">Feb 24</div></div>
-      <div class="col"><div class="v">1.8k</div><div class="bar" style="height:24.9%;background:var(--purple)"></div><div class="l">Jun 24</div></div>
-      <div class="col"><div class="v">3.0k</div><div class="bar" style="height:41.5%;background:var(--purple)"></div><div class="l">Oct 24</div></div>
-      <div class="col"><div class="v">2.3k</div><div class="bar" style="height:32.3%;background:var(--coral)"></div><div class="l">Feb 25</div></div>
-      <div class="col"><div class="v">2.6k</div><div class="bar" style="height:36.5%;background:var(--purple)"></div><div class="l">Jun 25</div></div>
-      <div class="col"><div class="v">3.0k</div><div class="bar" style="height:40.9%;background:var(--purple)"></div><div class="l">Oct 25</div></div>
-      <div class="col"><div class="v">3.5k</div><div class="bar" style="height:48.8%;background:var(--teal)"></div><div class="l">Feb 26</div></div>
-      <div class="col"><div class="v">4.4k</div><div class="bar" style="height:60.5%;background:var(--teal)"></div><div class="l">Jun 26</div></div>
-      <div class="col"><div class="v">7.2k</div><div class="bar" style="height:100%;background:var(--gold)"></div><div class="l">Oct 26</div></div>
-    </div>
-    <div class="chart-note">Games participating per edition. Bar height scales to Oct 2026 (7,240 = 100%). The single coral bar is the Feb 2025 decline. Source: GameDiscoverCo (through Jun 2026) + How To Market A Game (Oct 2026).</div>
-  </div>
-
   <div class="insight purple">
     <strong>Why it grew:</strong> More developers now know the festival exists and more enter every year. Using a projected ~29,300 Steam releases for 2026, that year's Next Fest entries (15,158) equal <strong>~51.7%</strong> of releases — up from 38.2% in 2025 and 33.6% in 2024. It's a ratio of entries to releases (a game counts once per edition entered), and the 29,300 is projected, so treat it as direction rather than fact. Zukowski speculates the surge could reflect AI-assisted developers testing viability early.
   </div>
@@ -368,6 +369,20 @@ footer span{color:var(--gold)}
   </div>
   <span class="h2-kicker">Friendslop, shopkeepers, and idle games.</span>
   <p class="section-intro">Valve named its 20 most-played demos (per Polygon); the table below ranks demos by their peak concurrent players as tracked by Output Lag (single snapshot, 25 Oct 7am GMT-0400), and marks which rows appear on Valve's list. Multiplayer is the overwhelming signal: at least <strong>14 of 20</strong> let you play with friends.</p>
+
+  <div class="chart-panel fig-top">
+    <h4>Peak concurrent players — leading demos</h4>
+    <div class="bar-row"><div class="bar-label"><b>Probably Stolen</b></div><div class="bar-bg"><div class="bar-fill" style="width:100%;background:var(--gold)"></div></div><div class="bar-val">39,696</div></div>
+    <div class="bar-row"><div class="bar-label"><b>Worst Class Ever</b></div><div class="bar-bg"><div class="bar-fill" style="width:70%;background:var(--teal)"></div></div><div class="bar-val">27,684</div></div>
+    <div class="bar-row"><div class="bar-label"><b>ArcheAge Chronicles</b></div><div class="bar-bg"><div class="bar-fill" style="width:50%;background:var(--purple)"></div></div><div class="bar-val">19,855</div></div>
+    <div class="bar-row"><div class="bar-label"><b>Character House</b></div><div class="bar-bg"><div class="bar-fill" style="width:44%;background:var(--teal)"></div></div><div class="bar-val">17,489</div></div>
+    <div class="bar-row"><div class="bar-label"><b>Find The Needle</b></div><div class="bar-bg"><div class="bar-fill" style="width:24%;background:var(--teal)"></div></div><div class="bar-val">9,594</div></div>
+    <div class="bar-row"><div class="bar-label"><b>Frostrail</b></div><div class="bar-bg"><div class="bar-fill" style="width:22%;background:var(--teal)"></div></div><div class="bar-val">8,834</div></div>
+    <div class="bar-row"><div class="bar-label"><b>just volleyball</b></div><div class="bar-bg"><div class="bar-fill" style="width:21%;background:var(--teal)"></div></div><div class="bar-val">8,179</div></div>
+    <div class="bar-row"><div class="bar-label"><b>Loftia</b></div><div class="bar-bg"><div class="bar-fill" style="width:19%;background:var(--coral)"></div></div><div class="bar-val">7,427</div></div>
+    <div class="bar-row"><div class="bar-label"><b>Melvor Idle 2</b></div><div class="bar-bg"><div class="bar-fill" style="width:18%;background:var(--coral)"></div></div><div class="bar-val">7,141</div></div>
+    <div class="chart-note">"Peak so far" as of 25 Oct 7am (Output Lag). Bar width scales to the leader (~39,700). The drop from #1 to #2 (−30%) and the long idle/survival tail are the real shape of the chart.</div>
+  </div>
 
   <div class="card-row">
     <div class="card gold"><div class="clabel">#1 by players</div><div class="cval">Probably Stolen</div><div class="csub">39,696 peak · launches 28 Oct</div></div>
@@ -425,6 +440,17 @@ footer span{color:var(--gold)}
   <span class="h2-kicker">What's still climbing, and what already peaked.</span>
   <p class="section-intro">Output Lag doesn't expose a full per-day history, but at a single timestamp it shows each demo's <strong>playing now</strong> against its <strong>peak so far</strong>. That pair is a live "flux" read: a demo with <em>now ≈ peak</em> is still climbing this hour, while a demo with <em>now ≪ peak</em> blew its peak earlier and is decaying. The snapshot below is 25 Oct, 7am GMT-0400.</p>
 
+  <div class="chart-panel fig-top">
+    <h4>State of the visible field — 13 tracked leaders</h4>
+    <div class="sbar">
+      <div class="sbar-seg" style="width:38.5%;background:var(--teal)">5 climbing</div>
+      <div class="sbar-seg" style="width:23.1%;background:var(--gold)">3 holding</div>
+      <div class="sbar-seg" style="width:38.4%;background:var(--coral)">5 peaked</div>
+    </div>
+    <div class="sbar-axis"><span>idle / desktop long-session</span><span>press-spike decays</span></div>
+    <div class="chart-note">Count of the 13 top demos by momentum state (now ÷ peak-so-far). Idle/desktop titles dominate the "climbing" band; launch-day press darlings (Worst Class Ever, ArcheAge, Frostrail) dominate the "peaked" band.</div>
+  </div>
+
   <h3>Festival-wide pulse — how the week moved</h3>
   <div class="card-row">
     <div class="card gold"><div class="clabel">Day 1 · Mon 19 Oct</div><div class="cval">opens</div><div class="csub">randomised front-page baseline begins</div></div>
@@ -458,17 +484,6 @@ footer span{color:var(--gold)}
   </div>
   <p class="note">"Now ÷ peak" = playing-now as a share of peak-so-far, at one timestamp (25 Oct 7am GMT-0400, Output Lag). Climbing ≥ 65%, Holding 35–64%, Peaked &lt; 35%. It's a snapshot read, not a time series.</p>
 
-  <div class="chart-panel">
-    <h4>State of the visible field — 13 tracked leaders</h4>
-    <div class="sbar">
-      <div class="sbar-seg" style="width:38.5%;background:var(--teal)">5 climbing</div>
-      <div class="sbar-seg" style="width:23.1%;background:var(--gold)">3 holding</div>
-      <div class="sbar-seg" style="width:38.4%;background:var(--coral)">5 peaked</div>
-    </div>
-    <div class="sbar-axis"><span>idle / desktop long-session</span><span>press-spike decays</span></div>
-    <div class="chart-note">Count of the 13 top demos in the table above by momentum state. Idle/desktop titles dominate the "climbing" band; launch-day press darlings (Worst Class Ever, ArcheAge, Frostrail) dominate the "peaked" band.</div>
-  </div>
-
   <div class="insight purple">
     <strong>Read the flux like a trader, not a fan:</strong> by the final weekend the field has split into three groups. Idle/desktop games (<em>Melvor Idle 2</em>, <em>Find The Needle</em>, <em>Character House</em>) are still pressing new peaks — long-session retention, no single spike. The big launch-day press demos (<em>Worst Class Ever</em>, <em>ArcheAge Chronicles</em>, <em>Frostrail</em>, <em>just volleyball</em>) already hit their peak and are decaying to a holding floor. If a title's peak is already hours or days behind it by the weekend, its discovery window has effectively closed — the wishlists it's adding now are the long tail.
   </div>
@@ -488,6 +503,19 @@ footer span{color:var(--gold)}
   </div>
   <span class="h2-kicker">Co-op beats its weight; platformers don't.</span>
   <p class="section-intro">Genre conversion separates the festival. The most reliable public lens is Zukowski's share of demos reaching 10+ concurrent players by genre; the clusters at the top also repeat from the most-played table above (co-op, survival-craft, idle, shop sim).</p>
+
+  <div class="chart-panel fig-top">
+    <h4>Hit-rate by genre — share reaching 10+ concurrent players</h4>
+    <div class="bar-row"><div class="bar-label"><b>Action RPG</b></div><div class="bar-bg"><div class="bar-fill" style="width:97%;background:var(--gold)"></div></div><div class="bar-val">17.3–19.5%</div></div>
+    <div class="bar-row"><div class="bar-label"><b>Crafting</b></div><div class="bar-bg"><div class="bar-fill" style="width:80%;background:var(--teal)"></div></div><div class="bar-val">16.0%</div></div>
+    <div class="bar-row"><div class="bar-label"><b>Open World</b></div><div class="bar-bg"><div class="bar-fill" style="width:69%;background:var(--teal)"></div></div><div class="bar-val">13.8%</div></div>
+    <div class="bar-row"><div class="bar-label"><b>JRPG</b></div><div class="bar-bg"><div class="bar-fill" style="width:65%;background:var(--teal)"></div></div><div class="bar-val">12.9%</div></div>
+    <div class="bar-row"><div class="bar-label"><b>RTS</b></div><div class="bar-bg"><div class="bar-fill" style="width:62%;background:var(--teal)"></div></div><div class="bar-val">12.3%</div></div>
+    <div class="bar-row"><div class="bar-label"><b>Walking sim</b></div><div class="bar-bg"><div class="bar-fill" style="width:13%;background:var(--coral)"></div></div><div class="bar-val">2.6%</div></div>
+    <div class="bar-row"><div class="bar-label"><b>2D platformer</b></div><div class="bar-bg"><div class="bar-fill" style="width:10%;background:var(--coral)"></div></div><div class="bar-val">1.9%</div></div>
+    <div class="bar-row"><div class="bar-label"><b>Precision platformer</b></div><div class="bar-bg"><div class="bar-fill" style="width:8%;background:var(--coral)"></div></div><div class="bar-val">1.5%</div></div>
+    <div class="chart-note">Bar width scales to 20% (the ARPG ceiling). The gap between the top and the platformers is 13× — the single clearest genre signal in the whole festival. Source: How To Market A Game, demo peak CCU 12–21 Oct.</div>
+  </div>
 
   <h3>Clusters at the very top</h3>
   <div class="card-row">
@@ -518,19 +546,6 @@ footer span{color:var(--gold)}
     </table>
   </div>
 
-  <div class="chart-panel">
-    <h4>Hit-rate by genre — share reaching 10+ concurrent players</h4>
-    <div class="bar-row"><div class="bar-label"><b>Action RPG</b></div><div class="bar-bg"><div class="bar-fill" style="width:97%;background:var(--gold)"></div></div><div class="bar-val">17.3–19.5%</div></div>
-    <div class="bar-row"><div class="bar-label"><b>Crafting</b></div><div class="bar-bg"><div class="bar-fill" style="width:80%;background:var(--teal)"></div></div><div class="bar-val">16.0%</div></div>
-    <div class="bar-row"><div class="bar-label"><b>Open World</b></div><div class="bar-bg"><div class="bar-fill" style="width:69%;background:var(--teal)"></div></div><div class="bar-val">13.8%</div></div>
-    <div class="bar-row"><div class="bar-label"><b>JRPG</b></div><div class="bar-bg"><div class="bar-fill" style="width:65%;background:var(--teal)"></div></div><div class="bar-val">12.9%</div></div>
-    <div class="bar-row"><div class="bar-label"><b>RTS</b></div><div class="bar-bg"><div class="bar-fill" style="width:62%;background:var(--teal)"></div></div><div class="bar-val">12.3%</div></div>
-    <div class="bar-row"><div class="bar-label"><b>Walking sim</b></div><div class="bar-bg"><div class="bar-fill" style="width:13%;background:var(--coral)"></div></div><div class="bar-val">2.6%</div></div>
-    <div class="bar-row"><div class="bar-label"><b>2D platformer</b></div><div class="bar-bg"><div class="bar-fill" style="width:10%;background:var(--coral)"></div></div><div class="bar-val">1.9%</div></div>
-    <div class="bar-row"><div class="bar-label"><b>Precision platformer</b></div><div class="bar-bg"><div class="bar-fill" style="width:8%;background:var(--coral)"></div></div><div class="bar-val">1.5%</div></div>
-    <div class="chart-note">Bar width scales to 20% (the ARPG ceiling). The gap between the top and the platformers is 13× — the single clearest genre signal in the whole festival. Source: How To Market A Game, demo peak CCU 12–21 Oct.</div>
-  </div>
-
   <div class="insight coral">
     <strong>Platformer reality check:</strong> A platformer can still succeed at Next Fest — but because only 1.5–1.9% of the category reaches even 10 concurrent players, it <em>must</em> arrive with a stronger-than-average follower base. The festival crowd will not discover it for you. That's the earliest actionable takeaway for the next edition.
   </div>
@@ -546,6 +561,14 @@ footer span{color:var(--gold)}
   </div>
   <span class="h2-kicker">Base and momentum, about equally — % growth doesn't.</span>
   <p class="section-intro">Zukowski grouped every game by peak concurrent demo players, then looked at Steam followers the day before the festival as a public proxy for wishlists. The gradient is stark — the top of the field arrived with an audience already banked — but his correlation analysis (below) shows pre-fest momentum predicts early peak <em>about as well</em> as a pre-fest base. All of it is early-festival data, measured on demo CCU from 12–21 October.</p>
+
+  <div class="chart-panel fig-top">
+    <h4>What predicts early peak CCU — Spearman ρ</h4>
+    <div class="bar-row"><div class="bar-label"><b>Followers 1d before</b></div><div class="bar-bg"><div class="bar-fill" style="width:100%;background:var(--gold)"></div></div><div class="bar-val">0.55</div></div>
+    <div class="bar-row"><div class="bar-label"><b>Followers gained 7d→1d (raw)</b></div><div class="bar-bg"><div class="bar-fill" style="width:95%;background:var(--teal)"></div></div><div class="bar-val">0.52</div></div>
+    <div class="bar-row"><div class="bar-label"><b>Followers gained 7d→1d (%)</b></div><div class="bar-bg"><div class="bar-fill" style="width:6%;background:var(--coral)"></div></div><div class="bar-val">−0.13</div></div>
+    <div class="chart-note">A base and momentum predict early peak about equally (0.55 ≈ 0.52); percentage growth is weakly <em>negative</em>. The coral sliver is the "percentage trap": from a tiny base, a % spike means nothing.</div>
+  </div>
 
   <h3>Median followers the day before the festival — by tier</h3>
   <div class="bar-row"><div class="bar-label"><b>Top 25</b> (419–20,505 CCU, as of 21 Oct)</div><div class="bar-bg"><div class="bar-fill" style="width:100%;background:var(--gold)"></div></div><div class="bar-val">5,519</div></div>
@@ -673,6 +696,16 @@ footer span{color:var(--gold)}
   <span class="h2-kicker">The pattern holds across editions.</span>
   <p class="section-intro">Next Fest has grown in every edition but one, while per-game attention has thinned. Comparing October 2026 against the June 2026 and earlier editions makes the compression visible: more entrants, a flatter median, and a top tier that recovers each time.</p>
 
+  <div class="chart-panel fig-top">
+    <h4>2026 trajectory — Feb → Jun → Oct participants</h4>
+    <div class="colchart" style="height:130px">
+      <div class="col"><div class="v">3,536</div><div class="bar" style="height:48.8%;background:var(--blue)"></div><div class="l">Feb 26</div></div>
+      <div class="col"><div class="v">4,382</div><div class="bar" style="height:60.5%;background:var(--teal)"></div><div class="l">Jun 26</div></div>
+      <div class="col"><div class="v">7,240</div><div class="bar" style="height:100%;background:var(--gold)"></div><div class="l">Oct 26</div></div>
+    </div>
+    <div class="chart-note">Participants per 2026 edition. October (+2,858 over June) is the largest absolute jump on record — the three columns are the whole "2026 doubled" story at a glance.</div>
+  </div>
+
   <h3>Edition at a glance</h3>
   <div class="table-wrap">
     <table>
@@ -709,6 +742,19 @@ footer span{color:var(--gold)}
     </div>
   </div>
   <span class="h2-kicker">How the week unfolded.</span>
+  <div class="chart-panel fig-top">
+    <h4>Festival-wide concurrent players, by day (indexed)</h4>
+    <div class="colchart" style="height:120px">
+      <div class="col"><div class="v">open</div><div class="bar" style="height:34%;background:var(--blue)"></div><div class="l">Mon 19</div></div>
+      <div class="col"><div class="v">↸</div><div class="bar" style="height:52%;background:var(--blue)"></div><div class="l">Tue 20</div></div>
+      <div class="col"><div class="v">switch</div><div class="bar" style="height:68%;background:var(--purple)"></div><div class="l">Wed 21</div></div>
+      <div class="col"><div class="v">↑</div><div class="bar" style="height:81%;background:var(--purple)"></div><div class="l">Thu 22</div></div>
+      <div class="col"><div class="v">↑↑</div><div class="bar" style="height:92%;background:var(--teal)"></div><div class="l">Fri 23</div></div>
+      <div class="col"><div class="v">194k</div><div class="bar" style="height:100%;background:var(--gold)"></div><div class="l">Sat 24</div></div>
+      <div class="col"><div class="v">130k</div><div class="bar" style="height:67%;background:var(--coral)"></div><div class="l">Sun 25</div></div>
+    </div>
+    <div class="chart-note">Indexed pulse. The exact intra-day hourly curve isn't public, so this approximates the documented arc — opens low, builds to the Week 1 algorithm switch, spikes to the 194,256 peak (24 Oct), then settles on the final weekend. Anchor points from Output Lag.</div>
+  </div>
   <div class="timeline">
     <div class="timeline-item key">
       <div class="timeline-date">Mon 19 Oct · Day 1</div>
@@ -764,6 +810,13 @@ footer span{color:var(--gold)}
   <span class="h2-kicker">The data points one direction: start earlier.</span>
   <p class="section-intro">The next edition is expected in February. If you're planning to enter, October's data suggests a concrete sequence of actions — none of them last-minute.</p>
 
+  <div class="chart-panel fig-top">
+    <h4>Lead time that moved the needle (demo days live before the fest)</h4>
+    <div class="bar-row"><div class="bar-label"><b>Top 25 — arrived short</b></div><div class="bar-bg"><div class="bar-fill" style="width:52%;background:var(--gold)"></div></div><div class="bar-val">18.8 days</div></div>
+    <div class="bar-row"><div class="bar-label"><b>Everyone else — arrived long</b></div><div class="bar-bg"><div class="bar-fill" style="width:100%;background:var(--coral)"></div></div><div class="bar-val">36.6 days</div></div>
+    <div class="chart-note">The graph inverts intuition: winners ran <em>shorter</em> demos (18.8 days) because they already had an audience; the long tail ran longer (36.6 days) and still built nothing. Lead time only works if it's converting.</div>
+  </div>
+
   <div class="grid2">
     <div class="panel">
       <h4>Start now, not in January</h4>
@@ -805,6 +858,15 @@ footer span{color:var(--gold)}
     </div>
   </div>
   <span class="h2-kicker">Know exactly what you're looking at.</span>
+
+  <div class="chart-panel fig-top">
+    <h4>Data provenance — which source feeds which section</h4>
+    <div class="bar-row"><div class="bar-label"><b>Zukowski / HTMAG</b> · scale, followers, AI, genres</div><div class="bar-bg"><div class="bar-fill" style="width:100%;background:var(--gold)"></div></div><div class="bar-val">~70%</div></div>
+    <div class="bar-row"><div class="bar-label"><b>Output Lag</b> · live peaks, flux</div><div class="bar-bg"><div class="bar-fill" style="width:57%;background:var(--teal)"></div></div><div class="bar-val">~20%</div></div>
+    <div class="bar-row"><div class="bar-label"><b>Valve / Polygon</b> · most-played list</div><div class="bar-bg"><div class="bar-fill" style="width:29%;background:var(--purple)"></div></div><div class="bar-val">~6%</div></div>
+    <div class="bar-row"><div class="bar-label"><b>GDCo / GameSpot</b> · participation history</div><div class="bar-bg"><div class="bar-fill" style="width:14%;background:var(--blue)"></div></div><div class="bar-val">~4%</div></div>
+    <div class="chart-note">Approximate share of each chart's underlying data. The single most-factored source is Zukowski's 21 Oct scrape; live flux is Output Lag only.</div>
+  </div>
 
   <div class="table-wrap">
     <table>
