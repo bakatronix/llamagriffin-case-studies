@@ -189,10 +189,15 @@ tbody td strong{color:var(--text);font-weight:600}
 .scatter .yl{top:50%;left:-1rem;transform:rotate(-90deg) translateX(50%);transform-origin:left center;white-space:nowrap}
 .scatter .zero{position:absolute;left:0;right:0;border-top:1px dashed var(--border-med);z-index:1}
 
-/* Diverging bars around a baseline */
-.diverging{position:relative}
-.diverging .baseline{position:absolute;left:50%;top:0;bottom:0;width:1px;background:var(--border-med)}
-.diverging .baseline span{position:absolute;left:50%;transform:translateX(-50%);top:-2px;font-family:var(--font-mono);font-size:8px;color:var(--text-dim);white-space:nowrap}
+/* Diverging bars around a shared baseline */
+.diverging{position:relative;padding-top:18px}
+.dv-row{display:flex;align-items:center;height:26px;margin-bottom:4px}
+.dv-label{width:160px;flex-shrink:0;font-size:12.5px;color:var(--text-muted);text-align:right;padding-right:10px}
+.dv-label b{color:var(--text);font-weight:500}
+.dv-track{position:relative;flex:1;align-self:stretch}
+.dv-track::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;background:rgba(30,25,20,0.10)}
+.dv-bar{position:absolute;top:4px;bottom:4px;border-radius:3px}
+.dv-val{width:90px;flex-shrink:0;font-family:var(--font-mono);font-size:11px;color:var(--text);padding-left:10px;white-space:nowrap}
 
 /* TABS */
 .tab-btn{font-family:var(--font-mono);font-size:10px;font-weight:500;background:none;border:none;color:var(--text-dim);padding:0.55rem 0.9rem;cursor:pointer;border-bottom:2px solid transparent;transition:color 0.15s,border-color 0.15s;margin-bottom:-1px;letter-spacing:0.06em;text-transform:uppercase}
@@ -559,18 +564,17 @@ footer span{color:var(--gold)}
 
   <div class="chart-panel fig-top">
     <h4>Hit-rate by genre — against the 7.6% all-demos line</h4>
-    <div class="diverging" style="position:relative">
-      <div class="baseline"><span>7.6% all demos</span></div>
-      <div class="bar-row" style="position:relative;z-index:2"><div class="bar-label"><b>Action RPG</b></div><div class="bar-bg" style="background:transparent"><div class="bar-fill" style="width:48.7%;margin-left:50%;background:var(--gold)"></div></div><div class="bar-val">19.5% · 2.6×</div></div>
-      <div class="bar-row" style="position:relative;z-index:2"><div class="bar-label"><b>Crafting</b></div><div class="bar-bg" style="background:transparent"><div class="bar-fill" style="width:21.5%;margin-left:50%;background:var(--teal)"></div></div><div class="bar-val">16.0%</div></div>
-      <div class="bar-row" style="position:relative;z-index:2"><div class="bar-label"><b>Open World</b></div><div class="bar-bg" style="background:transparent"><div class="bar-fill" style="width:15.9%;margin-left:50%;background:var(--teal)"></div></div><div class="bar-val">13.8%</div></div>
-      <div class="bar-row" style="position:relative;z-index:2"><div class="bar-label"><b>JRPG</b></div><div class="bar-bg" style="background:transparent"><div class="bar-fill" style="width:13.6%;margin-left:50%;background:var(--teal)"></div></div><div class="bar-val">12.9%</div></div>
-      <div class="bar-row" style="position:relative;z-index:2"><div class="bar-label"><b>RTS</b></div><div class="bar-bg" style="background:transparent"><div class="bar-fill" style="width:11.8%;margin-left:50%;background:var(--teal)"></div></div><div class="bar-val">12.3%</div></div>
-      <div class="bar-row" style="position:relative;z-index:2"><div class="bar-label"><b>Walking sim</b></div><div class="bar-bg" style="background:transparent"><div class="bar-fill" style="width:12.8%;margin-right:50%;background:var(--coral)"></div></div><div class="bar-val">2.6%</div></div>
-      <div class="bar-row" style="position:relative;z-index:2"><div class="bar-label"><b>2D platformer</b></div><div class="bar-bg" style="background:transparent"><div class="bar-fill" style="width:14.6%;margin-right:50%;background:var(--coral)"></div></div><div class="bar-val">1.9%</div></div>
-      <div class="bar-row" style="position:relative;z-index:2"><div class="bar-label"><b>Precision platformer</b></div><div class="bar-bg" style="background:transparent"><div class="bar-fill" style="width:15.6%;margin-right:50%;background:var(--coral)"></div></div><div class="bar-val">1.5%</div></div>
+    <div class="diverging">
+      <div class="dv-row"><div class="dv-label"><b>Action RPG</b></div><div class="dv-track"><div class="dv-bar" style="left:50%;width:50%;background:var(--gold)"></div></div><div class="dv-val">19.5% · 2.6×</div></div>
+      <div class="dv-row"><div class="dv-label"><b>Crafting</b></div><div class="dv-track"><div class="dv-bar" style="left:50%;width:41%;background:var(--teal)"></div></div><div class="dv-val">16.0%</div></div>
+      <div class="dv-row"><div class="dv-label"><b>Open World</b></div><div class="dv-track"><div class="dv-bar" style="left:50%;width:35.4%;background:var(--teal)"></div></div><div class="dv-val">13.8%</div></div>
+      <div class="dv-row"><div class="dv-label"><b>JRPG</b></div><div class="dv-track"><div class="dv-bar" style="left:50%;width:33.1%;background:var(--teal)"></div></div><div class="dv-val">12.9%</div></div>
+      <div class="dv-row"><div class="dv-label"><b>RTS</b></div><div class="dv-track"><div class="dv-bar" style="left:50%;width:31.5%;background:var(--teal)"></div></div><div class="dv-val">12.3%</div></div>
+      <div class="dv-row"><div class="dv-label"><b>Walking sim</b></div><div class="dv-track"><div class="dv-bar" style="right:50%;width:6.7%;background:var(--coral)"></div></div><div class="dv-val">2.6%</div></div>
+      <div class="dv-row"><div class="dv-label"><b>2D platformer</b></div><div class="dv-track"><div class="dv-bar" style="right:50%;width:4.9%;background:var(--coral)"></div></div><div class="dv-val">1.9%</div></div>
+      <div class="dv-row"><div class="dv-label"><b>Precision platformer</b></div><div class="dv-track"><div class="dv-bar" style="right:50%;width:3.8%;background:var(--coral)"></div></div><div class="dv-val">1.5%</div></div>
     </div>
-    <div class="chart-note">Bars right of the line beat the average demo; bars left of it trail. Action RPG clears the baseline by 2.6× — precision platformers land at 0.2×. Find your genre and you instantly know which side of the line you're on.</div>
+    <div class="chart-note">Bars to the right of the centre line beat the all-demos average of 7.6%; bars to the left trail it. Action RPG clears the line by 2.6×, precision platformers land at 0.2×. Find your genre and you instantly know which side you're on.</div>
   </div>
 
   <h3>Clusters at the very top</h3>
