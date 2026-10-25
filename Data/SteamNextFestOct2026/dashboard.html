@@ -180,14 +180,18 @@ tbody td strong{color:var(--text);font-weight:600}
 .unit-note{font-family:var(--font-mono);font-size:8.5px;color:var(--text-dim);text-align:center;margin-top:2px}
 
 /* Scatter plot */
-.scatter{position:relative;width:100%;height:260px;border-left:1px solid var(--border-med);border-bottom:1px solid var(--border-med);background:var(--bg3);margin-bottom:6px}
-.scatter .pt{position:absolute;transform:translate(0,0);z-index:2}
-.scatter .pt .dot{width:9px;height:9px;border-radius:50%;border:1px solid rgba(0,0,0,0.15)}
-.scatter .pt .tl{position:absolute;top:10px;left:50%;transform:translateX(-50%);font-family:var(--font-mono);font-size:8px;color:var(--text);white-space:nowrap;text-align:center;line-height:1.2}
+.scatter{position:relative;width:100%;height:280px;border-left:1px solid var(--border-med);border-bottom:1px solid var(--border-med);background:var(--bg3);margin-bottom:6px}
+.scatter .pt{position:absolute;z-index:2;transform:translate(-50%,50%)}
+.scatter .pt .dot{display:block;width:10px;height:10px;border-radius:50%;border:1px solid rgba(0,0,0,0.18)}
+.scatter .pt .tl{position:absolute;top:12px;left:50%;transform:translateX(-50%);font-family:var(--font-mono);font-size:8px;color:var(--text);white-space:nowrap;text-align:center;line-height:1.15}
+.scatter .pt .tl.b{top:auto;bottom:12px}
 .scatter .axislabel{position:absolute;font-family:var(--font-mono);font-size:8.5px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.04em}
-.scatter .xl{left:0;bottom:-18px;text-align:center;width:100%}
-.scatter .yl{top:50%;left:-1rem;transform:rotate(-90deg) translateX(50%);transform-origin:left center;white-space:nowrap}
-.scatter .zero{position:absolute;left:0;right:0;border-top:1px dashed var(--border-med);z-index:1}
+.scatter .xl{left:0;bottom:-20px;text-align:center;width:100%}
+.scatter .yl{top:50%;left:-22px;transform:rotate(-90deg);transform-origin:center center;white-space:nowrap}
+.scatter .tick{position:absolute;font-family:var(--font-mono);font-size:8px;color:var(--text-dim);transform:translate(-50%,50%)}
+.scatter .xtick{bottom:0;top:auto}
+.scatter .ytick{left:0;right:auto;transform:translate(0,50%);margin-left:4px;text-align:left}
+.scatter .gridline{position:absolute;left:0;right:0;border-top:1px dashed var(--border);z-index:1}
 
 /* Diverging bars around a shared baseline */
 .diverging{position:relative;padding-top:18px}
@@ -770,18 +774,27 @@ footer span{color:var(--gold)}
   <div class="chart-panel">
     <h4>AI disclosure vs. genre hit-rate</h4>
     <div class="scatter">
-      <div class="zero" style="bottom:38%"></div>
+      <div class="gridline" style="bottom:38%"></div>
       <div class="pt" style="left:90.8%;bottom:57.5%"><span class="dot" style="background:var(--coral)"></span><span class="tl">Strategy RPG</span></div>
       <div class="pt" style="left:84%;bottom:61.5%"><span class="dot" style="background:var(--coral)"></span><span class="tl">RTS</span></div>
       <div class="pt" style="left:75.7%;bottom:57%"><span class="dot" style="background:var(--coral)"></span><span class="tl">Life Sim</span></div>
-      <div class="pt" style="left:33.7%;bottom:18.5%"><span class="dot" style="background:var(--teal)"></span><span class="tl">Puzzle Platf.</span></div>
-      <div class="pt" style="left:33.5%;bottom:18.5%"><span class="dot" style="background:var(--teal)"></span><span class="tl">3D Platf.</span></div>
+      <div class="pt" style="left:33.5%;bottom:18.5%"><span class="dot" style="background:var(--teal)"></span><span class="tl">Puzzle Platf.</span></div>
+      <div class="pt" style="left:33.5%;bottom:18.5%"><span class="dot" style="background:var(--teal)"></span><span class="tl b">3D Platf.</span></div>
       <div class="pt" style="left:29.8%;bottom:9.5%"><span class="dot" style="background:var(--teal)"></span><span class="tl">2D Platf.</span></div>
       <div class="pt" style="left:25.5%;bottom:7.5%"><span class="dot" style="background:var(--teal)"></span><span class="tl">Precision Platf.</span></div>
+      <span class="tick xtick" style="left:0%">0%</span>
+      <span class="tick xtick" style="left:33.3%">20%</span>
+      <span class="tick xtick" style="left:66.7%">40%</span>
+      <span class="tick xtick" style="left:100%">60%</span>
+      <span class="tick ytick" style="bottom:0%">0%</span>
+      <span class="tick ytick" style="bottom:25%">5%</span>
+      <span class="tick ytick" style="bottom:50%">10%</span>
+      <span class="tick ytick" style="bottom:75%">15%</span>
+      <span class="tick ytick" style="bottom:100%">20%</span>
       <div class="axislabel xl">AI disclosure rate →</div>
       <div class="axislabel yl">Share hitting 10+ CCU →</div>
     </div>
-    <div class="chart-note">Seven genre pairs appear in both of Zukowski's lists. They split into two clusters: the strategy/crafting RPGs (top-right) both convert well <em>and</em> disclose AI at 45–55%; the platformers (bottom-left) do neither. Framing: AI-heavy work is clustering in the genres that convert — not that AI causes conversion. Small sample, overlapping pairs, no trend line.</div>
+    <div class="chart-note">Seven genre pairs appear in both of Zukowski's lists. They split into two clusters: the strategy/crafting RPGs (top-right) both convert well <em>and</em> disclose AI at 45–55%; the platformers (bottom-left) do neither. The dashed line marks the 7.6% all-demos hit-rate. Framing: AI-heavy work is clustering in the genres that convert — not that AI causes conversion. Small sample, overlapping pairs, no trend line.</div>
   </div>
 
   <div class="insight blue">
