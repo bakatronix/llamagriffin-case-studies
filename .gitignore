@@ -1,1 +1,7 @@
 .DS_Store
+
+# SNF updater secrets + runtime artifacts
+tooling/snf-updater/ftp.conf
+tooling/snf-updater/run.log
+tooling/snf-updater/stdout.log
+tooling/snf-updater/stderr.log

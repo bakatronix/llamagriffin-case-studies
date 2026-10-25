@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.llamagriffin.snf-updater</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>/Users/abbas/Lllama and Griffin Web Site/Case Studies/tooling/snf-updater/run.sh</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/abbas/Lllama and Griffin Web Site/Case Studies/tooling/snf-updater</string>
+
+    <key>StartInterval</key>
+    <integer>7200</integer>
+
+    <key>RunAtLoad</key>
+    <false/>
+
+    <key>StandardOutPath</key>
+    <string>/Users/abbas/Lllama and Griffin Web Site/Case Studies/tooling/snf-updater/stdout.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/abbas/Lllama and Griffin Web Site/Case Studies/tooling/snf-updater/stderr.log</string>
+</dict>
+</plist>
