@@ -87,29 +87,44 @@ def apply(data, text, force=False):
     changed = []
     new = text
 
-    # Each binding: (extracted key, regex that finds one numeric value in context).
-    # The regex captures the existing number; we replace it with the fresh value.
-    bindings = [
-        # demos-with-players appears as "N demos with players", "N of ... tracked",
-        # and "N of 7,317 tracked demos had players"
-        ("demos_with_players", r"\b[\d,]+(?=\s*demos with players)"),
-        ("demos_with_players", r"\b[\d,]+(?=\s*of\s+[\d,]+\s+tracked)"),
-        ("demos_with_players", r"\b[\d,]+(?=\s*of\s+[\d,]+\s+tracked demos had players)"),
-        # playing-now appears as "N playing demos now" / "— N playing demos now"
-        ("playing_now", r"\b[\d,]+(?=\s*playing demos now)"),
-        # demos-in-fest appears as "of N tracked" where the N follows "of "
-        ("demos_in_fest", r"(?<=of )[\d,]+(?=\s*tracked)"),
-    ]
+    # Each binding: (extracted key, regex that replaces a NUMBER whose value is
+    # the current known value, in a specific HTML/text context). We match by the
+    # LABEL that identifies the figure, tolerating wrapping tags like </b> or
+    # </div> between the number and the label.
+    #
+    # The "demos with players" figure shows up in 5 places with 5 markups:
+    #   <b>N</b> demos with players
+    #   class="...stat-val purple">N</div> ... stat-lbl">Demos with players
+    #   playing now; N of 7,317 demos active
+    #   N of 7,317 tracked demos had players
+    # We target the digits just before the label, allowing a closing tag.
+    patterns = {
+        "demos_with_players": [
+            r"(?<=<b>)[\d,]+(?=</b>\s*demos with players)",
+            r"(?<=stat-val purple\">)[\d,]+(?=</div>[\s\S]{0,40}?Demos with players)",
+            r"(?<=playing now; )[\d,]+(?= of [\d,]+ demos active)",
+            r"[\d,]+(?= of [\d,]+ tracked demos had players)",
+        ],
+        "playing_now": [
+            r"(?<=<b>)[\d,]+(?=</b>\s*playing demos now)",
+            r"(?<=>)[\d,]+(?=</div>[^<]*Playing Demos)",
+            r"(?<=— )[\d,]+(?= playing demos now)",
+        ],
+        "demos_in_fest": [
+            r"(?<=of )[\d,]+(?= tracked)",
+        ],
+    }
 
-    for key, pattern in bindings:
+    for key, pats in patterns.items():
         if key not in data:
             continue
         val = data[key]
-        # Replace every occurrence of the context number with the fresh value.
-        before = new
-        new, n = re.subn(pattern, val, new)
-        if new != before:
-            changed.append(f"{key}: {n} occurrence(s) -> {val}")
+        n_total = 0
+        for pat in pats:
+            new, n = re.subn(pat, val, new)
+            n_total += n
+        if n_total:
+            changed.append(f"{key}: {n_total} occurrence(s) -> {val}")
 
     return new, changed
 
