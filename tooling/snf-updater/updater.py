@@ -83,28 +83,33 @@ def read_dashboard():
 
 
 def apply(data, text, force=False):
-    """Apply extracted values into the dashboard text. Returns (new_text, changed:list)."""
+    """Apply extracted values by label context (not drift-prone sentinels)."""
     changed = []
     new = text
 
+    # Each binding: (extracted key, regex that finds one numeric value in context).
+    # The regex captures the existing number; we replace it with the fresh value.
     bindings = [
-        ("playing_now", "130,638"),
-        ("demos_with_players", "6,446"),
-        ("demos_in_fest", "7,317"),
+        # demos-with-players appears as "N demos with players", "N of ... tracked",
+        # and "N of 7,317 tracked demos had players"
+        ("demos_with_players", r"\b[\d,]+(?=\s*demos with players)"),
+        ("demos_with_players", r"\b[\d,]+(?=\s*of\s+[\d,]+\s+tracked)"),
+        ("demos_with_players", r"\b[\d,]+(?=\s*of\s+[\d,]+\s+tracked demos had players)"),
+        # playing-now appears as "N playing demos now" / "— N playing demos now"
+        ("playing_now", r"\b[\d,]+(?=\s*playing demos now)"),
+        # demos-in-fest appears as "of N tracked" where the N follows "of "
+        ("demos_in_fest", r"(?<=of )[\d,]+(?=\s*tracked)"),
     ]
 
-    for key, current_sentinel in bindings:
+    for key, pattern in bindings:
         if key not in data:
             continue
         val = data[key]
-        if val == current_sentinel and not force:
-            continue
-        # Replace only occurrences that are "live" values; several are embedded
-        # in prose. We limit to the exact standalone token.
+        # Replace every occurrence of the context number with the fresh value.
         before = new
-        new = re.sub(r"(?<![\d,])" + re.escape(current_sentinel) + r"(?![\d,])", val, new)
+        new, n = re.subn(pattern, val, new)
         if new != before:
-            changed.append(f"{key}: {current_sentinel} -> {val}")
+            changed.append(f"{key}: {n} occurrence(s) -> {val}")
 
     return new, changed
 
