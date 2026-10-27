@@ -3,7 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Steam Next Fest October 2026 · Live Intelligence Dashboard · Llama &amp; Griffin</title>
+<title>Steam Next Fest October 2026 · Intelligence Dashboard · Recognizing Patterns · Llama &amp; Griffin</title>
+<meta name="description" content="Every Steam Next Fest October 2026 number in one place: final peak players, Valve's most-played list, follower tiers, AI disclosure, genre hit rates and methodology. Updated 27 October 2026.">
+<link rel="canonical" href="https://www.llamagriffin.com/Data/SteamNextFestOct2026/dashboard.html">
+<meta property="og:title" content="Steam Next Fest October 2026 — Intelligence Dashboard">
+<meta property="og:description" content="Every Steam Next Fest October 2026 number in one place: final peak players, Valve's most-played list, follower tiers, AI disclosure, genre hit rates and methodology. Updated 27 October 2026.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.llamagriffin.com/Data/SteamNextFestOct2026/dashboard.html">
+<meta property="og:site_name" content="Llama &amp; Griffin · Recognizing Patterns">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -253,6 +260,20 @@ footer span{color:var(--gold)}
   section{padding:2.25rem 1.25rem}
   .hero{padding:2.5rem 1.25rem 0.5rem}
 }
+
+/* Recognizing Patterns house conventions: confidence tags, bio, methodology */
+.tag-high{background:var(--teal-dim);color:var(--teal)}
+.tag-likely{background:var(--purple-dim);color:var(--purple)}
+.tag-directional{background:var(--coral-dim);color:var(--coral)}
+.tag-prov{background:rgba(35,35,35,0.07);color:var(--text-dim)}
+.ctag{margin-right:6px;vertical-align:1px}
+.bio{max-width:960px;margin:0 auto;padding:1.5rem 2rem 1rem;border-top:1px solid var(--border)}
+.bio p{font-size:13px;color:var(--text-muted);max-width:72ch;line-height:1.65}
+.bio a,footer a{color:var(--gold);text-decoration:none}
+.bio a:hover,footer a:hover{text-decoration:underline}
+footer .methodology{width:100%;font-family:var(--font-body);font-size:11px;color:var(--text-dim);line-height:1.65;margin-top:0.75rem;border-top:1px solid var(--border);padding-top:0.75rem;max-width:none}
+footer .methodology .tag{font-size:8.5px}
+@media(max-width:600px){.bio{padding-left:1.25rem;padding-right:1.25rem}}
 </style>
 </head>
 <body>
@@ -334,7 +355,7 @@ footer span{color:var(--gold)}
   </div>
 
   <div class="insight">
-    <strong>The one-line read:</strong> Scale has become the story. Every eligible demo gets a guaranteed slice of randomised front-page exposure, but with 7,240 games sharing it that slice is thinner than at any prior edition. Early-festival data shows pre-fest follower base and pre-fest momentum both predict early peak players about equally — percentage growth from a tiny base does not.
+    <span class="tag tag-likely ctag">Likely</span><strong>The one-line read:</strong> Scale has become the story. Every eligible demo gets a guaranteed slice of randomised front-page exposure, but with 7,240 games sharing it that slice is thinner than at any prior edition. Early-festival data shows pre-fest follower base and pre-fest momentum both predict early peak players about equally — percentage growth from a tiny base does not.
   </div>
 </div>
 
@@ -368,16 +389,14 @@ footer span{color:var(--gold)}
   </div>
 
   <div class="chart-panel">
-    <h4>The long tail — rank vs peak players (log scale)</h4>
+    <h4>The long tail — rank vs final peak players (log scale)</h4>
     <div class="bar-row"><div class="bar-label"><b>#1 Probably Stolen</b></div><div class="bar-bg"><div class="bar-fill" style="width:100%;background:var(--gold)"></div></div><div class="bar-val">39,696</div></div>
-    <div class="bar-row"><div class="bar-label"><b>#10 Abyssal Lapidary</b></div><div class="bar-bg"><div class="bar-fill" style="width:64%;background:var(--gold)"></div></div><div class="bar-val">4,766</div></div>
-    <div class="bar-row"><div class="bar-label"><b>#20 Meltdown Crew</b></div><div class="bar-bg"><div class="bar-fill" style="width:48%;background:var(--gold)"></div></div><div class="bar-val">2,404</div></div>
-    <div class="bar-row"><div class="bar-label"><b>#30 HANDS OVER</b></div><div class="bar-bg"><div class="bar-fill" style="width:36%;background:var(--gold)"></div></div><div class="bar-val">1,431</div></div>
-    <div class="bar-row"><div class="bar-label"><b>#50 BreathBound</b></div><div class="bar-bg"><div class="bar-fill" style="width:24%;background:var(--gold)"></div></div><div class="bar-val">746</div></div>
-    <div class="bar-row"><div class="bar-label"><b>#100</b></div><div class="bar-bg"><div class="bar-fill" style="width:15%;background:var(--teal)"></div></div><div class="bar-val">~250</div></div>
-    <div class="bar-row"><div class="bar-label"><b>#200</b></div><div class="bar-bg"><div class="bar-fill" style="width:9%;background:var(--teal)"></div></div><div class="bar-val">~63</div></div>
-    <div class="bar-row"><div class="bar-label"><b>…then 6,200 more</b></div><div class="bar-bg"><div class="bar-fill" style="width:5%;background:var(--coral)"></div></div><div class="bar-val">below</div></div>
-    <div class="chart-note">"Discovery compression" as a shape: it runs from 39,696 at #1 to ~63 by #200, and roughly 6,200 <em>more</em> demos-with-players fall off the bottom of the chart. The top hundred soaked up the attention; the rest fight for the crumbs. Source: Output Lag, 25 Oct.</div>
+    <div class="bar-row"><div class="bar-label"><b>#10 Abyssal Lapidary</b></div><div class="bar-bg"><div class="bar-fill" style="width:65%;background:var(--gold)"></div></div><div class="bar-val">4,766</div></div>
+    <div class="bar-row"><div class="bar-label"><b>#20 HANDS OVER</b></div><div class="bar-bg"><div class="bar-fill" style="width:46%;background:var(--gold)"></div></div><div class="bar-val">1,562</div></div>
+    <div class="bar-row"><div class="bar-label"><b>#50 Crazy Life</b></div><div class="bar-bg"><div class="bar-fill" style="width:32%;background:var(--gold)"></div></div><div class="bar-val">690</div></div>
+    <div class="bar-row"><div class="bar-label"><b>#100 Dawn of Defense</b></div><div class="bar-bg"><div class="bar-fill" style="width:19%;background:var(--teal)"></div></div><div class="bar-val">305</div></div>
+    <div class="bar-row"><div class="bar-label"><b>…then ~6,440 more</b></div><div class="bar-bg"><div class="bar-fill" style="width:5%;background:var(--coral)"></div></div><div class="bar-val">below</div></div>
+    <div class="chart-note">"Discovery compression" as a shape: final peak players fall from 39,696 at #1 to 305 by #100 — and about 6,440 more demos that had players sit below that. Ranked by final peak, Output Lag (post-close, 7,310 demos).</div>
   </div>
 
   <div class="card-row">
@@ -411,14 +430,14 @@ footer span{color:var(--gold)}
   <p class="note">June 2023–June 2026 from GameDiscoverCo; October 2026 from How To Market A Game.</p>
 
   <div class="insight purple">
-    <strong>Why it grew:</strong> More developers now know the festival exists and more enter every year. Using a projected ~29,300 Steam releases for 2026, that year's Next Fest entries (15,158) equal <strong>~51.7%</strong> of releases — up from 38.2% in 2025 and 33.6% in 2024. It's a ratio of entries to releases (a game counts once per edition entered), and the 29,300 is projected, so treat it as direction rather than fact. Zukowski speculates the surge could reflect AI-assisted developers testing viability early.
+    <span class="tag tag-prov ctag">Provisional</span><strong>Why it grew:</strong> More developers now know the festival exists and more enter every year. Using a projected ~29,300 Steam releases for 2026, that year's Next Fest entries (15,158) equal <strong>~51.7%</strong> of releases — up from 38.2% in 2025 and 33.6% in 2024. It's a ratio of entries to releases (a game counts once per edition entered), and the 29,300 is projected, so treat it as direction rather than fact. Zukowski speculates the surge could reflect AI-assisted developers testing viability early.
   </div>
 
   <h3>Final festival telemetry — Output Lag, 26 Oct (post-close)</h3>
   <div class="stat-grid">
     <div class="stat-cell"><div class="stat-val gold">194,256</div><div class="stat-lbl">Peak Hourly Concurrent</div><div class="stat-sub">24 Oct, 14:00–15:00 UTC</div></div>
-    <div class="stat-cell"><div class="stat-val purple">6,542</div><div class="stat-lbl">Demos with players</div><div class="stat-sub">final · of 7,317 tracked</div></div>
-    <div class="stat-cell"><div class="stat-val teal">130,638</div><div class="stat-lbl">Sunday 25 Oct snapshot</div><div class="stat-sub">playing concurrent, ~mid-afternoon</div></div>
+    <div class="stat-cell"><div class="stat-val purple">6,542</div><div class="stat-lbl">Demos with players</div><div class="stat-sub">final · of 7,310 tracked</div></div>
+    <div class="stat-cell"><div class="stat-val teal">177,503</div><div class="stat-lbl">Sunday 25 Oct snapshot</div><div class="stat-sub">playing, ~13:30 UTC (Output Lag Day 7)</div></div>
     <div class="stat-cell"><div class="stat-val coral">7.6%</div><div class="stat-lbl">Demos at 10+ CCU</div><div class="stat-sub">most entrants peak under 10</div></div>
   </div>
 </section>
@@ -432,7 +451,7 @@ footer span{color:var(--gold)}
     </div>
   </div>
   <span class="h2-kicker">Friendslop, shopkeepers, and idle games.</span>
-  <p class="section-intro">Valve named its 20 most-played demos (per Polygon); the table below ranks demos by their peak concurrent players as tracked by Output Lag (single snapshot, 25 Oct 7am GMT-0400), and marks which rows appear on Valve's list. Multiplayer is the overwhelming signal: at least <strong>14 of 20</strong> let you play with friends.</p>
+  <p class="section-intro">Valve named its 20 most-played demos (per Polygon); the table below ranks the top 20 demos by final peak concurrent players (Output Lag, post-close) and marks which of them are on Valve's list. Valve shared its list without stating how it ranked it; it covers 19–23 October. Multiplayer is the overwhelming signal: at least <strong>14 of Valve's 20</strong> let you play with friends.</p>
 
   <div class="chart-panel fig-top">
     <h4>Peak concurrent players — leading demos</h4>
@@ -446,12 +465,12 @@ footer span{color:var(--gold)}
     <div class="bar-row"><div class="bar-label"><b>Worst Class Ever</b></div><div class="bar-bg"><div class="bar-fill" style="width:70%;background:var(--teal)"></div></div><div class="bar-val">27,684</div></div>
     <div class="bar-row"><div class="bar-label"><b>ArcheAge Chronicles</b></div><div class="bar-bg"><div class="bar-fill" style="width:50%;background:var(--purple)"></div></div><div class="bar-val">19,855</div></div>
     <div class="bar-row"><div class="bar-label"><b>Character House</b></div><div class="bar-bg"><div class="bar-fill" style="width:44%;background:var(--coral)"></div></div><div class="bar-val">17,489</div></div>
-    <div class="bar-row"><div class="bar-label"><b>Find The Needle</b></div><div class="bar-bg"><div class="bar-fill" style="width:24%;background:var(--coral)"></div></div><div class="bar-val">9,594</div></div>
+    <div class="bar-row"><div class="bar-label"><b>Find The Needle</b></div><div class="bar-bg"><div class="bar-fill" style="width:24%;background:var(--coral)"></div></div><div class="bar-val">9,711</div></div>
+    <div class="bar-row"><div class="bar-label"><b>just volleyball</b></div><div class="bar-bg"><div class="bar-fill" style="width:24%;background:var(--teal)"></div></div><div class="bar-val">9,598</div></div>
     <div class="bar-row"><div class="bar-label"><b>Frostrail</b></div><div class="bar-bg"><div class="bar-fill" style="width:22%;background:var(--teal)"></div></div><div class="bar-val">8,834</div></div>
-    <div class="bar-row"><div class="bar-label"><b>just volleyball</b></div><div class="bar-bg"><div class="bar-fill" style="width:21%;background:var(--teal)"></div></div><div class="bar-val">8,179</div></div>
     <div class="bar-row"><div class="bar-label"><b>Loftia</b></div><div class="bar-bg"><div class="bar-fill" style="width:19%;background:var(--coral)"></div></div><div class="bar-val">7,427</div></div>
-    <div class="bar-row"><div class="bar-label"><b>Melvor Idle 2</b></div><div class="bar-bg"><div class="bar-fill" style="width:18%;background:var(--coral)"></div></div><div class="bar-val">7,141</div></div>
-    <div class="chart-note">"Peak so far" as of 25 Oct 7am (Output Lag), coloured by category. Bar width scales to the leader (~39,700). The drop from #1 to #2 (−30%) and the long idle/cozy tail are the real shape of the chart.</div>
+    <div class="bar-row"><div class="bar-label"><b>Melvor Idle 2</b></div><div class="bar-bg"><div class="bar-fill" style="width:18%;background:var(--coral)"></div></div><div class="bar-val">7,152</div></div>
+    <div class="chart-note">Final peak players (Output Lag, post-close), coloured by category. Bar width scales to the leader (~39,700). The drop from #1 to #2 (−30%) and the long idle/cozy tail are the real shape of the chart.</div>
   </div>
 
   <h3 class="capsules-heading">The top 10, on the shelf</h3>
@@ -466,7 +485,7 @@ footer span{color:var(--gold)}
     </a>
     <a class="capsule-card" href="https://store.steampowered.com/app/3218230/" target="_blank" rel="noopener">
       <img class="capsule-img" loading="lazy" alt="ArcheAge Chronicles" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3218230/header.jpg">
-      <div class="capsule-body"><div class="capsule-rank">#3 · MMO / RPG</div><div class="capsule-name">ArcheAge Chronicles</div><div class="capsule-meta">20,507 peak</div></div>
+      <div class="capsule-body"><div class="capsule-rank">#3 · MMO / RPG</div><div class="capsule-name">ArcheAge Chronicles</div><div class="capsule-meta">19,855 peak</div></div>
     </a>
     <a class="capsule-card" href="https://store.steampowered.com/app/4868310/" target="_blank" rel="noopener">
       <img class="capsule-img" loading="lazy" alt="Character House -Desktop Companion-" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4868310/7414d3274162a32125df5aaf942eb73558f50a18/header.jpg">
@@ -474,27 +493,27 @@ footer span{color:var(--gold)}
     </a>
     <a class="capsule-card" href="https://store.steampowered.com/app/5160800/" target="_blank" rel="noopener">
       <img class="capsule-img" loading="lazy" alt="Find The Needle" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5160800/9ad39ef753543a194a7546ee8a17dc4b821cd021/header.jpg">
-      <div class="capsule-body"><div class="capsule-rank">#5 · Idle</div><div class="capsule-name">Find The Needle</div><div class="capsule-meta">9,594 peak</div></div>
-    </a>
-    <a class="capsule-card" href="https://store.steampowered.com/app/3517740/" target="_blank" rel="noopener">
-      <img class="capsule-img" loading="lazy" alt="Frostrail" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3517740/a9beb095d5c7194af787b7f9a343b5c6c1753bf0/header_alt_assets_2.jpg">
-      <div class="capsule-body"><div class="capsule-rank">#6 · Survival</div><div class="capsule-name">Frostrail</div><div class="capsule-meta">8,834 peak</div></div>
+      <div class="capsule-body"><div class="capsule-rank">#5 · Idle</div><div class="capsule-name">Find The Needle</div><div class="capsule-meta">9,711 peak</div></div>
     </a>
     <a class="capsule-card" href="https://store.steampowered.com/app/5037200/" target="_blank" rel="noopener">
       <img class="capsule-img" loading="lazy" alt="just volleyball" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5037200/cd1b5a290d15e7379b31dcacc12f1e5b25d37577/header.jpg">
-      <div class="capsule-body"><div class="capsule-rank">#7 · Sports</div><div class="capsule-name">just volleyball</div><div class="capsule-meta">8,179 peak</div></div>
+      <div class="capsule-body"><div class="capsule-rank">#6 · Sports</div><div class="capsule-name">just volleyball</div><div class="capsule-meta">9,598 peak</div></div>
+    </a>
+    <a class="capsule-card" href="https://store.steampowered.com/app/3517740/" target="_blank" rel="noopener">
+      <img class="capsule-img" loading="lazy" alt="Frostrail" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3517740/a9beb095d5c7194af787b7f9a343b5c6c1753bf0/header_alt_assets_2.jpg">
+      <div class="capsule-body"><div class="capsule-rank">#7 · Survival</div><div class="capsule-name">Frostrail</div><div class="capsule-meta">8,834 peak</div></div>
     </a>
     <a class="capsule-card" href="https://store.steampowered.com/app/2320980/" target="_blank" rel="noopener">
       <img class="capsule-img" loading="lazy" alt="Loftia" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2320980/header.jpg">
-      <div class="capsule-body"><div class="capsule-rank">#8 · Cozy MMO</div><div class="capsule-name">Loftia</div><div class="capsule-meta">7,557 peak</div></div>
+      <div class="capsule-body"><div class="capsule-rank">#8 · Cozy MMO</div><div class="capsule-name">Loftia</div><div class="capsule-meta">7,427 peak</div></div>
     </a>
     <a class="capsule-card" href="https://store.steampowered.com/app/3218350/" target="_blank" rel="noopener">
       <img class="capsule-img" loading="lazy" alt="Melvor Idle 2" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3218350/c948648c975dc6831c1c69e49f4c62673c129a7e/header.jpg">
-      <div class="capsule-body"><div class="capsule-rank">#9 · Idle</div><div class="capsule-name">Melvor Idle 2</div><div class="capsule-meta">7,141 peak</div></div>
+      <div class="capsule-body"><div class="capsule-rank">#9 · Idle</div><div class="capsule-name">Melvor Idle 2</div><div class="capsule-meta">7,152 peak</div></div>
     </a>
     <a class="capsule-card" href="https://store.steampowered.com/app/3797790/" target="_blank" rel="noopener">
       <img class="capsule-img" loading="lazy" alt="Abyssal Lapidary" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3797790/1dbba6baf18f1c71d693f384b15db1f3cbedcb07/header.jpg">
-      <div class="capsule-body"><div class="capsule-rank">#10 · Sim</div><div class="capsule-name">Abyssal Lapidary</div><div class="capsule-meta">4,805 peak</div></div>
+      <div class="capsule-body"><div class="capsule-rank">#10 · Sim</div><div class="capsule-name">Abyssal Lapidary</div><div class="capsule-meta">4,766 peak</div></div>
     </a>
   </div>
 
@@ -505,7 +524,7 @@ footer span{color:var(--gold)}
     <div class="card coral"><div class="clabel">Co-op share of top 20</div><div class="cval">14 / 20</div><div class="csub">Friendslop remains the dominant discovery engine</div></div>
   </div>
 
-  <h3>Top demos by peak CCU — Output Lag, 25 Oct 7am GMT-0400 (Valve's 20 marked)</h3>
+  <h3>Top 20 demos by final peak CCU — Output Lag, post-close (Valve's list marked)</h3>
   <div class="table-wrap">
     <table>
       <thead>
@@ -516,30 +535,29 @@ footer span{color:var(--gold)}
         <tr><td><span class="rank-badge top3">2</span></td><td><strong>Worst Class Ever</strong></td><td>1v5 asymmetric: one teacher hunts five hidden troublemakers</td><td class="num">27,684</td><td><span class="tag tag-teal">Valve</span></td><td>Q4 2026</td></tr>
         <tr><td><span class="rank-badge top3">3</span></td><td><strong>ArcheAge Chronicles</strong></td><td>Action RPG in the ArcheAge universe (XLGAMES)</td><td class="num">19,855</td><td><span class="tag tag-teal">Valve</span></td><td>TBA</td></tr>
         <tr><td><span class="rank-badge top10">4</span></td><td><strong>Character House – Desktop Companion</strong></td><td>Build a chibi companion that sits on your desktop</td><td class="num">17,489</td><td><span class="tag tag-teal">Valve</span></td><td>2026</td></tr>
-        <tr><td><span class="rank-badge top10">5</span></td><td><strong>Find The Needle</strong></td><td>Incremental: dig a six-million-strand haystack by hand</td><td class="num">9,594</td><td><span class="tag tag-teal">Valve</span></td><td>Q4 2026</td></tr>
-        <tr><td><span class="rank-badge top10">6</span></td><td><strong>Frostrail</strong></td><td>Survival FPS on a steam train across a frozen wasteland</td><td class="num">8,834</td><td><span class="tag tag-teal">Valve</span></td><td>Q4 2026</td></tr>
-        <tr><td><span class="rank-badge top10">7</span></td><td><strong>just volleyball</strong></td><td>Approachable volleyball, 1v1 up to 6v6</td><td class="num">8,179</td><td><span class="tag tag-teal">Valve</span></td><td>4 Nov 2026</td></tr>
+        <tr><td><span class="rank-badge top10">5</span></td><td><strong>Find The Needle</strong></td><td>Incremental: dig a six-million-strand haystack by hand</td><td class="num">9,711</td><td><span class="tag tag-teal">Valve</span></td><td>Q4 2026</td></tr>
+        <tr><td><span class="rank-badge top10">6</span></td><td><strong>just volleyball</strong></td><td>Approachable volleyball, 1v1 up to 6v6</td><td class="num">9,598</td><td><span class="tag tag-teal">Valve</span></td><td>4 Nov 2026</td></tr>
+        <tr><td><span class="rank-badge top10">7</span></td><td><strong>Frostrail</strong></td><td>Survival FPS on a steam train across a frozen wasteland</td><td class="num">8,834</td><td><span class="tag tag-teal">Valve</span></td><td>Q4 2026</td></tr>
         <tr><td><span class="rank-badge top10">8</span></td><td><strong>Loftia</strong></td><td>Cozy multiplayer life sim; sustainable future with friends</td><td class="num">7,427</td><td><span class="tag tag-teal">Valve</span></td><td>3 Nov 2026</td></tr>
-        <tr><td><span class="rank-badge top10">9</span></td><td><strong>Melvor Idle 2</strong></td><td>Moddable idle RPG sequel</td><td class="num">7,141</td><td><span class="tag tag-dim">—</span></td><td>2026</td></tr>
+        <tr><td><span class="rank-badge top10">9</span></td><td><strong>Melvor Idle 2</strong></td><td>Moddable idle RPG sequel</td><td class="num">7,152</td><td><span class="tag tag-dim">—</span></td><td>2026</td></tr>
         <tr><td><span class="rank-badge top10">10</span></td><td><strong>Abyssal Lapidary</strong></td><td>Gothic Victorian gem-appraisal management sim</td><td class="num">4,766</td><td><span class="tag tag-teal">Valve</span></td><td>Coming soon</td></tr>
         <tr><td><span class="rank-badge">11</span></td><td><strong>Fart Together</strong></td><td>2–4 player physics raft steered by flatulence</td><td class="num">4,405</td><td><span class="tag tag-teal">Valve</span></td><td>29 Oct 2026</td></tr>
         <tr><td><span class="rank-badge">12</span></td><td><strong>Among Shadows</strong></td><td>Third-person PvP party tactics</td><td class="num">3,063</td><td><span class="tag tag-dim">—</span></td><td>Q4 2026</td></tr>
-        <tr><td><span class="rank-badge">13</span></td><td><strong>Grr Grr Gnomes</strong></td><td>Gnome crew sailing between islands to escape</td><td class="num">2,585</td><td><span class="tag tag-teal">Valve</span></td><td>19 Jan 2027</td></tr>
-        <tr><td><span class="rank-badge">14</span></td><td><strong>Meltdown Crew</strong></td><td>Co-op reactor-chaos party/puzzle</td><td class="num">2,404</td><td><span class="tag tag-dim">—</span></td><td>Dec 2026</td></tr>
-        <tr><td><span class="rank-badge">15</span></td><td><strong>Deadzone Rogue 2</strong></td><td>Roguelite FPS on a fallen Earth</td><td class="num">1,807</td><td><span class="tag tag-teal">Valve</span></td><td>Coming soon</td></tr>
-        <tr><td><span class="rank-badge">16</span></td><td><strong>No Body No Problem!</strong></td><td>Hide the body before the cop (who is a player) arrives</td><td class="num">1,739</td><td><span class="tag tag-teal">Valve</span></td><td>Coming soon</td></tr>
-        <tr><td><span class="rank-badge">17</span></td><td><strong>Emberville</strong></td><td>Wake with no memories, rebuild an underground town</td><td class="num">1,668</td><td><span class="tag tag-teal">Valve</span></td><td>27 Oct 2026</td></tr>
-        <tr><td><span class="rank-badge">18</span></td><td><strong>Mortuus</strong></td><td>Round-based co-op zombie FPS, mystery box, brutalist maps</td><td class="num">1,533</td><td><span class="tag tag-teal">Valve</span></td><td>Coming soon</td></tr>
-        <tr><td><span class="rank-badge">19</span></td><td><strong>Haunted Paws</strong></td><td>Two puppies rescue their owner from a haunted mansion</td><td class="num">1,518</td><td><span class="tag tag-teal">Valve</span></td><td>TBA</td></tr>
-        <tr><td><span class="rank-badge">20</span></td><td><strong>HANDS OVER</strong></td><td>5-player bluff/sabotage test of nerve</td><td class="num">1,431</td><td><span class="tag tag-teal">Valve</span></td><td>30 Oct 2026</td></tr>
-        <tr><td><span class="rank-badge">21</span></td><td><strong>Dumpster Gang</strong></td><td>Raccoon heist sandbox dodging an Exterminator</td><td class="num">1,428</td><td><span class="tag tag-teal">Valve</span></td><td>3 Dec 2026</td></tr>
+        <tr><td><span class="rank-badge">13</span></td><td><strong>BORE</strong></td><td>One of two top-25 demos to disclose AI (AI-assisted development)</td><td class="num">2,923</td><td><span class="tag tag-dim">—</span></td><td>—</td></tr>
+        <tr><td><span class="rank-badge">14</span></td><td><strong>Grr Grr Gnomes</strong></td><td>Gnome crew sailing between islands to escape</td><td class="num">2,585</td><td><span class="tag tag-teal">Valve</span></td><td>19 Jan 2027</td></tr>
+        <tr><td><span class="rank-badge">15</span></td><td><strong>Meltdown Crew</strong></td><td>Co-op reactor-chaos party/puzzle</td><td class="num">2,404</td><td><span class="tag tag-dim">—</span></td><td>Dec 2026</td></tr>
+        <tr><td><span class="rank-badge">16</span></td><td><strong>No Body No Problem!</strong></td><td>Hide the body before the cop (who is a player) arrives</td><td class="num">1,831</td><td><span class="tag tag-teal">Valve</span></td><td>Coming soon</td></tr>
+        <tr><td><span class="rank-badge">17</span></td><td><strong>Deadzone Rogue 2</strong></td><td>Roguelite FPS on a fallen Earth</td><td class="num">1,807</td><td><span class="tag tag-teal">Valve</span></td><td>Coming soon</td></tr>
+        <tr><td><span class="rank-badge">18</span></td><td><strong>ReBlade: The Death Spiral</strong></td><td>Souls-like action RPG (ChillyRoom)</td><td class="num">1,677</td><td><span class="tag tag-dim">—</span></td><td>TBA</td></tr>
+        <tr><td><span class="rank-badge">19</span></td><td><strong>Emberville</strong></td><td>Wake with no memories, rebuild an underground town</td><td class="num">1,668</td><td><span class="tag tag-teal">Valve</span></td><td>27 Oct 2026</td></tr>
+        <tr><td><span class="rank-badge">20</span></td><td><strong>HANDS OVER</strong></td><td>5-player bluff/sabotage test of nerve</td><td class="num">1,562</td><td><span class="tag tag-teal">Valve</span></td><td>30 Oct 2026</td></tr>
       </tbody>
     </table>
   </div>
-  <p class="note">Peak CCU figures are "peak so far" from Output Lag's hourly chart at a single timestamp (25 Oct, 7am GMT-0400). Valve's 20-game list also includes Wyldheart and Never Be Alone, which fall just below this table's cutoff; Melvor Idle 2, Among Shadows and Meltdown Crew appear by peak CCU but are not on Valve's list. Valve itself does not publish CCU numbers — the ranking here is Output Lag's, not Valve's.</p>
+  <p class="note">Final peak concurrent players from Output Lag's post-close chart (7,310 demos; ranks verified at #15 Meltdown Crew and #20 HANDS OVER). 15 of Valve's 20 sit in this top 20; Valve's other five are Mortuus (1,533), Haunted Paws (1,518), Dumpster Gang (1,428), Wyldheart (1,339) and Never Be Alone (850). Melvor Idle 2, Among Shadows, BORE, Meltdown Crew and ReBlade reach the top 20 by peak but are not on Valve's list, which covers 19–23 October and has no stated ranking metric. Valve does not publish CCU — the ranking here is Output Lag's.</p>
 
   <div class="insight teal">
-    <strong>The shape of a winner:</strong> The top of the chart rewards <em>a mechanical hook legible in a 10-second trailer</em> — a teacher hunting students, a fart-powered raft, a haystack that's actually a clicker. Co-op isn't optional decoration; it's the primary discovery multiplier. And several top-10 titles (Character House, Find The Needle, Melvor Idle 2) are idle/desktop games that quietly outrank big-name strategy and RPG demos.
+    <span class="tag tag-directional ctag">Directional</span><strong>The shape of a winner:</strong> The top of the chart rewards <em>a mechanical hook legible in a 10-second trailer</em> — a teacher hunting students, a fart-powered raft, a haystack that's actually a clicker. Co-op isn't optional decoration; it's the primary discovery multiplier. And several top-10 titles (Character House, Find The Needle, Melvor Idle 2) are idle/desktop games that quietly outrank big-name strategy and RPG demos.
   </div>
 </section>
 
@@ -551,18 +569,18 @@ footer span{color:var(--gold)}
       <h2>Flux — Day-By-Day Movement</h2>
     </div>
   </div>
-  <span class="h2-kicker">What's still climbing, and what already peaked.</span>
-  <p class="section-intro">Output Lag doesn't expose a full per-day history, but at a single timestamp it shows each demo's <strong>playing now</strong> against its <strong>peak so far</strong>. That pair is a live "flux" read: a demo with <em>now ≈ peak</em> is still climbing this hour, while a demo with <em>now ≪ peak</em> blew its peak earlier and is decaying. The snapshot below is 25 Oct, 7am GMT-0400.</p>
+  <span class="h2-kicker">Who was near their peak on Sunday morning, and who was well off it.</span>
+  <p class="section-intro">Output Lag doesn't expose a full per-day history, but at a single timestamp it shows each demo's <strong>playing now</strong> against its <strong>peak so far</strong>. That pair is a snapshot read: a demo with <em>now ≈ peak</em> is near its high at that moment, while a demo with <em>now ≪ peak</em> hit its high earlier. It doesn't show direction — just volleyball was "well off peak" here and went on to set a new high later. The snapshot below is 25 Oct, 7am GMT-0400.</p>
 
   <div class="chart-panel fig-top">
     <h4>State of the visible field — 13 tracked leaders</h4>
     <div class="sbar">
-      <div class="sbar-seg" style="width:38.5%;background:var(--teal)">5 climbing</div>
-      <div class="sbar-seg" style="width:23.1%;background:var(--gold)">3 holding</div>
-      <div class="sbar-seg" style="width:38.4%;background:var(--coral)">5 peaked</div>
+      <div class="sbar-seg" style="width:38.5%;background:var(--teal)">5 near peak</div>
+      <div class="sbar-seg" style="width:23.1%;background:var(--gold)">3 partly off</div>
+      <div class="sbar-seg" style="width:38.4%;background:var(--coral)">5 well off peak</div>
     </div>
-    <div class="sbar-axis"><span>idle / desktop long-session</span><span>press-spike decays</span></div>
-    <div class="chart-note">Count of the 13 top demos by momentum state (now ÷ peak-so-far, 25 Oct snapshot). Idle/desktop titles dominate the "climbing" band; early-fest press demos (Worst Class Ever, ArcheAge, Frostrail) dominate the "peaked" band.</div>
+    <div class="sbar-axis"><span>idle / desktop (count while running)</span><span>early-fest spikes</span></div>
+    <div class="chart-note">Count of the 13 top demos by momentum state (now ÷ peak-so-far, 25 Oct snapshot). Idle/desktop titles dominate the "near peak" band because they keep counting while left running in the background; the early-fest leaders (Worst Class Ever, ArcheAge, Frostrail) dominate the "well off peak" band.</div>
   </div>
 
   <h3>Festival-wide pulse — how the week moved</h3>
@@ -570,7 +588,7 @@ footer span{color:var(--gold)}
     <div class="card gold"><div class="clabel">Day 1 · Mon 19 Oct</div><div class="cval">opens</div><div class="csub">randomised front-page baseline begins</div></div>
     <div class="card teal"><div class="clabel">Day 3 · Wed 21 Oct</div><div class="cval">switch</div><div class="csub">algorithm typically moves to engagement-ranked placement</div></div>
     <div class="card purple"><div class="clabel">Day 6 · Sat 24 Oct</div><div class="cval">194,256</div><div class="csub">festival peak hourly concurrent, 14:00–15:00 UTC</div></div>
-    <div class="card coral"><div class="clabel">Day 7 · Sun 25 Oct</div><div class="cval">130,638</div><div class="csub">playing snapshot; 6,542 of 7,317 demos active</div></div>
+    <div class="card coral"><div class="clabel">Day 7 · Sun 25 Oct</div><div class="cval">177,503</div><div class="csub">playing at ~13:30 UTC; 6,542 of 7,310 demos had players by the close</div></div>
   </div>
 
   <h3>Per-demo momentum — now vs peak-so-far (25 Oct 7am)</h3>
@@ -580,26 +598,26 @@ footer span{color:var(--gold)}
         <tr><th>Game</th><th class="num">Playing now</th><th class="num">Peak so far</th><th class="num">Now ÷ peak</th><th>State</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>Melvor Idle 2</strong></td><td class="num">6,333</td><td class="num">7,141</td><td class="num">89%</td><td><span class="tag tag-teal">Climbing</span></td></tr>
-        <tr><td><strong>Find The Needle</strong></td><td class="num">8,392</td><td class="num">9,594</td><td class="num">87%</td><td><span class="tag tag-teal">Climbing</span></td></tr>
-        <tr><td><strong>Character House</strong></td><td class="num">14,786</td><td class="num">17,489</td><td class="num">85%</td><td><span class="tag tag-teal">Climbing</span></td></tr>
-        <tr><td><strong>Abyssal Lapidary</strong></td><td class="num">3,748</td><td class="num">4,766</td><td class="num">79%</td><td><span class="tag tag-teal">Climbing</span></td></tr>
-        <tr><td><strong>Dungeonbound</strong></td><td class="num">1,085</td><td class="num">1,412</td><td class="num">77%</td><td><span class="tag tag-teal">Climbing</span></td></tr>
-        <tr><td><strong>Probably Stolen</strong></td><td class="num">25,108</td><td class="num">39,696</td><td class="num">63%</td><td><span class="tag tag-dim">Holding</span></td></tr>
-        <tr><td><strong>Among Shadows</strong></td><td class="num">1,751</td><td class="num">3,063</td><td class="num">57%</td><td><span class="tag tag-dim">Holding</span></td></tr>
-        <tr><td><strong>Fart Together</strong></td><td class="num">1,993</td><td class="num">4,405</td><td class="num">45%</td><td><span class="tag tag-dim">Holding</span></td></tr>
-        <tr><td><strong>Loftia</strong></td><td class="num">2,508</td><td class="num">7,427</td><td class="num">34%</td><td><span class="tag tag-coral">Peaked</span></td></tr>
-        <tr><td><strong>just volleyball</strong></td><td class="num">2,579</td><td class="num">8,179</td><td class="num">32%</td><td><span class="tag tag-coral">Peaked</span></td></tr>
-        <tr><td><strong>Worst Class Ever</strong></td><td class="num">7,733</td><td class="num">27,684</td><td class="num">28%</td><td><span class="tag tag-coral">Peaked</span></td></tr>
-        <tr><td><strong>Frostrail</strong></td><td class="num">2,424</td><td class="num">8,834</td><td class="num">27%</td><td><span class="tag tag-coral">Peaked</span></td></tr>
-        <tr><td><strong>ArcheAge Chronicles</strong></td><td class="num">1,334</td><td class="num">19,855</td><td class="num">7%</td><td><span class="tag tag-coral">Peaked</span></td></tr>
+        <tr><td><strong>Melvor Idle 2</strong></td><td class="num">6,333</td><td class="num">7,141</td><td class="num">89%</td><td><span class="tag tag-teal">Near peak</span></td></tr>
+        <tr><td><strong>Find The Needle</strong></td><td class="num">8,392</td><td class="num">9,594</td><td class="num">87%</td><td><span class="tag tag-teal">Near peak</span></td></tr>
+        <tr><td><strong>Character House</strong></td><td class="num">14,786</td><td class="num">17,489</td><td class="num">85%</td><td><span class="tag tag-teal">Near peak</span></td></tr>
+        <tr><td><strong>Abyssal Lapidary</strong></td><td class="num">3,748</td><td class="num">4,766</td><td class="num">79%</td><td><span class="tag tag-teal">Near peak</span></td></tr>
+        <tr><td><strong>Dungeonbound</strong></td><td class="num">1,085</td><td class="num">1,412</td><td class="num">77%</td><td><span class="tag tag-teal">Near peak</span></td></tr>
+        <tr><td><strong>Probably Stolen</strong></td><td class="num">25,108</td><td class="num">39,696</td><td class="num">63%</td><td><span class="tag tag-dim">Partly off</span></td></tr>
+        <tr><td><strong>Among Shadows</strong></td><td class="num">1,751</td><td class="num">3,063</td><td class="num">57%</td><td><span class="tag tag-dim">Partly off</span></td></tr>
+        <tr><td><strong>Fart Together</strong></td><td class="num">1,993</td><td class="num">4,405</td><td class="num">45%</td><td><span class="tag tag-dim">Partly off</span></td></tr>
+        <tr><td><strong>Loftia</strong></td><td class="num">2,508</td><td class="num">7,427</td><td class="num">34%</td><td><span class="tag tag-coral">Well off peak</span></td></tr>
+        <tr><td><strong>just volleyball</strong></td><td class="num">2,579</td><td class="num">8,179</td><td class="num">32%</td><td><span class="tag tag-coral">Well off peak</span></td></tr>
+        <tr><td><strong>Worst Class Ever</strong></td><td class="num">7,733</td><td class="num">27,684</td><td class="num">28%</td><td><span class="tag tag-coral">Well off peak</span></td></tr>
+        <tr><td><strong>Frostrail</strong></td><td class="num">2,424</td><td class="num">8,834</td><td class="num">27%</td><td><span class="tag tag-coral">Well off peak</span></td></tr>
+        <tr><td><strong>ArcheAge Chronicles</strong></td><td class="num">1,334</td><td class="num">19,855</td><td class="num">7%</td><td><span class="tag tag-coral">Well off peak</span></td></tr>
       </tbody>
     </table>
   </div>
-  <p class="note">"Now ÷ peak" = playing-now as a share of peak-so-far, at one timestamp (25 Oct 7am GMT-0400, Output Lag). Climbing ≥ 65%, Holding 35–64%, Peaked &lt; 35%. It's a snapshot read, not a time series.</p>
+  <p class="note">"Now ÷ peak" = playing-now as a share of peak-so-far, at one timestamp (25 Oct 7am GMT-0400, Output Lag). Near peak ≥ 65%, Partly off 35–64%, Well off peak &lt; 35%. Peaks here are "so far" at that time, not final. A snapshot read, not a time series.</p>
 
   <div class="insight purple">
-    <strong>Read the flux like a trader, not a fan:</strong> by the final weekend the field had split into three groups. Idle/desktop games (<em>Melvor Idle 2</em>, <em>Find The Needle</em>, <em>Character House</em>) held their numbers — long-session retention, no single spike. The early-fest press demos (<em>Worst Class Ever</em>, <em>ArcheAge Chronicles</em>, <em>Frostrail</em>, <em>just volleyball</em>) decayed to under a tenth of their peaks. A title whose peak sat hours or days behind it by the weekend had its discovery window effectively close — the wishlists it added after that were the long tail.
+    <span class="tag tag-likely ctag">Likely</span><strong>Read the snapshot carefully:</strong> by Sunday the field had split three ways. Idle/desktop games (<em>Melvor Idle 2</em>, <em>Find The Needle</em>, <em>Character House</em>) sat near their peaks — mostly because they keep counting while running in the background, not because players were more engaged. The early-fest leaders had faded: <em>ArcheAge Chronicles</em> to 7% of its peak, <em>Worst Class Ever</em> and <em>Frostrail</em> to under a third. And one late riser, <em>just volleyball</em>, looked faded at 7am and then set its festival high later that day — a reminder that one snapshot shows position, not direction.
   </div>
 
   <div class="insight">
@@ -663,7 +681,7 @@ footer span{color:var(--gold)}
   </div>
 
   <div class="insight coral">
-    <strong>Platformer reality check:</strong> A platformer can still succeed at Next Fest — but because only 1.5–1.9% of the category reaches even 10 concurrent players, it <em>must</em> arrive with a stronger-than-average follower base. The festival crowd will not discover it for you. That's the earliest actionable takeaway for the next edition.
+    <span class="tag tag-likely ctag">Likely</span><strong>Platformer reality check:</strong> A platformer can still succeed at Next Fest — but because only 1.5–1.9% of the category reaches even 10 concurrent players, it <em>must</em> arrive with a stronger-than-average follower base. The festival crowd will not discover it for you. That's the earliest actionable takeaway for the next edition.
   </div>
 </section>
 
@@ -712,7 +730,7 @@ footer span{color:var(--gold)}
   </div>
 
   <div class="insight">
-    <strong>The percentage trap:</strong> The bottom group showed the highest percentage growth of any tier (12.5%) — but from a median of just 15 followers, that's one extra person. A spike in the final week looks good on a chart and does almost nothing for your peak. <em>Track raw gains, not percentages.</em>
+    <span class="tag tag-high ctag">High</span><strong>The percentage trap:</strong> The bottom group showed the highest percentage growth of any tier (12.5%) — but from a median of just 15 followers, that's one extra person. A spike in the final week looks good on a chart and does almost nothing for your peak. <em>Track raw gains, not percentages.</em>
   </div>
 
   <h3>What this means in practice</h3>
@@ -782,7 +800,7 @@ footer span{color:var(--gold)}
           <div class="leg-row"><span class="leg-swatch" style="background:var(--purple)"></span><b>Text / localisation</b><span class="leg-val">37.7%</span></div>
           <div class="leg-row"><span class="leg-swatch" style="background:var(--teal)"></span><b>Audio / voice</b><span class="leg-val">37.6%</span></div>
           <div class="leg-row"><span class="leg-swatch" style="background:var(--blue)"></span><b>Code / dev tools</b><span class="leg-val">23.1%</span></div>
-          <div class="leg-row"><span class="leg-swatch" style="background:var(--coral)"></span><b>Other / unspecified</b><span class="leg-val">~11%</span></div>
+          <div class="leg-row"><span class="leg-swatch" style="background:var(--coral)"></span><b>No type specified</b><span class="leg-val">8.4%</span></div>
         </div>
       </div>
       <div class="chart-note">Share of the 2,502 disclosing games, by use type. Games can list several, so segments sum above 100%; the ring is normalised to the top category. Source: How To Market A Game.</div>
@@ -850,7 +868,7 @@ footer span{color:var(--gold)}
   </div>
 
   <div class="insight blue">
-    <strong>Correlation is not causation:</strong> There's no evidence that disclosing AI causes poor results — plenty of low-ranked games disclosed nothing, and exactly two AI-disclosed titles made the top 25: <strong>BORE</strong> and <strong>Path of the Yaoguai</strong>. What the data shows is that the crowded bottom of the festival is <em>where most disclosed AI work sits</em>. If your game uses AI art, it's competing for attention inside that crowd, so positioning and a pre-built audience matter more, not less.
+    <span class="tag tag-likely ctag">Likely</span><strong>Correlation is not causation:</strong> There's no evidence that disclosing AI causes poor results — plenty of low-ranked games disclosed nothing, and exactly two AI-disclosed titles made the top 25: <strong>BORE</strong> and <strong>Path of the Yaoguai</strong>. What the data shows is that the crowded bottom of the festival is <em>where most disclosed AI work sits</em>. If your game uses AI art, it's competing for attention inside that crowd, so positioning and a pre-built audience matter more, not less.
   </div>
 </section>
 
@@ -863,7 +881,7 @@ footer span{color:var(--gold)}
     </div>
   </div>
   <span class="h2-kicker">The pattern holds across editions.</span>
-  <p class="section-intro">Next Fest has grown in every edition but one, while per-game attention has thinned. Comparing October 2026 against the June 2026 and earlier editions makes the compression visible: more entrants, a flatter median, and a top tier that recovers each time.</p>
+  <p class="section-intro">Next Fest has grown in every edition but one, while per-game attention has thinned. Comparing October 2026 against June 2026 and earlier editions shows the compression in the one series we have for every edition: more entrants sharing the same front-page floor.</p>
 
   <div class="chart-panel fig-top">
     <h4>2026 trajectory — Feb → Jun → Oct participants</h4>
@@ -898,7 +916,7 @@ footer span{color:var(--gold)}
   <p class="note">2026 figure rests on a projected ~29,300 Steam releases; treat as directional.</p>
 
   <div class="insight">
-    <strong>The algorithm context:</strong> Valve's "Days 1–2 baseline, Days 3+ engagement-ranked" system gives every game the same <em>minimum</em> visibility via randomised front-page placement — not the same visibility. That structure still guarantees every entrant a floor — but with 7,240 games the floor is lower than ever, and the ceiling belongs to those who enter with a base, momentum, or both.
+    <span class="tag tag-likely ctag">Likely</span><strong>The algorithm context:</strong> Valve's "Days 1–2 baseline, Days 3+ engagement-ranked" system gives every game the same <em>minimum</em> visibility via randomised front-page placement — not the same visibility. That structure still guarantees every entrant a floor — but with 7,240 games the floor is lower than ever, and the ceiling belongs to those who enter with a base, momentum, or both.
   </div>
 </section>
 
@@ -912,7 +930,7 @@ footer span{color:var(--gold)}
   </div>
   <span class="h2-kicker">How the week unfolded.</span>
   <div class="chart-panel fig-top">
-    <h4>Festival-wide concurrent players, by day (indexed)</h4>
+    <h4>Festival-wide concurrent players, by day (illustrative — only Sat and Sun are measured)</h4>
     <div class="chart-legend legend-inline">
       <span><i class="swatch" style="background:var(--blue)"></i>Baseline</span>
       <span><i class="swatch" style="background:var(--purple)"></i>Climb</span>
@@ -922,14 +940,14 @@ footer span{color:var(--gold)}
     </div>
     <div class="colchart" style="height:120px">
       <div class="col"><div class="v">open</div><div class="bar" style="height:34%;background:var(--blue)"></div><div class="l">Mon 19</div></div>
-      <div class="col"><div class="v">↸</div><div class="bar" style="height:52%;background:var(--blue)"></div><div class="l">Tue 20</div></div>
+      <div class="col"><div class="v">·</div><div class="bar" style="height:52%;background:var(--blue)"></div><div class="l">Tue 20</div></div>
       <div class="col"><div class="v">switch</div><div class="bar" style="height:68%;background:var(--purple)"></div><div class="l">Wed 21</div></div>
       <div class="col"><div class="v">↑</div><div class="bar" style="height:81%;background:var(--purple)"></div><div class="l">Thu 22</div></div>
       <div class="col"><div class="v">↑↑</div><div class="bar" style="height:92%;background:var(--teal)"></div><div class="l">Fri 23</div></div>
       <div class="col"><div class="v">194k</div><div class="bar" style="height:100%;background:var(--gold)"></div><div class="l">Sat 24</div></div>
-      <div class="col"><div class="v">130k</div><div class="bar" style="height:67%;background:var(--coral)"></div><div class="l">Sun 25</div></div>
+      <div class="col"><div class="v">178k</div><div class="bar" style="height:91%;background:var(--coral)"></div><div class="l">Sun 25</div></div>
     </div>
-    <div class="chart-note">Indexed pulse. The exact intra-day hourly curve isn't public, so this approximates the documented arc — opens low, builds to the Week 1 algorithm switch, spikes to the 194,256 peak (24 Oct), then settles on the final weekend. Anchor points from Output Lag.</div>
+    <div class="chart-note">Illustrative shape, not measured data. Only two points are real: the 194,256 festival peak (Sat 24 Oct) and 177,503 playing on Sun 25 Oct (~13:30 UTC), both from Output Lag. Monday–Friday bar heights are drawn to show the documented arc (open, Day 3 algorithm switch, build to the peak), not counts.</div>
   </div>
   <div class="timeline">
     <div class="timeline-item key">
@@ -965,7 +983,7 @@ footer span{color:var(--gold)}
     <div class="timeline-item">
       <div class="timeline-date">Sun 25 Oct · Day 7</div>
       <div class="timeline-event">Final day — early-fest spikes decay, idle games hold</div>
-      <div class="timeline-note">6,542 of 7,317 tracked demos had players (Output Lag, 26 Oct). The biggest late climber was Ski Lines: Trail Map.</div>
+      <div class="timeline-note">just volleyball led Output Lag's "climbing fast" list on the last weekend and set its 9,598 high late in the fest.</div>
     </div>
     <div class="timeline-item key">
       <div class="timeline-date">Mon 26 Oct · 17:00 UTC</div>
@@ -1012,7 +1030,7 @@ footer span{color:var(--gold)}
       <h4>Measure the right thing</h4>
       <ul>
         <li><b>Track raw follower gains, not percentages.</b> A 50% jump from 80 to 120 won't move your peak.</li>
-        <li><b>Have your demo live early</b> — the top 25 ran demos ~19 days before the fest; don't leave one up for weeks silently.</li>
+        <li><b>Don't mistake demo age for progress</b> — the top 25 had their demos up for less time (~19 days) than everyone else (~37); a demo only helps if you're driving people to it.</li>
       </ul>
     </div>
     <div class="panel">
@@ -1035,23 +1053,14 @@ footer span{color:var(--gold)}
   </div>
   <span class="h2-kicker">Know exactly what you're looking at.</span>
 
-  <div class="chart-panel fig-top">
-    <h4>Data provenance — which source feeds which section</h4>
-    <div class="bar-row"><div class="bar-label"><b>Zukowski / HTMAG</b> · scale, followers, AI, genres</div><div class="bar-bg"><div class="bar-fill" style="width:100%;background:var(--gold)"></div></div><div class="bar-val">~70%</div></div>
-    <div class="bar-row"><div class="bar-label"><b>Output Lag</b> · live peaks, flux</div><div class="bar-bg"><div class="bar-fill" style="width:57%;background:var(--teal)"></div></div><div class="bar-val">~20%</div></div>
-    <div class="bar-row"><div class="bar-label"><b>Valve / Polygon</b> · most-played list</div><div class="bar-bg"><div class="bar-fill" style="width:29%;background:var(--purple)"></div></div><div class="bar-val">~6%</div></div>
-    <div class="bar-row"><div class="bar-label"><b>GDCo / GameSpot</b> · participation history</div><div class="bar-bg"><div class="bar-fill" style="width:14%;background:var(--blue)"></div></div><div class="bar-val">~4%</div></div>
-    <div class="chart-note">Approximate share of each chart's underlying data. The single most-factored source is Zukowski's 21 Oct scrape; live flux is Output Lag only.</div>
-  </div>
-
   <div class="table-wrap">
     <table>
       <thead><tr><th>Source</th><th>What it provides</th><th>Basis</th></tr></thead>
       <tbody>
-        <tr><td><strong>Valve</strong></td><td>Official 20 most-played demos; festival mechanics</td><td>First-party; list shown to Polygon</td></tr>
-        <tr><td><strong>How To Market A Game (Zukowski)</strong></td><td>7,240-game scrape; follower tiers; AI disclosure; genre conversion</td><td>Live-page scrape, first 3 days, published 21 Oct</td></tr>
-        <tr><td><strong>GameDiscoverCo</strong></td><td>June 2026 eligible count (4,382); participation history</td><td>Analyst tracking + projections</td></tr>
-        <tr><td><strong>Output Lag</strong></td><td>Hourly "playing now" / peak; demos-with-players count</td><td>Live hourly scrape, 25 Oct 7am GMT-0400</td></tr>
+        <tr><td><strong><a href="https://gamingtrend.com/news/here-are-the-20-most-played-demos-from-octobers-steam-next-fest/" target="_blank" rel="noopener noreferrer">Valve</a></strong></td><td>Official 20 most-played demos; festival mechanics</td><td>First-party; list shown to Polygon</td></tr>
+        <tr><td><strong><a href="https://howtomarketagame.com/2026/10/21/how-sloppy-is-the-october-2026-steam-next-fest/" target="_blank" rel="noopener noreferrer">How To Market A Game (Zukowski)</a></strong></td><td>7,240-game scrape; follower tiers; AI disclosure; genre conversion</td><td>Live-page scrape, first 3 days, published 21 Oct</td></tr>
+        <tr><td><strong><a href="https://newsletter.gamediscover.co/p/who-won-june-2026s-steam-next-fest" target="_blank" rel="noopener noreferrer">GameDiscoverCo</a></strong></td><td>June 2026 eligible count (4,382); participation history</td><td>Analyst tracking + projections</td></tr>
+        <tr><td><strong><a href="https://outputlag.com/next-fest/" target="_blank" rel="noopener noreferrer">Output Lag</a></strong></td><td>Hourly "playing now" / peak; demos-with-players count</td><td>Hourly scrape; final post-close chart, 26 Oct (snapshot tables: 25 Oct 7am GMT-0400)</td></tr>
         <tr><td><strong>Press</strong></td><td>Handbook lists, context, release dates</td><td>Polygon, TheBigBois, DualShockers, Mobalytics, Indie Tooling</td></tr>
       </tbody>
     </table>
@@ -1061,7 +1070,7 @@ footer span{color:var(--gold)}
   <p><strong>Peak demo players ≠ wishlists.</strong> Steam does not publish per-game wishlist data. Follower counts are a public stand-in; wishlist tallies on third-party trackers are estimates.</p>
   <p><strong>Early-festival data.</strong> Zukowski's correlation analysis measures demo peak CCU for 12–21 October only; his follower-gain follow-up lands after the festival closes. Treat the "what predicted early peak" findings as provisional.</p>
   <p><strong>Self-reported AI disclosure.</strong> The ~35% figure counts only developers who chose to disclose; the true rate could be higher or lower.</p>
-  <p><strong>Lineup-number variance.</strong> 7,240 (HTMAG scrape), 7,317 (Output Lag), and ~8,000 (press preview). Differences come from timing, withdrawals, and 18+ hidden titles.</p>
+  <p><strong>Lineup-number variance.</strong> 7,240 (HTMAG scrape, 21 Oct), 7,310 (Output Lag, final), and ~8,000 (press preview). Differences come from timing, withdrawals, and 18+ hidden titles.</p>
   <p><strong>Projections are directional.</strong> The ~51.7% ratio (15,158 entries ÷ ~29,300 projected releases) and any 2026 release-count figures rest on estimates; a game entering multiple editions counts once per edition.</p>
   <p><strong>Correlation, not causation.</strong> Followers and momentum correlate with early peak; neither is proven to <em>cause</em> it. Game quality, marketing and genre all interact.</p>
 </section>
@@ -1070,9 +1079,13 @@ footer span{color:var(--gold)}
   <p>Seven thousand games, one pattern. The festival got bigger; the way to get seen did not — bring an audience, or bring real momentum, before it starts. <span>Just don't show up empty.</span></p>
 </div>
 
+<div class="bio">
+  <p>Abbas Saleem is a Principal Consultant at <a href="https://www.llamagriffin.com/" target="_blank" rel="noopener noreferrer">Llama &amp; Griffin</a>, advising game studios, publishers, and investors across MENA, South Asia, Southeast Asia, and Europe. He writes <a href="https://recognizingpatterns.substack.com/" target="_blank" rel="noopener noreferrer">Recognizing Patterns</a>: gaming industry intelligence 12 to 24 months before it becomes consensus. <a href="https://www.linkedin.com/in/abbassaleemkhan/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+</div>
 <footer>
-  <div>Llama &amp; Griffin Consultants — Case Studies</div>
-  <div>Steam Next Fest October 2026 · <span>Live Intelligence Dashboard</span> · Updated 27 Oct 2026</div>
+  <div>Steam Next Fest October 2026 &middot; <span>Intelligence Dashboard</span> &middot; Llama &amp; Griffin Consultants</div>
+  <div><a href="https://recognizingpatterns.substack.com/" target="_blank" rel="noopener noreferrer">recognizingpatterns.substack.com</a> &middot; <a href="https://www.llamagriffin.com/" target="_blank" rel="noopener noreferrer">llamagriffin.com</a></div>
+  <div class="methodology">Confidence tags: <span class="tag tag-high">High</span> reported by a primary source or measured dataset; <span class="tag tag-likely">Likely</span> strong inference from disclosed figures; <span class="tag tag-directional">Directional</span> the author's own reading, not sourced to any company; <span class="tag tag-prov">Provisional</span> single-sourced, projected or unverified. Sources: <a href="https://howtomarketagame.com/2026/10/21/how-sloppy-is-the-october-2026-steam-next-fest/" target="_blank" rel="noopener noreferrer">How To Market A Game (Zukowski), 21 Oct 2026</a>; <a href="https://outputlag.com/next-fest/" target="_blank" rel="noopener noreferrer">Output Lag final chart</a>; <a href="https://outputlag.com/news/steam-next-fest-day-7-the-most-played-demos-right-now/" target="_blank" rel="noopener noreferrer">Output Lag Day 7 report</a>; <a href="https://outputlag.com/news/steam-next-fest-october-2026-the-most-played-demos-by-the-numbers/" target="_blank" rel="noopener noreferrer">Output Lag by-the-numbers</a>; <a href="https://gamingtrend.com/news/here-are-the-20-most-played-demos-from-octobers-steam-next-fest/" target="_blank" rel="noopener noreferrer">GamingTrend (Valve list)</a>; <a href="https://www.polygon.com/steam-next-fest-october-2026-most-played-games/" target="_blank" rel="noopener noreferrer">Polygon</a>; <a href="https://newsletter.gamediscover.co/p/who-won-june-2026s-steam-next-fest" target="_blank" rel="noopener noreferrer">GameDiscoverCo</a>; <a href="https://www.gamespot.com/articles/the-number-of-steam-next-fest-demos-this-month-is-too-damn-high/" target="_blank" rel="noopener noreferrer">GameSpot</a>; <a href="https://partner.steamgames.com/doc/gettingstarted/contentsurvey" target="_blank" rel="noopener noreferrer">Steamworks content survey</a>; <a href="https://partner.steamgames.com/doc/marketing/upcoming_events/nextfest/2026october" target="_blank" rel="noopener noreferrer">Steamworks (event dates)</a>. The 194,256 festival-wide peak is from Llama &amp; Griffin tracking and has not been independently confirmed <span class="tag tag-prov">Provisional</span>. Figures checked to 27 October 2026.</div>
 </footer>
 
 <script>

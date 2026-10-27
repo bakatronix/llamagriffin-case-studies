@@ -3,7 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Steam Next Fest October 2026 — Part II · Who Got Seen · Llama &amp; Griffin</title>
+<title>Steam Next Fest October 2026 — Part II · Who Got Seen · Recognizing Patterns · Llama &amp; Griffin</title>
+<meta name="description" content="Valve's 20 most-played demos ranked by final peak players, the friendslop pattern, the idle-game vein, and which genres give a typical demo the best odds.">
+<link rel="canonical" href="https://www.llamagriffin.com/Data/SteamNextFestOct2026/part-2.html">
+<meta property="og:title" content="Steam Next Fest October 2026 — Part II: Who Actually Got Seen">
+<meta property="og:description" content="Valve's 20 most-played demos ranked by final peak players, the friendslop pattern, the idle-game vein, and which genres give a typical demo the best odds.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.llamagriffin.com/Data/SteamNextFestOct2026/part-2.html">
+<meta property="og:site_name" content="Llama &amp; Griffin · Recognizing Patterns">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -142,6 +149,20 @@ footer span{color:var(--gold)}
   section{padding:2.25rem 1.25rem}
   .hero{padding:2.5rem 1.25rem 2rem}
 }
+
+/* Recognizing Patterns house conventions: confidence tags, bio, methodology */
+.tag-high{background:var(--teal-dim);color:var(--teal)}
+.tag-likely{background:var(--purple-dim);color:var(--purple)}
+.tag-directional{background:var(--coral-dim);color:var(--coral)}
+.tag-prov{background:rgba(35,35,35,0.07);color:var(--text-dim)}
+.ctag{margin-right:6px;vertical-align:1px}
+.bio{max-width:960px;margin:0 auto;padding:1.5rem 2rem 1rem;border-top:1px solid var(--border)}
+.bio p{font-size:13px;color:var(--text-muted);max-width:72ch;line-height:1.65}
+.bio a,footer a{color:var(--gold);text-decoration:none}
+.bio a:hover,footer a:hover{text-decoration:underline}
+footer .methodology{width:100%;font-family:var(--font-body);font-size:11px;color:var(--text-dim);line-height:1.65;margin-top:0.75rem;border-top:1px solid var(--border);padding-top:0.75rem;max-width:none}
+footer .methodology .tag{font-size:8.5px}
+@media(max-width:600px){.bio{padding-left:1.25rem;padding-right:1.25rem}}
 </style>
 </head>
 <body>
@@ -177,7 +198,7 @@ footer span{color:var(--gold)}
   </div>
   <div class="stat-grid">
     <div class="stat-cell"><div class="stat-val">20</div><div class="stat-lbl">official most-played demos</div><div class="stat-sub">confirmed list via Valve → Polygon</div></div>
-    <div class="stat-cell"><div class="stat-val teal">14 / 20</div><div class="stat-lbl">let you play with friends</div><div class="stat-sub">friendslop dominates the leaderboard</div></div>
+    <div class="stat-cell"><div class="stat-val teal">14 / 20</div><div class="stat-lbl">let you play with friends</div><div class="stat-sub">of Valve's 20 — friendslop dominates</div></div>
     <div class="stat-cell"><div class="stat-val purple">39,696</div><div class="stat-lbl">peak · #1 Probably Stolen</div><div class="stat-sub">shopkeeper sim, launches 28 Oct</div></div>
     <div class="stat-cell"><div class="stat-val coral">300k+</div><div class="stat-lbl">players · Worst Class Ever</div><div class="stat-sub">asymmetric teacher-vs-class party game</div></div>
   </div>
@@ -190,17 +211,17 @@ footer span{color:var(--gold)}
   <p class="section-intro">The top of the chart rewards demos whose pitch survives contact with a crowded store page. Across the most-played list, a consistent formula repeats: a differentiating mechanic visible in a single screenshot or ten-second trailer, frequently layered on a co-op loop.</p>
 
   <div class="insight teal">
-    <strong>The ten-second test:</strong> A teacher hunting hidden students, a raft powered by flatulence, a haystack made of six million strands you click through. Each top demo passes the "can I explain it in ten seconds" test before any genre tag or description is read. Games that leaned on their genre as the selling point did not break out.
+    <span class="tag tag-directional ctag">Directional</span><strong>The ten-second test:</strong> A teacher hunting hidden students, a raft powered by flatulence, a haystack made of six million strands you click through. Each top demo passes the "can I explain it in ten seconds" test before any genre tag or description is read. Games that leaned on their genre as the selling point did not break out.
   </div>
 
-  <p>The surprise of this edition was a second vein quietly riding near the top: <strong>idle and desktop-companion games</strong>. Character House (a chibi desk companion), Find The Needle (a haystack clicker), and Melvor Idle 2 all cracked the top of the live leaderboard — a category that draws persistent-but-lower concurrent counts and racks up hours rather than spikes.</p>
+  <p>The surprise of this edition was a second vein quietly riding near the top: <strong>idle and desktop-companion games</strong>. Character House (a chibi desk companion), Find The Needle (a haystack clicker), and Melvor Idle 2 all cracked the top of the live leaderboard — a category whose concurrent counts stay high partly because the games keep counting while left running in the background.</p>
 </section>
 
 <!-- TOP 20 -->
 <section id="top20">
   <div class="section-label">Section 02</div>
-  <div class="chevrons"></div><h2>The Most-Played Demos</h2><span class="h2-kicker">Valve's list, ranked live by peak.</span>
-  <p class="section-intro">Valve released its official 20 most-played demos (via Polygon); the table below takes those games and ranks them by their festival peak concurrent players, cross-referenced against Output Lag's hourly chart. Peaks are "peak so far" as of 24–25 October.</p>
+  <div class="chevrons"></div><h2>The Most-Played Demos</h2><span class="h2-kicker">Valve's list, ranked by final peak.</span>
+  <p class="section-intro">Valve released its official 20 most-played demos (via <a href="https://www.polygon.com/steam-next-fest-october-2026-most-played-games/" target="_blank" rel="noopener noreferrer">Polygon</a>; full list at <a href="https://gamingtrend.com/news/here-are-the-20-most-played-demos-from-octobers-steam-next-fest/" target="_blank" rel="noopener noreferrer">GamingTrend</a>); the table below takes exactly those 20 games and ranks them by final peak concurrent players from Output Lag's post-close chart. Valve's list covers 19–23 October and was shared without a stated ranking metric.</p>
 
   <div class="table-wrap">
     <table>
@@ -210,40 +231,40 @@ footer span{color:var(--gold)}
       <tbody>
         <tr><td><span class="rank-badge top3">1</span></td><td><strong>Probably Stolen – Cyberpunk Shopkeeper Sim</strong></td><td>Smuggle questionable goods, juggle factions, pay the rent</td><td class="num">39,696</td><td><span class="tag tag-gold">Shop sim</span></td><td>28 Oct 2026</td></tr>
         <tr><td><span class="rank-badge top3">2</span></td><td><strong>Worst Class Ever</strong></td><td>1v5 asymmetric: one teacher hunts five troublemakers</td><td class="num">27,684</td><td><span class="tag tag-blue">Co-op</span><span class="tag tag-dim">Party</span></td><td>Q4 2026</td></tr>
-        <tr><td><span class="rank-badge top3">3</span></td><td><strong>ArcheAge Chronicles</strong></td><td>Action RPG in the ArcheAge universe (XLGAMES)</td><td class="num">20,507</td><td><span class="tag tag-purple">MMORPG</span></td><td>TBA</td></tr>
+        <tr><td><span class="rank-badge top3">3</span></td><td><strong>ArcheAge Chronicles</strong></td><td>Action RPG in the ArcheAge universe (XLGAMES)</td><td class="num">19,855</td><td><span class="tag tag-purple">MMORPG</span></td><td>TBA</td></tr>
         <tr><td><span class="rank-badge top10">4</span></td><td><strong>Character House – Desktop Companion</strong></td><td>Build a chibi companion that sits on your desktop</td><td class="num">17,489</td><td><span class="tag tag-teal">Idle</span></td><td>2026</td></tr>
-        <tr><td><span class="rank-badge top10">5</span></td><td><strong>Find The Needle</strong></td><td>Incremental: dig a six-million-strand haystack</td><td class="num">9,594</td><td><span class="tag tag-teal">Idle</span></td><td>Q4 2026</td></tr>
-        <tr><td><span class="rank-badge top10">6</span></td><td><strong>Frostrail</strong></td><td>Survival FPS on a steam train across a frozen wasteland</td><td class="num">8,834</td><td><span class="tag tag-dim">Survival</span><span class="tag tag-blue">Co-op</span></td><td>Q4 2026</td></tr>
-        <tr><td><span class="rank-badge top10">7</span></td><td><strong>just volleyball</strong></td><td>Approachable volleyball, 1v1 up to 6v6</td><td class="num">8,179</td><td><span class="tag tag-dim">Sports</span></td><td>4 Nov 2026</td></tr>
+        <tr><td><span class="rank-badge top10">5</span></td><td><strong>Find The Needle</strong></td><td>Incremental: dig a six-million-strand haystack</td><td class="num">9,711</td><td><span class="tag tag-teal">Idle</span></td><td>Q4 2026</td></tr>
+        <tr><td><span class="rank-badge top10">6</span></td><td><strong>just volleyball</strong></td><td>Approachable volleyball, 1v1 up to 6v6</td><td class="num">9,598</td><td><span class="tag tag-dim">Sports</span><span class="tag tag-blue">Multiplayer</span></td><td>4 Nov 2026</td></tr>
+        <tr><td><span class="rank-badge top10">7</span></td><td><strong>Frostrail</strong></td><td>Survival FPS on a steam train across a frozen wasteland</td><td class="num">8,834</td><td><span class="tag tag-dim">Survival</span><span class="tag tag-blue">Co-op</span></td><td>Q4 2026</td></tr>
         <tr><td><span class="rank-badge top10">8</span></td><td><strong>Loftia</strong></td><td>Cozy multiplayer life sim; sustainable future with friends</td><td class="num">7,427</td><td><span class="tag tag-teal">Cozy</span><span class="tag tag-blue">MMO</span></td><td>3 Nov 2026</td></tr>
-        <tr><td><span class="rank-badge top10">9</span></td><td><strong>Melvor Idle 2</strong></td><td>Moddable idle RPG sequel</td><td class="num">7,141</td><td><span class="tag tag-teal">Idle</span></td><td>2026</td></tr>
-        <tr><td><span class="rank-badge top10">10</span></td><td><strong>Abyssal Lapidary</strong></td><td>Gothic Victorian gem-appraisal management sim</td><td class="num">4,766</td><td><span class="tag tag-dim">Sim</span></td><td>Coming soon</td></tr>
-        <tr><td><span class="rank-badge">11</span></td><td><strong>Fart Together</strong></td><td>2–4 player raft steered by flatulence</td><td class="num">4,463</td><td><span class="tag tag-blue">Co-op</span><span class="tag tag-dim">Physics</span></td><td>29 Oct 2026</td></tr>
-        <tr><td><span class="rank-badge">12</span></td><td><strong>Among Shadows</strong></td><td>Third-person PvP party tactics</td><td class="num">3,063</td><td><span class="tag tag-dim">PvP</span></td><td>Q4 2026</td></tr>
-        <tr><td><span class="rank-badge">13</span></td><td><strong>Meltdown Crew</strong></td><td>Co-op reactor-chaos party/puzzle</td><td class="num">2,434</td><td><span class="tag tag-blue">Co-op</span><span class="tag tag-dim">Party</span></td><td>Dec 2026</td></tr>
-        <tr><td><span class="rank-badge">14</span></td><td><strong>Deadzone Rogue 2</strong></td><td>Roguelite FPS on a fallen Earth</td><td class="num">1,807</td><td><span class="tag tag-coral">Roguelike</span><span class="tag tag-blue">Co-op</span></td><td>Coming soon</td></tr>
-        <tr><td><span class="rank-badge">15</span></td><td><strong>No Body No Problem!</strong></td><td>Hide the body before the cop (a player) arrives</td><td class="num">1,739</td><td><span class="tag tag-blue">Co-op</span><span class="tag tag-dim">Party</span></td><td>Coming soon</td></tr>
-        <tr><td><span class="rank-badge">16</span></td><td><strong>Emberville</strong></td><td>Wake with no memories, rebuild an underground town</td><td class="num">1,668</td><td><span class="tag tag-purple">ARPG</span></td><td>27 Oct 2026</td></tr>
-        <tr><td><span class="rank-badge">17</span></td><td><strong>Mortuus</strong></td><td>Round-based co-op zombie FPS, mystery box, brutalist maps</td><td class="num">1,578</td><td><span class="tag tag-blue">Co-op</span><span class="tag tag-dim">Zombies</span></td><td>Coming soon</td></tr>
-        <tr><td><span class="rank-badge">18</span></td><td><strong>Haunted Paws</strong></td><td>Two puppies rescue their owner from a haunted mansion</td><td class="num">1,548</td><td><span class="tag tag-teal">Cozy</span><span class="tag tag-blue">Co-op</span></td><td>TBA</td></tr>
-        <tr><td><span class="rank-badge">19</span></td><td><strong>HANDS OVER</strong></td><td>5-player bluff/sabotage test of nerve</td><td class="num">1,509</td><td><span class="tag tag-blue">Co-op</span><span class="tag tag-coral">Horror</span></td><td>30 Oct 2026</td></tr>
-        <tr><td><span class="rank-badge">20</span></td><td><strong>Wyldheart</strong></td><td>Co-op action RPG of bite-sized campaigns</td><td class="num">1,339</td><td><span class="tag tag-purple">ARPG</span><span class="tag tag-blue">Co-op</span></td><td>Coming soon</td></tr>
+        <tr><td><span class="rank-badge top10">9</span></td><td><strong>Abyssal Lapidary</strong></td><td>Gothic Victorian gem-appraisal management sim</td><td class="num">4,766</td><td><span class="tag tag-dim">Sim</span></td><td>Coming soon</td></tr>
+        <tr><td><span class="rank-badge top10">10</span></td><td><strong>Fart Together</strong></td><td>2–4 player raft steered by flatulence</td><td class="num">4,405</td><td><span class="tag tag-blue">Co-op</span><span class="tag tag-dim">Physics</span></td><td>29 Oct 2026</td></tr>
+        <tr><td><span class="rank-badge">11</span></td><td><strong>Grr Grr Gnomes</strong></td><td>Gnome crew sailing between islands to escape</td><td class="num">2,585</td><td><span class="tag tag-dim">Adventure</span></td><td>19 Jan 2027</td></tr>
+        <tr><td><span class="rank-badge">12</span></td><td><strong>No Body No Problem!</strong></td><td>Hide the body before the cop (a player) arrives</td><td class="num">1,831</td><td><span class="tag tag-blue">Co-op</span><span class="tag tag-dim">Party</span></td><td>Coming soon</td></tr>
+        <tr><td><span class="rank-badge">13</span></td><td><strong>Deadzone Rogue 2</strong></td><td>Roguelite FPS on a fallen Earth</td><td class="num">1,807</td><td><span class="tag tag-coral">Roguelike</span><span class="tag tag-blue">Co-op</span></td><td>Coming soon</td></tr>
+        <tr><td><span class="rank-badge">14</span></td><td><strong>Emberville</strong></td><td>Wake with no memories, rebuild an underground town</td><td class="num">1,668</td><td><span class="tag tag-purple">ARPG</span></td><td>27 Oct 2026</td></tr>
+        <tr><td><span class="rank-badge">15</span></td><td><strong>HANDS OVER</strong></td><td>5-player bluff/sabotage test of nerve</td><td class="num">1,562</td><td><span class="tag tag-blue">Co-op</span><span class="tag tag-coral">Horror</span></td><td>30 Oct 2026</td></tr>
+        <tr><td><span class="rank-badge">16</span></td><td><strong>Mortuus</strong></td><td>Round-based co-op zombie FPS, mystery box, brutalist maps</td><td class="num">1,533</td><td><span class="tag tag-blue">Co-op</span><span class="tag tag-dim">Zombies</span></td><td>Coming soon</td></tr>
+        <tr><td><span class="rank-badge">17</span></td><td><strong>Haunted Paws</strong></td><td>Two puppies rescue their owner from a haunted mansion</td><td class="num">1,518</td><td><span class="tag tag-teal">Cozy</span><span class="tag tag-blue">Co-op</span></td><td>TBA</td></tr>
+        <tr><td><span class="rank-badge">18</span></td><td><strong>Dumpster Gang</strong></td><td>Raccoon heist sandbox dodging an Exterminator</td><td class="num">1,428</td><td><span class="tag tag-blue">Co-op</span><span class="tag tag-dim">Sandbox</span></td><td>3 Dec 2026</td></tr>
+        <tr><td><span class="rank-badge">19</span></td><td><strong>Wyldheart</strong></td><td>Co-op action RPG of bite-sized campaigns</td><td class="num">1,339</td><td><span class="tag tag-purple">ARPG</span><span class="tag tag-blue">Co-op</span></td><td>Coming soon</td></tr>
+        <tr><td><span class="rank-badge">20</span></td><td><strong>Never Be Alone</strong></td><td>Open-world zombie survival, solo or seamless co-op</td><td class="num">850</td><td><span class="tag tag-blue">Co-op</span><span class="tag tag-dim">Survival</span></td><td>8 Dec 2026</td></tr>
       </tbody>
     </table>
   </div>
-  <p class="note">Valve's official 20 (via Polygon) also includes Dungeonbound, Dumpster Gang, Grr Grr Gnomes, and Never Be Alone; this table ranks the highest-peaking of those games for the live cross-reference. Peaks are "peak so far" from Output Lag's hourly chart (24–25 Oct); Valve itself published the list unranked.</p>
+  <p class="note">All 20 rows are Valve's list as published via Polygon and GamingTrend. Peaks are Output Lag's final post-close figures. Some demos outside Valve's list peaked higher — Melvor Idle 2 (7,152), Among Shadows (3,063), BORE (2,923), Meltdown Crew (2,404) — see the dashboard's full top 20 by peak.</p>
 
   <div class="caps-head">The top five, on the shelf</div>
   <div class="caps-grid">
     <a class="caps" href="https://store.steampowered.com/app/4348910/" target="_blank" rel="noopener"><img loading="lazy" alt="Probably Stolen" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4348910/663c3469223ff9ad3e3bdacdde5ac6bc62ef67d0/header_alt_assets_2.jpg"><div class="cn">Probably Stolen</div><div class="cm">#1 · 39,696</div></a>
     <a class="caps" href="https://store.steampowered.com/app/5175310/" target="_blank" rel="noopener"><img loading="lazy" alt="Worst Class Ever" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5175310/b037e6e275a2c9fa4c280dcc85137f4effc9c157/header.jpg"><div class="cn">Worst Class Ever</div><div class="cm">#2 · 27,684</div></a>
-    <a class="caps" href="https://store.steampowered.com/app/3218230/" target="_blank" rel="noopener"><img loading="lazy" alt="ArcheAge Chronicles" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3218230/header.jpg"><div class="cn">ArcheAge Chronicles</div><div class="cm">#3 · 20,507</div></a>
+    <a class="caps" href="https://store.steampowered.com/app/3218230/" target="_blank" rel="noopener"><img loading="lazy" alt="ArcheAge Chronicles" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3218230/header.jpg"><div class="cn">ArcheAge Chronicles</div><div class="cm">#3 · 19,855</div></a>
     <a class="caps" href="https://store.steampowered.com/app/4868310/" target="_blank" rel="noopener"><img loading="lazy" alt="Character House" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4868310/7414d3274162a32125df5aaf942eb73558f50a18/header.jpg"><div class="cn">Character House</div><div class="cm">#4 · 17,489</div></a>
-    <a class="caps" href="https://store.steampowered.com/app/5160800/" target="_blank" rel="noopener"><img loading="lazy" alt="Find The Needle" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5160800/9ad39ef753543a194a7546ee8a17dc4b821cd021/header.jpg"><div class="cn">Find The Needle</div><div class="cm">#5 · 9,594</div></a>
+    <a class="caps" href="https://store.steampowered.com/app/5160800/" target="_blank" rel="noopener"><img loading="lazy" alt="Find The Needle" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5160800/9ad39ef753543a194a7546ee8a17dc4b821cd021/header.jpg"><div class="cn">Find The Needle</div><div class="cm">#5 · 9,711</div></a>
   </div>
 
   <div class="insight purple">
-    <strong>The tails are long:</strong> several most-played demos already had release dates days after the fest — Emberville (27 Oct), Probably Stolen (28 Oct), Fart Together (29 Oct), HANDS OVER (30 Oct), Loftia (3 Nov). Next Fest functioned as an immediate pre-launch conversion moment, not just a discovery channel.
+    <span class="tag tag-likely ctag">Likely</span><strong>The tails are long:</strong> several most-played demos already had release dates days after the fest — Emberville (27 Oct), Probably Stolen (28 Oct), Fart Together (29 Oct), HANDS OVER (30 Oct), Loftia (3 Nov). Next Fest functioned as an immediate pre-launch conversion moment, not just a discovery channel.
   </div>
 </section>
 
@@ -254,14 +275,14 @@ footer span{color:var(--gold)}
   <p class="section-intro">The single most consistent signal in the October 2026 leaderboard is the presence of a second player. At least 14 of the 20 most-played demos support co-op or party play, and the trend compounds on itself — recommendation and streaming favour games that look fun to watch in groups.</p>
 
   <div class="card-row">
-    <div class="card gold"><div class="clabel">Co-op / party share of top 20</div><div class="cval">14 / 20</div><div class="csub">at least; most counts put it higher</div></div>
+    <div class="card gold"><div class="clabel">Co-op / party share of top 20</div><div class="cval">14 / 20</div><div class="csub">of Valve's 20, by our count of co-op / party / online modes</div></div>
     <div class="card teal"><div class="clabel">Top-20 co-op survival</div><div class="cval">Frostrail 8,834</div><div class="csub">peak CCU; the survival vein's high-water mark</div></div>
     <div class="card purple"><div class="clabel">Party-game leader</div><div class="cval">Worst Class Ever</div><div class="csub">27,684 peak; 300k+ demo players</div></div>
     <div class="card coral"><div class="clabel">Cozy MMO entry</div><div class="cval">Loftia 7,427</div><div class="csub">cozy multiplayer holding a top-10 peak</div></div>
   </div>
 
   <div class="insight blue">
-    <strong>Friendslop isn't a fad, it's feedback:</strong> the term — derisive among some developers — now describes the market's working discovery loop. Co-op games get watched, clipped, and shared; that spillover is exactly what the engagement-ranked half of the festival algorithm rewards from Day 3 onward. The October edition is the clearest confirmation yet.
+    <span class="tag tag-directional ctag">Directional</span><strong>Friendslop isn't a fad, it's feedback:</strong> the term — derisive among some developers — now describes the market's working discovery loop. Co-op games get watched, clipped, and shared; that spillover is exactly what the engagement-ranked half of the festival algorithm rewards from Day 3 onward. The October edition is the clearest confirmation yet.
   </div>
 </section>
 
@@ -269,7 +290,7 @@ footer span{color:var(--gold)}
 <section id="genres">
   <div class="section-label">Section 04</div>
   <div class="chevrons"></div><h2>Genres at the Top</h2><span class="h2-kicker">Co-op, survival-craft and idle cluster at the peak.</span>
-  <p class="section-intro">Without a public, per-genre weighting from Valve, the safest read comes from grouping the top-peaking demos by what they have in common. The clusters repeat from the most-played table above — and from Zukowski's genre analysis of the first three days.</p>
+  <p class="section-intro">Without a public, per-genre weighting from Valve, the safest read comes from grouping the top-peaking demos by what they have in common. The clusters below come from Output Lag's final top 10 by peak. Note they differ from Zukowski's genre conversion rates in the next section, which favour RPG, crafting and strategy: what tops the leaderboard and what converts across a whole genre are two different questions.</p>
 
   <div class="card-row">
     <div class="card gold"><div class="clabel">Idle / desktop companion</div><div class="cval">3 in top 10</div><div class="csub">Character House, Find The Needle, Melvor Idle 2</div></div>
@@ -287,7 +308,7 @@ footer span{color:var(--gold)}
 <section id="conversion">
   <div class="section-label">Section 05</div>
   <div class="chevrons"></div><h2>Conversion — Who Reaches 10 Players</h2><span class="h2-kicker">The hit-rate by genre.</span>
-  <p class="section-intro">A second, independent lens comes from Zukowski's scrape: the share of demos in each genre that reached 10 or more concurrent players. It reveals the same ranking, from a different angle — and names the genres that structurally struggle.</p>
+  <p class="section-intro">A second, independent lens comes from Zukowski's scrape: the share of demos in each genre that reached 10 or more concurrent players. It answers a different question from the leaderboard: not which games peaked highest, but which genres give a typical demo the best odds — and which structurally struggle.</p>
 
   <div class="table-wrap">
     <table>
@@ -316,9 +337,13 @@ footer span{color:var(--gold)}
   <a href="part-3.html" class="next">Part III · What Predicted</a>
 </div>
 
+<div class="bio">
+  <p>Abbas Saleem is a Principal Consultant at <a href="https://www.llamagriffin.com/" target="_blank" rel="noopener noreferrer">Llama &amp; Griffin</a>, advising game studios, publishers, and investors across MENA, South Asia, Southeast Asia, and Europe. He writes <a href="https://recognizingpatterns.substack.com/" target="_blank" rel="noopener noreferrer">Recognizing Patterns</a>: gaming industry intelligence 12 to 24 months before it becomes consensus. <a href="https://www.linkedin.com/in/abbassaleemkhan/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+</div>
 <footer>
-  <div>Steam Next Fest October 2026 · <span>Part II — Who Got Seen</span></div>
-  <div><span>Llama &amp; Griffin Consultants</span> · Case Studies</div>
+  <div>Steam Next Fest October 2026 &middot; <span>Part II — Who Got Seen</span> &middot; Llama &amp; Griffin Consultants</div>
+  <div><a href="https://recognizingpatterns.substack.com/" target="_blank" rel="noopener noreferrer">recognizingpatterns.substack.com</a> &middot; <a href="https://www.llamagriffin.com/" target="_blank" rel="noopener noreferrer">llamagriffin.com</a></div>
+  <div class="methodology">Confidence tags: <span class="tag tag-high">High</span> reported by a primary source or measured dataset; <span class="tag tag-likely">Likely</span> strong inference from disclosed figures; <span class="tag tag-directional">Directional</span> the author's own reading, not sourced to any company; <span class="tag tag-prov">Provisional</span> single-sourced, projected or unverified. Sources: <a href="https://gamingtrend.com/news/here-are-the-20-most-played-demos-from-octobers-steam-next-fest/" target="_blank" rel="noopener noreferrer">GamingTrend (Valve list)</a>; <a href="https://www.polygon.com/steam-next-fest-october-2026-most-played-games/" target="_blank" rel="noopener noreferrer">Polygon</a>; <a href="https://outputlag.com/next-fest/" target="_blank" rel="noopener noreferrer">Output Lag final chart</a>; <a href="https://outputlag.com/news/steam-next-fest-october-2026-the-most-played-demos-by-the-numbers/" target="_blank" rel="noopener noreferrer">Output Lag by-the-numbers</a>; <a href="https://howtomarketagame.com/2026/10/21/how-sloppy-is-the-october-2026-steam-next-fest/" target="_blank" rel="noopener noreferrer">How To Market A Game (Zukowski), 21 Oct 2026</a>. Figures checked to 27 October 2026.</div>
 </footer>
 
 <script>

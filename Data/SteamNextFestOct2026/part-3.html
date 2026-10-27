@@ -3,7 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Steam Next Fest October 2026 — Part III · The Followers Decider · Llama &amp; Griffin</title>
+<title>Steam Next Fest October 2026 — Part III · What Predicted Success · Recognizing Patterns · Llama &amp; Griffin</title>
+<meta name="description" content="Pre-fest followers and pre-fest momentum predicted early peak players about equally; percentage growth didn't. Plus the AI-disclosure split, a scorecard for June's forecast, dated conditions, and a February playbook.">
+<link rel="canonical" href="https://www.llamagriffin.com/Data/SteamNextFestOct2026/part-3.html">
+<meta property="og:title" content="Steam Next Fest October 2026 — Part III: What Predicted Success">
+<meta property="og:description" content="Pre-fest followers and pre-fest momentum predicted early peak players about equally; percentage growth didn't. Plus the AI-disclosure split, a scorecard for June's forecast, dated conditions, and a February playbook.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.llamagriffin.com/Data/SteamNextFestOct2026/part-3.html">
+<meta property="og:site_name" content="Llama &amp; Griffin · Recognizing Patterns">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -137,6 +144,27 @@ footer span{color:var(--gold)}
   section{padding:2.25rem 1.25rem}
   .hero{padding:2.5rem 1.25rem 2rem}
 }
+
+/* Recognizing Patterns house conventions: confidence tags, bio, methodology */
+.tag-high{background:var(--teal-dim);color:var(--teal)}
+.tag-likely{background:var(--purple-dim);color:var(--purple)}
+.tag-directional{background:var(--coral-dim);color:var(--coral)}
+.tag-prov{background:rgba(35,35,35,0.07);color:var(--text-dim)}
+.ctag{margin-right:6px;vertical-align:1px}
+.bio{max-width:960px;margin:0 auto;padding:1.5rem 2rem 1rem;border-top:1px solid var(--border)}
+.bio p{font-size:13px;color:var(--text-muted);max-width:72ch;line-height:1.65}
+.bio a,footer a{color:var(--gold);text-decoration:none}
+.bio a:hover,footer a:hover{text-decoration:underline}
+footer .methodology{width:100%;font-family:var(--font-body);font-size:11px;color:var(--text-dim);line-height:1.65;margin-top:0.75rem;border-top:1px solid var(--border);padding-top:0.75rem;max-width:none}
+footer .methodology .tag{font-size:8.5px}
+@media(max-width:600px){.bio{padding-left:1.25rem;padding-right:1.25rem}}
+
+.condition-list{border:1px solid var(--border-med);border-radius:4px;overflow:hidden;background:var(--bg2);margin:0 0 1.5rem}
+.condition{padding:1rem 1.25rem;border-bottom:1px solid var(--border)}
+.condition:last-child{border-bottom:none}
+.condition-when{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.09em;text-transform:uppercase;color:var(--gold);margin-bottom:7px;display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.condition-what{font-size:14.5px;color:var(--text);font-weight:600;line-height:1.4;margin-bottom:5px}
+.condition-mean{font-size:13.5px;color:var(--text-muted);line-height:1.6;max-width:none}
 </style>
 </head>
 <body>
@@ -156,7 +184,9 @@ footer span{color:var(--gold)}
   <a href="#followers" class="nav-link">The Follower Base</a>
   <a href="#correlation" class="nav-link">Correlations</a>
   <a href="#ai" class="nav-link">AI Disclosure</a>
+  <a href="#scorecard" class="nav-link">June Scorecard</a>
   <a href="#playbook" class="nav-link">February Playbook</a>
+  <a href="#conditions" class="nav-link">What Would Change This</a>
 </nav>
 
 <!-- HERO -->
@@ -181,7 +211,7 @@ footer span{color:var(--gold)}
 <section id="followers">
   <div class="section-label">Section 01</div>
   <div class="chevrons"></div><h2>The Follower Base</h2><span class="h2-kicker">You mostly are who you were before the fest.</span>
-  <p class="section-intro">Zukowski grouped every October demo by peak concurrent players, then looked at their Steam follower count the day before the festival. Steam followers are a public stand-in for wishlists — which only the developer can see — and the gradient is stark: the top of the field arrived with thousands of followers already banked.</p>
+  <p class="section-intro"><a href="https://howtomarketagame.com/2026/10/21/how-sloppy-is-the-october-2026-steam-next-fest/" target="_blank" rel="noopener noreferrer">Zukowski</a> grouped every October demo by peak concurrent players, then looked at their Steam follower count the day before the festival. Steam followers are a public stand-in for wishlists — which only the developer can see — and the gradient is stark: the top of the field arrived with thousands of followers already banked.</p>
 
   <h3>Median followers the day before the festival</h3>
   <div class="bar-row"><div class="bar-label"><b>Top 25</b> · 419–20,505 CCU</div><div class="bar-bg"><div class="bar-fill" style="width:100%;background:var(--gold)"></div></div><div class="bar-val">5,519</div></div>
@@ -190,7 +220,7 @@ footer span{color:var(--gold)}
   <div class="bar-row"><div class="bar-label"><b>Everyone else</b> · 6,942 games</div><div class="bar-bg"><div class="bar-fill" style="width:1%;background:var(--coral)"></div></div><div class="bar-val">15</div></div>
 
   <div class="insight">
-    <strong>The ~368× gap:</strong> the median top-25 demo entered with 5,519 followers; the other 6,942 games entered with a median of 15. That's a ~368× difference in starting audience between the visible tier and everyone else — in place <em>before</em> a single randomised shelf slot was served. Note the tiers below the top 100 are a single "everyone else" bucket; they don't sum to the full 7,240 field.
+    <span class="tag tag-high ctag">High</span><strong>The ~368× gap:</strong> the median top-25 demo entered with 5,519 followers; the other 6,942 games entered with a median of 15. That's a ~368× difference in starting audience between the visible tier and everyone else — in place <em>before</em> a single randomised shelf slot was served. Note the tiers below the top 100 are a single "everyone else" bucket; they don't sum to the full 7,240 field.
   </div>
 
   <h3>Demo timing, another tell</h3>
@@ -199,7 +229,7 @@ footer span{color:var(--gold)}
     <div class="card coral"><div class="clabel">Everyone else</div><div class="cval">~37 days</div><div class="csub">weeks of exposure building nothing</div></div>
   </div>
   <div class="insight coral">
-    <strong>An older demo is not a problem by itself</strong> — but a demo that has been live for weeks without building followers won't suddenly start during the festival. Length of exposure means nothing if it isn't converting to audience.
+    <span class="tag tag-likely ctag">Likely</span><strong>An older demo is not a problem by itself</strong> — but a demo that has been live for weeks without building followers won't suddenly start during the festival. Length of exposure means nothing if it isn't converting to audience.
   </div>
 </section>
 
@@ -216,11 +246,11 @@ footer span{color:var(--gold)}
   </div>
 
   <div class="insight purple">
-    <strong>The percentage trap:</strong> the bottom group showed the highest percentage growth of any tier (12.5%) — but from a median of 15 followers, that's one extra person. A final-week spike looks good on a chart and does almost nothing for your peak. <em>Track raw gains, not percentages.</em>
+    <span class="tag tag-high ctag">High</span><strong>The percentage trap:</strong> the bottom group showed the highest percentage growth of any tier (12.5%) — but from a median of 15 followers, that's one extra person. A final-week spike looks good on a chart and does almost nothing for your peak. <em>Track raw gains, not percentages.</em>
   </div>
 
   <div class="insight">
-    <strong>This is early data, by design:</strong> Zukowski measured peak demo CCU from 12–21 October only, and explicitly flags that his follow-up on total follower gain comes after the festival closes. The correlation says base and momentum predict early interest about equally — not that base alone "decides" the outcome. Hold the conclusion a couple of degrees softer than the numbers, until the post-fest analysis lands.
+    <span class="tag tag-high ctag">High</span><strong>This is early data, by design:</strong> Zukowski measured peak demo CCU from 12–21 October only, and explicitly flags that his follow-up on total follower gain comes after the festival closes. The correlation says base and momentum predict early interest about equally — not that base alone "decides" the outcome. Hold the conclusion a couple of degrees softer than the numbers, until the post-fest analysis lands.
   </div>
 
   <p>Read through the lens of Parts I and II, the implication stays coherent: the festival's engagement-ranked Day 3+ phase rewards the demos already converting — which tend to be the ones that entered with either a large base or genuine momentum, ideally both. Scale has made the starting funnel the whole game.</p>
@@ -230,7 +260,7 @@ footer span{color:var(--gold)}
 <section id="ai">
   <div class="section-label">Section 03</div>
   <div class="chevrons"></div><h2>AI Disclosure — Concentrated at the Bottom</h2><span class="h2-kicker">Disclosure doesn't doom a game; it clusters where attention is thinnest.</span>
-  <p class="section-intro">Steam requires developers to declare generative AI use on the store page. Zukowski counted <strong>2,502 games (~35%)</strong> with a disclosure in October 2026 — self-reported, so the true rate could differ — but the split by performance tier is unambiguous.</p>
+  <p class="section-intro">Steam requires developers to declare generative AI use on the store page (<a href="https://partner.steamgames.com/doc/gettingstarted/contentsurvey" target="_blank" rel="noopener noreferrer">Steamworks content survey</a>). Zukowski counted <strong>2,502 games (~35%)</strong> with a disclosure in October 2026 — self-reported, so the true rate could differ — but the split by performance tier is unambiguous.</p>
 
   <h3>Share disclosing generative AI, by tier</h3>
   <div class="bar-row"><div class="bar-label"><b>Everyone else</b> · 6,942 games</div><div class="bar-bg"><div class="bar-fill" style="width:100%;background:var(--coral)"></div></div><div class="bar-val">35%</div></div>
@@ -258,13 +288,38 @@ footer span{color:var(--gold)}
   </div>
 
   <div class="insight blue">
-    <strong>Correlation is not causation.</strong> There's no evidence that disclosing AI causes weak results — plenty of low-ranked games disclosed nothing, and exactly two AI-disclosed titles made the top 25: <strong>BORE</strong> (built "with help from an AI assistant under human direction"; no live AI generation) and <strong>Path of the Yaoguai</strong> ("部分游戏图片由AI生成并修改" — some game images AI-generated and modified). What the data shows is that most disclosed AI work sits in the crowded bottom of the festival. If your game uses AI art, it's competing inside that crowd — which is precisely why a pre-built audience matters more, not less.
+    <span class="tag tag-likely ctag">Likely</span><strong>Correlation is not causation.</strong> There's no evidence that disclosing AI causes weak results — plenty of low-ranked games disclosed nothing, and exactly two AI-disclosed titles made the top 25: <strong>BORE</strong> (built "with help from an AI assistant under human direction"; no live AI generation) and <strong>Path of the Yaoguai</strong> ("部分游戏图片由AI生成并修改" — some game images AI-generated and modified). What the data shows is that most disclosed AI work sits in the crowded bottom of the festival. If your game uses AI art, it's competing inside that crowd — which is precisely why a pre-built audience matters more, not less.
+  </div>
+</section>
+
+<!-- JUNE SCORECARD -->
+<section id="scorecard">
+  <div class="section-label">Section 04</div>
+  <div class="chevrons"></div><h2>Scoring June's Forecast</h2><span class="h2-kicker">What we said in June, and what October did.</span>
+  <p class="section-intro">Our <a href="../SteamNextFestJune2026/index.html">June 2026 case study</a> closed with a forecast and five conclusions. Four months on, here is how each one held up against October's data. Grading our own calls in public is the point: a pattern you can't be wrong about isn't a pattern.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>June said</th><th>October showed</th><th>Verdict</th></tr></thead>
+      <tbody>
+        <tr><td>October 2026 "could approach 5,500 entries"</td><td>7,240 took part (<a href="https://howtomarketagame.com/2026/10/21/how-sloppy-is-the-october-2026-steam-next-fest/" target="_blank" rel="noopener noreferrer">HTMAG scrape</a>). The forecast was about a quarter too low; we extrapolated the old growth rate and missed the 2026 acceleration.</td><td><span class="tag tag-coral">Missed</span></td></tr>
+        <tr><td>Scale cuts both ways</td><td>A record field, and more than 92% of demos never reached 10 concurrent players.</td><td><span class="tag tag-teal">Held</span></td></tr>
+        <tr><td>Community is unmanufacturable</td><td>Pre-fest followers predicted early peaks (ρ 0.55) — but raw pre-fest momentum did almost as well (ρ 0.52). A community helps; so does genuine late momentum.</td><td><span class="tag tag-gold">Refined</span></td></tr>
+        <tr><td>Co-op shows no ceiling</td><td>14 of Valve's 20 most-played demos let you play with friends.</td><td><span class="tag tag-teal">Held</span></td></tr>
+        <tr><td>AI underperforms, but its volume rises</td><td>Disclosure rose from 26.5% (June, GameDiscoverCo's tracked set) to ~35% (October, full scrape); only 2 of the top 25 disclosed. The two bases differ, so the size of the rise is approximate; the direction is not.</td><td><span class="tag tag-teal">Held</span></td></tr>
+        <tr><td>Asia is structural</td><td>Korea's ArcheAge Chronicles was #3 by peak players, and the top AI-disclosing strategy RPGs came from Chinese studios. October's data isn't broken down by region, so two strong examples are as far as this can be scored.</td><td><span class="tag tag-purple">Partly held</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="insight coral">
+    <span class="tag tag-directional ctag">Directional</span><strong>What the miss teaches:</strong> the forecast missed the size of the jump, not its direction. Every conclusion built on scale got stronger because the field outran the forecast. The lesson for February is to stop projecting participation from past growth rates: the drivers behind October's jump — more developers aware of the festival, and possibly AI-assisted entrants testing early — don't follow a trend line.
   </div>
 </section>
 
 <!-- PLAYBOOK -->
 <section id="playbook">
-  <div class="section-label">Section 04</div>
+  <div class="section-label">Section 05</div>
   <div class="chevrons"></div><h2>The February Playbook</h2><span class="h2-kicker">Start earlier, count the right number.</span>
   <p class="section-intro">The next edition is expected in February. October's data points to a concrete sequence of actions — none of them last-minute — distilled into what to start and what to stop.</p>
 
@@ -274,7 +329,7 @@ footer span{color:var(--gold)}
       <ul>
         <li><b>Count followers every week.</b> Base and momentum both predict early peak about equally; both need time to build.</li>
         <li><b>Schedule wishlist campaigns, festival slots and press for Nov–Dec.</b> That does more for a February demo than a late-January burst of posts.</li>
-        <li><b>Ship the demo early.</b> The top 25 ran demos ~19 days before the fest — but only when an audience was already converting.</li>
+        <li><b>Don't mistake demo age for progress.</b> The top 25 had their demos up for less time (~19 days) than everyone else (~37). A demo only helps if you're driving people to it.</li>
       </ul>
     </div>
     <div class="panel">
@@ -302,9 +357,39 @@ footer span{color:var(--gold)}
   </div>
 
   <div class="insight">
-    <strong>The through-line of the whole case study:</strong> three years of growth, an eightfold field, and a two-tier result. Early-festival data says pre-fest follower base and pre-fest momentum predict early peak players about equally — the worst position is a game that is neither known ahead of time nor catching on. Whatever you bring, bring it <em>before</em> the festival: arrive with an audience, or ride real momentum in. Just don't show up empty and hope for a last-week spike.
+    <span class="tag tag-directional ctag">Directional</span><strong>The through-line of the whole case study:</strong> three years of growth, an eightfold field, and a two-tier result. Early-festival data says pre-fest follower base and pre-fest momentum predict early peak players about equally — the worst position is a game that is neither known ahead of time nor catching on. Whatever you bring, bring it <em>before</em> the festival: arrive with an audience, or ride real momentum in. Just don't show up empty and hope for a last-week spike.
   </div>
 </section>
+
+<!-- CONDITIONS -->
+<section id="conditions">
+  <div class="section-label">Section 06</div>
+  <div class="chevrons"></div><h2>What Would Change This</h2><span class="h2-kicker">Four dated checks on this case study.</span>
+  <p class="section-intro">Each condition below has a date and a public source. If it goes the other way, the claim it tests should be revised in the open — the same way Section 04 grades June.</p>
+  <div class="condition-list">
+    <div class="condition">
+      <div class="condition-when">Resolves by 30 November 2026 <span class="tag tag-prov">Provisional</span></div>
+      <div class="condition-what">Zukowski publishes his post-fest analysis of total follower gains</div>
+      <div class="condition-mean">Part III's central finding — base and momentum predict early peaks about equally — rests on early-fest peak CCU. If full-fest follower gains track the pre-fest base far more closely than momentum (or the reverse), the "about equally" reading gets revised.</div>
+    </div>
+    <div class="condition">
+      <div class="condition-when">Resolves by 31 January 2027</div>
+      <div class="condition-what">The final count of 2026 Steam releases is known</div>
+      <div class="condition-mean">At ~29,300 releases, entries equal ~51.7% and Part I's "threshold" holds. At ~40,000, the ratio falls to about 38% — no change from 2025 — and the threshold claim goes.</div>
+    </div>
+    <div class="condition">
+      <div class="condition-when">Resolves at Next Fest, <a href="https://presskit.gg/field-guides/next-fest-scheduling-registration" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline dotted">22 February – 1 March 2027</a></div>
+      <div class="condition-what">Participation and AI disclosure in the February edition</div>
+      <div class="condition-mean">A February field below 7,240 would weaken the reading that AI-assisted entrants are driving growth. Top-25 AI disclosure rising above ~15% (from 8%) would weaken "AI work pools at the bottom".</div>
+    </div>
+    <div class="condition">
+      <div class="condition-when">Resolves at Next Fest, February 2027</div>
+      <div class="condition-what">Idle and desktop games in the top 10 by peak players</div>
+      <div class="condition-mean">Three idle/desktop games sat in October's top 10 by peak. If that repeats, background-running games have a structural edge in concurrent-player rankings. If they disappear — or Valve changes how it measures "most played" — the idle vein was a one-edition fluke.</div>
+    </div>
+  </div>
+</section>
+
 
 <div class="pager">
   <a href="part-2.html" class="prev">Part II · Who Got Seen</a>
@@ -312,9 +397,13 @@ footer span{color:var(--gold)}
   <a href="dashboard.html" class="next">Live Dashboard</a>
 </div>
 
+<div class="bio">
+  <p>Abbas Saleem is a Principal Consultant at <a href="https://www.llamagriffin.com/" target="_blank" rel="noopener noreferrer">Llama &amp; Griffin</a>, advising game studios, publishers, and investors across MENA, South Asia, Southeast Asia, and Europe. He writes <a href="https://recognizingpatterns.substack.com/" target="_blank" rel="noopener noreferrer">Recognizing Patterns</a>: gaming industry intelligence 12 to 24 months before it becomes consensus. <a href="https://www.linkedin.com/in/abbassaleemkhan/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+</div>
 <footer>
-  <div>Steam Next Fest October 2026 · <span>Part III — What Predicted Success</span></div>
-  <div><span>Llama &amp; Griffin Consultants</span> · Case Studies</div>
+  <div>Steam Next Fest October 2026 &middot; <span>Part III — What Predicted Success</span> &middot; Llama &amp; Griffin Consultants</div>
+  <div><a href="https://recognizingpatterns.substack.com/" target="_blank" rel="noopener noreferrer">recognizingpatterns.substack.com</a> &middot; <a href="https://www.llamagriffin.com/" target="_blank" rel="noopener noreferrer">llamagriffin.com</a></div>
+  <div class="methodology">Confidence tags: <span class="tag tag-high">High</span> reported by a primary source or measured dataset; <span class="tag tag-likely">Likely</span> strong inference from disclosed figures; <span class="tag tag-directional">Directional</span> the author's own reading, not sourced to any company; <span class="tag tag-prov">Provisional</span> single-sourced, projected or unverified. Sources: <a href="https://howtomarketagame.com/2026/10/21/how-sloppy-is-the-october-2026-steam-next-fest/" target="_blank" rel="noopener noreferrer">How To Market A Game (Zukowski), 21 Oct 2026</a>; <a href="https://partner.steamgames.com/doc/gettingstarted/contentsurvey" target="_blank" rel="noopener noreferrer">Steamworks content survey</a>; <a href="https://outputlag.com/next-fest/" target="_blank" rel="noopener noreferrer">Output Lag final chart</a>; <a href="https://gamingtrend.com/news/here-are-the-20-most-played-demos-from-octobers-steam-next-fest/" target="_blank" rel="noopener noreferrer">GamingTrend (Valve list)</a>; <a href="https://presskit.gg/field-guides/next-fest-scheduling-registration" target="_blank" rel="noopener noreferrer">presskit.gg (2027 dates)</a>; <a href="../SteamNextFestJune2026/index.html">L&amp;G June 2026 case study</a>. Figures checked to 27 October 2026.</div>
 </footer>
 
 <script>

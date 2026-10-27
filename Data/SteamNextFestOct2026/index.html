@@ -3,7 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Steam Next Fest October 2026 · A Case Study · Llama &amp; Griffin</title>
+<title>Steam Next Fest October 2026 · A Case Study · Recognizing Patterns · Llama &amp; Griffin</title>
+<meta name="description" content="7,240 games took part, 65% more than June. About 100 arrived with real audiences; the other ~6,900 started with a median of 15 Steam followers. A three-part case study and dashboard on scale, who got seen, and what predicted early peaks.">
+<link rel="canonical" href="https://www.llamagriffin.com/Data/SteamNextFestOct2026/index.html">
+<meta property="og:title" content="Steam Next Fest October 2026: The Largest — and the Most Split — Edition Yet">
+<meta property="og:description" content="7,240 games took part, 65% more than June. About 100 arrived with real audiences; the other ~6,900 started with a median of 15 Steam followers. A three-part case study and dashboard on scale, who got seen, and what predicted early peaks.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.llamagriffin.com/Data/SteamNextFestOct2026/index.html">
+<meta property="og:site_name" content="Llama &amp; Griffin · Recognizing Patterns">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -63,13 +70,27 @@ nav a.nav-link.dash{border:1px solid var(--border-med);border-radius:3px;height:
 
 /* SYNTHESIS — how this one differed */
 .synthesis{max-width:960px;margin:0 auto;padding:0 2rem 2.5rem}
-.syn-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.25rem}
+.syn-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem}
+@media(max-width:700px){.syn-grid{grid-template-columns:1fr}}
 .syn-card{background:var(--bg2);border:1px solid var(--border-med);border-radius:3px;padding:1.5rem 1.6rem}
 .syn-num{font-family:var(--font-display);font-size:1.25rem;font-weight:700;font-style:italic;color:var(--gold)}
 .syn-title{font-size:14px;font-weight:600;color:var(--text);margin:0.3rem 0 0.5rem;line-height:1.3}
 .syn-body{font-size:13px;color:var(--text-muted);line-height:1.6}
 
-/* FANCY GRAPH — donut of AI disclosure by tier */
+/* AI disclosure by tier — bars on a shared 0–40% scale */
+.fig-panel .donut-wrap{width:100%;align-items:center;gap:2rem}
+.tier-bars{display:flex;flex-direction:column;gap:12px;flex:1 1 380px;min-width:0}
+.tier-row{display:grid;grid-template-columns:120px 1fr 48px;align-items:center;gap:12px}
+.tier-name{font-size:13px;font-weight:600;color:var(--text);line-height:1.2}
+.tier-name small{display:block;font-family:var(--font-mono);font-size:9px;font-weight:400;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-dim);margin-top:2px}
+.tier-track{position:relative;height:18px;background:var(--bg3);border-radius:2px}
+.tier-fill{height:100%;border-radius:0 3px 3px 0;background:var(--gold)}
+.tier-fill.hi{background:var(--coral)}
+.tier-avg{position:absolute;top:-4px;bottom:-4px;width:0;border-left:1.5px dashed var(--text-muted)}
+.tier-val{font-family:var(--font-display);font-size:1.15rem;font-weight:700;color:var(--text);text-align:right}
+.tier-axis{display:grid;grid-template-columns:120px 1fr 48px;gap:12px;font-family:var(--font-mono);font-size:9px;letter-spacing:0.06em;color:var(--text-dim);text-transform:uppercase}
+.tier-axis span{display:flex;justify-content:space-between}
+@media(max-width:600px){.tier-row,.tier-axis{grid-template-columns:92px 1fr 40px}}
 .fig-band{max-width:960px;margin:0 auto;padding:0 2rem 2.5rem}
 .fig-panel{background:var(--bg2);border:1px solid var(--border-med);border-radius:3px;padding:1.75rem 1.8rem;display:flex;gap:2rem;align-items:center;flex-wrap:wrap}
 .fig-panel h3{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);width:100%;margin-bottom:0.5rem}
@@ -123,6 +144,20 @@ footer span{color:var(--gold)}
   .hero{padding:3rem 1.25rem 1rem}
   .synthesis,.parts,.caps-strip,.dash-band,.fig-band{padding-left:1.25rem;padding-right:1.25rem}
 }
+
+/* Recognizing Patterns house conventions: confidence tags, bio, methodology */
+.tag-high{background:var(--teal-dim);color:var(--teal)}
+.tag-likely{background:var(--purple-dim);color:var(--purple)}
+.tag-directional{background:var(--coral-dim);color:var(--coral)}
+.tag-prov{background:rgba(35,35,35,0.07);color:var(--text-dim)}
+.ctag{margin-right:6px;vertical-align:1px}
+.bio{max-width:960px;margin:0 auto;padding:1.5rem 2rem 1rem;border-top:1px solid var(--border)}
+.bio p{font-size:13px;color:var(--text-muted);max-width:72ch;line-height:1.65}
+.bio a,footer a{color:var(--gold);text-decoration:none}
+.bio a:hover,footer a:hover{text-decoration:underline}
+footer .methodology{width:100%;font-family:var(--font-body);font-size:11px;color:var(--text-dim);line-height:1.65;margin-top:0.75rem;border-top:1px solid var(--border);padding-top:0.75rem;max-width:none}
+footer .methodology .tag{font-size:8.5px}
+@media(max-width:600px){.bio{padding-left:1.25rem;padding-right:1.25rem}}
 </style>
 </head>
 <body>
@@ -142,8 +177,8 @@ footer span{color:var(--gold)}
 
   <div class="hero-sub">
     <p>The October 2026 edition ran 19–26 October with <strong>7,240 games</strong> taking part — the largest Next Fest in the program's history, up 65% on June's 4,382 and roughly eight times the 887 of June 2023.</p>
-    <p>That scale crossed a threshold: for the first time, a festival more than <strong>half</strong> of the year's Steam releases flowed through. And it changed what the event <em>does</em> — it stopped creating breakouts and started amplifying the audience a game already had, measured the day before it even began.</p>
-    <p>This case study tells that story in three parts — the record scale, who actually got seen, and what predicted early success — and closes with why this edition was a genuinely different animal.</p>
+    <p>That scale crossed a threshold: across 2026's three editions, Next Fest entries equalled more than <strong>half</strong> of the year's projected Steam releases. And it changed what the event <em>does</em> — it stopped creating breakouts and started amplifying the audience a game already had, measured the day before it even began.</p>
+    <p>Our <a href="../SteamNextFestJune2026/index.html">June case study</a> forecast this edition at about 5,500 entries; it came in at 7,240. Part III scores that forecast and June\'s other calls. This case study tells that story in three parts — the record scale, who actually got seen, and what predicted early success — and closes with why this edition was a genuinely different animal.</p>
   </div>
 
   <div class="hero-meta">
@@ -178,23 +213,23 @@ footer span{color:var(--gold)}
   <div class="syn-grid">
     <div class="syn-card">
       <div class="syn-num">I</div>
-      <div class="syn-title">A different species of scale</div>
-      <div class="syn-body">Not just a record — a threshold. Entries hit ~51.7% of all projected 2026 Steam releases, up from 38.2% in 2025 and 33.6% in 2024. Next Fest went from something a third of releases used to something <em>most</em> of them use.</div>
+      <div class="syn-title"><span class="tag tag-prov ctag">Provisional</span>A different species of scale</div>
+      <div class="syn-body">Not just a record — a threshold. The year's entries equal ~51.7% of projected 2026 Steam releases, up from 38.2% in 2025 and 33.6% in 2024. It's a ratio, not a headcount — a game in two editions counts twice, and the denominator is projected — but the direction is clear.</div>
     </div>
     <div class="syn-card">
       <div class="syn-num">II</div>
-      <div class="syn-title">The two-tier field went from trend to headline</div>
-      <div class="syn-body">Past editions looked for a single breakout. This one made the split unavoidable: ~100 games held real audiences, and ~6,900 arrived with a median of 15 followers — the gap decided <em>before</em> the first slot was served.</div>
+      <div class="syn-title"><span class="tag tag-high ctag">High</span>The two-tier field went from trend to headline</div>
+      <div class="syn-body">Past editions looked for a single breakout. This one made the split unavoidable: ~100 games held real audiences, and ~6,900 arrived with a median of 15 followers — a gap already in place <em>before</em> the first slot was served.</div>
     </div>
     <div class="syn-card">
       <div class="syn-num">III</div>
-      <div class="syn-title">AI disclosure became a structural layer</div>
-      <div class="syn-body">35% of games disclosed generative AI, concentrated at the bottom (8% of the top 25 vs 35% of everyone else). For the first time, "slop" could be charted as a measurable feature of the field, not hand-waved away.</div>
+      <div class="syn-title"><span class="tag tag-high ctag">High</span>AI disclosure became a structural layer</div>
+      <div class="syn-body">35% of games disclosed generative AI, concentrated at the bottom (8% of the top 25 vs 35% of everyone else). Up from about a quarter in June — "slop" is now a measurable layer of the field, not a hand-wave.</div>
     </div>
     <div class="syn-card">
       <div class="syn-num">IV</div>
-      <div class="syn-title">An idle/desktop vein cracked the top</div>
-      <div class="syn-body">Character House, Find The Needle and Melvor Idle 2 reached the leaderboard on long-session retention — holding numbers while the early-fest press demos decayed to a tenth of their peaks. A new leaderboard shape, not the old spike-and-fade.</div>
+      <div class="syn-title"><span class="tag tag-directional ctag">Directional</span>An idle/desktop vein cracked the top</div>
+      <div class="syn-body">Character House, Find The Needle and Melvor Idle 2 sat near the top of the live leaderboard all week — partly because idle games keep counting while left running — while early-fest leaders like Worst Class Ever and ArcheAge faded to a tenth or less of their peaks. A new leaderboard shape, not the old spike-and-fade.</div>
     </div>
   </div>
 </div>
@@ -204,17 +239,15 @@ footer span{color:var(--gold)}
   <div class="fig-panel">
     <h3>Generative-AI disclosure, by performance tier</h3>
     <div class="donut-wrap">
-      <div class="donut" style="background:conic-gradient(var(--coral) 0 35%,var(--blue) 35% 61%,var(--purple) 61% 73%,var(--teal) 73% 81%,var(--bg4) 81% 100%)">
-        <div class="center"><div class="dv">8%</div><div class="dl">top 25</div></div>
+      <div class="tier-bars" role="img" aria-label="Share disclosing generative AI: top 25, 8 percent; ranks 26 to 50, 12 percent; ranks 51 to 100, 26 percent; everyone else, 35 percent; all games 34.6 percent.">
+        <div class="tier-row"><div class="tier-name">Top 25<small>2 of 25</small></div><div class="tier-track"><div class="tier-fill" style="width:20%"></div><div class="tier-avg" style="left:86.5%"></div></div><div class="tier-val">8%</div></div>
+        <div class="tier-row"><div class="tier-name">Ranks 26–50<small>3 of 25</small></div><div class="tier-track"><div class="tier-fill" style="width:30%"></div><div class="tier-avg" style="left:86.5%"></div></div><div class="tier-val">12%</div></div>
+        <div class="tier-row"><div class="tier-name">Ranks 51–100<small>13 of 50</small></div><div class="tier-track"><div class="tier-fill" style="width:65%"></div><div class="tier-avg" style="left:86.5%"></div></div><div class="tier-val">26%</div></div>
+        <div class="tier-row"><div class="tier-name">Everyone else<small>2,427 of 6,942</small></div><div class="tier-track"><div class="tier-fill hi" style="width:87.5%"></div><div class="tier-avg" style="left:86.5%"></div></div><div class="tier-val">35%</div></div>
+        <div class="tier-axis"><div></div><span><i>0%</i><i>20%</i><i>40%</i></span><div></div></div>
       </div>
-      <div class="donut-legend">
-        <div class="leg-row"><span class="leg-swatch" style="background:var(--teal)"></span><b>Top 25</b><span class="leg-val">8%</span></div>
-        <div class="leg-row"><span class="leg-swatch" style="background:var(--purple)"></span><b>Ranks 26–50</b><span class="leg-val">12%</span></div>
-        <div class="leg-row"><span class="leg-swatch" style="background:var(--blue)"></span><b>Ranks 51–100</b><span class="leg-val">26%</span></div>
-        <div class="leg-row"><span class="leg-swatch" style="background:var(--coral)"></span><b>Everyone else</b><span class="leg-val">35%</span></div>
-      </div>
+      <div style="font-size:12.5px;color:var(--text-muted);line-height:1.6;flex:1 1 220px;max-width:300px">The disclosure rate climbs as you move down the field — AI work pools where attention is thinnest. Dashed line: all games, 34.6%. Two of the top 25 disclosed (BORE, Path of the Yaoguai). Self-reported; source: <a href="https://howtomarketagame.com/2026/10/21/how-sloppy-is-the-october-2026-steam-next-fest/" target="_blank" rel="noopener" style="color:var(--gold)">How To Market A Game</a>.</div>
     </div>
-    <div style="font-size:12.5px;color:var(--text-muted);line-height:1.6;max-width:340px">The disclosure rate climbs as you move down the field — AI work pools where attention is thinnest, not where it's most visible. Two of the top 25 disclosed (BORE, Path of the Yaoguai); 2,427 of the bottom tier did.</div>
   </div>
 </div>
 
@@ -257,7 +290,7 @@ footer span{color:var(--gold)}
 <div class="dash-band">
   <div class="dash-card">
     <div>
-      <div class="t">Live Intelligence Dashboard</div>
+      <div class="t">Intelligence Dashboard</div>
       <div class="d">The full single-page view — post-close telemetry, top-demo cross-reference, follower tiers, AI tags, timeline and methodology — final data to 27 October.</div>
     </div>
     <a href="dashboard.html">Open the Dashboard →</a>
@@ -266,9 +299,13 @@ footer span{color:var(--gold)}
 
 <div class="closing"><p>The festival didn't break the pattern — it revealed it, at a scale nobody had seen before. The games that won arrived with audiences; everyone else shared a thinner sliver of the spotlight. <span>Read in order.</span></p></div>
 
+<div class="bio">
+  <p>Abbas Saleem is a Principal Consultant at <a href="https://www.llamagriffin.com/" target="_blank" rel="noopener noreferrer">Llama &amp; Griffin</a>, advising game studios, publishers, and investors across MENA, South Asia, Southeast Asia, and Europe. He writes <a href="https://recognizingpatterns.substack.com/" target="_blank" rel="noopener noreferrer">Recognizing Patterns</a>: gaming industry intelligence 12 to 24 months before it becomes consensus. <a href="https://www.linkedin.com/in/abbassaleemkhan/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+</div>
 <footer>
-  <div>Steam Next Fest October 2026 Case Study · <span>Llama &amp; Griffin Consultants</span></div>
-  <div><span>llamagriffin.com</span> · Case Studies</div>
+  <div>Steam Next Fest October 2026 &middot; <span>Case Study Overview</span> &middot; Llama &amp; Griffin Consultants</div>
+  <div><a href="https://recognizingpatterns.substack.com/" target="_blank" rel="noopener noreferrer">recognizingpatterns.substack.com</a> &middot; <a href="https://www.llamagriffin.com/" target="_blank" rel="noopener noreferrer">llamagriffin.com</a></div>
+  <div class="methodology">Confidence tags: <span class="tag tag-high">High</span> reported by a primary source or measured dataset; <span class="tag tag-likely">Likely</span> strong inference from disclosed figures; <span class="tag tag-directional">Directional</span> the author's own reading, not sourced to any company; <span class="tag tag-prov">Provisional</span> single-sourced, projected or unverified. Sources: <a href="https://howtomarketagame.com/2026/10/21/how-sloppy-is-the-october-2026-steam-next-fest/" target="_blank" rel="noopener noreferrer">How To Market A Game (Zukowski), 21 Oct 2026</a>; <a href="https://outputlag.com/next-fest/" target="_blank" rel="noopener noreferrer">Output Lag final chart</a>; <a href="https://gamingtrend.com/news/here-are-the-20-most-played-demos-from-octobers-steam-next-fest/" target="_blank" rel="noopener noreferrer">GamingTrend (Valve list)</a>; <a href="https://newsletter.gamediscover.co/p/who-won-june-2026s-steam-next-fest" target="_blank" rel="noopener noreferrer">GameDiscoverCo</a>; <a href="../SteamNextFestJune2026/index.html">L&amp;G June 2026 case study</a>. Figures checked to 27 October 2026.</div>
 </footer>
 
 </body>
