@@ -10,10 +10,13 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#f5f1e8;--bg2:#ece8dc;--bg3:#e4e0d4;
+  --bg:#f5f1e8;--bg2:#ece8dc;--bg3:#e4e0d4;--bg4:#d6d1c4;
   --text:#1a1914;--text-muted:#5a5650;--text-dim:#9490A0;
   --gold:#C9A84C;--gold-light:#dfc278;--gold-dim:rgba(201,168,76,0.12);
-  --teal:#1D9E75;--purple:#534AB7;--coral:#D85A30;--blue:#3A7BD5;
+  --teal:#1D9E75;--teal-dim:rgba(29,158,117,0.10);
+  --purple:#534AB7;--purple-dim:rgba(83,74,183,0.10);
+  --coral:#D85A30;--coral-dim:rgba(216,90,48,0.10);
+  --blue:#3A7BD5;--blue-dim:rgba(58,123,213,0.10);
   --border:rgba(30,25,20,0.10);--border-med:rgba(30,25,20,0.16);
   --font-display:'Playfair Display',serif;
   --font-body:'DM Sans',sans-serif;
@@ -34,15 +37,17 @@ nav a.nav-link.active{color:var(--gold);border-bottom-color:var(--gold)}
 nav a.nav-link.dash{border:1px solid var(--border-med);border-radius:3px;height:26px;margin-left:0.5rem;padding:0 0.7rem}
 
 /* HERO */
-.hero{max-width:960px;margin:0 auto;padding:5rem 2rem 1.5rem}
+.hero{max-width:960px;margin:0 auto;padding:4.5rem 2rem 1.5rem}
 .hero-eyebrow{font-family:var(--font-mono);font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:10px}
 .hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold);display:inline-block}
 .hero h1{font-family:var(--font-display);font-size:clamp(2.2rem,5vw,3.2rem);font-weight:700;line-height:1.06;color:var(--text);margin-bottom:0.1rem}
 .hero h1 .kicker{display:block;font-style:italic;color:var(--gold)}
-.hero-sub{font-size:15px;color:var(--text-muted);max-width:660px;margin:1.5rem 0 2rem;line-height:1.7}.hero-sub p{margin-bottom:0.85rem}.hero-sub p:last-child{margin-bottom:0}
+.hero-sub{font-size:15px;color:var(--text-muted);max-width:680px;margin:1.5rem 0 2rem;line-height:1.7}
+.hero-sub p{margin-bottom:0.85rem}.hero-sub p:last-child{margin-bottom:0}
+.hero-sub strong{color:var(--text)}
 
 /* META ROW */
-.hero-meta{display:flex;gap:2rem;margin-bottom:2.5rem;flex-wrap:wrap;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:0.75rem 0}
+.hero-meta{display:flex;gap:2rem;margin-bottom:2rem;flex-wrap:wrap;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:0.75rem 0}
 .hero-meta-item{font-family:var(--font-mono);font-size:10px;letter-spacing:0.09em;text-transform:uppercase;color:var(--text-dim)}
 .hero-meta-item span{color:var(--text-muted);font-weight:500}
 
@@ -56,9 +61,28 @@ nav a.nav-link.dash{border:1px solid var(--border-med);border-radius:3px;height:
 .stat-val.coral{color:var(--coral)}
 .stat-lbl{font-family:var(--font-mono);font-size:9px;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-dim)}
 
-/* INSIGHT */
-.insight{border-left:3px solid var(--gold);background:var(--gold-dim);border-radius:0 3px 3px 0;padding:1.1rem 1.4rem;margin-bottom:3rem;font-size:14px;color:var(--text-muted);line-height:1.7;max-width:960px;margin-left:auto;margin-right:auto}
-.insight strong{color:var(--text)}
+/* SYNTHESIS — how this one differed */
+.synthesis{max-width:960px;margin:0 auto;padding:0 2rem 2.5rem}
+.syn-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.25rem}
+.syn-card{background:var(--bg2);border:1px solid var(--border-med);border-radius:3px;padding:1.5rem 1.6rem}
+.syn-num{font-family:var(--font-display);font-size:1.25rem;font-weight:700;font-style:italic;color:var(--gold)}
+.syn-title{font-size:14px;font-weight:600;color:var(--text);margin:0.3rem 0 0.5rem;line-height:1.3}
+.syn-body{font-size:13px;color:var(--text-muted);line-height:1.6}
+
+/* FANCY GRAPH — donut of AI disclosure by tier */
+.fig-band{max-width:960px;margin:0 auto;padding:0 2rem 2.5rem}
+.fig-panel{background:var(--bg2);border:1px solid var(--border-med);border-radius:3px;padding:1.75rem 1.8rem;display:flex;gap:2rem;align-items:center;flex-wrap:wrap}
+.fig-panel h3{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);width:100%;margin-bottom:0.5rem}
+.donut-wrap{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap}
+.donut{width:170px;height:170px;border-radius:50%;flex-shrink:0;position:relative}
+.donut .center{position:absolute;inset:0;background:var(--bg2);border-radius:50%;margin:38px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.donut .center .dv{font-family:var(--font-display);font-size:1.6rem;font-weight:700;color:var(--text);line-height:1}
+.donut .center .dl{font-family:var(--font-mono);font-size:8px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim);margin-top:4px}
+.donut-legend{display:flex;flex-direction:column;gap:7px;min-width:210px}
+.leg-row{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-muted)}
+.leg-row b{color:var(--text);font-weight:600}
+.leg-swatch{width:11px;height:11px;border-radius:2px;flex-shrink:0}
+.leg-val{margin-left:auto;font-family:var(--font-mono);font-size:12px;color:var(--text);white-space:nowrap}
 
 /* PARTS GRID */
 .parts{max-width:960px;margin:0 auto;padding:0 2rem 1.5rem}
@@ -71,6 +95,15 @@ nav a.nav-link.dash{border:1px solid var(--border-med);border-radius:3px;height:
 .part-desc{font-size:13px;color:var(--text-muted);line-height:1.65;flex:1}
 .part-link{font-family:var(--font-mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);margin-top:0.5rem}
 
+/* CAPSULES strip */
+.caps-strip{max-width:960px;margin:0 auto;padding:0 2rem 2rem}
+.caps-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+@media(max-width:760px){.caps-grid{grid-template-columns:repeat(2,1fr)}}
+.caps{background:var(--bg2);border:1px solid var(--border);border-radius:3px;overflow:hidden;text-decoration:none;color:inherit;display:block;transition:border-color 0.15s}
+.caps:hover{border-color:var(--gold);text-decoration:none}
+.caps img{width:100%;aspect-ratio:460/215;object-fit:cover;display:block;background:var(--bg3)}
+.caps .c{margin:0.55rem 0.7rem;font-size:12.5px;font-weight:600;color:var(--text);line-height:1.3}
+
 /* DASHBOARD LINK */
 .dash-band{max-width:960px;margin:0 auto;padding:0 2rem 2rem}
 .dash-card{background:var(--bg2);border:1px dashed var(--border-med);border-radius:3px;padding:1.5rem 1.75rem;display:flex;justify-content:space-between;align-items:center;gap:1.5rem;flex-wrap:wrap}
@@ -79,10 +112,17 @@ nav a.nav-link.dash{border:1px solid var(--border-med);border-radius:3px;height:
 .dash-card a{font-family:var(--font-mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;white-space:nowrap}
 
 /* FOOTER */
-.closing{max-width:960px;margin:0 auto;padding:0.5rem 2rem 1.5rem;border-top:1px solid var(--border)}.closing p{font-family:var(--font-display);font-size:1.35rem;font-style:italic;color:var(--text-muted);max-width:680px;line-height:1.55;margin-top:1.25rem}.closing p span{color:var(--gold);font-style:italic}
+.closing{max-width:960px;margin:0 auto;padding:0.5rem 2rem 1.5rem;border-top:1px solid var(--border)}
+.closing p{font-family:var(--font-display);font-size:1.35rem;font-style:italic;color:var(--text-muted);max-width:680px;line-height:1.55;margin-top:1.25rem}
+.closing p span{color:var(--gold);font-style:italic}
 footer{max-width:960px;margin:0 auto;padding:1.5rem 2rem 3rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem}
 footer div{font-family:var(--font-mono);font-size:11px;color:var(--text-dim)}
 footer span{color:var(--gold)}
+
+@media(max-width:600px){
+  .hero{padding:3rem 1.25rem 1rem}
+  .synthesis,.parts,.caps-strip,.dash-band,.fig-band{padding-left:1.25rem;padding-right:1.25rem}
+}
 </style>
 </head>
 <body>
@@ -98,17 +138,17 @@ footer span{color:var(--gold)}
 
 <div class="hero">
   <div class="hero-eyebrow">Steam Next Fest Performance Suite</div>
-  <h1>Steam Next Fest October 2026<span class="kicker">The Largest Edition On Record.</span></h1>
+  <h1>Steam Next Fest October 2026<span class="kicker">The Largest — and the Most Split — Edition Yet.</span></h1>
 
   <div class="hero-sub">
-    <p>The October 2026 edition ran 19–26 October with <strong>7,240 games</strong> taking part — the largest Steam Next Fest in the program's history, up 65% on June's 4,382 and roughly eight times the 887 of June 2023.</p>
-    <p>The real story is what scale did to the field: the festival stopped creating breakouts and started amplifying the ones that arrived with an audience already built. Early-festival data shows pre-fest <strong>follower base</strong> and pre-fest <strong>momentum</strong> predict early peak players about equally — while last-minute percentage growth from a tiny base does not.</p>
-    <p>This case study tells that story in three parts: the record-breaking scale, who actually got seen, and what predicted early success.</p>
+    <p>The October 2026 edition ran 19–26 October with <strong>7,240 games</strong> taking part — the largest Next Fest in the program's history, up 65% on June's 4,382 and roughly eight times the 887 of June 2023.</p>
+    <p>That scale crossed a threshold: for the first time, a festival more than <strong>half</strong> of the year's Steam releases flowed through. And it changed what the event <em>does</em> — it stopped creating breakouts and started amplifying the audience a game already had, measured the day before it even began.</p>
+    <p>This case study tells that story in three parts — the record scale, who actually got seen, and what predicted early success — and closes with why this edition was a genuinely different animal.</p>
   </div>
 
   <div class="hero-meta">
     <div class="hero-meta-item">WINDOW <span>19–26 OCT 2026</span></div>
-    <div class="hero-meta-item">STATUS <span>FINAL WEEKEND · DAY 6</span></div>
+    <div class="hero-meta-item">STATUS <span>CLOSED · 26 OCT 17:00 UTC</span></div>
     <div class="hero-meta-item">BASIS <span>VALVE · HTMAG · GDCO · OUTPUT LAG</span></div>
   </div>
 
@@ -127,29 +167,88 @@ footer span{color:var(--gold)}
     </div>
     <div class="stat-cell">
       <div class="stat-val coral">5,519 ÷ 15</div>
-      <div class="stat-lbl">Top-25 vs rest median followers (1d before)</div>
+      <div class="stat-lbl">Top-25 vs rest median followers, 1 day before</div>
     </div>
   </div>
 </div>
 
+<!-- WHY THIS ONE DIFFERED -->
+<div class="synthesis">
+  <div class="hero-eyebrow" style="margin:0 0 1rem">Why this edition was different</div>
+  <div class="syn-grid">
+    <div class="syn-card">
+      <div class="syn-num">I</div>
+      <div class="syn-title">A different species of scale</div>
+      <div class="syn-body">Not just a record — a threshold. Entries hit ~51.7% of all projected 2026 Steam releases, up from 38.2% in 2025 and 33.6% in 2024. Next Fest went from something a third of releases used to something <em>most</em> of them use.</div>
+    </div>
+    <div class="syn-card">
+      <div class="syn-num">II</div>
+      <div class="syn-title">The two-tier field went from trend to headline</div>
+      <div class="syn-body">Past editions looked for a single breakout. This one made the split unavoidable: ~100 games held real audiences, and ~6,900 arrived with a median of 15 followers — the gap decided <em>before</em> the first slot was served.</div>
+    </div>
+    <div class="syn-card">
+      <div class="syn-num">III</div>
+      <div class="syn-title">AI disclosure became a structural layer</div>
+      <div class="syn-body">35% of games disclosed generative AI, concentrated at the bottom (8% of the top 25 vs 35% of everyone else). For the first time, "slop" could be charted as a measurable feature of the field, not hand-waved away.</div>
+    </div>
+    <div class="syn-card">
+      <div class="syn-num">IV</div>
+      <div class="syn-title">An idle/desktop vein cracked the top</div>
+      <div class="syn-body">Character House, Find The Needle and Melvor Idle 2 reached the leaderboard on long-session retention — holding numbers while the early-fest press demos decayed to a tenth of their peaks. A new leaderboard shape, not the old spike-and-fade.</div>
+    </div>
+  </div>
+</div>
+
+<!-- FANCY GRAPH -->
+<div class="fig-band">
+  <div class="fig-panel">
+    <h3>Generative-AI disclosure, by performance tier</h3>
+    <div class="donut-wrap">
+      <div class="donut" style="background:conic-gradient(var(--coral) 0 35%,var(--blue) 35% 61%,var(--purple) 61% 73%,var(--teal) 73% 81%,var(--bg4) 81% 100%)">
+        <div class="center"><div class="dv">8%</div><div class="dl">top 25</div></div>
+      </div>
+      <div class="donut-legend">
+        <div class="leg-row"><span class="leg-swatch" style="background:var(--teal)"></span><b>Top 25</b><span class="leg-val">8%</span></div>
+        <div class="leg-row"><span class="leg-swatch" style="background:var(--purple)"></span><b>Ranks 26–50</b><span class="leg-val">12%</span></div>
+        <div class="leg-row"><span class="leg-swatch" style="background:var(--blue)"></span><b>Ranks 51–100</b><span class="leg-val">26%</span></div>
+        <div class="leg-row"><span class="leg-swatch" style="background:var(--coral)"></span><b>Everyone else</b><span class="leg-val">35%</span></div>
+      </div>
+    </div>
+    <div style="font-size:12.5px;color:var(--text-muted);line-height:1.6;max-width:340px">The disclosure rate climbs as you move down the field — AI work pools where attention is thinnest, not where it's most visible. Two of the top 25 disclosed (BORE, Path of the Yaoguai); 2,427 of the bottom tier did.</div>
+  </div>
+</div>
+
+<!-- CAPSULES -->
+<div class="caps-strip">
+  <div class="hero-eyebrow" style="margin:0 0 1rem">A look at the top five</div>
+  <div class="caps-grid">
+    <a class="caps" href="https://store.steampowered.com/app/4348910/" target="_blank" rel="noopener"><img loading="lazy" alt="Probably Stolen" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4348910/663c3469223ff9ad3e3bdacdde5ac6bc62ef67d0/header_alt_assets_2.jpg"><div class="c">Probably Stolen</div></a>
+    <a class="caps" href="https://store.steampowered.com/app/5175310/" target="_blank" rel="noopener"><img loading="lazy" alt="Worst Class Ever" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5175310/b037e6e275a2c9fa4c280dcc85137f4effc9c157/header.jpg"><div class="c">Worst Class Ever</div></a>
+    <a class="caps" href="https://store.steampowered.com/app/3218230/" target="_blank" rel="noopener"><img loading="lazy" alt="ArcheAge Chronicles" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3218230/header.jpg"><div class="c">ArcheAge Chronicles</div></a>
+    <a class="caps" href="https://store.steampowered.com/app/4868310/" target="_blank" rel="noopener"><img loading="lazy" alt="Character House" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4868310/7414d3274162a32125df5aaf942eb73558f50a18/header.jpg"><div class="c">Character House</div></a>
+    <a class="caps" href="https://store.steampowered.com/app/5160800/" target="_blank" rel="noopener"><img loading="lazy" alt="Find The Needle" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5160800/9ad39ef753543a194a7546ee8a17dc4b821cd021/header.jpg"><div class="c">Find The Needle</div></a>
+  </div>
+</div>
+
+<!-- PARTS -->
 <div class="parts">
   <div class="parts-grid">
     <a href="part-1.html" class="part-card">
       <div class="part-num">I</div>
       <div class="part-title">The Biggest Edition Yet</div>
-      <div class="part-desc">How Next Fest got to 7,240 games. The three-year participation arc, why the growth accelerated in 2026, and what an eightfold field turning into a sliver of front-page attention does to discovery.</div>
+      <div class="part-desc">How Next Fest got to 7,240 games. The three-year participation arc, why growth accelerated in 2026, and what an eightfold field does to discovery.</div>
       <div class="part-link">Open Part I →</div>
     </a>
     <a href="part-2.html" class="part-card">
       <div class="part-num">II</div>
       <div class="part-title">Who Got Seen</div>
-      <div class="part-desc">Valve's official most-played list and the live leaderboard. Friendslop's dominance, the surprise idle-game vein, and which genres convert — and which ones the crowd never finds.</div>
+      <div class="part-desc">Valve's most-played list and the live leaderboard with capsule images. Friendslop's dominance, the surprise idle vein, and which genres convert.</div>
       <div class="part-link">Open Part II →</div>
     </a>
     <a href="part-3.html" class="part-card">
       <div class="part-num">III</div>
       <div class="part-title">What Predicted Success</div>
-      <div class="part-desc">Early-festival data on what predicted peak players: pre-fest follower base and pre-fest momentum, about equally. The correlation numbers, the AI-disclosure split, and the February playbook that falls out of it.</div>
+      <div class="part-desc">Base and momentum predicted early peaks about equally. The correlation numbers, the AI-disclosure split, and the February playbook.</div>
       <div class="part-link">Open Part III →</div>
     </a>
   </div>
@@ -159,13 +258,13 @@ footer span{color:var(--gold)}
   <div class="dash-card">
     <div>
       <div class="t">Live Intelligence Dashboard</div>
-      <div class="d">The full single-page view — live telemetry, top-demo cross-reference, genre weights, follower tiers, AI tags, timeline and methodology — updated to 25 October.</div>
+      <div class="d">The full single-page view — post-close telemetry, top-demo cross-reference, follower tiers, AI tags, timeline and methodology — final data to 27 October.</div>
     </div>
     <a href="dashboard.html">Open the Dashboard →</a>
   </div>
 </div>
 
-<div class="closing"><p>The festival didn't break the pattern — it revealed it. The games that won arrived with audiences. The ones that didn't, didn't. <span>Read in order.</span></p></div>
+<div class="closing"><p>The festival didn't break the pattern — it revealed it, at a scale nobody had seen before. The games that won arrived with audiences; everyone else shared a thinner sliver of the spotlight. <span>Read in order.</span></p></div>
 
 <footer>
   <div>Steam Next Fest October 2026 Case Study · <span>Llama &amp; Griffin Consultants</span></div>

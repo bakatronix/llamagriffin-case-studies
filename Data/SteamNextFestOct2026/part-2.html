@@ -117,6 +117,16 @@ tbody td strong, tbody td b{color:var(--text);font-weight:600}
 .bar-fill{height:100%;border-radius:4px}
 .bar-val{font-family:var(--font-mono);font-size:12px;font-weight:500;color:var(--text);min-width:70px;text-align:right;flex-shrink:0}
 
+/* CAPSULE GRID */
+.caps-head{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);margin:1.25rem 0 0.9rem}
+.caps-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:1.5rem}
+@media(max-width:760px){.caps-grid{grid-template-columns:repeat(2,1fr)}}
+.caps{background:var(--bg2);border:1px solid var(--border-med);border-radius:3px;overflow:hidden;text-decoration:none;color:inherit;display:block;transition:border-color 0.15s,box-shadow 0.15s}
+.caps:hover{border-color:var(--gold);box-shadow:0 2px 12px rgba(201,168,76,0.14);text-decoration:none}
+.caps img{width:100%;aspect-ratio:460/215;object-fit:cover;display:block;background:var(--bg3)}
+.caps .cn{padding:0.55rem 0.7rem;font-size:12.5px;font-weight:600;color:var(--text);line-height:1.3}
+.caps .cm{padding:0 0.7rem 0.65rem;font-family:var(--font-mono);font-size:9.5px;color:var(--text-dim);letter-spacing:0.03em}
+
 .pager{max-width:960px;margin:0 auto;padding:2.5rem 2rem 1rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
 .pager a{font-family:var(--font-mono);font-size:10px;letter-spacing:0.09em;text-transform:uppercase;color:var(--gold)}
 .pager .prev::before{content:'← '}
@@ -168,7 +178,7 @@ footer span{color:var(--gold)}
   <div class="stat-grid">
     <div class="stat-cell"><div class="stat-val">20</div><div class="stat-lbl">official most-played demos</div><div class="stat-sub">confirmed list via Valve → Polygon</div></div>
     <div class="stat-cell"><div class="stat-val teal">14 / 20</div><div class="stat-lbl">let you play with friends</div><div class="stat-sub">friendslop dominates the leaderboard</div></div>
-    <div class="stat-cell"><div class="stat-val purple">39,811</div><div class="stat-lbl">peak · #1 Probably Stolen</div><div class="stat-sub">shopkeeper sim, launches 28 Oct</div></div>
+    <div class="stat-cell"><div class="stat-val purple">39,696</div><div class="stat-lbl">peak · #1 Probably Stolen</div><div class="stat-sub">shopkeeper sim, launches 28 Oct</div></div>
     <div class="stat-cell"><div class="stat-val coral">300k+</div><div class="stat-lbl">players · Worst Class Ever</div><div class="stat-sub">asymmetric teacher-vs-class party game</div></div>
   </div>
 </div>
@@ -205,9 +215,9 @@ footer span{color:var(--gold)}
         <tr><td><span class="rank-badge top10">5</span></td><td><strong>Find The Needle</strong></td><td>Incremental: dig a six-million-strand haystack</td><td class="num">9,594</td><td><span class="tag tag-teal">Idle</span></td><td>Q4 2026</td></tr>
         <tr><td><span class="rank-badge top10">6</span></td><td><strong>Frostrail</strong></td><td>Survival FPS on a steam train across a frozen wasteland</td><td class="num">8,834</td><td><span class="tag tag-dim">Survival</span><span class="tag tag-blue">Co-op</span></td><td>Q4 2026</td></tr>
         <tr><td><span class="rank-badge top10">7</span></td><td><strong>just volleyball</strong></td><td>Approachable volleyball, 1v1 up to 6v6</td><td class="num">8,179</td><td><span class="tag tag-dim">Sports</span></td><td>4 Nov 2026</td></tr>
-        <tr><td><span class="rank-badge top10">8</span></td><td><strong>Loftia</strong></td><td>Cozy multiplayer life sim; sustainable future with friends</td><td class="num">7,557</td><td><span class="tag tag-teal">Cozy</span><span class="tag tag-blue">MMO</span></td><td>3 Nov 2026</td></tr>
+        <tr><td><span class="rank-badge top10">8</span></td><td><strong>Loftia</strong></td><td>Cozy multiplayer life sim; sustainable future with friends</td><td class="num">7,427</td><td><span class="tag tag-teal">Cozy</span><span class="tag tag-blue">MMO</span></td><td>3 Nov 2026</td></tr>
         <tr><td><span class="rank-badge top10">9</span></td><td><strong>Melvor Idle 2</strong></td><td>Moddable idle RPG sequel</td><td class="num">7,141</td><td><span class="tag tag-teal">Idle</span></td><td>2026</td></tr>
-        <tr><td><span class="rank-badge top10">10</span></td><td><strong>Abyssal Lapidary</strong></td><td>Gothic Victorian gem-appraisal management sim</td><td class="num">4,805</td><td><span class="tag tag-dim">Sim</span></td><td>Coming soon</td></tr>
+        <tr><td><span class="rank-badge top10">10</span></td><td><strong>Abyssal Lapidary</strong></td><td>Gothic Victorian gem-appraisal management sim</td><td class="num">4,766</td><td><span class="tag tag-dim">Sim</span></td><td>Coming soon</td></tr>
         <tr><td><span class="rank-badge">11</span></td><td><strong>Fart Together</strong></td><td>2–4 player raft steered by flatulence</td><td class="num">4,463</td><td><span class="tag tag-blue">Co-op</span><span class="tag tag-dim">Physics</span></td><td>29 Oct 2026</td></tr>
         <tr><td><span class="rank-badge">12</span></td><td><strong>Among Shadows</strong></td><td>Third-person PvP party tactics</td><td class="num">3,063</td><td><span class="tag tag-dim">PvP</span></td><td>Q4 2026</td></tr>
         <tr><td><span class="rank-badge">13</span></td><td><strong>Meltdown Crew</strong></td><td>Co-op reactor-chaos party/puzzle</td><td class="num">2,434</td><td><span class="tag tag-blue">Co-op</span><span class="tag tag-dim">Party</span></td><td>Dec 2026</td></tr>
@@ -222,6 +232,15 @@ footer span{color:var(--gold)}
     </table>
   </div>
   <p class="note">Valve's official 20 (via Polygon) also includes Dungeonbound, Dumpster Gang, Grr Grr Gnomes, and Never Be Alone; this table ranks the highest-peaking of those games for the live cross-reference. Peaks are "peak so far" from Output Lag's hourly chart (24–25 Oct); Valve itself published the list unranked.</p>
+
+  <div class="caps-head">The top five, on the shelf</div>
+  <div class="caps-grid">
+    <a class="caps" href="https://store.steampowered.com/app/4348910/" target="_blank" rel="noopener"><img loading="lazy" alt="Probably Stolen" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4348910/663c3469223ff9ad3e3bdacdde5ac6bc62ef67d0/header_alt_assets_2.jpg"><div class="cn">Probably Stolen</div><div class="cm">#1 · 39,696</div></a>
+    <a class="caps" href="https://store.steampowered.com/app/5175310/" target="_blank" rel="noopener"><img loading="lazy" alt="Worst Class Ever" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5175310/b037e6e275a2c9fa4c280dcc85137f4effc9c157/header.jpg"><div class="cn">Worst Class Ever</div><div class="cm">#2 · 27,684</div></a>
+    <a class="caps" href="https://store.steampowered.com/app/3218230/" target="_blank" rel="noopener"><img loading="lazy" alt="ArcheAge Chronicles" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3218230/header.jpg"><div class="cn">ArcheAge Chronicles</div><div class="cm">#3 · 20,507</div></a>
+    <a class="caps" href="https://store.steampowered.com/app/4868310/" target="_blank" rel="noopener"><img loading="lazy" alt="Character House" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4868310/7414d3274162a32125df5aaf942eb73558f50a18/header.jpg"><div class="cn">Character House</div><div class="cm">#4 · 17,489</div></a>
+    <a class="caps" href="https://store.steampowered.com/app/5160800/" target="_blank" rel="noopener"><img loading="lazy" alt="Find The Needle" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5160800/9ad39ef753543a194a7546ee8a17dc4b821cd021/header.jpg"><div class="cn">Find The Needle</div><div class="cm">#5 · 9,594</div></a>
+  </div>
 
   <div class="insight purple">
     <strong>The tails are long:</strong> several most-played demos already had release dates days after the fest — Emberville (27 Oct), Probably Stolen (28 Oct), Fart Together (29 Oct), HANDS OVER (30 Oct), Loftia (3 Nov). Next Fest functioned as an immediate pre-launch conversion moment, not just a discovery channel.
@@ -238,7 +257,7 @@ footer span{color:var(--gold)}
     <div class="card gold"><div class="clabel">Co-op / party share of top 20</div><div class="cval">14 / 20</div><div class="csub">at least; most counts put it higher</div></div>
     <div class="card teal"><div class="clabel">Top-20 co-op survival</div><div class="cval">Frostrail 8,834</div><div class="csub">peak CCU; the survival vein's high-water mark</div></div>
     <div class="card purple"><div class="clabel">Party-game leader</div><div class="cval">Worst Class Ever</div><div class="csub">27,684 peak; 300k+ demo players</div></div>
-    <div class="card coral"><div class="clabel">Cozy MMO entry</div><div class="cval">Loftia 7,557</div><div class="csub">cozy multiplayer holding a top-10 peak</div></div>
+    <div class="card coral"><div class="clabel">Cozy MMO entry</div><div class="cval">Loftia 7,427</div><div class="csub">cozy multiplayer holding a top-10 peak</div></div>
   </div>
 
   <div class="insight blue">
