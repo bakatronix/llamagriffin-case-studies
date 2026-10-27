@@ -203,6 +203,16 @@ tbody td strong{color:var(--text);font-weight:600}
 .dv-bar{position:absolute;top:4px;bottom:4px;border-radius:3px}
 .dv-val{width:90px;flex-shrink:0;font-family:var(--font-mono);font-size:11px;color:var(--text);padding-left:10px;white-space:nowrap}
 
+/* Capsule grid — Steam header images of top demos */
+.capsule-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-bottom:1.5rem}
+.capsule-card{background:var(--bg2);border:1px solid var(--border);border-radius:4px;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:border-color 0.15s,box-shadow 0.15s,transform 0.15s}
+.capsule-card:hover{border-color:var(--gold);box-shadow:0 2px 14px rgba(201,168,76,0.16);transform:translateY(-1px);text-decoration:none}
+.capsule-img{width:100%;aspect-ratio:460/215;object-fit:cover;display:block;background:var(--bg3)}
+.capsule-body{padding:0.7rem 0.85rem;display:flex;flex-direction:column;gap:3px}
+.capsule-name{font-size:13px;font-weight:600;color:var(--text);line-height:1.3}
+.capsule-meta{font-family:var(--font-mono);font-size:10px;color:var(--text-dim);letter-spacing:0.03em}
+.capsule-rank{font-family:var(--font-mono);font-size:9px;font-weight:500;color:var(--gold);letter-spacing:0.08em;text-transform:uppercase}
+
 /* TABS */
 .tab-btn{font-family:var(--font-mono);font-size:10px;font-weight:500;background:none;border:none;color:var(--text-dim);padding:0.55rem 0.9rem;cursor:pointer;border-bottom:2px solid transparent;transition:color 0.15s,border-color 0.15s;margin-bottom:-1px;letter-spacing:0.06em;text-transform:uppercase}
 .tab-btn:hover{color:var(--text-muted)}
@@ -263,17 +273,15 @@ footer span{color:var(--gold)}
 </nav>
 
 <div class="live-strip">
-  <span><span class="live-dot"></span>LIVE · DAY 6 OF 7</span>
+  <span><span class="live-dot"></span>CLOSED · 26 OCT 2026</span>
   <span class="sep">|</span>
   <span><b>7,240</b> games participating</span>
   <span class="sep">|</span>
-  <span><b>6,522</b> demos with players</span>
-  <span class="sep">|</span>
-  <span><b>130,638</b> playing demos now</span>
+  <span><b>6,542</b> demos with players</span>
   <span class="sep">|</span>
   <span>Peak <b>194,256</b> concurrent</span>
   <span class="sep">|</span>
-  <span>Closes Mon 26 Oct, 17:00 UTC</span>
+  <span>Ended Mon 26 Oct, 17:00 UTC</span>
 </div>
 
 <div class="hero">
@@ -281,15 +289,15 @@ footer span{color:var(--gold)}
   <h1>Steam Next Fest October 2026<span class="kicker">The Largest Edition On Record.</span></h1>
 
   <div class="hero-sub">
-    <p>October 2026's Steam Next Fest is the largest in Steam's history: <strong>7,240 games</strong> taking part, up <strong>65%</strong> on June 2026's 4,382. The festival runs 19–26 October and is now in its final weekend.</p>
-    <p>This dashboard consolidates everything known so far — Valve's official most-played list, live player telemetry, early-festival follower analysis, AI-disclosure tiers, and genre conversion — into one place. The clearest early signal: <strong>pre-fest follower base and pre-fest momentum both predict early peak players, about equally.</strong></p>
+    <p>October 2026's Steam Next Fest is the largest in Steam's history: <strong>7,240 games</strong> taking part, up <strong>65%</strong> on June 2026's 4,382. The festival ran 19–26 October and closed on the 26th.</p>
+    <p>This dashboard consolidates what the event produced — Valve's official most-played list, live player telemetry, early-festival follower analysis, AI-disclosure tiers, and genre conversion — into one place. The clearest early signal: <strong>pre-fest follower base and pre-fest momentum both predict early peak players, about equally.</strong></p>
   </div>
 
   <div class="hero-meta">
     <div class="hero-meta-item">WINDOW <span>19–26 OCTOBER 2026</span></div>
-    <div class="hero-meta-item">STATUS <span>DAY 6 · CLOSES MON 17:00 UTC</span></div>
+    <div class="hero-meta-item">STATUS <span>CLOSED · 26 OCT 17:00 UTC</span></div>
     <div class="hero-meta-item">BASIS <span>VALVE · HTMAG · GDCO · OUTPUT LAG</span></div>
-    <div class="hero-meta-item">UPDATED <span>25 OCT 2026</span></div>
+    <div class="hero-meta-item">UPDATED <span>27 OCT 2026</span></div>
   </div>
 
   <div class="stat-grid">
@@ -406,11 +414,11 @@ footer span{color:var(--gold)}
     <strong>Why it grew:</strong> More developers now know the festival exists and more enter every year. Using a projected ~29,300 Steam releases for 2026, that year's Next Fest entries (15,158) equal <strong>~51.7%</strong> of releases — up from 38.2% in 2025 and 33.6% in 2024. It's a ratio of entries to releases (a game counts once per edition entered), and the 29,300 is projected, so treat it as direction rather than fact. Zukowski speculates the surge could reflect AI-assisted developers testing viability early.
   </div>
 
-  <h3>Live festival telemetry — Output Lag, 26 Oct 3am GMT-0400</h3>
+  <h3>Final festival telemetry — Output Lag, 26 Oct (post-close)</h3>
   <div class="stat-grid">
-    <div class="stat-cell"><div class="stat-val teal">130,638</div><div class="stat-lbl">Playing demos (final)</div><div class="stat-sub">last reported 25 Oct</div></div>
     <div class="stat-cell"><div class="stat-val gold">194,256</div><div class="stat-lbl">Peak Hourly Concurrent</div><div class="stat-sub">24 Oct, 14:00–15:00 UTC</div></div>
-    <div class="stat-cell"><div class="stat-val purple">6,522</div><div class="stat-lbl">Demos with players</div><div class="stat-sub">of 7,317 tracked</div></div>
+    <div class="stat-cell"><div class="stat-val purple">6,542</div><div class="stat-lbl">Demos with players</div><div class="stat-sub">final · of 7,317 tracked</div></div>
+    <div class="stat-cell"><div class="stat-val teal">130,638</div><div class="stat-lbl">Sunday 25 Oct snapshot</div><div class="stat-sub">playing concurrent, ~mid-afternoon</div></div>
     <div class="stat-cell"><div class="stat-val coral">7.6%</div><div class="stat-lbl">Demos at 10+ CCU</div><div class="stat-sub">most entrants peak under 10</div></div>
   </div>
 </section>
@@ -444,6 +452,50 @@ footer span{color:var(--gold)}
     <div class="bar-row"><div class="bar-label"><b>Loftia</b></div><div class="bar-bg"><div class="bar-fill" style="width:19%;background:var(--coral)"></div></div><div class="bar-val">7,427</div></div>
     <div class="bar-row"><div class="bar-label"><b>Melvor Idle 2</b></div><div class="bar-bg"><div class="bar-fill" style="width:18%;background:var(--coral)"></div></div><div class="bar-val">7,141</div></div>
     <div class="chart-note">"Peak so far" as of 25 Oct 7am (Output Lag), coloured by category. Bar width scales to the leader (~39,700). The drop from #1 to #2 (−30%) and the long idle/cozy tail are the real shape of the chart.</div>
+  </div>
+
+  <h3 class="capsules-heading">The top 10, on the shelf</h3>
+  <div class="capsule-grid">
+    <a class="capsule-card" href="https://store.steampowered.com/app/4348910/" target="_blank" rel="noopener">
+      <img class="capsule-img" loading="lazy" alt="Probably Stolen – Cyberpunk Shopkeeper Sim" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4348910/663c3469223ff9ad3e3bdacdde5ac6bc62ef67d0/header_alt_assets_2.jpg">
+      <div class="capsule-body"><div class="capsule-rank">#1 · Shop sim</div><div class="capsule-name">Probably Stolen</div><div class="capsule-meta">39,696 peak</div></div>
+    </a>
+    <a class="capsule-card" href="https://store.steampowered.com/app/5175310/" target="_blank" rel="noopener">
+      <img class="capsule-img" loading="lazy" alt="Worst Class Ever" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5175310/b037e6e275a2c9fa4c280dcc85137f4effc9c157/header.jpg">
+      <div class="capsule-body"><div class="capsule-rank">#2 · Co-op makers</div><div class="capsule-name">Worst Class Ever</div><div class="capsule-meta">27,684 peak</div></div>
+    </a>
+    <a class="capsule-card" href="https://store.steampowered.com/app/3218230/" target="_blank" rel="noopener">
+      <img class="capsule-img" loading="lazy" alt="ArcheAge Chronicles" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3218230/header.jpg">
+      <div class="capsule-body"><div class="capsule-rank">#3 · MMO / RPG</div><div class="capsule-name">ArcheAge Chronicles</div><div class="capsule-meta">20,507 peak</div></div>
+    </a>
+    <a class="capsule-card" href="https://store.steampowered.com/app/4868310/" target="_blank" rel="noopener">
+      <img class="capsule-img" loading="lazy" alt="Character House -Desktop Companion-" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4868310/7414d3274162a32125df5aaf942eb73558f50a18/header.jpg">
+      <div class="capsule-body"><div class="capsule-rank">#4 · Idle</div><div class="capsule-name">Character House</div><div class="capsule-meta">17,489 peak</div></div>
+    </a>
+    <a class="capsule-card" href="https://store.steampowered.com/app/5160800/" target="_blank" rel="noopener">
+      <img class="capsule-img" loading="lazy" alt="Find The Needle" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5160800/9ad39ef753543a194a7546ee8a17dc4b821cd021/header.jpg">
+      <div class="capsule-body"><div class="capsule-rank">#5 · Idle</div><div class="capsule-name">Find The Needle</div><div class="capsule-meta">9,594 peak</div></div>
+    </a>
+    <a class="capsule-card" href="https://store.steampowered.com/app/3517740/" target="_blank" rel="noopener">
+      <img class="capsule-img" loading="lazy" alt="Frostrail" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3517740/a9beb095d5c7194af787b7f9a343b5c6c1753bf0/header_alt_assets_2.jpg">
+      <div class="capsule-body"><div class="capsule-rank">#6 · Survival</div><div class="capsule-name">Frostrail</div><div class="capsule-meta">8,834 peak</div></div>
+    </a>
+    <a class="capsule-card" href="https://store.steampowered.com/app/5037200/" target="_blank" rel="noopener">
+      <img class="capsule-img" loading="lazy" alt="just volleyball" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5037200/cd1b5a290d15e7379b31dcacc12f1e5b25d37577/header.jpg">
+      <div class="capsule-body"><div class="capsule-rank">#7 · Sports</div><div class="capsule-name">just volleyball</div><div class="capsule-meta">8,179 peak</div></div>
+    </a>
+    <a class="capsule-card" href="https://store.steampowered.com/app/2320980/" target="_blank" rel="noopener">
+      <img class="capsule-img" loading="lazy" alt="Loftia" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2320980/header.jpg">
+      <div class="capsule-body"><div class="capsule-rank">#8 · Cozy MMO</div><div class="capsule-name">Loftia</div><div class="capsule-meta">7,557 peak</div></div>
+    </a>
+    <a class="capsule-card" href="https://store.steampowered.com/app/3218350/" target="_blank" rel="noopener">
+      <img class="capsule-img" loading="lazy" alt="Melvor Idle 2" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3218350/c948648c975dc6831c1c69e49f4c62673c129a7e/header.jpg">
+      <div class="capsule-body"><div class="capsule-rank">#9 · Idle</div><div class="capsule-name">Melvor Idle 2</div><div class="capsule-meta">7,141 peak</div></div>
+    </a>
+    <a class="capsule-card" href="https://store.steampowered.com/app/3797790/" target="_blank" rel="noopener">
+      <img class="capsule-img" loading="lazy" alt="Abyssal Lapidary" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3797790/1dbba6baf18f1c71d693f384b15db1f3cbedcb07/header.jpg">
+      <div class="capsule-body"><div class="capsule-rank">#10 · Sim</div><div class="capsule-name">Abyssal Lapidary</div><div class="capsule-meta">4,805 peak</div></div>
+    </a>
   </div>
 
   <div class="card-row">
@@ -510,15 +562,15 @@ footer span{color:var(--gold)}
       <div class="sbar-seg" style="width:38.4%;background:var(--coral)">5 peaked</div>
     </div>
     <div class="sbar-axis"><span>idle / desktop long-session</span><span>press-spike decays</span></div>
-    <div class="chart-note">Count of the 13 top demos by momentum state (now ÷ peak-so-far). Idle/desktop titles dominate the "climbing" band; launch-day press darlings (Worst Class Ever, ArcheAge, Frostrail) dominate the "peaked" band.</div>
+    <div class="chart-note">Count of the 13 top demos by momentum state (now ÷ peak-so-far, 25 Oct snapshot). Idle/desktop titles dominate the "climbing" band; early-fest press demos (Worst Class Ever, ArcheAge, Frostrail) dominate the "peaked" band.</div>
   </div>
 
   <h3>Festival-wide pulse — how the week moved</h3>
   <div class="card-row">
     <div class="card gold"><div class="clabel">Day 1 · Mon 19 Oct</div><div class="cval">opens</div><div class="csub">randomised front-page baseline begins</div></div>
-    <div class="card teal"><div class="clabel">Day 3 · Wed 21 Oct</div><div class="cval">switch</div><div class="csub">algorithm moves to engagement-ranked placement</div></div>
-    <div class="card purple"><div class="clabel">Day 6 (24 Oct)</div><div class="cval">194,256</div><div class="csub">festival peak hourly concurrent, 14:00–15:00 UTC</div></div>
-    <div class="card coral"><div class="clabel">Day 7 · Sat 25 Oct</div><div class="cval">130,638</div><div class="csub">playing now; 6,522 of 7,317 demos active</div></div>
+    <div class="card teal"><div class="clabel">Day 3 · Wed 21 Oct</div><div class="cval">switch</div><div class="csub">algorithm typically moves to engagement-ranked placement</div></div>
+    <div class="card purple"><div class="clabel">Day 6 · Sat 24 Oct</div><div class="cval">194,256</div><div class="csub">festival peak hourly concurrent, 14:00–15:00 UTC</div></div>
+    <div class="card coral"><div class="clabel">Day 7 · Sun 25 Oct</div><div class="cval">130,638</div><div class="csub">playing snapshot; 6,542 of 7,317 demos active</div></div>
   </div>
 
   <h3>Per-demo momentum — now vs peak-so-far (25 Oct 7am)</h3>
@@ -547,7 +599,7 @@ footer span{color:var(--gold)}
   <p class="note">"Now ÷ peak" = playing-now as a share of peak-so-far, at one timestamp (25 Oct 7am GMT-0400, Output Lag). Climbing ≥ 65%, Holding 35–64%, Peaked &lt; 35%. It's a snapshot read, not a time series.</p>
 
   <div class="insight purple">
-    <strong>Read the flux like a trader, not a fan:</strong> by the final weekend the field has split into three groups. Idle/desktop games (<em>Melvor Idle 2</em>, <em>Find The Needle</em>, <em>Character House</em>) are still pressing new peaks — long-session retention, no single spike. The big launch-day press demos (<em>Worst Class Ever</em>, <em>ArcheAge Chronicles</em>, <em>Frostrail</em>, <em>just volleyball</em>) already hit their peak and are decaying to a holding floor. If a title's peak is already hours or days behind it by the weekend, its discovery window has effectively closed — the wishlists it's adding now are the long tail.
+    <strong>Read the flux like a trader, not a fan:</strong> by the final weekend the field had split into three groups. Idle/desktop games (<em>Melvor Idle 2</em>, <em>Find The Needle</em>, <em>Character House</em>) held their numbers — long-session retention, no single spike. The early-fest press demos (<em>Worst Class Ever</em>, <em>ArcheAge Chronicles</em>, <em>Frostrail</em>, <em>just volleyball</em>) decayed to under a tenth of their peaks. A title whose peak sat hours or days behind it by the weekend had its discovery window effectively close — the wishlists it added after that were the long tail.
   </div>
 
   <div class="insight">
@@ -886,34 +938,34 @@ footer span{color:var(--gold)}
       <div class="timeline-note">Randomised front-page shelves begin. Coverage from DualShockers, Mobalytics, and event guides publishes "coolest demo" roundups.</div>
     </div>
     <div class="timeline-item">
-      <div class="timeline-date">Tue 20 Oct</div>
+      <div class="timeline-date">Tue 20 Oct · Day 2</div>
       <div class="timeline-event">Early genre signal forms</div>
       <div class="timeline-note">howtovideogame and others rank demos from Steam's own charts; co-op chaos, cozy worlds, survival horror and castle sieges lead.</div>
     </div>
     <div class="timeline-item key">
-      <div class="timeline-date">Wed 21 Oct</div>
+      <div class="timeline-date">Wed 21 Oct · Day 3</div>
       <div class="timeline-event">Zukowski's early analysis published</div>
-      <div class="timeline-note">Scrape counts 7,240 games (+65.2%). Follower tiers and AI-disclosure split published — the reference dataset for this dashboard.</div>
+      <div class="timeline-note">Scrape counts 7,240 games (+65.2%). Follower tiers and AI-disclosure split published — and the first Wednesday typically marks the switch to engagement-ranked placement.</div>
     </div>
     <div class="timeline-item">
-      <div class="timeline-date">Thu 22 Oct</div>
-      <div class="timeline-event">Day 3 — shelves personalise</div>
-      <div class="timeline-note">Steam switches from randomised to engagement-ranked placement. Climbers start separating from the pack.</div>
+      <div class="timeline-date">Thu 22 Oct · Day 4</div>
+      <div class="timeline-event">Engagement-ranked shelves</div>
+      <div class="timeline-note">Climbers start separating from the pack as the performance phase takes hold.</div>
     </div>
     <div class="timeline-item key">
-      <div class="timeline-date">Fri 23 Oct</div>
+      <div class="timeline-date">Fri 23 Oct · Day 5</div>
       <div class="timeline-event">"20 most-played demos so far" surfaces</div>
       <div class="timeline-note">Indie Tooling, TheBigBois and press report the leaderboard. Follower-correlation analysis enters the conversation.</div>
     </div>
     <div class="timeline-item key">
-      <div class="timeline-date">Sat 24 Oct</div>
+      <div class="timeline-date">Sat 24 Oct · Day 6</div>
       <div class="timeline-event">Fest peak: 194,256 concurrent</div>
       <div class="timeline-note">Valve confirms the 20 most-played list via Polygon. Worst Class Ever passes 300K demo players.</div>
     </div>
     <div class="timeline-item">
-      <div class="timeline-date">Sun 25 Oct · Day 6</div>
-      <div class="timeline-event">Final weekend — 130,638 playing demos now</div>
-      <div class="timeline-note">6,522 of 7,317 tracked demos had players (Output Lag, 26 Oct). The biggest late climber was Ski Lines: Trail Map.</div>
+      <div class="timeline-date">Sun 25 Oct · Day 7</div>
+      <div class="timeline-event">Final day — early-fest spikes decay, idle games hold</div>
+      <div class="timeline-note">6,542 of 7,317 tracked demos had players (Output Lag, 26 Oct). The biggest late climber was Ski Lines: Trail Map.</div>
     </div>
     <div class="timeline-item key">
       <div class="timeline-date">Mon 26 Oct · 17:00 UTC</div>
@@ -1020,7 +1072,7 @@ footer span{color:var(--gold)}
 
 <footer>
   <div>Llama &amp; Griffin Consultants — Case Studies</div>
-  <div>Steam Next Fest October 2026 · <span>Live Intelligence Dashboard</span> · Updated 26 Oct 2026</div>
+  <div>Steam Next Fest October 2026 · <span>Live Intelligence Dashboard</span> · Updated 27 Oct 2026</div>
 </footer>
 
 <script>
