@@ -158,6 +158,14 @@ footer span{color:var(--gold)}
 footer .methodology{width:100%;font-family:var(--font-body);font-size:11px;color:var(--text-dim);line-height:1.65;margin-top:0.75rem;border-top:1px solid var(--border);padding-top:0.75rem;max-width:none}
 footer .methodology .tag{font-size:8.5px}
 @media(max-width:600px){.bio{padding-left:1.25rem;padding-right:1.25rem}}
+
+/* Full-width text: paragraphs, intros and notes run to the same edge as tables and callouts */
+p,.section-intro,.hero-sub,.note,.closing p,.bio p{max-width:none}
+.route{display:flex;flex-direction:column;gap:6px;margin:0 0 1.75rem;padding:1rem 1.25rem;border:1px solid var(--border-med);border-left:2px solid var(--gold);border-radius:0 3px 3px 0;background:var(--bg2)}
+.route-lbl{font-family:var(--font-mono);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:2px}
+.route a{font-size:14px;color:var(--text-muted);text-decoration:none;line-height:1.5}
+.route a b{color:var(--text);font-weight:600}
+.route a:hover{color:var(--gold)}
 </style>
 </head>
 <body>
@@ -168,7 +176,7 @@ footer .methodology .tag{font-size:8.5px}
   <a href="part-1.html" class="nav-link">Part I · Scale</a>
   <a href="part-2.html" class="nav-link">Part II · Who Got Seen</a>
   <a href="part-3.html" class="nav-link">Part III · What Predicted</a>
-  <a href="dashboard.html" class="nav-link dash">Live Dashboard</a>
+  <a href="dashboard.html" class="nav-link dash">Dashboard</a>
 </nav>
 
 <div class="hero">
@@ -176,34 +184,74 @@ footer .methodology .tag{font-size:8.5px}
   <h1>Steam Next Fest October 2026<span class="kicker">The Largest — and the Most Split — Edition Yet.</span></h1>
 
   <div class="hero-sub">
-    <p>The October 2026 edition ran 19–26 October with <strong>7,240 games</strong> taking part — the largest Next Fest in the program's history, up 65% on June's 4,382 and roughly eight times the 887 of June 2023.</p>
-    <p>That scale crossed a threshold: across 2026's three editions, Next Fest entries equalled more than <strong>half</strong> of the year's projected Steam releases. And it changed what the event <em>does</em> — it stopped creating breakouts and started amplifying the audience a game already had, measured the day before it even began.</p>
-    <p>Our <a href="../SteamNextFestJune2026/index.html">June case study</a> forecast this edition at about 5,500 entries; it came in at 7,240. Part III scores that forecast and June\'s other calls. This case study tells that story in three parts — the record scale, who actually got seen, and what predicted early success — and closes with why this edition was a genuinely different animal.</p>
+    <p><strong>The short answer: the games that won arrived with an audience already built.</strong> The top 25 demos entered the festival with a median of 5,519 Steam followers. The other 6,942 entered with 15.</p>
+    <p>It was the biggest Next Fest ever — 7,240 games, 65% more than June — and the most uneven. Fewer than 1 in 12 demos ever had 10 people playing at once. The crowding made things harder, but it isn't what decided who got seen: what developers built before the doors opened did.</p>
+    <p>Our <a href="../SteamNextFestJune2026/index.html">June case study</a> forecast about 5,500 entries for this edition. It came in at 7,240 — Part III scores that miss and June's other calls.</p>
+  </div>
+  <div class="route">
+    <span class="route-lbl">Start here</span>
+    <a href="part-3.html#playbook"><b>Entering February's Next Fest?</b> Go to the Part III playbook →</a>
+    <a href="dashboard.html"><b>Want every number?</b> Open the dashboard →</a>
+    <a href="part-1.html"><b>Want the full story?</b> Read Parts I–III in order, about 20 minutes →</a>
   </div>
 
   <div class="hero-meta">
     <div class="hero-meta-item">WINDOW <span>19–26 OCT 2026</span></div>
     <div class="hero-meta-item">STATUS <span>CLOSED · 26 OCT 17:00 UTC</span></div>
-    <div class="hero-meta-item">BASIS <span>VALVE · HTMAG · GDCO · OUTPUT LAG</span></div>
+    <div class="hero-meta-item">BASIS <span>HOW TO MARKET A GAME · GAMEDISCOVERCO · OUTPUT LAG · VALVE</span></div>
   </div>
 
   <div class="stat-grid">
     <div class="stat-cell">
       <div class="stat-val gold">7,240</div>
-      <div class="stat-lbl">Games participating (HTMAG scrape)</div>
+      <div class="stat-lbl">games took part — 65% more than June</div>
     </div>
     <div class="stat-cell">
-      <div class="stat-val teal">+65.2%</div>
-      <div class="stat-lbl">Participation vs June 2026 (4,382)</div>
+      <div class="stat-val coral">5,519 vs 15</div>
+      <div class="stat-lbl">median Steam followers: top 25 vs everyone else</div>
     </div>
     <div class="stat-cell">
-      <div class="stat-val purple">~51.7%</div>
-      <div class="stat-lbl">Ratio of 2026 entries to projected releases</div>
+      <div class="stat-val teal">&lt;1 in 12</div>
+      <div class="stat-lbl">demos ever had 10 people playing at once (7.6%)</div>
     </div>
     <div class="stat-cell">
-      <div class="stat-val coral">5,519 ÷ 15</div>
-      <div class="stat-lbl">Top-25 vs rest median followers, 1 day before</div>
+      <div class="stat-val purple">8% vs 35%</div>
+      <div class="stat-lbl">disclosed AI use: top 25 vs everyone else</div>
     </div>
+  </div>
+</div>
+
+<!-- PARTS -->
+<div class="parts">
+  <div class="parts-grid">
+    <a href="part-1.html" class="part-card">
+      <div class="part-num">I</div>
+      <div class="part-title">The Biggest Edition Yet</div>
+      <div class="part-desc">How Next Fest got to 7,240 games. The three-year participation arc, why growth accelerated in 2026, and what an eightfold field does to discovery.</div>
+      <div class="part-link">Open Part I →</div>
+    </a>
+    <a href="part-2.html" class="part-card">
+      <div class="part-num">II</div>
+      <div class="part-title">Who Got Seen</div>
+      <div class="part-desc">Valve's most-played list, ranked by final peak players. Why "friendslop" — the community's nickname for chaotic co-op party games — dominated, the surprise idle vein, and which genres convert.</div>
+      <div class="part-link">Open Part II →</div>
+    </a>
+    <a href="part-3.html" class="part-card">
+      <div class="part-num">III</div>
+      <div class="part-title">What Predicted Success</div>
+      <div class="part-desc">Base and momentum predicted early peaks about equally. The correlation numbers, the AI-disclosure split, and the February playbook.</div>
+      <div class="part-link">Open Part III →</div>
+    </a>
+  </div>
+</div>
+
+<div class="dash-band">
+  <div class="dash-card">
+    <div>
+      <div class="t">The Dashboard — every number in one place</div>
+      <div class="d">The full single-page view — post-close telemetry, top-demo cross-reference, follower tiers, AI tags, timeline and methodology — final data to 27 October.</div>
+    </div>
+    <a href="dashboard.html">Open the Dashboard →</a>
   </div>
 </div>
 
@@ -213,23 +261,23 @@ footer .methodology .tag{font-size:8.5px}
   <div class="syn-grid">
     <div class="syn-card">
       <div class="syn-num">I</div>
-      <div class="syn-title"><span class="tag tag-prov ctag">Provisional</span>A different species of scale</div>
-      <div class="syn-body">Not just a record — a threshold. The year's entries equal ~51.7% of projected 2026 Steam releases, up from 38.2% in 2025 and 33.6% in 2024. It's a ratio, not a headcount — a game in two editions counts twice, and the denominator is projected — but the direction is clear.</div>
-    </div>
-    <div class="syn-card">
-      <div class="syn-num">II</div>
       <div class="syn-title"><span class="tag tag-high ctag">High</span>The two-tier field went from trend to headline</div>
       <div class="syn-body">Past editions looked for a single breakout. This one made the split unavoidable: ~100 games held real audiences, and ~6,900 arrived with a median of 15 followers — a gap already in place <em>before</em> the first slot was served.</div>
     </div>
     <div class="syn-card">
-      <div class="syn-num">III</div>
+      <div class="syn-num">II</div>
       <div class="syn-title"><span class="tag tag-high ctag">High</span>AI disclosure became a structural layer</div>
       <div class="syn-body">35% of games disclosed generative AI, concentrated at the bottom (8% of the top 25 vs 35% of everyone else). Up from about a quarter in June — "slop" is now a measurable layer of the field, not a hand-wave.</div>
     </div>
     <div class="syn-card">
-      <div class="syn-num">IV</div>
+      <div class="syn-num">III</div>
       <div class="syn-title"><span class="tag tag-directional ctag">Directional</span>An idle/desktop vein cracked the top</div>
       <div class="syn-body">Character House, Find The Needle and Melvor Idle 2 sat near the top of the live leaderboard all week — partly because idle games keep counting while left running — while early-fest leaders like Worst Class Ever and ArcheAge faded to a tenth or less of their peaks. A new leaderboard shape, not the old spike-and-fade.</div>
+    </div>
+    <div class="syn-card">
+      <div class="syn-num">IV</div>
+      <div class="syn-title"><span class="tag tag-prov ctag">Provisional</span>A different species of scale</div>
+      <div class="syn-body">Not just a record — a threshold. The year's entries equal ~51.7% of projected 2026 Steam releases, up from 38.2% in 2025 and 33.6% in 2024. It's a ratio, not a headcount — a game in two editions counts twice, and the denominator is projected — but the direction is clear.</div>
     </div>
   </div>
 </div>
@@ -263,39 +311,6 @@ footer .methodology .tag{font-size:8.5px}
   </div>
 </div>
 
-<!-- PARTS -->
-<div class="parts">
-  <div class="parts-grid">
-    <a href="part-1.html" class="part-card">
-      <div class="part-num">I</div>
-      <div class="part-title">The Biggest Edition Yet</div>
-      <div class="part-desc">How Next Fest got to 7,240 games. The three-year participation arc, why growth accelerated in 2026, and what an eightfold field does to discovery.</div>
-      <div class="part-link">Open Part I →</div>
-    </a>
-    <a href="part-2.html" class="part-card">
-      <div class="part-num">II</div>
-      <div class="part-title">Who Got Seen</div>
-      <div class="part-desc">Valve's most-played list and the live leaderboard with capsule images. Friendslop's dominance, the surprise idle vein, and which genres convert.</div>
-      <div class="part-link">Open Part II →</div>
-    </a>
-    <a href="part-3.html" class="part-card">
-      <div class="part-num">III</div>
-      <div class="part-title">What Predicted Success</div>
-      <div class="part-desc">Base and momentum predicted early peaks about equally. The correlation numbers, the AI-disclosure split, and the February playbook.</div>
-      <div class="part-link">Open Part III →</div>
-    </a>
-  </div>
-</div>
-
-<div class="dash-band">
-  <div class="dash-card">
-    <div>
-      <div class="t">Intelligence Dashboard</div>
-      <div class="d">The full single-page view — post-close telemetry, top-demo cross-reference, follower tiers, AI tags, timeline and methodology — final data to 27 October.</div>
-    </div>
-    <a href="dashboard.html">Open the Dashboard →</a>
-  </div>
-</div>
 
 <div class="closing"><p>The festival didn't break the pattern — it revealed it, at a scale nobody had seen before. The games that won arrived with audiences; everyone else shared a thinner sliver of the spotlight. <span>Read in order.</span></p></div>
 
@@ -305,7 +320,7 @@ footer .methodology .tag{font-size:8.5px}
 <footer>
   <div>Steam Next Fest October 2026 &middot; <span>Case Study Overview</span> &middot; Llama &amp; Griffin Consultants</div>
   <div><a href="https://recognizingpatterns.substack.com/" target="_blank" rel="noopener noreferrer">recognizingpatterns.substack.com</a> &middot; <a href="https://www.llamagriffin.com/" target="_blank" rel="noopener noreferrer">llamagriffin.com</a></div>
-  <div class="methodology">Confidence tags: <span class="tag tag-high">High</span> reported by a primary source or measured dataset; <span class="tag tag-likely">Likely</span> strong inference from disclosed figures; <span class="tag tag-directional">Directional</span> the author's own reading, not sourced to any company; <span class="tag tag-prov">Provisional</span> single-sourced, projected or unverified. Sources: <a href="https://howtomarketagame.com/2026/10/21/how-sloppy-is-the-october-2026-steam-next-fest/" target="_blank" rel="noopener noreferrer">How To Market A Game (Zukowski), 21 Oct 2026</a>; <a href="https://outputlag.com/next-fest/" target="_blank" rel="noopener noreferrer">Output Lag final chart</a>; <a href="https://gamingtrend.com/news/here-are-the-20-most-played-demos-from-octobers-steam-next-fest/" target="_blank" rel="noopener noreferrer">GamingTrend (Valve list)</a>; <a href="https://newsletter.gamediscover.co/p/who-won-june-2026s-steam-next-fest" target="_blank" rel="noopener noreferrer">GameDiscoverCo</a>; <a href="../SteamNextFestJune2026/index.html">L&amp;G June 2026 case study</a>. Figures checked to 27 October 2026.</div>
+  <div class="methodology">Confidence tags: <span class="tag tag-high">High</span> reported by a primary source or measured dataset; <span class="tag tag-likely">Likely</span> strong inference from disclosed figures; <span class="tag tag-directional">Directional</span> the author's own reading, not sourced to any company; <span class="tag tag-prov">Provisional</span> single-sourced, projected or unverified. Terms: <em>CCU</em> = concurrent players, the number of people in a demo at the same moment; <em>peak CCU</em> = the highest that number reached. Sources: <a href="https://howtomarketagame.com/2026/10/21/how-sloppy-is-the-october-2026-steam-next-fest/" target="_blank" rel="noopener noreferrer">How To Market A Game (Zukowski), 21 Oct 2026</a>; <a href="https://outputlag.com/next-fest/" target="_blank" rel="noopener noreferrer">Output Lag final chart</a>; <a href="https://gamingtrend.com/news/here-are-the-20-most-played-demos-from-octobers-steam-next-fest/" target="_blank" rel="noopener noreferrer">GamingTrend (Valve list)</a>; <a href="https://newsletter.gamediscover.co/p/who-won-june-2026s-steam-next-fest" target="_blank" rel="noopener noreferrer">GameDiscoverCo</a>; <a href="../SteamNextFestJune2026/index.html">L&amp;G June 2026 case study</a>. Figures checked to 27 October 2026.</div>
 </footer>
 
 </body>

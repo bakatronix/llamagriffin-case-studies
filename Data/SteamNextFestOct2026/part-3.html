@@ -165,6 +165,9 @@ footer .methodology .tag{font-size:8.5px}
 .condition-when{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.09em;text-transform:uppercase;color:var(--gold);margin-bottom:7px;display:flex;align-items:center;gap:9px;flex-wrap:wrap}
 .condition-what{font-size:14.5px;color:var(--text);font-weight:600;line-height:1.4;margin-bottom:5px}
 .condition-mean{font-size:13.5px;color:var(--text-muted);line-height:1.6;max-width:none}
+
+/* Full-width text: paragraphs, intros and notes run to the same edge as tables and callouts */
+p,.section-intro,.hero-sub,.note,.closing p,.bio p{max-width:none}
 </style>
 </head>
 <body>
@@ -175,7 +178,7 @@ footer .methodology .tag{font-size:8.5px}
   <a href="part-1.html" class="suite-link">Part I · Scale</a>
   <a href="part-2.html" class="suite-link">Part II · Who Got Seen</a>
   <a href="part-3.html" class="suite-link active">Part III · What Predicted</a>
-  <a href="dashboard.html" class="suite-link">Live Dashboard</a>
+  <a href="dashboard.html" class="suite-link">Dashboard</a>
 </div>
 
 <nav>
@@ -196,7 +199,7 @@ footer .methodology .tag{font-size:8.5px}
   <p class="hero-sub">Looked at through early-festival data, every October trend — the scale, the two-tier field, the genre conversion — can be read by one question: how much audience did a developer already have? This part unpacks the correlation, maps the AI-disclosure split alongside it, and turns both into a February playbook. It is explicitly early data, measured on peak CCU.</p>
   <div class="hero-meta">
     <div class="hero-meta-item">Edition <span>19–26 Oct 2026</span></div>
-    <div class="hero-meta-item">Method <span>HTMAG live-page scrape</span></div>
+    <div class="hero-meta-item">Method <span>How To Market A Game live-page scrape</span></div>
     <div class="hero-meta-item">Caveat <span>Early data · peak CCU</span></div>
   </div>
   <div class="stat-grid">
@@ -237,7 +240,7 @@ footer .methodology .tag{font-size:8.5px}
 <section id="correlation">
   <div class="section-label">Section 02</div>
   <div class="chevrons"></div><h2>What Actually Predicts Peak Players</h2><span class="h2-kicker">Base and momentum, about equally — % growth doesn't.</span>
-  <p class="section-intro">Zukowski tested which number best tracks a demo's early peak players (peak CCU across 12–21 October — press preview plus the first couple of days). His conclusion: a pre-fest follower base and pre-fest momentum are <strong>about the same</strong>, with a slight edge to having followers already. The best situation is both.</p>
+  <p class="section-intro">Zukowski tested which number best tracks a demo's early peak players (peak CCU across 12–21 October — press preview plus the first couple of days). He used a Spearman rank correlation (ρ): 1.0 means two rankings match perfectly, 0 means no relationship, so 0.55 is meaningful but far from decisive. His conclusion: a pre-fest follower base and pre-fest momentum are <strong>about the same</strong>, with a slight edge to having followers already. The best situation is both.</p>
 
   <div class="card-row">
     <div class="card teal"><div class="clabel">Followers the day before</div><div class="cval">0.55</div><div class="csub">slightly the best predictor; correlates with peak</div></div>
@@ -302,7 +305,7 @@ footer .methodology .tag{font-size:8.5px}
     <table>
       <thead><tr><th>June said</th><th>October showed</th><th>Verdict</th></tr></thead>
       <tbody>
-        <tr><td>October 2026 "could approach 5,500 entries"</td><td>7,240 took part (<a href="https://howtomarketagame.com/2026/10/21/how-sloppy-is-the-october-2026-steam-next-fest/" target="_blank" rel="noopener noreferrer">HTMAG scrape</a>). The forecast was about a quarter too low; we extrapolated the old growth rate and missed the 2026 acceleration.</td><td><span class="tag tag-coral">Missed</span></td></tr>
+        <tr><td>October 2026 "could approach 5,500 entries"</td><td>7,240 took part (<a href="https://howtomarketagame.com/2026/10/21/how-sloppy-is-the-october-2026-steam-next-fest/" target="_blank" rel="noopener noreferrer">How To Market A Game scrape</a>). The forecast was about a quarter too low; we extrapolated the old growth rate and missed the 2026 acceleration.</td><td><span class="tag tag-coral">Missed</span></td></tr>
         <tr><td>Scale cuts both ways</td><td>A record field, and more than 92% of demos never reached 10 concurrent players.</td><td><span class="tag tag-teal">Held</span></td></tr>
         <tr><td>Community is unmanufacturable</td><td>Pre-fest followers predicted early peaks (ρ 0.55) — but raw pre-fest momentum did almost as well (ρ 0.52). A community helps; so does genuine late momentum.</td><td><span class="tag tag-gold">Refined</span></td></tr>
         <tr><td>Co-op shows no ceiling</td><td>14 of Valve's 20 most-played demos let you play with friends.</td><td><span class="tag tag-teal">Held</span></td></tr>
@@ -394,7 +397,7 @@ footer .methodology .tag{font-size:8.5px}
 <div class="pager">
   <a href="part-2.html" class="prev">Part II · Who Got Seen</a>
   <span class="mid">Part III of III</span>
-  <a href="dashboard.html" class="next">Live Dashboard</a>
+  <a href="dashboard.html" class="next">Dashboard</a>
 </div>
 
 <div class="bio">
@@ -403,7 +406,7 @@ footer .methodology .tag{font-size:8.5px}
 <footer>
   <div>Steam Next Fest October 2026 &middot; <span>Part III — What Predicted Success</span> &middot; Llama &amp; Griffin Consultants</div>
   <div><a href="https://recognizingpatterns.substack.com/" target="_blank" rel="noopener noreferrer">recognizingpatterns.substack.com</a> &middot; <a href="https://www.llamagriffin.com/" target="_blank" rel="noopener noreferrer">llamagriffin.com</a></div>
-  <div class="methodology">Confidence tags: <span class="tag tag-high">High</span> reported by a primary source or measured dataset; <span class="tag tag-likely">Likely</span> strong inference from disclosed figures; <span class="tag tag-directional">Directional</span> the author's own reading, not sourced to any company; <span class="tag tag-prov">Provisional</span> single-sourced, projected or unverified. Sources: <a href="https://howtomarketagame.com/2026/10/21/how-sloppy-is-the-october-2026-steam-next-fest/" target="_blank" rel="noopener noreferrer">How To Market A Game (Zukowski), 21 Oct 2026</a>; <a href="https://partner.steamgames.com/doc/gettingstarted/contentsurvey" target="_blank" rel="noopener noreferrer">Steamworks content survey</a>; <a href="https://outputlag.com/next-fest/" target="_blank" rel="noopener noreferrer">Output Lag final chart</a>; <a href="https://gamingtrend.com/news/here-are-the-20-most-played-demos-from-octobers-steam-next-fest/" target="_blank" rel="noopener noreferrer">GamingTrend (Valve list)</a>; <a href="https://presskit.gg/field-guides/next-fest-scheduling-registration" target="_blank" rel="noopener noreferrer">presskit.gg (2027 dates)</a>; <a href="../SteamNextFestJune2026/index.html">L&amp;G June 2026 case study</a>. Figures checked to 27 October 2026.</div>
+  <div class="methodology">Confidence tags: <span class="tag tag-high">High</span> reported by a primary source or measured dataset; <span class="tag tag-likely">Likely</span> strong inference from disclosed figures; <span class="tag tag-directional">Directional</span> the author's own reading, not sourced to any company; <span class="tag tag-prov">Provisional</span> single-sourced, projected or unverified. Terms: <em>CCU</em> = concurrent players, the number of people in a demo at the same moment; <em>peak CCU</em> = the highest that number reached. Sources: <a href="https://howtomarketagame.com/2026/10/21/how-sloppy-is-the-october-2026-steam-next-fest/" target="_blank" rel="noopener noreferrer">How To Market A Game (Zukowski), 21 Oct 2026</a>; <a href="https://partner.steamgames.com/doc/gettingstarted/contentsurvey" target="_blank" rel="noopener noreferrer">Steamworks content survey</a>; <a href="https://outputlag.com/next-fest/" target="_blank" rel="noopener noreferrer">Output Lag final chart</a>; <a href="https://gamingtrend.com/news/here-are-the-20-most-played-demos-from-octobers-steam-next-fest/" target="_blank" rel="noopener noreferrer">GamingTrend (Valve list)</a>; <a href="https://presskit.gg/field-guides/next-fest-scheduling-registration" target="_blank" rel="noopener noreferrer">presskit.gg (2027 dates)</a>; <a href="../SteamNextFestJune2026/index.html">L&amp;G June 2026 case study</a>. Figures checked to 27 October 2026.</div>
 </footer>
 
 <script>

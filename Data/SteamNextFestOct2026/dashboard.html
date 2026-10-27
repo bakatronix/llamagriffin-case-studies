@@ -274,6 +274,11 @@ footer span{color:var(--gold)}
 footer .methodology{width:100%;font-family:var(--font-body);font-size:11px;color:var(--text-dim);line-height:1.65;margin-top:0.75rem;border-top:1px solid var(--border);padding-top:0.75rem;max-width:none}
 footer .methodology .tag{font-size:8.5px}
 @media(max-width:600px){.bio{padding-left:1.25rem;padding-right:1.25rem}}
+
+/* Full-width text: paragraphs, intros and notes run to the same edge as tables and callouts */
+p,.section-intro,.hero-sub,.note,.closing p,.bio p{max-width:none}
+.colchart .col{min-width:0}
+@media(max-width:600px){.colchart{gap:3px}.colchart .col .v,.colchart .col .rate{font-size:7.5px;letter-spacing:0}.colchart .col .l{font-size:6.5px;letter-spacing:0}}
 </style>
 </head>
 <body>
@@ -307,7 +312,7 @@ footer .methodology .tag{font-size:8.5px}
 
 <div class="hero">
   <div class="hero-eyebrow">Steam Next Fest Performance Dashboard</div>
-  <h1>Steam Next Fest October 2026<span class="kicker">The Largest Edition On Record.</span></h1>
+  <h1>Steam Next Fest October 2026<span class="kicker">The Largest — and the Most Split — Edition Yet.</span></h1>
 
   <div class="hero-sub">
     <p>October 2026's Steam Next Fest is the largest in Steam's history: <strong>7,240 games</strong> taking part, up <strong>65%</strong> on June 2026's 4,382. The festival ran 19–26 October and closed on the 26th.</p>
@@ -317,7 +322,7 @@ footer .methodology .tag{font-size:8.5px}
   <div class="hero-meta">
     <div class="hero-meta-item">WINDOW <span>19–26 OCTOBER 2026</span></div>
     <div class="hero-meta-item">STATUS <span>CLOSED · 26 OCT 17:00 UTC</span></div>
-    <div class="hero-meta-item">BASIS <span>VALVE · HTMAG · GDCO · OUTPUT LAG</span></div>
+    <div class="hero-meta-item">BASIS <span>HOW TO MARKET A GAME · GAMEDISCOVERCO · OUTPUT LAG · VALVE</span></div>
     <div class="hero-meta-item">UPDATED <span>27 OCT 2026</span></div>
   </div>
 
@@ -325,7 +330,7 @@ footer .methodology .tag{font-size:8.5px}
     <div class="stat-cell">
       <div class="stat-val gold">7,240</div>
       <div class="stat-lbl">Games Participating</div>
-      <div class="stat-sub">HTMAG scrape · 21 Oct</div>
+      <div class="stat-sub">How To Market A Game scrape · 21 Oct</div>
     </div>
     <div class="stat-cell">
       <div class="stat-val teal">+65%</div>
@@ -400,8 +405,8 @@ footer .methodology .tag{font-size:8.5px}
   </div>
 
   <div class="card-row">
-    <div class="card gold"><div class="clabel">Oct 2026</div><div class="cval">7,240</div><div class="csub">HTMAG live-page scrape, 21 Oct</div></div>
-    <div class="card teal"><div class="clabel">June 2026 eligible</div><div class="cval">4,382</div><div class="csub">GDCo-tracked (4,931 at June press preview)</div></div>
+    <div class="card gold"><div class="clabel">Oct 2026</div><div class="cval">7,240</div><div class="csub">How To Market A Game live-page scrape, 21 Oct</div></div>
+    <div class="card teal"><div class="clabel">June 2026 eligible</div><div class="cval">4,382</div><div class="csub">GameDiscoverCo-tracked (4,931 at June press preview)</div></div>
     <div class="card purple"><div class="clabel">June 2023</div><div class="cval">887</div><div class="csub">The baseline ~8× smaller than today</div></div>
     <div class="card coral"><div class="clabel">Oct-over-Jun jump</div><div class="cval">+2,858</div><div class="csub">+65.2%; largest absolute jump on record</div></div>
   </div>
@@ -900,10 +905,10 @@ footer .methodology .tag{font-size:8.5px}
         <tr><th>Metric</th><th>Feb 2026</th><th>Jun 2026</th><th>Oct 2026</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>Entries / demos</strong></td><td>3,536</td><td>4,382 (GDCo)</td><td><strong>7,240</strong></td></tr>
+        <tr><td><strong>Entries / demos</strong></td><td>3,536</td><td>4,382 (GameDiscoverCo)</td><td><strong>7,240</strong></td></tr>
         <tr><td><strong>Survey median wishlists</strong></td><td>806</td><td>—</td><td>Final survey pending</td></tr>
         <tr><td><strong>Top-25 pre-fest followers</strong></td><td>—</td><td>—</td><td><strong>5,519 median</strong></td></tr>
-        <tr><td><strong>Disclosed AI share</strong></td><td>—</td><td>~26.5% (GDCo 4,382)</td><td><strong>~35%</strong></td></tr>
+        <tr><td><strong>Disclosed AI share</strong></td><td>—</td><td>~26.5% (GameDiscoverCo 4,382)</td><td><strong>~35%</strong></td></tr>
         <tr><td><strong>#1 most-played demo</strong></td><td>—</td><td>—</td><td>Probably Stolen (~39.7K peak)</td></tr>
       </tbody>
     </table>
@@ -988,7 +993,7 @@ footer .methodology .tag{font-size:8.5px}
     <div class="timeline-item key">
       <div class="timeline-date">Mon 26 Oct · 17:00 UTC</div>
       <div class="timeline-event">Next Fest closes</div>
-      <div class="timeline-note">Follow-up on total follower gains expected from HTMAG once the festival ends. Next edition expected February 2027.</div>
+      <div class="timeline-note">Follow-up on total follower gains expected from Zukowski (How To Market A Game) once the festival ends. Next edition expected February 2027.</div>
     </div>
   </div>
 </section>
@@ -1070,7 +1075,7 @@ footer .methodology .tag{font-size:8.5px}
   <p><strong>Peak demo players ≠ wishlists.</strong> Steam does not publish per-game wishlist data. Follower counts are a public stand-in; wishlist tallies on third-party trackers are estimates.</p>
   <p><strong>Early-festival data.</strong> Zukowski's correlation analysis measures demo peak CCU for 12–21 October only; his follower-gain follow-up lands after the festival closes. Treat the "what predicted early peak" findings as provisional.</p>
   <p><strong>Self-reported AI disclosure.</strong> The ~35% figure counts only developers who chose to disclose; the true rate could be higher or lower.</p>
-  <p><strong>Lineup-number variance.</strong> 7,240 (HTMAG scrape, 21 Oct), 7,310 (Output Lag, final), and ~8,000 (press preview). Differences come from timing, withdrawals, and 18+ hidden titles.</p>
+  <p><strong>Lineup-number variance.</strong> 7,240 (How To Market A Game scrape, 21 Oct), 7,310 (Output Lag, final), and ~8,000 (press preview). Differences come from timing, withdrawals, and 18+ hidden titles.</p>
   <p><strong>Projections are directional.</strong> The ~51.7% ratio (15,158 entries ÷ ~29,300 projected releases) and any 2026 release-count figures rest on estimates; a game entering multiple editions counts once per edition.</p>
   <p><strong>Correlation, not causation.</strong> Followers and momentum correlate with early peak; neither is proven to <em>cause</em> it. Game quality, marketing and genre all interact.</p>
 </section>
@@ -1085,7 +1090,7 @@ footer .methodology .tag{font-size:8.5px}
 <footer>
   <div>Steam Next Fest October 2026 &middot; <span>Intelligence Dashboard</span> &middot; Llama &amp; Griffin Consultants</div>
   <div><a href="https://recognizingpatterns.substack.com/" target="_blank" rel="noopener noreferrer">recognizingpatterns.substack.com</a> &middot; <a href="https://www.llamagriffin.com/" target="_blank" rel="noopener noreferrer">llamagriffin.com</a></div>
-  <div class="methodology">Confidence tags: <span class="tag tag-high">High</span> reported by a primary source or measured dataset; <span class="tag tag-likely">Likely</span> strong inference from disclosed figures; <span class="tag tag-directional">Directional</span> the author's own reading, not sourced to any company; <span class="tag tag-prov">Provisional</span> single-sourced, projected or unverified. Sources: <a href="https://howtomarketagame.com/2026/10/21/how-sloppy-is-the-october-2026-steam-next-fest/" target="_blank" rel="noopener noreferrer">How To Market A Game (Zukowski), 21 Oct 2026</a>; <a href="https://outputlag.com/next-fest/" target="_blank" rel="noopener noreferrer">Output Lag final chart</a>; <a href="https://outputlag.com/news/steam-next-fest-day-7-the-most-played-demos-right-now/" target="_blank" rel="noopener noreferrer">Output Lag Day 7 report</a>; <a href="https://outputlag.com/news/steam-next-fest-october-2026-the-most-played-demos-by-the-numbers/" target="_blank" rel="noopener noreferrer">Output Lag by-the-numbers</a>; <a href="https://gamingtrend.com/news/here-are-the-20-most-played-demos-from-octobers-steam-next-fest/" target="_blank" rel="noopener noreferrer">GamingTrend (Valve list)</a>; <a href="https://www.polygon.com/steam-next-fest-october-2026-most-played-games/" target="_blank" rel="noopener noreferrer">Polygon</a>; <a href="https://newsletter.gamediscover.co/p/who-won-june-2026s-steam-next-fest" target="_blank" rel="noopener noreferrer">GameDiscoverCo</a>; <a href="https://www.gamespot.com/articles/the-number-of-steam-next-fest-demos-this-month-is-too-damn-high/" target="_blank" rel="noopener noreferrer">GameSpot</a>; <a href="https://partner.steamgames.com/doc/gettingstarted/contentsurvey" target="_blank" rel="noopener noreferrer">Steamworks content survey</a>; <a href="https://partner.steamgames.com/doc/marketing/upcoming_events/nextfest/2026october" target="_blank" rel="noopener noreferrer">Steamworks (event dates)</a>. The 194,256 festival-wide peak is from Llama &amp; Griffin tracking and has not been independently confirmed <span class="tag tag-prov">Provisional</span>. Figures checked to 27 October 2026.</div>
+  <div class="methodology">Confidence tags: <span class="tag tag-high">High</span> reported by a primary source or measured dataset; <span class="tag tag-likely">Likely</span> strong inference from disclosed figures; <span class="tag tag-directional">Directional</span> the author's own reading, not sourced to any company; <span class="tag tag-prov">Provisional</span> single-sourced, projected or unverified. Terms: <em>CCU</em> = concurrent players, the number of people in a demo at the same moment; <em>peak CCU</em> = the highest that number reached. Sources: <a href="https://howtomarketagame.com/2026/10/21/how-sloppy-is-the-october-2026-steam-next-fest/" target="_blank" rel="noopener noreferrer">How To Market A Game (Zukowski), 21 Oct 2026</a>; <a href="https://outputlag.com/next-fest/" target="_blank" rel="noopener noreferrer">Output Lag final chart</a>; <a href="https://outputlag.com/news/steam-next-fest-day-7-the-most-played-demos-right-now/" target="_blank" rel="noopener noreferrer">Output Lag Day 7 report</a>; <a href="https://outputlag.com/news/steam-next-fest-october-2026-the-most-played-demos-by-the-numbers/" target="_blank" rel="noopener noreferrer">Output Lag by-the-numbers</a>; <a href="https://gamingtrend.com/news/here-are-the-20-most-played-demos-from-octobers-steam-next-fest/" target="_blank" rel="noopener noreferrer">GamingTrend (Valve list)</a>; <a href="https://www.polygon.com/steam-next-fest-october-2026-most-played-games/" target="_blank" rel="noopener noreferrer">Polygon</a>; <a href="https://newsletter.gamediscover.co/p/who-won-june-2026s-steam-next-fest" target="_blank" rel="noopener noreferrer">GameDiscoverCo</a>; <a href="https://www.gamespot.com/articles/the-number-of-steam-next-fest-demos-this-month-is-too-damn-high/" target="_blank" rel="noopener noreferrer">GameSpot</a>; <a href="https://partner.steamgames.com/doc/gettingstarted/contentsurvey" target="_blank" rel="noopener noreferrer">Steamworks content survey</a>; <a href="https://partner.steamgames.com/doc/marketing/upcoming_events/nextfest/2026october" target="_blank" rel="noopener noreferrer">Steamworks (event dates)</a>. The 194,256 festival-wide peak is from Llama &amp; Griffin tracking and has not been independently confirmed <span class="tag tag-prov">Provisional</span>. Figures checked to 27 October 2026.</div>
 </footer>
 
 <script>
