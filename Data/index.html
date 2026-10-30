@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Studies &amp; Reports · Llama &amp; Griffin</title>
+<meta name="description" content="All Llama &amp; Griffin case studies and intelligence reports, indexed.">
+<link rel="canonical" href="https://www.llamagriffin.com/Data/index.html">
+<meta property="og:title" content="Case Studies &amp; Reports · Llama &amp; Griffin">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.llamagriffin.com/Data/index.html">
+<meta property="og:site_name" content="Llama &amp; Griffin · Recognizing Patterns">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f7f4ee;--fg:#232323;--accent:#c3a55f;--border:#d2cdc3;--muted:#6b6660;
+  --card-bg:#fdfcf9;--muted-surface:#eae7e0;
+  --teal:#2a8f76;--purple:#6b64b3;--coral:#b85a3a;--blue:#3d77c4;
+  --gold-dim:rgba(195,165,95,0.12);--teal-dim:rgba(42,143,118,0.10);
+  --purple-dim:rgba(107,100,179,0.10);--coral-dim:rgba(184,90,58,0.10);--blue-dim:rgba(61,119,196,0.10);
+  --font-serif:'Playfair Display',Georgia,serif;
+  --font-sans:'DM Sans',system-ui,sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+  --radius:4px;--max-w:1200px;
+}
+body{background:var(--bg);color:var(--fg);font-family:var(--font-sans);font-size:15px;line-height:1.7;min-height:100vh}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(247,244,238,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;height:56px;gap:0;overflow-x:auto}
+.nav-brand{font-family:var(--font-serif);font-size:14px;font-weight:700;color:var(--fg);margin-right:1.5rem;padding-right:1.5rem;border-right:1px solid var(--border);white-space:nowrap;text-decoration:none}
+.nav-brand:hover{text-decoration:none;opacity:0.8}
+nav a.nav-link{color:var(--muted);font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.09em;text-transform:uppercase;padding:0 0.9rem;height:56px;display:flex;align-items:center;border-bottom:2px solid transparent;white-space:nowrap;transition:color 0.15s,border-color 0.15s;text-decoration:none}
+nav a.nav-link:hover{color:var(--accent);border-bottom-color:rgba(195,165,95,0.3);text-decoration:none}
+nav a.nav-link.active{color:var(--accent);border-bottom-color:var(--accent)}
+
+/* HERO */
+.hero{max-width:var(--max-w);margin:0 auto;padding:3.5rem 2rem 1.5rem}
+.hero-eyebrow{font-family:var(--font-mono);font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;display:flex;align-items:center;gap:10px}
+.hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--accent);display:inline-block}
+.hero h1{font-family:var(--font-serif);font-size:clamp(2rem,4.5vw,3rem);font-weight:700;line-height:1.08;color:var(--fg);margin-bottom:0.75rem}
+.hero h1 em{font-style:italic;color:var(--accent)}
+.hero-sub{font-size:15px;color:var(--muted);max-width:640px;line-height:1.7}
+
+/* SECTIONS */
+.wrap{max-width:var(--max-w);margin:0 auto;padding:2.5rem 2rem}
+.section-label{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);margin-bottom:0.75rem}
+h2{font-family:var(--font-serif);font-size:1.6rem;font-weight:700;color:var(--fg);margin-bottom:1.5rem}
+
+/* CASE STUDY CARDS */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px}
+.card{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem 1.6rem;display:flex;flex-direction:column;gap:0.4rem;transition:border-color 0.15s,box-shadow 0.15s;text-decoration:none;color:inherit}
+.card:hover{border-color:var(--accent);box-shadow:0 2px 14px rgba(195,165,95,0.14);text-decoration:none}
+.card .tag{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;padding:2px 7px;border-radius:2px;align-self:flex-start}
+.tag-teal{background:var(--teal-dim);color:var(--teal)}.tag-purple{background:var(--purple-dim);color:var(--purple)}
+.tag-coral{background:var(--coral-dim);color:var(--coral)}.tag-blue{background:var(--blue-dim);color:var(--blue)}
+.tag-gold{background:var(--gold-dim);color:var(--accent)}
+.card .tt{font-family:var(--font-serif);font-size:1.15rem;font-weight:700;color:var(--fg);line-height:1.25;margin:0.3rem 0}
+.card .dd{font-size:13.5px;color:var(--muted);line-height:1.6;flex:1}
+.card .meta{font-family:var(--font-mono);font-size:10px;color:var(--muted);letter-spacing:0.05em;display:flex;gap:12px;flex-wrap:wrap;margin-top:0.5rem}
+.card .go{font-family:var(--font-mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);margin-top:0.6rem}
+
+/* FILES TABLE */
+.table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:var(--radius);background:var(--card-bg)}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+thead th{font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);padding:0.75rem 1rem;text-align:left;border-bottom:1px solid var(--border);background:var(--muted-surface);white-space:nowrap}
+tbody tr{border-bottom:1px solid var(--border)}
+tbody tr:last-child{border-bottom:none}
+tbody td{padding:0.7rem 1rem;color:var(--muted);vertical-align:middle}
+tbody td:first-child{color:var(--fg);font-weight:500}
+
+footer{max-width:var(--max-w);margin:0 auto;padding:2rem 2rem 3rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.5rem}
+footer div{font-family:var(--font-mono);font-size:11px;color:var(--muted)}
+footer span{color:var(--accent)}
+
+@media(max-width:600px){.grid{grid-template-columns:1fr}.hero,.wrap,footer{padding-left:1.25rem;padding-right:1.25rem}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://www.llamagriffin.com/" class="nav-brand">Llama &amp; Griffin</a>
+  <a href="https://www.llamagriffin.com/" class="nav-link">Home</a>
+  <a href="index.html" class="nav-link active">Case Studies</a>
+  <a href="https://www.llamagriffin.com/#reports" class="nav-link">On the site</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-eyebrow">Llama &amp; Griffin · Recognizing Patterns</div>
+  <h1>Case Studies &amp; Reports</h1>
+  <div class="hero-sub">Every intelligence report and case study published under <em>Recognizing Patterns</em>, indexed. This is a directory of the research housed in the <code style="font-family:var(--font-mono);font-size:13px">/Data/</code> library — the full versions live on the main site.</div>
+</div>
+
+<div class="wrap">
+  <div class="section-label">Complete case studies</div>
+  <h2>Case Study Series</h2>
+  <div class="grid">
+
+    <a class="card" href="SteamNextFestOct2026/index.html">
+      <span class="tag tag-gold">Steam · October 2026</span>
+      <div class="tt">Steam Next Fest October 2026 — The Largest, and the Most Split, Edition Yet</div>
+      <div class="dd">7,240 games took part, 65% more than June. About 100 arrived with real audiences; the other ~6,900 started with a median of 15 Steam followers. Scale, who got seen, and what predicted early peaks — three parts plus a dashboard.</div>
+      <div class="meta"><span>3 Parts + Dashboard</span><span>October 2026</span></div>
+      <div class="go">Open case study →</div>
+    </a>
+
+    <a class="card" href="games-as-programming/index.html">
+      <span class="tag tag-blue">Streaming · Platform Economics</span>
+      <div class="tt">Games as Television Programming: When Games Stopped Being Products</div>
+      <div class="dd">Netflix closed five studios in five years and kept every category that behaves like an episode. Its GTA VI trailer then topped its own Top 10 in 87 of 93 countries.</div>
+      <div class="meta"><span>3 Parts</span><span>September 2026</span></div>
+      <div class="go">Open case study →</div>
+    </a>
+
+    <a class="card" href="community-mobilization-trap/index.html">
+      <span class="tag tag-purple">Community · Political Science</span>
+      <div class="tt">The Community Mobilization Trap</div>
+      <div class="dd">Four live-service games acquired 48 million players and shut down anyway. Two governments fell in a week and lost their countries in six months. Same structural gap, two domains.</div>
+      <div class="meta"><span>3 Parts</span><span>August 2026</span></div>
+      <div class="go">Open case study →</div>
+    </a>
+
+    <a class="card" href="gamestore-2026/index.html">
+      <span class="tag tag-teal">Storefronts · Platform Economics</span>
+      <div class="tt">Mobile vs Premium: The Store-by-Store Intelligence Report</div>
+      <div class="dd">Two firms measured Steam's 2024 and came out $4.6 billion apart. Commissions, revenue concentration, and FTUE design across six storefronts, plus a launch-decision matrix.</div>
+      <div class="meta"><span>3 Parts</span><span>August 2026</span></div>
+      <div class="go">Open case study →</div>
+    </a>
+
+    <a class="card" href="FoundersPlaybook/index.html">
+      <span class="tag tag-gold">Studio · Founder's Playbook</span>
+      <div class="tt">The Founder's Playbook: Building a Game Studio That Survives What's Already Happening</div>
+      <div class="dd">A structural read on mid-2026 data: record revenue concentrating at the top, funding collapsed below it, supply surged past saturation. Five rules and a diagnostic.</div>
+      <div class="meta"><span>3 Parts</span><span>July 2026</span></div>
+      <div class="go">Open case study →</div>
+    </a>
+
+    <a class="card" href="ThreeMachines/index.html">
+      <span class="tag tag-coral">AI · Industry Intelligence</span>
+      <div class="tt">The Three Machines: AI as Gaming's Infrastructure, Rulebook, and Invoice</div>
+      <div class="dd">How the US, China, and the EU are building three different AI machines for three different purposes, and why the model you pick in pre-production is now a market-access decision.</div>
+      <div class="meta"><span>3 Parts</span><span>July 2026</span></div>
+      <div class="go">Open case study →</div>
+    </a>
+
+    <a class="card" href="SteamNextFestJune2026/index.html">
+      <span class="tag tag-gold">Steam · June 2026</span>
+      <div class="tt">Steam Next Fest June 2026 — Complete Intelligence Report</div>
+      <div class="dd">Three-part analysis covering the full arc of Steam Next Fest: genre performance, wishlist tiers, co-op multipliers, AI disclosure trends, and a historical retrospective from 2023 to 2026.</div>
+      <div class="meta"><span>3 Parts</span><span>June 2026</span></div>
+      <div class="go">Open case study →</div>
+    </a>
+
+    <a class="card" href="GenAlphaSeries/index.html">
+      <span class="tag tag-purple">Gen Alpha · Intelligence Suite</span>
+      <div class="tt">The Audience You're Pricing Already Left</div>
+      <div class="dd">Three-part analysis of a generation raised inside casino-economy systems from age six. The mechanism, the contested behavior, and the market consequence most studios are underpricing.</div>
+      <div class="meta"><span>3 Parts</span><span>2026</span></div>
+      <div class="go">Open case study →</div>
+    </a>
+
+    <a class="card" href="ChinaSeries/index.html">
+      <span class="tag tag-coral">China · Market Intelligence</span>
+      <div class="tt">China, In Three Parts — The Market, the Audience, and the Product</div>
+      <div class="dd">How China stopped being a place to sell to and became the place that sets the terms. The $50B domestic market, the gacha-trained premium audience, and the FMV genre setting Steam records.</div>
+      <div class="meta"><span>3 Parts</span><span>2024–2026</span></div>
+      <div class="go">Open case study →</div>
+    </a>
+
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="section-label">Standalone reports</div>
+  <h2>Single Reports</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Report</th><th>Type</th><th>Link</th></tr></thead>
+      <tbody>
+        <tr><td>Steam Next Fest — Deep Intelligence Report · June 2026</td><td>Single report</td><td><a href="Steam%20Next%20Fest%20June%202026%20Report.html">Open →</a></td></tr>
+        <tr><td>SNF AI Disclosure Report</td><td>Single report</td><td><a href="SNF%20AI%20Disclosure%20Report.html">Open →</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<footer>
+  <div>Llama &amp; Griffin Consultants · <span>Recognizing Patterns</span></div>
+  <div><a href="https://recognizingpatterns.substack.com/" target="_blank" rel="noopener">recognizingpatterns.substack.com</a> · <a href="https://www.llamagriffin.com/" target="_blank" rel="noopener">llamagriffin.com</a></div>
+</footer>
+
+</body>
+</html>
