@@ -1,0 +1,2121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Llama &amp; Griffin — Game Industry Consultants | Studios &amp; Publishers</title>
+  <meta name="description" content="Strategic advisory for studios, publishers, and creative investors across games, animation, and emerging markets. 25+ years across gaming, transmedia, and studio strategy." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Cal.com -->
+  <script>
+    (function(C,A,L){let p=function(a,ar){a.q.push(ar)};let d=C.document;C.Cal=C.Cal||function(){let cal=C.Cal;let ar=arguments;if(!cal.loaded){cal.ns={};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true}if(ar[0]===L){const api=function(){p(api,arguments)};const namespace=ar[1];api.q=api.q||[];if(typeof namespace==="string"){(cal.ns[namespace]=api)&&p(api,ar);return}p(cal,ar);return}p(cal,ar)};})(window,"https://app.cal.com/embed/embed.js","init");
+    Cal("init", {origin:"https://cal.com"});
+    Cal("ui", {"theme":"light","hideEventTypeDetails":false,"layout":"month_view"});
+  </script>
+
+  <style>
+    /* =============================================
+       DESIGN TOKENS
+    ============================================= */
+    :root {
+      --bg:        #f7f4ee;
+      --fg:        #232323;
+      --accent:    #c3a55f;
+      --border:    #d2cdc3;
+      --muted:     #6b6660;
+      --card-bg:   #fdfcf9;
+      --muted-surface: #eae7e0;
+
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans:  'DM Sans', system-ui, sans-serif;
+      --font-mono:  'IBM Plex Mono', 'Courier New', monospace;
+
+      --radius: 4px;
+      --max-w: 1200px;
+      --header-h: 64px;
+    }
+
+    /* =============================================
+       RESET & BASE
+    ============================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: var(--accent); }
+
+    img { max-width: 100%; display: block; }
+
+    ul { list-style: none; }
+
+    /* =============================================
+       UTILITIES
+    ============================================= */
+    .container {
+      width: 100%;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .chevrons {
+      font-size: 0.7rem;
+      color: var(--accent);
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+      font-family: var(--font-mono);
+    }
+
+    .section-heading {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      color: var(--fg);
+      line-height: 1.15;
+    }
+
+    .kicker {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 700;
+      color: var(--accent);
+      font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+      line-height: 1.3;
+      margin-top: 4px;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 680px;
+      margin-top: 20px;
+      line-height: 1.75;
+    }
+
+    section {
+      padding: 96px 0;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      border-radius: var(--radius);
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 2px solid transparent;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .btn-primary:hover {
+      background: #b0944e;
+      border-color: #b0944e;
+      color: #fff;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--fg);
+      border-color: var(--border);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0;
+    }
+
+    /* =============================================
+       HEADER
+    ============================================= */
+    #site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: var(--header-h);
+      background: rgba(247, 244, 238, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    .logo-link {
+      font-family: var(--font-serif);
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--fg);
+      flex-shrink: 0;
+    }
+
+    .logo-link:hover { color: var(--accent); }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .main-nav a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--muted);
+      transition: color 0.18s;
+      padding: 4px 0;
+      border-bottom: 2px solid transparent;
+    }
+
+    .main-nav a:hover,
+    .main-nav a.active {
+      color: var(--fg);
+      border-bottom-color: var(--accent);
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 6px;
+      z-index: 200;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--fg);
+      border-radius: 2px;
+      transition: all 0.25s;
+    }
+
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile nav overlay */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      inset: 0;
+      top: var(--header-h);
+      background: var(--bg);
+      z-index: 99;
+      flex-direction: column;
+      padding: 32px 24px;
+      gap: 8px;
+      border-top: 1px solid var(--border);
+    }
+
+    .mobile-nav.open { display: flex; }
+
+    .mobile-nav a {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--fg);
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      display: block;
+      transition: color 0.18s;
+    }
+
+    .mobile-nav a:hover { color: var(--accent); }
+
+    /* =============================================
+       HERO
+    ============================================= */
+    #hero {
+      padding: 40px 0 72px;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .hero-headline {
+      font-family: var(--font-serif);
+      font-weight: 700;
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      line-height: 1.1;
+      color: var(--fg);
+      margin-bottom: 4px;
+    }
+
+    .hero-body {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin: 24px 0 36px;
+      max-width: 520px;
+      line-height: 1.75;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: nowrap;
+      align-items: center;
+      padding-bottom: 3rem;
+    }
+
+    .hero-image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-image img {
+      max-width: 480px;
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    /* =============================================
+       WHAT WE DO
+    ============================================= */
+    #what-we-do {
+      background: var(--muted-surface);
+      padding: 72px 0;
+    }
+
+    /* =============================================
+       SERVICES
+    ============================================= */
+    #services {
+      padding: 72px 0;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background: var(--border);
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-top: 48px;
+    }
+
+    .service-card {
+      background: var(--card-bg);
+      padding: 36px 32px;
+    }
+
+    .service-title {
+      font-family: var(--font-serif);
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--fg);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .service-desc {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    /* =============================================
+       EXECUTIVE COACHING
+    ============================================= */
+    #executive-coaching {
+      background: var(--muted-surface);
+      padding: 72px 0;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .two-col-left {}
+    .two-col-right {}
+
+    .coaching-body p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      margin-bottom: 20px;
+    }
+
+    .coaching-body p:last-of-type { margin-bottom: 0; }
+
+    /* =============================================
+       THINKING / RECOGNIZING PATTERNS
+    ============================================= */
+    #thinking {
+      padding: 72px 0;
+    }
+
+    .thinking-intro {
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      max-width: 720px;
+      margin-top: 20px;
+      margin-bottom: 48px;
+    }
+
+    .posts-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--border);
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 40px;
+    }
+
+    .post-card { display: flex; flex-direction: column;
+      background: var(--card-bg);
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .post-title {
+      font-family: var(--font-serif);
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--fg);
+      line-height: 1.35;
+      margin-bottom: 12px;
+    }
+
+    .post-excerpt {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.65;
+      flex: 1;
+      margin-bottom: 20px;
+    }
+
+    .post-link {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: gap 0.15s;
+    }
+
+    .post-link:hover { gap: 8px; color: var(--accent); }
+
+    /* Spinner */
+    .spinner-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 160px;
+      width: 100%;
+    }
+
+    .spinner {
+      width: 36px;
+      height: 36px;
+      border: 3px solid var(--border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* =============================================
+       SELECTED WORK
+    ============================================= */
+    #work {
+      background: var(--muted-surface);
+      padding: 72px 0;
+    }
+
+    .work-bullets {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px 48px;
+      margin-top: 48px;
+    }
+
+    .work-bullet {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      color: var(--fg);
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .work-bullet::before {
+      content: '•';
+      color: var(--accent);
+      font-size: 1.2rem;
+      line-height: 1.5;
+      flex-shrink: 0;
+    }
+
+    /* =============================================
+       ABOUT
+    ============================================= */
+    #about {
+      padding: 72px 0;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .about-bio p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      margin-bottom: 20px;
+    }
+
+    .about-bio p:last-child { margin-bottom: 0; }
+
+    .about-bio a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-decoration-color: rgba(195, 165, 95, 0.4);
+    }
+
+    .about-bio a:hover { text-decoration-color: var(--accent); }
+
+    .about-photo-wrap {
+      display: flex;
+      justify-content: center;
+    }
+
+    .about-photo {
+      width: 288px;
+      height: 288px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    /* =============================================
+       CONTACT
+    ============================================= */
+    #contact {
+      background: var(--muted-surface);
+      padding: 72px 0;
+    }
+
+    .contact-body {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin: 20px 0 36px;
+      max-width: 560px;
+    }
+
+    .contact-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .contact-substack {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .contact-substack a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-decoration-color: rgba(195, 165, 95, 0.4);
+    }
+
+    .contact-substack a:hover {
+      text-decoration-color: var(--accent);
+    }
+
+    /* =============================================
+       MODAL
+    ============================================= */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(35, 35, 35, 0.6);
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .modal {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 40px;
+      width: 100%;
+      max-width: 500px;
+      position: relative;
+    }
+
+    .modal-title {
+      font-family: var(--font-serif);
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: var(--fg);
+      margin-bottom: 24px;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--muted);
+      line-height: 1;
+    }
+
+    .modal-close:hover { color: var(--fg); }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+    }
+
+    .form-input,
+    .form-textarea {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 10px 14px;
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      color: var(--fg);
+      outline: none;
+      transition: border-color 0.18s;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus {
+      border-color: var(--accent);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-success {
+      text-align: center;
+      padding: 24px 0;
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      color: var(--fg);
+    }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    #site-footer {
+      background: var(--fg);
+      color: rgba(247, 244, 238, 0.7);
+      padding: 64px 0 32px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand-name {
+      font-family: var(--font-serif);
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--bg);
+      margin-bottom: 10px;
+    }
+
+    .footer-brand-desc {
+      font-size: 0.9rem;
+      line-height: 1.65;
+      max-width: 240px;
+    }
+
+    .footer-col-heading {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(247, 244, 238, 0.45);
+      margin-bottom: 16px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      font-size: 0.9rem;
+      color: rgba(247, 244, 238, 0.7);
+      transition: color 0.18s;
+    }
+
+    .footer-links a:hover { color: var(--accent); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(247, 244, 238, 0.12);
+      padding-top: 24px;
+      font-size: 0.85rem;
+      color: rgba(247, 244, 238, 0.35);
+    }
+
+    /* =============================================
+       RESPONSIVE
+    ============================================= */
+
+    /* Tablet: 768px */
+    @media (max-width: 768px) {
+      section { padding: 64px 0; }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .hero-image {
+        order: -1;
+      }
+
+      .hero-image img {
+        max-width: 320px;
+      }
+
+      .two-col {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .posts-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .work-bullets {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .about-photo-wrap {
+        order: -1;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+
+      .main-nav { display: none; }
+      .hamburger { display: flex; }
+    }
+
+    /* Mobile: 375px */
+    @media (max-width: 480px) {
+      section { padding: 48px 0; }
+
+      .hero-headline { font-size: 2.2rem; }
+
+      
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .hero-buttons .btn, .hero-buttons .btn-substack {
+        text-align: center;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .contact-buttons {
+        flex-direction: column;
+      }
+
+      .contact-buttons .btn {
+        width: 100%;
+        text-align: center;
+      }
+
+      .modal { padding: 28px 20px; }
+    }
+  
+
+    /* Reports carousel */
+    .reports-carousel { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 0; }
+    .reports-toggle {
+      display: inline-flex; align-items: center; gap: 8px;
+      margin-top: 20px;
+      background: var(--card-bg); border: 1.5px solid var(--border); border-radius: 6px;
+      padding: 10px 20px; cursor: pointer;
+      font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--muted-text); transition: border-color 0.2s, color 0.2s, background 0.2s; font-weight: 500;
+    }
+    .reports-toggle:hover { border-color: var(--gold); color: var(--gold); background: var(--muted-bg); }
+    .reports-toggle-arrow { transition: transform 0.25s; flex-shrink: 0; }
+    .reports-toggle.open .reports-toggle-arrow { transform: rotate(180deg); }
+    .reports-toggle.open { color: var(--gold); border-color: var(--gold); }
+    /* Reports */
+    .reports-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    .report-card {
+      background: var(--card-bg);
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .report-card:hover { background: var(--muted-bg); border-color: var(--accent); text-decoration: none; }
+    .report-tag { font-family: var(--font-mono); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+    .report-title { font-family: var(--font-serif); font-size: 1.05rem; font-weight: 700; color: var(--fg); line-height: 1.35; margin-bottom: 12px; }
+    .report-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.65; flex: 1; margin-bottom: 20px; }
+    .report-meta { font-family: var(--font-mono); font-size: 0.8rem; color: var(--muted); display: flex; gap: 1rem; margin-bottom: 20px; }
+    .report-link { font-family: var(--font-mono); font-size: 0.8rem; font-weight: 500; color: var(--accent); display: inline-flex; align-items: center; gap: 4px; transition: gap 0.15s; }
+    .report-link:hover { gap: 8px; }
+    .reports-extra { display: none; }
+    .reports-extra.visible { display: flex; }
+    @media (max-width: 900px) {
+      .reports-carousel { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .reports-carousel { grid-template-columns: 1fr; }
+    }
+  
+    /* Play Money Index nav link */
+    .nav-index-link { color: var(--accent) !important; font-weight: 600; }
+    .nav-index-link:hover { color: #2a8f76 !important; }
+    .nav-live-badge {
+      font-family: var(--font-mono);
+      font-size: 7px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: #2a8f76;
+      color: #fff;
+      padding: 2px 5px;
+      border-radius: 3px;
+      margin-left: 4px;
+      vertical-align: middle;
+      font-weight: 500;
+    }
+  
+    /* ── Play Money Index Widget ── */
+    #pmi-widget {
+      background: var(--card-bg);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 3rem 2rem;
+    }
+    .pmi-inner { max-width: var(--max-w); margin: 0 auto; }
+    .pmi-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1.75rem; }
+    .pmi-eyebrow {
+      font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 0.4rem;
+      display: flex; align-items: center; gap: 7px;
+    }
+    .pmi-live-dot {
+      width: 6px; height: 6px; border-radius: 50%; background: #4CAF50;
+      display: inline-block; animation: pmi-pulse 2s infinite;
+    }
+    @keyframes pmi-pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+    .pmi-header h2 { font-family: var(--font-serif); font-size: 26px; font-weight: 700; color: var(--fg); }
+    .pmi-header-sub { font-family: var(--font-serif); font-style: italic; color: var(--accent); font-size: 15px; margin-top: 3px; }
+    .pmi-view-all {
+      font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.08em;
+      text-transform: uppercase; color: #2a8f76; text-decoration: none;
+      border: 1px solid #2a8f76; padding: 7px 14px; border-radius: 4px;
+      white-space: nowrap; align-self: center; transition: background 0.15s;
+    }
+    .pmi-view-all:hover { background: rgba(42,143,118,0.08); }
+    .pmi-stats {
+      display: grid; grid-template-columns: repeat(4,1fr); gap: 1px;
+      background: var(--border); border: 1px solid var(--border);
+      border-radius: var(--radius); overflow: hidden; margin-bottom: 1.75rem;
+    }
+    .pmi-stat { background: var(--card-bg); padding: 1rem 1.25rem; }
+    .pmi-stat-val { font-family: var(--font-serif); font-size: 22px; font-weight: 700; line-height: 1; }
+    .pmi-stat-val.coral { color: #b85a3a; }
+    .pmi-stat-val.teal  { color: #2a8f76; }
+    .pmi-stat-val.gold  { color: var(--accent); }
+    .pmi-stat-val.purple{ color: #6b64b3; }
+    .pmi-stat-lbl { font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); margin-top: 5px; }
+    .pmi-cards { display: grid; grid-template-columns: repeat(6,1fr); gap: 0.75rem; }
+    .pmi-card {
+      background: #fff; border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 1rem; display: flex; flex-direction: column; gap: 0.3rem;
+      text-decoration: none; color: inherit; transition: border-color 0.15s;
+    }
+    .pmi-card:hover { border-color: #2a8f76; }
+    .pmi-card-icon { width: 28px; height: 28px; border-radius: 6px; object-fit: cover; }
+    .pmi-card-name { font-family: var(--font-sans); font-size: 12px; font-weight: 600; color: var(--fg); margin-top: 4px; }
+    .pmi-card-game { font-family: var(--font-mono); font-size: 7px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+    .pmi-card-val { font-family: var(--font-serif); font-size: 15px; font-weight: 700; margin-top: auto; padding-top: 6px; }
+    .pmi-card-val.pos { color: #b85a3a; }
+    .pmi-card-val.neg { color: #2a8f76; }
+    .pmi-card-lbl { font-family: var(--font-mono); font-size: 7px; letter-spacing: 0.05em; color: var(--muted); }
+    .pmi-caption { font-family: var(--font-mono); font-size: 8px; color: var(--muted); letter-spacing: 0.05em; margin-top: 1rem; text-align: right; }
+    @media (max-width: 900px) {
+      .pmi-cards { grid-template-columns: repeat(3,1fr); }
+      .pmi-stats { grid-template-columns: repeat(2,1fr); }
+    }
+  
+    .btn-substack {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 12px 20px; border-radius: var(--radius);
+      font-family: var(--font-sans); font-size: 0.9rem; font-weight: 600;
+      text-decoration: none; transition: all 0.2s;
+      background: transparent; color: #FF6719;
+      border: 1.5px solid #FF6719; white-space: nowrap;
+    }
+    .btn-substack:hover { background: #FF6719; color: #fff; }
+  </style>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <meta property="og:title" content="Llama &amp; Griffin — Game Industry Consultants">
+  <meta property="og:description" content="Strategic advisory for studios, publishers, and creative investors across games, animation, and emerging markets.">
+  <meta property="og:url" content="http://www.llamagriffin.com/">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://www.llamagriffin.com/">
+</head>
+<body>
+
+  <!-- =============================================
+       HEADER
+  ============================================= -->
+  <header id="site-header">
+    <div class="container header-inner">
+      <a href="#" class="logo-link">Llama &amp; Griffin Consultants</a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#services">Services</a>
+        <a href="#executive-coaching">Executive Coaching</a>
+        <a href="#work">Work</a>
+        <a href="#thinking">Thinking</a>
+        <a href="#reports">Case Studies</a>
+        <a href="/Data/Index/" class="nav-index-link">The Index <span class="nav-live-badge">Live</span></a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="/press/" target="_blank">Press</a>
+      </nav>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Nav -->
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+    <a href="#hero" class="mobile-nav-link">Home</a>
+    <a href="#services" class="mobile-nav-link">Services</a>
+    <a href="#executive-coaching" class="mobile-nav-link">Executive Coaching</a>
+    <a href="#work" class="mobile-nav-link">Work</a>
+    <a href="#thinking" class="mobile-nav-link">Thinking</a>
+    <a href="#reports" class="mobile-nav-link">Case Studies</a>
+    <a href="#about" class="mobile-nav-link">About</a>
+    <a href="#contact" class="mobile-nav-link">Contact</a>
+  </nav>
+
+  <main>
+
+    <!-- =============================================
+         HERO
+    ============================================= -->
+    <section id="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <!-- Left -->
+          <div class="hero-text">
+            <div class="chevrons">▲▲▲▲</div>
+            <h1 class="hero-headline">Strategic advisory for studios, publishers, and creative investors</h1>
+            <p class="kicker">across games, animation, and emerging markets.</p>
+            <p class="hero-body">
+              25+ years across gaming, transmedia, and studio strategy.
+              MENA and emerging markets, funding, partnerships, localization,
+              and market development.
+            </p>
+            <div class="hero-buttons">
+              <a href="javascript:void(0)"
+                 class="btn btn-primary"
+                 data-cal-link="llamagriffin/30min" data-cal-origin="https://cal.com">
+                Book a conversation
+              </a>
+              <a href="#reports" class="btn btn-outline">Industry Reports</a>
+              <a href="https://recognizingpatterns.substack.com" target="_blank" rel="noopener" class="btn btn-substack">Recognizing Patterns</a>
+            </div>
+          </div>
+
+          <!-- Right -->
+          <div class="hero-image">
+            <img
+              src="https://d2xsxph8kpxj0f.cloudfront.net/107657242/7zKUHqtiSnm8dVFg6Ldh6d/WebSiteChangesMulti-design_df2ffce3.png"
+              alt="Llama &amp; Griffin mascots"
+              loading="eager"
+            />
+          </div>
+        </div>
+      </div>
+    
+
+    <!-- =============================== -->
+    <!-- PLAY MONEY INDEX WIDGET         -->
+    <!-- =============================== -->
+    <section id="pmi-widget">
+      <div class="pmi-inner">
+        <div class="pmi-header">
+          <div>
+            <div class="pmi-eyebrow"><span class="pmi-live-dot"></span> Live data &middot; Updated daily</div>
+            <h2>The Play Money Index</h2>
+            <div class="pmi-header-sub">The Big Mac Index, rebuilt for game currencies.</div>
+          </div>
+          <a href="/Data/Index/" class="pmi-view-all">View all indexes &rarr;</a>
+        </div>
+        <div class="pmi-stats">
+          <div class="pmi-stat"><div class="pmi-stat-val coral" id="pmi-dearest">$12.08</div><div class="pmi-stat-lbl" id="pmi-dearest-lbl">Most expensive &middot; Robux &middot; UK</div></div>
+          <div class="pmi-stat"><div class="pmi-stat-val teal" id="pmi-cheapest">$8.30</div><div class="pmi-stat-lbl" id="pmi-cheapest-lbl">Cheapest &middot; Robux &middot; India</div></div>
+          <div class="pmi-stat"><div class="pmi-stat-val gold" id="pmi-spread">+37.9%</div><div class="pmi-stat-lbl">Widest spread today</div></div>
+          <div class="pmi-stat"><div class="pmi-stat-val purple">6</div><div class="pmi-stat-lbl">Live indexes</div></div>
+        </div>
+        <div class="pmi-cards">
+          <a href="/Data/Index/robux/" class="pmi-card">
+            <img src="/Data/Index/icon-roblox.jpg" class="pmi-card-icon" alt="Roblox">
+            <div class="pmi-card-name">Robux</div>
+            <div class="pmi-card-game">Roblox</div>
+            <div class="pmi-card-val pos" id="pmi-robux-val">+0.9%</div>
+            <div class="pmi-card-lbl">World avg vs US</div>
+          </a>
+          <a href="/Data/Index/vbucks/" class="pmi-card">
+            <img src="/Data/Index/icon-fortnite.jpg" class="pmi-card-icon" alt="Fortnite">
+            <div class="pmi-card-name">V-Bucks</div>
+            <div class="pmi-card-game">Fortnite</div>
+            <div class="pmi-card-val neg">-12.0%</div>
+            <div class="pmi-card-lbl">World avg vs US</div>
+          </a>
+          <a href="/Data/Index/minecoins/" class="pmi-card">
+            <img src="/Data/Index/icon-minecraft.jpg" class="pmi-card-icon" alt="Minecraft">
+            <div class="pmi-card-name">Minecoins</div>
+            <div class="pmi-card-game">Minecraft</div>
+            <div class="pmi-card-val pos">+1.8%</div>
+            <div class="pmi-card-lbl">World avg vs US</div>
+          </a>
+          <a href="/Data/Index/oneiric/" class="pmi-card">
+            <img src="/Data/Index/icon-honkai.jpg" class="pmi-card-icon" alt="Honkai: Star Rail">
+            <div class="pmi-card-name">Oneiric Shards</div>
+            <div class="pmi-card-game">Honkai: Star Rail</div>
+            <div class="pmi-card-val pos">+4.6%</div>
+            <div class="pmi-card-lbl">World avg vs US</div>
+          </a>
+          <a href="/Data/Index/valorant/" class="pmi-card">
+            <img src="/Data/Index/icon-valorant.jpg" class="pmi-card-icon" alt="Valorant">
+            <div class="pmi-card-name">Valorant Points</div>
+            <div class="pmi-card-game">Valorant</div>
+            <div class="pmi-card-val neg">-7.5%</div>
+            <div class="pmi-card-lbl">World avg vs US</div>
+          </a>
+          <a href="/Data/Index/genshin/" class="pmi-card">
+            <img src="/Data/Index/icon-genshin.jpg?v=2" class="pmi-card-icon" alt="Genshin Impact">
+            <div class="pmi-card-name">Genesis Crystals</div>
+            <div class="pmi-card-game">Genshin Impact</div>
+            <div class="pmi-card-val pos">+1.3%</div>
+            <div class="pmi-card-lbl">World avg vs US</div>
+          </a>
+        </div>
+        <div class="pmi-caption">Premium / discount vs US baseline &middot; median across all non-US markets &middot; live FX &middot; normalized to cost per 100 base units</div>
+      </div>
+    </section>
+
+    <script>
+    // Live stat update from today.json
+    (function(){
+      fetch('/Data/Index/today.json').then(function(r){return r.json();}).then(function(d){
+        var robux = d.indexes && d.indexes.robux;
+        var rows = robux && robux.markets ? robux.markets : [];
+        var nonBase = rows.filter(function(r){return !r.is_baseline;});
+        if(!nonBase.length) return;
+        var dearest  = nonBase.reduce(function(a,b){return b.premium_discount_pct>a.premium_discount_pct?b:a;});
+        var cheapest = nonBase.reduce(function(a,b){return b.premium_discount_pct<a.premium_discount_pct?b:a;});
+        var spread   = dearest.premium_discount_pct - cheapest.premium_discount_pct;
+        function s(id,v){var e=document.getElementById(id);if(e)e.textContent=v;}
+        function fmt(n){return '$'+n.toFixed(2);}
+        function fmtP(n){return (n>=0?'+':'')+n.toFixed(1)+'%';}
+        s('pmi-dearest', fmt(dearest.implied_usd||0));
+        var S={'United Kingdom':'UK','United States':'US','South Africa':'ZA','Saudi Arabia':'KSA','South Korea':'Korea','Hong Kong':'HK'};function mkt(m){return S[m]||m;} s('pmi-dearest-lbl', 'Most expensive · Robux · '+mkt(dearest.market||''));
+        s('pmi-cheapest', fmt(cheapest.implied_usd||0));
+        s('pmi-cheapest-lbl', 'Cheapest · Robux · '+mkt(cheapest.market||''));
+        s('pmi-spread', fmtP(spread));
+      }).catch(function(){});
+    })();
+    </script>
+
+    <hr class="divider" />
+
+    <!-- =============================================
+         WHAT WE DO
+    ============================================= -->
+    <section id="what-we-do">
+      <div class="container">
+        <div class="chevrons">▲▲▲▲</div>
+        <h2 class="section-heading">What Llama &amp; Griffin does.</h2>
+        <p class="kicker">Sharper decisions, faster.</p>
+        <p class="section-intro">
+          Llama &amp; Griffin helps studios and founders make sharper strategic
+          decisions. The work is grounded in market understanding, ecosystem
+          development, and senior advisory — delivering clarity, direction,
+          and execution support.
+        </p>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- =============================================
+         SERVICES
+    ============================================= -->
+    <section id="services">
+      <div class="container">
+        <div class="chevrons">▲▲▲▲</div>
+        <h2 class="section-heading">Services.</h2>
+        <p class="kicker">What we do for you.</p>
+
+        <div class="services-grid">
+          <div class="service-card">
+            <h3 class="service-title">Strategic Advisory for Studios and Founders</h3>
+            <p class="service-desc">Tailored guidance to navigate complex market landscapes and make confident decisions.</p>
+          </div>
+          <div class="service-card">
+            <h3 class="service-title">MENA and Emerging-Market Expansion</h3>
+            <p class="service-desc">Deep expertise in regional markets, localization, and community-first development.</p>
+          </div>
+          <div class="service-card">
+            <h3 class="service-title">Ecosystem and Partnership Development</h3>
+            <p class="service-desc">Building sustainable partnerships, funding relationships, and strategic alliances.</p>
+          </div>
+          <div class="service-card">
+            <h3 class="service-title">Studio Growth, Publishing, and Positioning</h3>
+            <p class="service-desc">Supporting studio launches, growth strategy, and market positioning.</p>
+          </div>
+          <div class="service-card">
+            <h3 class="service-title">Community and Audience Strategy</h3>
+            <p class="service-desc">Building engaged communities and audience-first development approaches.</p>
+          </div>
+          <div class="service-card">
+            <h3 class="service-title">Thought Leadership and Editorial Strategy</h3>
+            <p class="service-desc">Public thinking, content strategy, and intellectual positioning.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- =============================================
+         EXECUTIVE COACHING
+    ============================================= -->
+    <section id="executive-coaching">
+      <div class="container">
+        <div class="two-col">
+          <!-- Left -->
+          <div class="two-col-left">
+            <div class="chevrons">▲▲▲▲</div>
+            <h2 class="section-heading">Executive Coaching.</h2>
+            <p class="kicker">One hour at a time.</p>
+          </div>
+
+          <!-- Right -->
+          <div class="two-col-right">
+            <div class="coaching-body">
+              <p>
+                One-on-one coaching for studio founders, game directors, publishing
+                executives, and creative leaders. Available at hourly rates —
+                the lowest-friction way to work directly with Abbas.
+              </p>
+              <p>
+                Sessions cover decision architecture, investor and publisher
+                communication, delegation, team alignment, and leadership under
+                pressure. No retainer required to start.
+              </p>
+            </div>
+            <a href="javascript:void(0)"
+               class="btn btn-primary"
+               style="margin-top: 32px; display: inline-block;"
+               data-cal-link="llamagriffin/executive-coaching" data-cal-origin="https://cal.com">
+              Book a session
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- =============================================
+         THINKING — RECOGNIZING PATTERNS
+    ============================================= -->
+    <section id="reports">
+      <div class="container">
+        <div class="chevrons">▲▲▲▲</div>
+        <h2 class="section-heading">Case Studies.</h2>
+        <p class="kicker">Research and analysis from the field.</p>
+
+         <div class="reports-carousel">
+           <!-- Case studies, newest first -->
+           <a class="report-card" href="https://www.llamagriffin.com/Data/games-as-programming/index.html" target="_blank" rel="noopener">
+             <div style="display:flex;justify-content:flex-end;margin-bottom:8px"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" style="flex-shrink:0" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#232323"/><rect x="6" y="9" width="20" height="14" rx="2" stroke="#c3a55f" stroke-width="1.4"/><path d="M14 13.5v5L18.5 16z" fill="#c3a55f"/><path d="M12 25.5h8" stroke="#c3a55f" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+             <div class="report-tag">Streaming · Platform Economics</div>
+             <div class="report-title">Games as Television Programming: When Games Stopped Being Products</div>
+             <div class="report-desc">Netflix closed five studios in five years and kept every category that behaves like an episode. Its GTA VI trailer then topped the service's own Top 10 in 87 of 93 countries. Amazon and Microsoft made the same call on the same afternoon.</div>
+             <div class="report-meta"><span>3 Parts</span><span>September 2026</span></div>
+             <div class="report-link">Read the report →</div>
+           </a>
+           <a class="report-card" href="https://www.llamagriffin.com/Data/community-mobilization-trap/index.html" target="_blank" rel="noopener">
+            <div style="display:flex;justify-content:flex-end;margin-bottom:8px"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" style="flex-shrink:0" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#232323"/><path d="M11 11h10M11 21h10M11 11l10 10M21 11L11 21" stroke="#c3a55f" stroke-width="1.3" stroke-linecap="round"/><circle cx="11" cy="11" r="1.8" fill="#c3a55f"/><circle cx="21" cy="11" r="1.8" fill="#c3a55f"/><circle cx="11" cy="21" r="1.8" fill="#c3a55f"/><circle cx="21" cy="21" r="1.8" fill="#c3a55f"/></svg></div>
+            <div class="report-tag">Community · Political Science</div>
+            <div class="report-title">The Community Mobilization Trap</div>
+            <div class="report-desc">Four live-service games acquired forty-eight million players and shut down anyway. Two governments fell in a week and lost their countries in six months. Same structural gap, two domains: coordination got cheap, durability did not.</div>
+            <div class="report-meta"><span>3 Parts</span><span>August 2026</span></div>
+            <div class="report-link">Read the report →</div>
+          </a>
+          <a class="report-card" href="https://www.llamagriffin.com/Data/gamestore-2026/index.html" target="_blank" rel="noopener">
+            <div style="display:flex;justify-content:flex-end;margin-bottom:8px"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" style="flex-shrink:0" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#232323"/><path d="M7 14.5h18M8.5 14.5L10 8h12l1.5 6.5" stroke="#c3a55f" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><rect x="9.5" y="14.5" width="13" height="9" rx="1" stroke="#c3a55f" stroke-width="1.3"/><path d="M12.5 19h3M17.5 19h2" stroke="#c3a55f" stroke-width="1.2" stroke-linecap="round"/><circle cx="21" cy="20.5" r="1" fill="#c3a55f"/></svg></div>
+            <div class="report-tag">Storefronts · Platform Economics</div>
+            <div class="report-title">Mobile vs Premium: The Store-by-Store Intelligence Report</div>
+            <div class="report-desc">Two firms measured Steam’s 2024 and came out $4.6 billion apart. Neither is wrong; they counted different things. Commissions, revenue concentration, and FTUE design across six storefronts, plus a decision matrix for studios choosing where to launch.</div>
+            <div class="report-meta"><span>3 Parts</span><span>August 2026</span></div>
+            <div class="report-link">Read the report →</div>
+          </a>
+          <a class="report-card reports-extra" href="https://www.llamagriffin.com/Data/FoundersPlaybook/index.html" target="_blank" rel="noopener">
+            <div style="display:flex;justify-content:flex-end;margin-bottom:8px"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" style="flex-shrink:0" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#232323"/><circle cx="16" cy="16" r="8" stroke="#c3a55f" stroke-width="1.4"/><circle cx="16" cy="16" r="1.8" fill="#c3a55f"/><path d="M16 8v2M16 22v2M8 16h2M22 16h2" stroke="#c3a55f" stroke-width="1.3" stroke-linecap="round"/><path d="M13 13l3 6 3-6-6 3z" stroke="#c3a55f" stroke-width="1.1" stroke-linejoin="round"/></svg></div>
+            <div class="report-tag">Studio · Founder’s Playbook</div>
+            <div class="report-title">The Founder’s Playbook: Building a Game Studio That Survives What’s Already Happening</div>
+            <div class="report-desc">A structural read on mid-2026 data: record revenue concentrating at the top, funding collapsed below it, supply surged past saturation. Five rules and a diagnostic for the studios greenlit in the 2022–2024 window.</div>
+            <div class="report-meta"><span>3 Parts</span><span>July 2026</span></div>
+            <div class="report-link">Read the report →</div>
+          </a>
+          <a class="report-card reports-extra" href="https://www.llamagriffin.com/Data/ThreeMachines/index.html" target="_blank" rel="noopener">
+            <div style="display:flex;justify-content:flex-end;margin-bottom:8px"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" style="flex-shrink:0" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#232323"/><circle cx="8" cy="16" r="2.5" stroke="#c3a55f" stroke-width="1.3"/><circle cx="24" cy="9" r="2.5" stroke="#c3a55f" stroke-width="1.3"/><circle cx="24" cy="23" r="2.5" stroke="#c3a55f" stroke-width="1.3"/><circle cx="16" cy="16" r="3" stroke="#c3a55f" stroke-width="1.4"/><path d="M10.5 16h3M19.2 14.3l2.8-3.2M19.2 17.7l2.8 3.2" stroke="#c3a55f" stroke-width="1.3" stroke-linecap="round"/></svg></div>
+            <div class="report-tag">AI · Industry Intelligence</div>
+            <div class="report-title">The Three Machines: AI as Gaming’s Infrastructure, Rulebook, and Invoice</div>
+            <div class="report-desc">How the US, China, and the EU are building three different AI machines for three different purposes, and why the model you pick in pre-production is now a market-access decision.</div>
+            <div class="report-meta"><span>3 Parts</span><span>July 2026</span></div>
+            <div class="report-link">Read the report →</div>
+          </a>
+          <a class="report-card reports-extra" href="https://www.llamagriffin.com/Data/SteamNextFestOct2026/index.html" target="_blank" rel="noopener">
+            <div style="display:flex;justify-content:flex-end;margin-bottom:8px"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" style="flex-shrink:0" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#232323"/><path d="M7 16c0-3.5 1.8-6 4.5-6h9c2.7 0 4.5 2.5 4.5 6s-1.8 6-4.5 6l-1.5-1.5h-4L13.5 22C10.8 22 7 19.5 7 16z" stroke="#c3a55f" stroke-width="1.4"/><path d="M12 14.5v3M10.5 16h3" stroke="#c3a55f" stroke-width="1.4" stroke-linecap="round"/><circle cx="20.5" cy="14.5" r=".9" fill="#c3a55f"/><circle cx="22.5" cy="16.5" r=".9" fill="#c3a55f"/></svg></div>
+            <div class="report-tag">Steam · October 2026</div>
+            <div class="report-title">Steam Next Fest October 2026 — The Largest, and the Most Split, Edition Yet</div>
+            <div class="report-desc">7,240 games took part, 65% more than June. About 100 arrived with real audiences; the other ~6,900 started with a median of 15 Steam followers. A three-part case study and a dashboard on scale, who got seen, and what predicted early peaks.</div>
+            <div class="report-meta"><span>3 Parts + Dashboard</span><span>October 2026</span></div>
+            <div class="report-link">Read the report →</div>
+          </a>
+          <a class="report-card reports-extra" href="https://www.llamagriffin.com/Data/SteamNextFestJune2026/index.html" target="_blank" rel="noopener">
+            <div style="display:flex;justify-content:flex-end;margin-bottom:8px"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" style="flex-shrink:0" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#232323"/><path d="M7 16c0-3.5 1.8-6 4.5-6h9c2.7 0 4.5 2.5 4.5 6s-1.8 6-4.5 6l-1.5-1.5h-4L13.5 22C10.8 22 7 19.5 7 16z" stroke="#c3a55f" stroke-width="1.4"/><path d="M12 14.5v3M10.5 16h3" stroke="#c3a55f" stroke-width="1.4" stroke-linecap="round"/><circle cx="20.5" cy="14.5" r=".9" fill="#c3a55f"/><circle cx="22.5" cy="16.5" r=".9" fill="#c3a55f"/></svg></div>
+            <div class="report-tag">Steam · June 2026</div>
+            <div class="report-title">Steam Next Fest June 2026 — Complete Intelligence Report</div>
+            <div class="report-desc">Three-part analysis covering the full arc of Steam Next Fest: genre performance, wishlist tiers, co-op multipliers, AI disclosure trends, and a historical retrospective from 2023 to 2026.</div>
+            <div class="report-meta"><span>3 Parts</span><span>June 2026</span></div>
+            <div class="report-link">Read the report →</div>
+          </a>
+
+          <a class="report-card reports-extra" href="https://www.llamagriffin.com/Data/GenAlphaSeries/index.html" target="_blank" rel="noopener">
+            <div style="display:flex;justify-content:flex-end;margin-bottom:8px"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" style="flex-shrink:0" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#232323"/><rect x="10" y="5" width="12" height="22" rx="2.5" stroke="#c3a55f" stroke-width="1.4"/><path d="M13 8.5h6" stroke="#c3a55f" stroke-width="1.4" stroke-linecap="round"/><circle cx="16" cy="23" r="1" fill="#c3a55f"/><path d="M13 13h2m-2 3h6m-6 3h4" stroke="#c3a55f" stroke-width="1.2" stroke-linecap="round"/></svg></div>
+            <div class="report-tag">Gen Alpha · Intelligence Suite</div>
+            <div class="report-title">The Audience You’re Pricing Already Left</div>
+            <div class="report-desc">Three-part analysis of a generation raised inside casino-economy systems from age six. The mechanism, the contested behavior, and the market consequence most studios are underpricing.</div>
+            <div class="report-meta"><span>3 Parts</span><span>2026</span></div>
+            <div class="report-link">Read the report →</div>
+          </a>
+                      <a class="report-card reports-extra" href="https://www.llamagriffin.com/Data/ChinaSeries/index.html" target="_blank" rel="noopener">
+            <div style="display:flex;justify-content:flex-end;margin-bottom:8px"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" style="flex-shrink:0" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#232323"/><path d="M16 5l4 5H12l4-5z" stroke="#c3a55f" stroke-width="1.3" stroke-linejoin="round"/><rect x="10" y="10" width="12" height="4" rx=".8" stroke="#c3a55f" stroke-width="1.3"/><rect x="8" y="15" width="16" height="4" rx=".8" stroke="#c3a55f" stroke-width="1.3"/><path d="M6 23h20M12 19v4M20 19v4" stroke="#c3a55f" stroke-width="1.3" stroke-linecap="round"/></svg></div>
+            <div class="report-tag">China · Market Intelligence</div>
+              <div class="report-title">China, In Three Parts — The Market, the Audience, and the Product</div>
+              <div class="report-desc">How China stopped being a place to sell to and became the place that sets the terms. Three-part series covering the $50B domestic market, the gacha-trained premium audience, and the FMV genre now setting Steam records.</div>
+              <div class="report-meta"><span>3 Parts</span><span>2024–2026</span></div>
+              <div class="report-link">Read the report →</div>
+            </a>
+        </div>
+
+        <!-- Expand toggle -->
+        <button class="reports-toggle" id="reports-toggle" onclick="toggleReports()" aria-label="Show older reports">
+          <span class="reports-toggle-label" id="reports-toggle-label">Show more</span>
+          <svg class="reports-toggle-arrow" id="reports-toggle-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M2 4.5l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- =============================================
+         REPORTS
+    ============================================= -->
+    <section id="thinking">
+      <div class="container">
+        <div class="chevrons">▲▲▲▲</div>
+        <h2 class="section-heading">Recognizing Patterns.</h2>
+        <p class="kicker">Public thinking.</p>
+        <p class="thinking-intro">
+          Recognizing Patterns is the public intellectual engine of Llama &amp;
+          Griffin Consultants: strategic thinking on the games industry published
+          openly. Where the consulting work asks <em>what should we do</em>,
+          Recognizing Patterns asks <em>what is actually happening, and why</em>.
+          Subscribe to follow the thinking.
+        </p>
+
+        <!-- Posts container -->
+        <div id="posts-container"></div>
+
+        <div style="margin-top: 8px;">
+          <a href="https://recognizingpatterns.substack.com"
+             class="btn btn-outline"
+             target="_blank"
+             rel="noopener noreferrer">
+            View all posts
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- =============================================
+         SELECTED WORK
+    ============================================= -->
+    <section id="work">
+      <div class="container">
+        <div class="chevrons">▲▲▲▲</div>
+        <h2 class="section-heading">Selected work.</h2>
+        <p class="kicker">Results that matter.</p>
+
+        <div class="work-bullets">
+          <div class="work-bullet">Funding raised</div>
+          <div class="work-bullet">Partnerships built</div>
+          <div class="work-bullet">Studio launches</div>
+          <div class="work-bullet">Market-entry support</div>
+          <div class="work-bullet">Localization</div>
+          <div class="work-bullet">Community growth</div>
+          <div class="work-bullet">Publishing and advisory support</div>
+          <div class="work-bullet">Content and editorial strategy</div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- =============================================
+         ABOUT / FOUNDER
+    ============================================= -->
+    <section id="about">
+      <div class="container">
+        <div class="about-grid">
+          <!-- Left: Bio -->
+          <div class="about-bio">
+            <div class="chevrons">▲▲▲▲</div>
+            <h2 class="section-heading">Abbas Saleem.</h2>
+            <div style="margin-top: 28px;">
+              <p>
+                Gaming industry executive, strategic advisor, and independent
+                analyst with 25+ years of experience across gaming, transmedia,
+                and emerging markets.
+              </p>
+              <p>
+                He has worked with studios across MENA, Asia, and Europe,
+                helping them navigate complex market landscapes, secure funding,
+                build strategic partnerships, and establish sustainable growth
+                strategies.
+              </p>
+              <p>
+                Abbas publishes his strategic thinking on
+                <a href="https://recognizingpatterns.substack.com"
+                   target="_blank"
+                   rel="noopener noreferrer">Recognizing Patterns</a>
+                where he shares pattern recognition, industry insights, and
+                strategic frameworks.
+              </p>
+            </div>
+          </div>
+
+          <!-- Right: Photo -->
+          <div class="about-photo-wrap">
+            <img
+              src="abbas-profile.png"
+              alt="Abbas Saleem"
+              class="about-photo"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- =============================================
+         CONTACT
+    ============================================= -->
+    <section id="contact">
+      <div class="container">
+        <div class="chevrons">▲▲▲▲</div>
+        <h2 class="section-heading">Get in touch.</h2>
+        <p class="kicker">Let's talk strategy.</p>
+        <p class="contact-body">
+          Interested in strategic advisory, market intelligence, or partnership opportunities?
+        </p>
+        <div class="contact-buttons">
+          <button class="btn btn-primary" onclick="openContactModal()">
+            Send a message
+          </button>
+          <a href="javascript:void(0)"
+             class="btn btn-outline"
+             data-cal-link="llamagriffin/30min" data-cal-origin="https://cal.com">
+            Book a conversation
+          </a>
+        </div>
+
+        <p class="contact-substack">
+          Follow strategic thinking on
+          <a href="https://recognizingpatterns.substack.com"
+             target="_blank"
+             rel="noopener noreferrer">Recognizing Patterns</a>.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =============================================
+       FOOTER
+  ============================================= -->
+  <footer id="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand -->
+        <div>
+          <p class="footer-brand-name">Llama &amp; Griffin Consultants</p>
+          <p class="footer-brand-desc">Strategic advisory for studios, publishers, and creative investors.</p>
+        </div>
+
+        <!-- Navigation -->
+        <div>
+          <p class="footer-col-heading">Navigation</p>
+          <ul class="footer-links">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#work">Work</a></li>
+              <li><a href="#reports">Case Studies</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="/press/" target="_blank">Press</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="/press/" target="_blank">Press</a></li>
+          </ul>
+        </div>
+
+        <!-- Thinking -->
+        <div>
+          <p class="footer-col-heading">Thinking</p>
+          <ul class="footer-links">
+            <li>
+              <a href="https://recognizingpatterns.substack.com"
+                 target="_blank"
+                 rel="noopener noreferrer">Recognizing Patterns</a>
+            </li>
+            <li>
+              <a href="https://recognizingpatterns.substack.com"
+                 target="_blank"
+                 rel="noopener noreferrer">Subscribe</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <p class="footer-col-heading">Contact</p>
+          <ul class="footer-links">
+            <li>
+              <a href="javascript:void(0)"
+                 data-cal-link="llamagriffin/30min" data-cal-origin="https://cal.com">
+                Book a Conversation
+              </a>
+            </li>
+            <li>
+              <a href="https://linkedin.com/in/abbask"
+                 target="_blank"
+                 rel="noopener noreferrer">LinkedIn</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        &copy; 2026 Llama &amp; Griffin Consultants. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- =============================================
+       CONTACT MODAL
+  ============================================= -->
+  <div class="modal-overlay" id="contact-modal" role="dialog" aria-modal="true" aria-label="Contact form">
+    <div class="modal">
+      <button class="modal-close" onclick="closeContactModal()" aria-label="Close modal">&times;</button>
+
+      <div id="modal-form-wrap">
+        <h2 class="modal-title">Send a message</h2>
+        <form id="contact-form" onsubmit="handleContactSubmit(event)">
+          <div class="form-group">
+            <label class="form-label" for="contact-name">Name</label>
+            <input class="form-input" type="text" id="contact-name" name="name" required placeholder="Your name" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="contact-email">Email</label>
+            <input class="form-input" type="email" id="contact-email" name="email" required placeholder="you@example.com" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="contact-message">Message</label>
+            <textarea class="form-textarea" id="contact-message" name="message" required placeholder="How can we help?"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;">Send message</button>
+        </form>
+      </div>
+
+      <div id="modal-success" style="display:none;">
+        <p class="form-success">Thank you — we'll be in touch.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- =============================================
+       JAVASCRIPT
+  ============================================= -->
+  <script>
+    /* ---- Hamburger menu ---- */
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobile-nav');
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = hamburger.classList.toggle('open');
+      mobileNav.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+    });
+
+    // Close mobile nav on link click
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        mobileNav.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', false);
+      });
+    });
+
+
+    function toggleReports() {
+      const extras = Array.from(document.querySelectorAll('.reports-extra'));
+      const hidden = extras.filter(c => !c.classList.contains('visible'));
+      const btn    = document.getElementById('reports-toggle');
+      const label  = document.getElementById('reports-toggle-label');
+      if (hidden.length > 0) {
+        const n = Math.min(3, hidden.length);
+        for (let i = 0; i < n; i++) hidden[i].classList.add('visible');
+        if (n === hidden.length) {
+          btn.classList.add('open');
+          label.textContent = 'Show less';
+        }
+      } else {
+        extras.forEach(c => c.classList.remove('visible'));
+        btn.classList.remove('open');
+        label.textContent = 'Show more';
+      }
+    }
+
+    /* ---- Active nav highlighting (IntersectionObserver) ---- */
+    const navLinks = document.querySelectorAll('.main-nav a');
+
+    const sectionIds = ['hero', 'what-we-do', 'services', 'executive-coaching', 'thinking', 'reports', 'work', 'about', 'contact'];
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          navLinks.forEach(link => {
+            const href = link.getAttribute('href').replace('#', '');
+            link.classList.toggle('active', href === id);
+          });
+        }
+      });
+    }, { rootMargin: '-50% 0px -45% 0px', threshold: 0 });
+
+    sectionIds.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    /* ---- Contact Modal ---- */
+    function openContactModal() {
+      const overlay = document.getElementById('contact-modal');
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      // Reset form
+      document.getElementById('modal-form-wrap').style.display = '';
+      document.getElementById('modal-success').style.display = 'none';
+      document.getElementById('contact-form').reset();
+    }
+
+    function closeContactModal() {
+      document.getElementById('contact-modal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // Close on overlay click
+    document.getElementById('contact-modal').addEventListener('click', function(e) {
+      if (e.target === this) closeContactModal();
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeContactModal();
+    });
+
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      document.getElementById('modal-form-wrap').style.display = 'none';
+      document.getElementById('modal-success').style.display = '';
+    }
+
+    /* ---- RSS Feed ---- */
+    const FALLBACK_POSTS = [
+      { title: 'Sega: The Master System of Constant Reinvention', excerpt: 'Sega cancelled an $882 million future in the same year it turned nine birthdays into a business unit. What that means for every studio watching platform cycles now.', link: 'https://recognizingpatterns.substack.com/p/sega-the-master-system-of-constant', date: 'Sun, 02 Aug 2026' },
+      { title: 'The Roguelite Cull Hasn\'t Happened Yet. The Data Already Decided It.', excerpt: 'Slay the Spire 2, Megabonk, and 33 Immortals aren\'t survivors of a graveyard. They\'re the reason the graveyard is coming.', link: 'https://recognizingpatterns.substack.com/p/the-roguelite-cull-hasnt-happened', date: 'Sun, 19 Jul 2026' },
+      { title: 'Use AI to Build Your Game. Just Keep It Out of the Part Players Feel.', excerpt: 'Iron Nest shipped with zero AI, Dragon Snacks put its AI in the build pipeline, and Valve\'s own policy already explains why both of them won.', link: 'https://recognizingpatterns.substack.com/p/use-ai-to-build-your-game-just-keep', date: 'Sun, 12 Jul 2026' },
+    ];
+
+    function renderPosts(posts) {
+      const container = document.getElementById('posts-container');
+      if (!container) return;
+      const grid = document.createElement('div');
+      grid.className = 'posts-grid';
+      posts.forEach(post => {
+        const card = document.createElement('div');
+        card.className = 'post-card';
+        const safeTitle   = (post.title   || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+        const safeExcerpt = (post.excerpt || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+        const safeLink    = (post.link    || '#');
+        const safeDate = (post.date || '').replace(/&/g,'&amp;').replace(/</g,'&lt;');
+        card.innerHTML = `
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:12px">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" style="flex-shrink:0" aria-hidden="true"><rect width="22" height="22" rx="5" fill="#FF6719"/><path d="M4 6h14v2H4V6zm0 4h14v2H4v-2zm0 4h14v6.5L11 17.5 4 20.5V14z" fill="white"/></svg>
+            ${safeDate ? `<span style="font-family:var(--font-mono);font-size:11px;color:var(--muted)">${safeDate}</span>` : ''}
+          </div>
+          <h3 class="post-title">${safeTitle}</h3>
+          <p class="post-excerpt">${safeExcerpt}</p>
+          <a href="${safeLink}" class="post-link" target="_blank" rel="noopener noreferrer" style="margin-top:auto;padding-top:12px;display:inline-block">Read on Substack →</a>
+        `;
+        grid.appendChild(card);
+      });
+      container.innerHTML = '';
+      container.appendChild(grid);
+    }
+
+    function stripHtml(html) {
+      const tmp = document.createElement('div');
+      tmp.innerHTML = html;
+      return tmp.textContent || tmp.innerText || '';
+    }
+
+    function truncate(str, len) {
+      if (!str || str.length <= len) return str;
+      return str.slice(0, len).replace(/\s+\S*$/, '') + '\u2026';
+    }
+
+    // Show fallback immediately — never leave the section blank
+    renderPosts(FALLBACK_POSTS);
+
+    // Load live posts — rss2json.com is CORS-friendly and returns JSON directly
+    (async () => {
+      const RSS = 'https://recognizingpatterns.substack.com/feed';
+      const RSS_ENC = encodeURIComponent(RSS);
+
+      function parseXML(text) {
+        const xml   = new DOMParser().parseFromString(text, 'text/xml');
+        const items = Array.from(xml.getElementsByTagName('item')).slice(0, 3);
+        if (!items.length) throw new Error('no items');
+        return items.map(item => {
+          const get   = tag => item.getElementsByTagName(tag)[0];
+          const title = get('title')?.textContent || '';
+          const link  = (get('link')?.textContent || get('guid')?.textContent || '#').trim();
+          const desc  = get('description')?.textContent || '';
+          const date  = get('pubDate')?.textContent || '';
+          return { title, link, excerpt: truncate(stripHtml(desc), 200), date };
+        });
+      }
+
+      // 1. rss2json.com — JSON API, fully CORS-enabled
+      try {
+        const r = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${RSS_ENC}&count=3`, { signal: AbortSignal.timeout(6000) });
+        if (r.ok) {
+          const data = await r.json();
+          if (data.status === 'ok' && data.items?.length) {
+            renderPosts(data.items.slice(0, 3).map(i => ({
+              title: i.title,
+              link: i.link,
+              excerpt: truncate(stripHtml(i.description || i.content || ''), 200),
+              date: i.pubDate ? new Date(i.pubDate).toLocaleDateString('en-GB', { weekday:'short', day:'2-digit', month:'short', year:'numeric' }) : '',
+            })));
+            return;
+          }
+        }
+      } catch(e) {}
+
+      // 2. PHP proxy (returns raw XML)
+      try {
+        const r = await fetch('./rss-proxy.php', { signal: AbortSignal.timeout(6000) });
+        if (r.ok) {
+          const text = await r.text();
+          if (text.trim().startsWith('<')) { renderPosts(parseXML(text)); return; }
+        }
+      } catch(e) {}
+
+      // 3. allorigins raw proxy
+      try {
+        const r = await fetch(`https://api.allorigins.win/raw?url=${RSS_ENC}`, { signal: AbortSignal.timeout(6000) });
+        if (r.ok) { renderPosts(parseXML(await r.text())); return; }
+      } catch(e) {}
+
+      // 4. corsproxy.io
+      try {
+        const r = await fetch(`https://corsproxy.io/?${RSS_ENC}`, { signal: AbortSignal.timeout(6000) });
+        if (r.ok) { renderPosts(parseXML(await r.text())); return; }
+      } catch(e) {}
+
+      // All failed — fallback already visible, nothing to do
+    })();
+  </script>
+
+<script data-pplx-inline-edit>
+(function () {
+  if (window === window.top) return;
+
+  const allowedParentOrigins = ["https://www.perplexity.ai","https://perplexity.ai","https://testing.perplexity.ai","https://staging.perplexity.ai","https://*.preview.i.perplexity.ai","http://localhost:3000","http://127.0.0.1:3000","http://localhost:5173","http://127.0.0.1:5173"];
+  const MAX_FONT_BYTES = 500 * 1024;
+  const MAX_TOTAL_FONT_BYTES = 2 * 1024 * 1024;
+  let scrollForwarding = false;
+  let scrollRaf = 0;
+  let trustedTopOrigin = null;
+
+  // Allow entries like "https://*.preview.i.perplexity.ai" — the wildcard
+  // matches a single DNS label (no dots), so "https://*.foo" cannot stretch
+  // across multiple labels.
+  function matchesAllowedOrigin(origin) {
+    if (!origin) return false;
+    for (const entry of allowedParentOrigins) {
+      if (!entry.includes("*")) {
+        if (entry === origin) return true;
+        continue;
+      }
+      const pattern = new RegExp(
+        "^" +
+          entry.replace(/[.+?^${}()|[\]\\]/g, "\\$&").replace(/\*/g, "[^.]+") +
+          "$",
+      );
+      if (pattern.test(origin)) return true;
+    }
+    return false;
+  }
+
+  // Trust decision: when the sender is same-origin-visible (event.origin is a
+  // real origin like https://www.perplexity.ai) we trust event.origin directly.
+  // When event.origin is "null" (opaque broker srcdoc), we fall back to the
+  // broker's stamped `parentOrigin` to identify the top window. The fallback
+  // is claim-only — we rely on the browser's native `targetOrigin` enforcement
+  // on the response path (see postToTrustedTop) to ensure replies can't be
+  // delivered to anyone but the actual top window of that claimed origin.
+  function getTrustedParentOrigin(event) {
+    const forwardedParentOrigin =
+      typeof event.data.parentOrigin === "string" ? event.data.parentOrigin : null;
+    const parentOrigin = event.origin === "null" ? forwardedParentOrigin : event.origin;
+    return matchesAllowedOrigin(parentOrigin) ? parentOrigin : null;
+  }
+
+  // All responses go to window.top with targetOrigin = the allowlisted origin.
+  // An attacker that iframes us inside their own null-origin broker can claim
+  // any parentOrigin they like, but the browser will drop the reply whenever
+  // the real top's origin doesn't match — so the screenshot never leaves.
+  function postToTrustedTop(message) {
+    if (!trustedTopOrigin) return;
+    try {
+      window.top.postMessage(message, trustedTopOrigin);
+    } catch (_error) {}
+  }
+
+  function inlineAll(original, clone) {
+    if (original.nodeType !== 1 || clone.nodeType !== 1) return;
+
+    try {
+      const computedStyle = getComputedStyle(original);
+      // cssText on a computed style is the serialized declaration in modern
+      // Chromium/Safari — a single read beats enumerating ~400 longhand
+      // properties. Firefox returns "" here, so we fall back on empty.
+      const serialized = computedStyle.cssText;
+      if (serialized) {
+        clone.style.cssText = serialized;
+      } else {
+        const parts = new Array(computedStyle.length);
+        for (let index = 0; index < computedStyle.length; index += 1) {
+          const property = computedStyle[index];
+          parts[index] = `${property}:${computedStyle.getPropertyValue(property)};`;
+        }
+        clone.style.cssText = parts.join("");
+      }
+    } catch (_error) {}
+
+    const originalChildren = original.children;
+    const clonedChildren = clone.children;
+    for (
+      let index = 0;
+      index < originalChildren.length && index < clonedChildren.length;
+      index += 1
+    ) {
+      inlineAll(originalChildren[index], clonedChildren[index]);
+    }
+  }
+
+  function extractFontUrl(srcValue) {
+    const matches = [
+      ...srcValue.matchAll(
+        /url\(["']?([^"')]+)["']?\)(?:\s*format\(["']?([^"')]+)["']?\))?/gi,
+      ),
+    ];
+    if (matches.length === 0) return null;
+    const woff2 = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff2"));
+    if (woff2) return woff2[1];
+    const woff = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff"));
+    if (woff) return woff[1];
+    return matches[0][1];
+  }
+
+  // Cache resolved font URL -> data URI across captures. Fonts on a page
+  // essentially never change, and a batch run emits multiple captures back to
+  // back — without this we'd refetch + re-base64 every time.
+  const fontDataUriCache = new Map();
+  const SRC_DECLARATION_RE = /src\s*:\s*[^;}]+/i;
+
+  async function fetchAsDataUri(url) {
+    if (fontDataUriCache.has(url)) return fontDataUriCache.get(url);
+    let dataUri = null;
+    try {
+      const response = await fetch(url, { mode: "cors", credentials: "omit" });
+      if (response.ok) {
+        const blob = await response.blob();
+        if (blob.size <= MAX_FONT_BYTES) {
+          dataUri = await new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onloadend = () =>
+              resolve(typeof reader.result === "string" ? reader.result : null);
+            reader.onerror = () => resolve(null);
+            reader.readAsDataURL(blob);
+          });
+        }
+      }
+    } catch (_error) {
+      dataUri = null;
+    }
+    fontDataUriCache.set(url, dataUri);
+    return dataUri;
+  }
+
+  function collectFontFaceRuleTexts() {
+    const rules = [];
+    for (const sheet of document.styleSheets) {
+      let cssRules;
+      try {
+        cssRules = sheet.cssRules;
+      } catch (_error) {
+        continue;
+      }
+      if (!cssRules) continue;
+      for (const rule of cssRules) {
+        const cssText = rule.cssText || "";
+        if (cssText.startsWith("@font-face")) rules.push(cssText);
+      }
+    }
+    return rules;
+  }
+
+  async function buildInlinedFontCss() {
+    const ruleTexts = collectFontFaceRuleTexts();
+    if (ruleTexts.length === 0) return null;
+
+    const resolved = ruleTexts.map((cssText) => {
+      if (!SRC_DECLARATION_RE.test(cssText)) return null;
+      const srcMatch = cssText.match(/src\s*:\s*([^;}]+)[;}]/i);
+      if (!srcMatch) return null;
+      const url = extractFontUrl(srcMatch[1]);
+      if (!url) return null;
+      try {
+        return { cssText, url: new URL(url, document.baseURI).href };
+      } catch (_error) {
+        return null;
+      }
+    });
+
+    const dataUris = await Promise.all(
+      resolved.map((entry) => (entry ? fetchAsDataUri(entry.url) : Promise.resolve(null))),
+    );
+
+    const inlined = [];
+    let totalBytes = 0;
+    for (let index = 0; index < resolved.length; index += 1) {
+      const entry = resolved[index];
+      const dataUri = dataUris[index];
+      if (!entry || !dataUri) continue;
+      const approxBytes = dataUri.length * 0.75;
+      if (totalBytes + approxBytes > MAX_TOTAL_FONT_BYTES) break;
+      totalBytes += approxBytes;
+      inlined.push(entry.cssText.replace(SRC_DECLARATION_RE, `src: url("${dataUri}")`));
+    }
+    return inlined.length > 0 ? inlined.join("\n") : null;
+  }
+
+  function stripExternal(clone) {
+    const images = clone.querySelectorAll("img");
+    for (let index = 0; index < images.length; index += 1) {
+      const src = images[index].getAttribute("src");
+      if (src && !src.startsWith("data:")) images[index].removeAttribute("src");
+    }
+
+    const elements = clone.querySelectorAll("*");
+    for (let index = 0; index < elements.length; index += 1) {
+      const style = elements[index].style.cssText;
+      if (style && style.includes("url(")) {
+        elements[index].style.cssText = style.replace(
+          /url\(["']?(?!data:)[^)"']*["']?\)/gi,
+          "none",
+        );
+      }
+    }
+  }
+
+  function emitScroll() {
+    scrollRaf = 0;
+    if (!scrollForwarding) return;
+    postToTrustedTop({
+      type: "INLINE_EDIT_SCROLL",
+      scrollX: window.scrollX,
+      scrollY: window.scrollY,
+    });
+  }
+
+  window.addEventListener(
+    "scroll",
+    function () {
+      if (!scrollForwarding || scrollRaf) return;
+      scrollRaf = requestAnimationFrame(emitScroll);
+    },
+    { passive: true, capture: true },
+  );
+
+  async function handleCaptureRequest(event) {
+    const requestId = event.data.requestId;
+    const scrollX = window.scrollX;
+    const scrollY = window.scrollY;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    function postResult(dataUrl) {
+      postToTrustedTop({
+        type: "INLINE_EDIT_SCREENSHOT_RESULT",
+        requestId,
+        dataUrl,
+        scrollX,
+        scrollY,
+      });
+    }
+
+    try {
+      // Wait for any pending web fonts to resolve so both inline metrics and
+      // the @font-face inlining below see the same loaded faces.
+      if (document.fonts && document.fonts.ready) {
+        try {
+          await document.fonts.ready;
+        } catch (_error) {}
+      }
+
+      const clone = document.documentElement.cloneNode(true);
+      inlineAll(document.documentElement, clone);
+
+      const removedNodes = clone.querySelectorAll("script,link[rel=\"stylesheet\"],style");
+      for (let index = 0; index < removedNodes.length; index += 1) {
+        removedNodes[index].remove();
+      }
+
+      stripExternal(clone);
+
+      // Re-embed web fonts as data-URI @font-face rules so the SVG rasterizer
+      // can resolve them — external font URLs aren't fetched during
+      // foreignObject rendering, which would otherwise force a fallback face
+      // and change text metrics.
+      const inlinedFontCss = await buildInlinedFontCss();
+      if (inlinedFontCss) {
+        const styleEl = document.createElement("style");
+        styleEl.textContent = inlinedFontCss;
+        const head = clone.querySelector("head");
+        if (head) head.appendChild(styleEl);
+        else clone.insertBefore(styleEl, clone.firstChild);
+      }
+
+      const html = new XMLSerializer().serializeToString(clone);
+      const svg =
+        `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">` +
+        '<foreignObject width="100%" height="100%">' +
+        `<div xmlns="http://www.w3.org/1999/xhtml" style="width:${width}px;height:${height}px;overflow:hidden">` +
+        `<div style="position:relative;left:-${scrollX}px;top:-${scrollY}px">` +
+        html +
+        "</div></div></foreignObject></svg>";
+      const svgUrl = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
+      const image = new Image();
+      image.onload = function () {
+        const canvas = document.createElement("canvas");
+        canvas.width = width;
+        canvas.height = height;
+        canvas.getContext("2d").drawImage(image, 0, 0);
+        postResult(canvas.toDataURL("image/png"));
+      };
+      image.onerror = function () {
+        postResult(null);
+      };
+      image.src = svgUrl;
+    } catch (_error) {
+      postResult(null);
+    }
+  }
+
+  window.addEventListener("message", function (event) {
+    if (!event.data) return;
+    // Only accept messages from the direct parent frame. Blocks sibling /
+    // unrelated-window postMessage senders that could otherwise reach us.
+    if (event.source !== window.parent) return;
+
+    const trustedParentOrigin = getTrustedParentOrigin(event);
+    if (!trustedParentOrigin) return;
+    trustedTopOrigin = trustedParentOrigin;
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_START") {
+      scrollForwarding = true;
+      emitScroll();
+      return;
+    }
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_STOP") {
+      scrollForwarding = false;
+      if (scrollRaf) cancelAnimationFrame(scrollRaf);
+      scrollRaf = 0;
+      return;
+    }
+
+    if (event.data.type !== "INLINE_EDIT_CAPTURE_REQUEST") return;
+
+    handleCaptureRequest(event);
+  });
+})();
+
+</script></body>
+</html>
